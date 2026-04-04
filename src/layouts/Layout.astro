@@ -1,23 +1,39 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import Footer from "../components/layout/Footer.astro";
+import Navbar from "../components/layout/Navbar.astro";
+import SEOHead from "../components/seo/SEOHead.astro";
+import SchemaOrg from "../components/seo/SchemaOrg.astro";
+import "../styles/global.css";
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+export interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: "website" | "article";
+  noindex?: boolean;
+  publishedDate?: string;
+  modifiedDate?: string;
+  author?: string;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const { schema, ...seoProps } = Astro.props;
+---
+
+<!doctype html>
+<html lang='en'>
+  <head>
+    <SEOHead {...seoProps} />
+  </head>
+  <body
+    class='min-h-screen flex flex-col bg-white text-brand-blue font-sans antialiased'
+  >
+    <Navbar />
+    <main class='flex-1'>
+      <slot />
+    </main>
+    <Footer />
+    {schema && <SchemaOrg schema={schema} />}
+  </body>
+</html>

@@ -1,0 +1,245 @@
+---
+/**
+ * Specialties section — three overlapping/offset cards with glassmorphism
+ * and micro-interactions. Awwwards-level visual treatment.
+ */
+const specializeItems = [
+  { label: "Mindfulness", href: "/services/mindfulness" },
+  { label: "Counseling for Anxiety", href: "/conditions/anxiety" },
+  { label: "Obsessive Compulsive Disorder", href: "/conditions/ocd" },
+  { label: "Therapy for Self-Esteem", href: "/services/self-esteem" },
+];
+
+const compassionateDescription =
+  "We care about you, your family, and your story. You can trust that we will treat you with respect, dignity and compassion in every interaction, while maintaining the highest standards for integrity and ethics.";
+
+const infoLinks = [
+  { label: "Frequently Asked Questions", href: "/get-started/faqs" },
+  { label: "Rates & Insurance", href: "/get-started/insurance" },
+  { label: "Request an Appointment", href: "/get-started" },
+];
+---
+
+<section
+  class='relative py-28 md:py-40 overflow-hidden'
+  aria-labelledby='specialties-heading'
+>
+  <!-- Full-bleed watercolor background -->
+  <div
+    class='absolute inset-0 bg-gradient-to-br from-brand-teal-light/40 via-brand-cream to-brand-gold/5'
+    aria-hidden='true'
+  >
+  </div>
+  <div
+    class='absolute inset-0 opacity-[0.08]'
+    style="background-image: url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%231b3a5c%22 fill-opacity=%220.4%22%3E%3Cpath d=%22M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"
+    aria-hidden='true'
+  >
+  </div>
+
+  <div class='relative max-w-7xl mx-auto px-6'>
+    <h2 id='specialties-heading' class='sr-only'>
+      Our Specialties and Information
+    </h2>
+
+    <!-- Bento-style card grid -->
+    <div class='grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 specialty-cards'>
+      <!-- Card 1: We Specialize In -->
+      <div
+        class='group relative opacity-0 translate-y-8 spec-card'
+        style='--card-delay: 0ms'
+      >
+        <div
+          class='relative h-full bg-white/70 backdrop-blur-xl border border-white/50 rounded-2xl p-8 md:p-10 shadow-[0_8px_40px_-12px_rgba(27,58,92,0.12)] hover:shadow-[0_20px_60px_-15px_rgba(27,58,92,0.2)] transition-all duration-500 hover:-translate-y-1'
+        >
+          <!-- Accent corner -->
+          <div
+            class='absolute top-0 left-0 w-20 h-20 overflow-hidden rounded-tl-2xl'
+            aria-hidden='true'
+          >
+            <div
+              class='absolute -top-10 -left-10 w-20 h-20 bg-brand-gold/20 rotate-45'
+            >
+            </div>
+          </div>
+
+          <h3 class='text-2xl md:text-3xl font-display text-brand-blue mb-2'>
+            We Specialize In
+          </h3>
+          <span class='block w-10 h-[2px] bg-brand-gold mb-8' aria-hidden='true'
+          ></span>
+
+          <ul class='space-y-4 mb-8' role='list'>
+            {
+              specializeItems.map((item) => (
+                <li>
+                  <a
+                    href={item.href}
+                    class='text-brand-blue/70 hover:text-brand-gold transition-colors duration-300 text-lg flex items-center gap-3 group/link'
+                  >
+                    <span
+                      class='w-1.5 h-1.5 rounded-full bg-brand-gold shrink-0 group-hover/link:scale-150 transition-transform duration-300'
+                      aria-hidden='true'
+                    />
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+
+          <a
+            href='/services'
+            class='inline-flex items-center gap-2 text-brand-blue font-semibold text-sm tracking-wide uppercase hover:text-brand-gold transition-colors duration-300 group/cta'
+          >
+            Explore all specialties
+            <svg
+              class='w-4 h-4 group-hover/cta:translate-x-1 transition-transform duration-300'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke-width='2'
+              stroke='currentColor'
+            >
+              <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3'></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: Compassionate & Professional — elevated center card -->
+      <div
+        class='group relative opacity-0 translate-y-8 spec-card md:-mt-4 md:mb-4'
+        style='--card-delay: 150ms'
+      >
+        <div
+          class='relative h-full bg-brand-blue rounded-2xl p-8 md:p-10 shadow-[0_8px_40px_-12px_rgba(27,58,92,0.3)] hover:shadow-[0_20px_60px_-15px_rgba(27,58,92,0.45)] transition-all duration-500 hover:-translate-y-1 overflow-hidden'
+        >
+          <!-- Decorative ring -->
+          <div
+            class='absolute -top-16 -right-16 w-48 h-48 border border-white/10 rounded-full'
+            aria-hidden='true'
+          >
+          </div>
+          <div
+            class='absolute -bottom-8 -left-8 w-32 h-32 border border-brand-gold/15 rounded-full'
+            aria-hidden='true'
+          >
+          </div>
+
+          <h3 class='text-2xl md:text-3xl font-display text-white mb-2'>
+            Compassionate & Professional
+          </h3>
+          <span class='block w-10 h-[2px] bg-brand-gold mb-8' aria-hidden='true'
+          ></span>
+
+          <p class='text-white/80 text-lg leading-relaxed'>
+            {compassionateDescription}
+          </p>
+
+          <!-- Trust badge -->
+          <div class='mt-10 flex items-center gap-3'>
+            <div class='flex -space-x-1' aria-hidden='true'>
+              <span class='w-2 h-2 rounded-full bg-brand-gold'></span>
+              <span class='w-2 h-2 rounded-full bg-brand-gold-light'></span>
+              <span class='w-2 h-2 rounded-full bg-brand-teal'></span>
+            </div>
+            <span
+              class='text-brand-gold-light text-sm font-medium tracking-wide'
+              >Licensed professionals you can trust</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Additional Information -->
+      <div
+        class='group relative opacity-0 translate-y-8 spec-card'
+        style='--card-delay: 300ms'
+      >
+        <div
+          class='relative h-full bg-white/70 backdrop-blur-xl border border-white/50 rounded-2xl p-8 md:p-10 shadow-[0_8px_40px_-12px_rgba(27,58,92,0.12)] hover:shadow-[0_20px_60px_-15px_rgba(27,58,92,0.2)] transition-all duration-500 hover:-translate-y-1'
+        >
+          <!-- Accent corner -->
+          <div
+            class='absolute top-0 right-0 w-20 h-20 overflow-hidden rounded-tr-2xl'
+            aria-hidden='true'
+          >
+            <div
+              class='absolute -top-10 -right-10 w-20 h-20 bg-brand-teal/20 rotate-45'
+            >
+            </div>
+          </div>
+
+          <h3 class='text-2xl md:text-3xl font-display text-brand-blue mb-2'>
+            Additional Information
+          </h3>
+          <span class='block w-10 h-[2px] bg-brand-gold mb-8' aria-hidden='true'
+          ></span>
+
+          <nav aria-label='Additional resources' class='space-y-5'>
+            {
+              infoLinks.map((link) => (
+                <a
+                  href={link.href}
+                  class='flex items-center justify-between text-lg text-brand-blue/70 hover:text-brand-blue transition-colors duration-300 pb-4 border-b border-brand-blue/10 last:border-0 last:pb-0 group/nav'
+                >
+                  <span>{link.label}</span>
+                  <svg
+                    class='w-5 h-5 opacity-0 -translate-x-2 group-hover/nav:opacity-100 group-hover/nav:translate-x-0 transition-all duration-300'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    stroke-width='2'
+                    stroke='currentColor'
+                  >
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3'
+                    />
+                  </svg>
+                </a>
+              ))
+            }
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .spec-card {
+    transition:
+      opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--card-delay, 0ms);
+  }
+
+  .cards-visible .spec-card {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .cards-visible .spec-card:nth-child(2) {
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  const grid = document.querySelector(".specialty-cards");
+  if (grid) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          grid.classList.add("cards-visible");
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 },
+    );
+    observer.observe(grid);
+  }
+</script>

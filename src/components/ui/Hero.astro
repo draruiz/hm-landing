@@ -1,0 +1,148 @@
+---
+/**
+ * Hero section with video background and rotating psychologist quotes.
+ * Designed for the homepage with SEO-optimized heading and semantic HTML.
+ */
+export interface Props {
+  heading: string;
+  ctaText: string;
+  ctaHref: string;
+  videoSrc: string;
+  posterSrc?: string;
+}
+
+const {
+  heading,
+  ctaText,
+  ctaHref,
+  videoSrc,
+  posterSrc = "/images/hero-poster.jpg",
+} = Astro.props;
+
+const quotes = [
+  {
+    text: "Just because no one else can heal or do inner work for you doesn\u2019t mean you can, should, or need to do it alone.",
+    author: "Lisa Olivera",
+  },
+  {
+    text: "What mental health needs is more sunlight, more candor, and more unashamed conversation.",
+    author: "Glenn Close",
+  },
+  {
+    text: "You don\u2019t have to control your thoughts. You just have to stop letting them control you.",
+    author: "Dan Millman",
+  },
+  {
+    text: "There is hope, even when your brain tells you there isn\u2019t.",
+    author: "John Green",
+  },
+  {
+    text: "Vulnerability is not winning or losing; it\u2019s having the courage to show up and be seen when we have no control over the outcome.",
+    author: "Bren\u00e9 Brown",
+  },
+  {
+    text: "The greatest discovery of my generation is that a human being can alter his life by altering his attitudes.",
+    author: "William James",
+  },
+];
+---
+
+<section
+  class='relative min-h-screen flex items-center justify-center overflow-hidden'
+  aria-label='Welcome hero'
+>
+  <!-- Video Background -->
+  <video
+    class='absolute inset-0 w-full h-full object-cover'
+    autoplay
+    muted
+    loop
+    playsinline
+    preload='metadata'
+    poster={posterSrc}
+    aria-hidden='true'
+  >
+    <source src={videoSrc} type='video/mp4' />
+  </video>
+
+  <!-- Dark overlay for readability -->
+  <div class='absolute inset-0 bg-brand-blue/60' aria-hidden='true'></div>
+
+  <!-- Content -->
+  <div class='relative z-10 max-w-4xl mx-auto px-4 text-center'>
+    <h1 class='sr-only'>{heading}</h1>
+
+    <!-- Quote rotator -->
+    <blockquote
+      id='hero-quote'
+      class='mb-10'
+      aria-live='polite'
+      aria-atomic='true'
+    >
+      <p
+        id='hero-quote-text'
+        class='text-2xl md:text-4xl lg:text-5xl font-display italic text-white leading-snug md:leading-tight drop-shadow-lg'
+      >
+        &ldquo;{quotes[0].text}&rdquo;
+      </p>
+      <footer class='mt-4'>
+        <cite
+          id='hero-quote-author'
+          class='text-lg md:text-xl text-brand-gold-light font-sans not-italic font-medium tracking-wide'
+        >
+          &mdash; {quotes[0].author}
+        </cite>
+      </footer>
+    </blockquote>
+
+    <a
+      href={ctaHref}
+      class='inline-block px-10 py-3.5 text-base md:text-lg font-semibold border-2 border-white text-white rounded-sm hover:bg-white hover:text-brand-blue transition-all duration-300 tracking-wide'
+    >
+      {ctaText}
+    </a>
+  </div>
+</section>
+
+<!-- Quote rotation script (minimal, deferred) -->
+<script define:vars={{ quotes }}>
+  document.addEventListener("DOMContentLoaded", () => {
+    const textEl = document.getElementById("hero-quote-text");
+    const authorEl = document.getElementById("hero-quote-author");
+    if (!textEl || !authorEl) return;
+
+    let currentIndex = 0;
+    const total = quotes.length;
+
+    function fadeOut(el) {
+      el.style.transition = "opacity 0.8s ease";
+      el.style.opacity = "0";
+    }
+
+    function fadeIn(el) {
+      el.style.transition = "opacity 0.8s ease";
+      el.style.opacity = "1";
+    }
+
+    setInterval(() => {
+      fadeOut(textEl);
+      fadeOut(authorEl);
+
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % total;
+        const quote = quotes[currentIndex];
+        textEl.textContent = `\u201C${quote.text}\u201D`;
+        authorEl.textContent = `\u2014 ${quote.author}`;
+        fadeIn(textEl);
+        fadeIn(authorEl);
+      }, 800);
+    }, 6000);
+  });
+</script>
+
+<style>
+  #hero-quote-text,
+  #hero-quote-author {
+    opacity: 1;
+  }
+</style>

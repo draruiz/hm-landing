@@ -1,11 +1,54 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import CTAMapSection from "../components/ui/CTAMapSection.astro";
+import Hero from "../components/ui/Hero.astro";
+import ServicesSection from "../components/ui/ServicesSection.astro";
+import SpecialtiesSection from "../components/ui/SpecialtiesSection.astro";
+import StaffSection from "../components/ui/StaffSection.astro";
+import WelcomeSection from "../components/ui/WelcomeSection.astro";
+import WhatWeTreatSection from "../components/ui/WhatWeTreatSection.astro";
+import Layout from "../layouts/Layout.astro";
+import { localBusinessSchema, websiteSchema } from "../utils/seo";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const siteUrl = "https://healthymindspecialists.com";
+const siteName = "Healthy Mind Specialists";
+
+const schemas = [
+  websiteSchema(siteUrl, siteName),
+  localBusinessSchema({
+    name: siteName,
+    description:
+      "Integrative psychological services providing individual, couples, family, and group therapy in a compassionate environment.",
+    url: siteUrl,
+    image: `${siteUrl}/og-default.png`,
+    telephone: "813-609-2034",
+    address: {
+      street: "11906 Boyette Rd",
+      city: "Riverview",
+      region: "FL",
+      country: "US",
+      postal: "33569",
+    },
+  }),
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title='Integrative Psychological Services in Tampa FL'
+  description='Healthy Mind Specialists offers compassionate integrative psychological services including individual, couples, family, and group therapy in Tampa, FL.'
+  schema={schemas}
+>
+  <Hero
+    heading='Compassionate Mental Health Care — Healthy Mind Specialists in Tampa, FL'
+    ctaText='Learn More'
+    ctaHref='/services'
+    videoSrc='https://cdn.pixabay.com/video/2021/10/15/91849-634404795_large.mp4'
+    posterSrc='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&h=1080&fit=crop&q=80'
+  />
+
+  <WelcomeSection />
+  <SpecialtiesSection />
+  <ServicesSection />
+  <WhatWeTreatSection />
+  <StaffSection />
+  <CTAMapSection />
 </Layout>

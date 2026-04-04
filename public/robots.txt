@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /api/
+Disallow: /_astro/
+Disallow: /admin/
+
+Sitemap: https://healthymindspecialists.com/sitemap-index.xml
