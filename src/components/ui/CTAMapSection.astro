@@ -128,7 +128,7 @@ const {
         class='w-full h-full grayscale-[30%] contrast-[1.05]'
         loading='lazy'
         referrerpolicy='no-referrer-when-downgrade'
-        src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${mapQuery}&zoom=14&maptype=roadmap`}
+        src={`https://www.google.com/maps/embed/v1/place?key=${import.meta.env.PUBLIC_GOOGLE_MAPS_KEY}&q=${mapQuery}&zoom=14&maptype=roadmap`}
         allowfullscreen></iframe>
     </div>
 
