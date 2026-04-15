@@ -1,0 +1,137 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { breadcrumbSchema } from "../../utils/seo";
+
+const siteUrl = "https://healthymindspecialists.com";
+const staffName = "Dr. Maria A. Ruiz, PsyD";
+const staffRole = "Licensed Clinical Psychologist";
+const staffSlug = "dr-maria-a-ruiz-psyd";
+const bannerImage =
+  "https://brightervisionclients.com/resize/63bd841c407b4bb641b23b5b/attachments/ab88270c-a7ac-4a00-b8cd-4ea1342d439a?top=0.0000&left=0.0000&bottom=1.0000&right=1.0000";
+const tagline =
+  "Helping you understand attachment patterns and create healthier, more secure relationships.";
+const profileImage =
+  "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/aee50b9f-80b8-451e-f614-898548535100/public";
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "About Us", url: `${siteUrl}/about` },
+    { name: staffName, url: `${siteUrl}/staff/${staffSlug}` },
+  ]),
+];
+---
+
+<Layout
+  title={staffName}
+  description={`Meet ${staffName}, ${staffRole} at Healthy Mind Specialists in Tampa, FL. Specializing in trauma, anxiety, depression, attachment dynamics, and relationship transitions.`}
+  schema={schemas}
+>
+  <!-- Hero Banner -->
+  <section class='relative h-[420px] md:h-[500px] overflow-hidden'>
+    <img
+      src={bannerImage}
+      alt={`Portrait of ${staffName}, ${staffRole} at Healthy Mind Specialists`}
+      width='1920'
+      height='600'
+      class='absolute inset-0 w-full h-full object-cover'
+      loading='eager'
+    />
+    <div
+      class='absolute inset-0 bg-gradient-to-r from-brand-blue/80 to-brand-blue/40'
+    >
+    </div>
+    <div class='relative h-full flex items-center'>
+      <div class='max-w-4xl mx-auto px-6 text-white'>
+        <h1 class='text-4xl md:text-5xl lg:text-6xl font-display italic mb-4'>
+          {staffName}
+        </h1>
+        <p class='text-xl md:text-2xl text-white/80 max-w-2xl'>
+          {staffRole}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class='py-20 md:py-28'>
+    <div class='max-w-4xl mx-auto px-6'>
+      <!-- Profile + Tagline -->
+      <div class='mb-12 md:flex md:items-start md:gap-10'>
+        <img
+          src={profileImage}
+          alt={`${staffName}, ${staffRole}`}
+          width='280'
+          height='280'
+          class='w-48 h-48 md:w-64 md:h-64 rounded-2xl object-cover shadow-lg mb-6 md:mb-0 mx-auto md:mx-0 flex-shrink-0'
+          loading='lazy'
+        />
+        <div>
+          <p
+            class='text-2xl md:text-3xl font-display italic text-brand-blue/80'
+          >
+            {tagline}
+          </p>
+          <span class='block w-16 h-[2px] bg-brand-gold mt-6'></span>
+        </div>
+      </div>
+
+      <!-- Bio Content -->
+      <div class='prose prose-lg max-w-none text-brand-blue/80 space-y-6'>
+        <p>
+          Life can bring moments that force us to pause, question ourselves, and
+          reconsider who we are and where we are going. During these times,
+          self-esteem and confidence can feel shaken, and emotions may become
+          confusing or overwhelming. You may sense that something needs to
+          change, yet feel unsure how to begin. Therapy offers a space where you
+          do not have to navigate this alone. It provides nonjudgmental
+          listening, thoughtful understanding, respectful challenge, and
+          guidance that supports meaningful and lasting change.
+        </p>
+        <p>
+          Anxiety, depression, and relational distress often develop when we
+          lose sight of our strengths or remain stuck in patterns that no longer
+          serve us. Early experiences, including attachment relationships, can
+          shape how we connect with others and how we see ourselves. Over time,
+          these patterns can repeat, especially during relationship transitions
+          or emotionally charged connections. I believe growth does not come
+          from avoiding difficulty, but from facing challenges with insight,
+          support, and compassion.
+        </p>
+        <p>
+          Therapy is a collaborative process where we work together toward your
+          goals. I help you explore the deeper roots of emotional symptoms,
+          attachment styles, and relational patterns so that change feels
+          intentional rather than reactive. You are the expert on your own life,
+          and my role is to walk alongside you by listening closely, identifying
+          strengths, noticing obstacles, and helping you view your experiences
+          from a broader, systemic perspective.
+        </p>
+        <p>
+          I specialize in working with individuals navigating trauma, anxiety,
+          depression, low self-esteem, self-doubt, grief, alcohol use, parenting
+          challenges, and relationship concerns. My work places particular focus
+          on attachment dynamics, relationship transitions, and breaking cycles
+          within problematic or emotionally unfulfilling relationships,
+          including patterns involving jealousy, mistrust, defensiveness, and
+          communication difficulties.
+        </p>
+        <p>
+          If you are ready to better understand yourself, shift unhealthy
+          relational patterns, and move toward more secure and fulfilling
+          connections, therapy can be a meaningful place to begin.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class='mt-16 text-center'>
+        <a
+          href='/contact'
+          class='inline-flex items-center px-8 py-4 bg-brand-blue text-white font-semibold rounded-full hover:bg-brand-blue-light transition-all duration-300 shadow-lg hover:shadow-xl'
+        >
+          Schedule a Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -6,11 +6,11 @@
 const services = [
   {
     title: "Integrative Care",
-    href: "/services",
+    href: "/services/integrative-care",
     color: "from-emerald-400/30 to-teal-600/40",
     image: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=400&h=400&fit=crop&q=80",
     imageAlt: "Sunlit green leaves representing integrative holistic care",
-    description: "Holistic approach combining evidence-based therapies tailored to your unique needs.",
+    description: "A holistic approach considering all aspects of your health — mental, emotional, physical, social, and spiritual.",
   },
   {
     title: "Individual Therapy",
@@ -18,28 +18,44 @@ const services = [
     color: "from-blue-400/30 to-brand-blue/40",
     image: "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=400&h=400&fit=crop&q=80",
     imageAlt: "Aerial view of turquoise ocean water representing individual therapy",
-    description: "One-on-one sessions focused on personal growth, healing, and resilience.",
+    description: "One-on-one sessions focused on personal growth, healing, and resilience with truly customized care.",
+  },
+  {
+    title: "EMDR Therapy",
+    href: "/services/emdr",
+    color: "from-rose-300/30 to-pink-500/40",
+    image: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=400&h=400&fit=crop&q=80",
+    imageAlt: "Calm serene landscape representing EMDR therapy for trauma processing",
+    description: "A proven integrative approach for processing trauma and overcoming distressing memories.",
+  },
+  {
+    title: "Life Coaching",
+    href: "/services/coaching",
+    color: "from-amber-300/30 to-brand-gold/40",
+    image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=400&h=400&fit=crop&q=80",
+    imageAlt: "Bright sunrise representing life coaching and personal transformation",
+    description: "Action-oriented guidance to set meaningful goals, overcome obstacles, and design a fulfilling future.",
+  },
+  {
+    title: "Supervision & Consultation",
+    href: "/services/supervision-and-consultation",
+    color: "from-violet-300/30 to-purple-500/40",
+    image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=400&h=400&fit=crop&q=80",
+    imageAlt: "Professional setting representing clinical supervision and consultation services",
+    description: "Professional supervision and consultation for individuals seeking licensure as mental health counselors or psychologists.",
   },
   {
     title: "Group Therapy",
     href: "/services/group-therapy",
-    color: "from-amber-300/30 to-brand-gold/40",
+    color: "from-cyan-300/30 to-teal-500/40",
     image: "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=400&h=400&fit=crop&q=80",
     imageAlt: "Sandy beach and gentle waves representing group therapy connection",
-    description: "Shared healing experiences guided by licensed professionals in a safe space.",
-  },
-  {
-    title: "Psychological Evaluations",
-    href: "/services/evaluations",
-    color: "from-violet-300/30 to-purple-500/40",
-    image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=400&h=400&fit=crop&q=80",
-    imageAlt: "Water droplets on a surface representing comprehensive psychological evaluations",
-    description: "Comprehensive assessments to inform diagnosis, treatment planning, and growth.",
+    description: "Therapist-guided sessions that help you find connection, support, and growth through shared experiences.",
   },
 ];
 ---
 
-<section class="relative py-28 md:py-36 bg-white overflow-hidden" aria-labelledby="services-heading">
+<section id="services" class="relative py-28 md:py-36 bg-white overflow-hidden" aria-labelledby="services-heading">
   <!-- Subtle background accent -->
   <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-teal/5 rounded-full blur-3xl" aria-hidden="true"></div>
 
@@ -59,7 +75,7 @@ const services = [
     </div>
 
     <!-- Services grid: circular icons with hover expand -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6 service-grid">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-8 service-grid">
       {services.map((service, i) => (
         <a
           href={service.href}

@@ -1,0 +1,266 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SchemaOrg from "../../components/seo/SchemaOrg.astro";
+import { breadcrumbSchema, faqSchema } from "../../utils/seo";
+
+const siteUrl = "https://healthymindspecialists.com";
+
+const faqs = [
+  {
+    question:
+      "I've never talked to anyone. I'm used to handling things on my own. Aren't people who go to therapy weak?",
+    answer:
+      "Not at all. People who ask for help know when they need it and have the courage to reach out. Everyone needs help now and then. In our work together, we'll help you explore and identify your strengths and how to implement them to reduce the influence of the problems you are facing.",
+  },
+  {
+    question:
+      "What's the difference between talking to you or my best friend or family?",
+    answer:
+      "The difference is between someone who can do something, and someone who has the training and experience to do that same thing professionally. A mental health professional can help you approach your situation in a new way — teach you new skills, gain different perspectives, listen to you without judgment or expectations, and help you listen to yourself. Furthermore, counseling is completely confidential. You won't have to worry about others \"knowing my business.\" Lastly, if your situation provokes a great deal of negative emotion, and you've been confiding in a friend or family member, there is the risk that once you are feeling better you could start avoiding that person so you aren't reminded of this difficult time in your life.",
+  },
+  {
+    question: "Why shouldn't I just take medication?",
+    answer:
+      "Medication can be effective but it alone cannot solve all issues. Sometimes medication is needed in conjunction with counseling. Our work together is designed to explore and unpack the problems you are experiencing and expand on your strengths that can help you accomplish your personal goals.",
+  },
+  {
+    question: "How does it work? What do I have to do in sessions?",
+    answer:
+      "Because each person has different issues and goals for counseling, it will be different depending on the individual. We tailor our therapeutic approach to your specific needs.",
+  },
+  {
+    question: "How long will it take?",
+    answer:
+      "Unfortunately, this is not possible to say in a general FAQ. Everyone's circumstances are unique to them and the length of time counseling can take to allow you to accomplish your goals depends on your desire for personal development, your commitment, and the factors that are driving you to seek counseling in the first place.",
+  },
+  {
+    question: "I want to get the most out of therapy. What can I do to help?",
+    answer:
+      "We are so glad you are dedicated to getting the most out of your sessions. Your active participation and dedication will be crucial to your success.",
+  },
+];
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "Get Started", url: `${siteUrl}/get-started` },
+    { name: "FAQs", url: `${siteUrl}/get-started/faqs` },
+  ]),
+  faqSchema(faqs),
+];
+---
+
+<Layout
+  title='Frequently Asked Questions — Therapy & Counseling'
+  description='Find answers to common questions about therapy, counseling sessions, medication, and what to expect at Healthy Mind Specialists in Tampa, FL.'
+  schema={schemas}
+>
+  <!-- HERO BANNER -->
+  <section
+    class='relative bg-brand-blue py-24 md:py-32 lg:py-40 overflow-hidden'
+    aria-label='FAQs hero'
+  >
+    <img
+      src='/images/contact-hero.jpg'
+      alt='Peaceful nature scene representing clarity and understanding'
+      width='1920'
+      height='1280'
+      loading='eager'
+      fetchpriority='high'
+      class='absolute inset-0 w-full h-full object-cover'
+    />
+    <div class='absolute inset-0 bg-brand-blue/70' aria-hidden='true'></div>
+    <div
+      class='absolute inset-0 opacity-[0.06] pointer-events-none'
+      aria-hidden='true'
+    >
+      <div
+        class='absolute -top-32 -left-32 w-[600px] h-[600px] bg-brand-gold rounded-full blur-[140px]'
+      >
+      </div>
+      <div
+        class='absolute -bottom-40 -right-20 w-[500px] h-[500px] bg-brand-gold-light rounded-full blur-[120px]'
+      >
+      </div>
+    </div>
+    <div
+      class='absolute inset-0 opacity-[0.03]'
+      style='background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px); background-size: 60px 60px;'
+      aria-hidden='true'
+    >
+    </div>
+
+    <div class='relative z-10 max-w-4xl mx-auto px-6 text-center'>
+      <div
+        class='hero-ornament flex items-center justify-center gap-3 mb-6 opacity-0'
+        aria-hidden='true'
+      >
+        <span class='block w-10 h-[1.5px] bg-brand-gold'></span>
+        <span class='block w-2.5 h-2.5 rounded-full border border-brand-gold'
+        ></span>
+        <span class='block w-10 h-[1.5px] bg-brand-gold'></span>
+      </div>
+
+      <h1
+        class='hero-title text-4xl md:text-5xl lg:text-6xl font-display italic text-white leading-tight opacity-0'
+      >
+        Frequently Asked <span class='text-brand-gold-light'>Questions</span>
+      </h1>
+
+      <p
+        class='hero-subtitle mt-5 text-white/65 text-base md:text-lg lg:text-xl max-w-2xl mx-auto font-sans leading-relaxed opacity-0'
+      >
+        We understand you may have questions before starting therapy. Here are
+        answers to the most common ones.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section
+    class='py-20 md:py-28 lg:py-32 bg-white'
+    aria-labelledby='faq-heading'
+  >
+    <div class='max-w-3xl mx-auto px-6'>
+      <div class='mb-12 text-center'>
+        <p
+          class='text-xs uppercase tracking-[0.2em] text-brand-gold font-semibold mb-3'
+        >
+          Get Started
+        </p>
+        <h2
+          id='faq-heading'
+          class='text-3xl md:text-4xl font-display italic text-brand-blue leading-tight'
+        >
+          Common <span class='text-brand-gold'>Questions</span>
+        </h2>
+        <div class='w-12 h-[2px] bg-brand-gold mt-5 mx-auto' aria-hidden='true'>
+        </div>
+      </div>
+
+      <div class='space-y-6'>
+        {
+          faqs.map((faq, index) => (
+            <div class='faq-item border border-brand-blue/10 rounded-2xl overflow-hidden transition-all duration-300 hover:border-brand-gold/30 hover:shadow-lg hover:shadow-brand-gold/5'>
+              <button
+                type='button'
+                class='faq-toggle w-full flex items-start justify-between gap-4 px-6 py-5 text-left'
+                aria-expanded='false'
+                aria-controls={`faq-answer-${index}`}
+              >
+                <span class='text-brand-blue font-medium text-base md:text-lg leading-snug'>
+                  {faq.question}
+                </span>
+                <svg
+                  class='faq-chevron w-5 h-5 text-brand-gold flex-shrink-0 mt-1 transition-transform duration-300'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke='currentColor'
+                  stroke-width='2'
+                >
+                  <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    d='M19 9l-7 7-7-7'
+                  />
+                </svg>
+              </button>
+              <div
+                id={`faq-answer-${index}`}
+                class='faq-content hidden px-6 pb-5'
+              >
+                <p class='text-brand-blue/60 leading-relaxed'>{faq.answer}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- CTA -->
+      <div class='mt-16 text-center'>
+        <p class='text-brand-blue/60 mb-6 text-lg'>
+          Still have questions? We'd love to hear from you.
+        </p>
+        <a
+          href='/contact'
+          class='inline-flex items-center gap-3 px-10 py-4 bg-brand-blue text-white font-semibold tracking-wide rounded-xl transition-all duration-500 hover:shadow-xl hover:shadow-brand-blue/20 hover:-translate-y-0.5 hover:bg-brand-gold'
+        >
+          Contact Us
+          <svg
+            class='w-5 h-5 transition-transform duration-300 group-hover:translate-x-1'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
+            stroke-width='2'
+          >
+            <path
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              d='M17 8l4 4m0 0l-4 4m4-4H3'></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const prefersReduced = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  if (!prefersReduced) {
+    const heroTl = gsap.timeline({
+      defaults: { ease: "power3.out", duration: 0.9 },
+    });
+
+    gsap.set([".hero-ornament", ".hero-title", ".hero-subtitle"], { y: 30 });
+
+    heroTl
+      .to(".hero-ornament", { opacity: 1, y: 0, duration: 0.6 })
+      .to(".hero-title", { opacity: 1, y: 0 }, "-=0.4")
+      .to(".hero-subtitle", { opacity: 1, y: 0, duration: 0.7 }, "-=0.5");
+
+    ScrollTrigger.batch(".faq-item", {
+      start: "top 90%",
+      once: true,
+      onEnter: (batch) => {
+        gsap.fromTo(
+          batch,
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, stagger: 0.1, duration: 0.6, ease: "power2.out" },
+        );
+      },
+    });
+  }
+
+  // FAQ accordion
+  document.querySelectorAll(".faq-toggle").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const content = btn.nextElementSibling as HTMLElement;
+      const chevron = btn.querySelector(".faq-chevron") as SVGElement;
+      const isOpen = !content.classList.contains("hidden");
+
+      // Close all others
+      document.querySelectorAll(".faq-content").forEach((el) => {
+        el.classList.add("hidden");
+      });
+      document.querySelectorAll(".faq-toggle").forEach((el) => {
+        el.setAttribute("aria-expanded", "false");
+        const chev = el.querySelector(".faq-chevron") as SVGElement;
+        if (chev) chev.style.transform = "";
+      });
+
+      if (!isOpen) {
+        content.classList.remove("hidden");
+        btn.setAttribute("aria-expanded", "true");
+        if (chevron) chevron.style.transform = "rotate(180deg)";
+      }
+    });
+  });
+</script>

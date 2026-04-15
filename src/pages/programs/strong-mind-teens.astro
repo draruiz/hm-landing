@@ -1,0 +1,722 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { breadcrumbSchema } from "../../utils/seo";
+
+const siteUrl = "https://healthymindspecialists.com";
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "Programs", url: `${siteUrl}/programs` },
+    { name: "Strong Mind Teens", url: `${siteUrl}/programs/strong-mind-teens` },
+  ]),
+];
+
+const coreIssues = [
+  "Constant anxiety with no clear explanation",
+  "Difficulty regulating emotions and emotional outbursts",
+  "Low self-esteem and chronic comparison",
+  "Ongoing conflict with parents and feeling misunderstood",
+  "Excessive phone use as emotional escape",
+  "Lack of motivation, apathy, and loss of direction",
+  "Social anxiety and fear of rejection",
+  "Feeling emotionally alone, even within the family system",
+];
+
+const programSteps = [
+  {
+    step: "01",
+    title: "Parent Consultation",
+    subtitle: "Initial Assessment",
+    description:
+      "The process begins with a parent consultation to determine whether the program is the right fit. Parents share concerns, ask questions, and gain clarity on how the program works before enrollment.",
+  },
+  {
+    step: "02",
+    title: "Intake & Goal Setting",
+    subtitle: "Week 1",
+    description:
+      "The first session focuses on building rapport with the adolescent, understanding emotional stressors, daily routines, and communication patterns. Clear and realistic goals are established.",
+  },
+  {
+    step: "03",
+    title: "Weekly Coaching Sessions",
+    subtitle: "Weeks 2–5",
+    description:
+      "Each week includes a 60-minute individual coaching session focused on emotional regulation, anxiety management, habit and routine development, communication skills, and accountability.",
+  },
+  {
+    step: "04",
+    title: "Parent Guidance & Check-Ins",
+    subtitle: "Throughout Program",
+    description:
+      "Parents receive guidance throughout the program on how to support changes at home, reinforce boundaries, and reduce conflict. This ensures consistency and prevents mixed messages.",
+  },
+  {
+    step: "05",
+    title: "Progress Monitoring",
+    subtitle: "Clinical Awareness",
+    description:
+      "Progress is monitored throughout the six weeks. The program operates within a clinically informed framework supported by Healthy Mind Specialists, ensuring responsible oversight.",
+  },
+  {
+    step: "06",
+    title: "Wrap-Up & Next Steps",
+    subtitle: "Week 6",
+    description:
+      "The final session reviews progress, reinforces skills, and creates a forward plan. Parents receive feedback and guidance on sustaining improvements or exploring next steps if needed.",
+  },
+];
+
+const outcomes = [
+  {
+    title: "Understand what they are feeling",
+    description:
+      "Identify what they are feeling and why they react the way they do. Recognition of emotional patterns and triggers.",
+  },
+  {
+    title: "Learn emotional regulation",
+    description:
+      "Emotional regulation without suppression. Practical tools for daily emotional management.",
+  },
+  {
+    title: "Develop internal security",
+    description:
+      "Build internal security and personal judgment. Strengthen self-confidence and decision-making.",
+  },
+  {
+    title: "Improve communication",
+    description:
+      "Improve communication with parents without constant confrontation. Express needs and emotions effectively.",
+  },
+  {
+    title: "Reduce anxiety",
+    description:
+      "Reduce anxiety and emotional dependence on their phone. Develop healthy coping mechanisms.",
+  },
+  {
+    title: "Rebuild motivation",
+    description:
+      "Rebuild motivation and personal meaning. Find direction and purpose.",
+  },
+];
+---
+
+<Layout
+  title='Strong Mind Teens — Adolescent Coaching Program'
+  description='A premium 6-week adolescent coaching program at Healthy Mind Specialists. Structured, practical coaching for teens struggling with anxiety, emotional regulation, and family communication.'
+  schema={schemas}
+>
+  <!-- Hero Banner -->
+  <section
+    class='relative h-[500px] md:h-[600px] overflow-hidden bg-brand-blue'
+  >
+    <img
+      src='https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1920&q=80'
+      alt='Group of diverse teenagers laughing and connecting outdoors'
+      width='1920'
+      height='600'
+      class='absolute inset-0 w-full h-full object-cover'
+      loading='eager'
+      fetchpriority='high'
+    />
+    <div
+      class='absolute inset-0 bg-gradient-to-br from-brand-blue-dark/85 via-brand-blue/80 to-brand-blue-light/75'
+    >
+    </div>
+    <div class='relative h-full flex items-center'>
+      <div class='max-w-5xl mx-auto px-6 text-center text-white'>
+        <span
+          class='inline-block text-brand-gold font-semibold tracking-widest uppercase text-sm mb-4'
+        >
+          Premium Program
+        </span>
+        <h1 class='text-4xl md:text-5xl lg:text-7xl font-display italic mb-6'>
+          Strong Mind Teens
+        </h1>
+        <p class='text-xl md:text-2xl text-white/80 max-w-3xl mx-auto mb-4'>
+          Adolescent Coaching Program
+        </p>
+        <p class='text-lg text-white/60 max-w-2xl mx-auto mb-10'>
+          A coaching program designed specifically to address the real and
+          current struggles adolescents face today. Structured, practical
+          coaching adapted to the adolescent's language and emotional stage.
+          This is not a space to simply talk — it is guided support with
+          direction.
+        </p>
+        <a
+          href='tel:8136092034'
+          class='inline-flex items-center px-8 py-4 bg-brand-gold text-white font-semibold rounded-full hover:bg-brand-gold-dark transition-all duration-300 shadow-lg hover:shadow-xl'
+        >
+          Call Now to Start — 813-609-2034
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Issues -->
+  <section class='py-20 md:py-28 bg-white'>
+    <div class='max-w-5xl mx-auto px-6'>
+      <div class='text-center mb-16'>
+        <span
+          class='block w-12 h-[2px] bg-brand-gold mx-auto mb-6'
+          aria-hidden='true'></span>
+        <h2
+          class='text-3xl md:text-4xl font-display italic text-brand-blue mb-4'
+        >
+          Core Issues Addressed
+        </h2>
+        <p class='text-lg text-brand-blue/60'>
+          What teens live with and don't know how to express
+        </p>
+      </div>
+      <div class='grid grid-cols-1 md:grid-cols-2 gap-6'>
+        {
+          coreIssues.map((issue, i) => (
+            <div class='flex items-start gap-4 p-6 bg-brand-cream rounded-xl'>
+              <span class='flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue text-white flex items-center justify-center text-sm font-semibold'>
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <p class='text-brand-blue/80 text-lg'>{issue}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- What the Program Helps Adolescents To -->
+  <section class='py-20 md:py-28 bg-brand-cream'>
+    <div class='max-w-5xl mx-auto px-6'>
+      <div class='text-center mb-16'>
+        <span
+          class='block w-12 h-[2px] bg-brand-gold mx-auto mb-6'
+          aria-hidden='true'></span>
+        <h2
+          class='text-3xl md:text-4xl font-display italic text-brand-blue mb-4'
+        >
+          What the Program Helps Adolescents To
+        </h2>
+      </div>
+      <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+        {
+          outcomes.map((outcome, i) => (
+            <div class='bg-white rounded-2xl p-8 shadow-sm border border-gray-100'>
+              <span class='block text-3xl font-display text-brand-gold mb-4'>
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 class='text-xl font-display text-brand-blue mb-3'>
+                {outcome.title}
+              </h3>
+              <p class='text-brand-blue/60'>{outcome.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- How the 6-Week Program Works -->
+  <section class='py-20 md:py-28 bg-white'>
+    <div class='max-w-5xl mx-auto px-6'>
+      <div class='text-center mb-16'>
+        <span
+          class='block w-12 h-[2px] bg-brand-gold mx-auto mb-6'
+          aria-hidden='true'></span>
+        <h2
+          class='text-3xl md:text-4xl font-display italic text-brand-blue mb-4'
+        >
+          How the 6-Week Program Works
+        </h2>
+        <p class='text-lg text-brand-blue/60 max-w-2xl mx-auto'>
+          A comprehensive, step-by-step approach designed to create lasting
+          change in adolescent well-being
+        </p>
+      </div>
+      <div class='space-y-8'>
+        {
+          programSteps.map((step) => (
+            <div class='flex gap-6 md:gap-8 items-start'>
+              <div class='flex-shrink-0 w-14 h-14 rounded-2xl bg-brand-blue text-white flex items-center justify-center text-xl font-bold'>
+                {step.step}
+              </div>
+              <div class='flex-1 pb-8 border-b border-gray-100 last:border-0'>
+                <span class='text-sm text-brand-gold font-semibold uppercase tracking-wider'>
+                  {step.subtitle}
+                </span>
+                <h3 class='text-xl md:text-2xl font-display text-brand-blue mt-1 mb-3'>
+                  {step.title}
+                </h3>
+                <p class='text-brand-blue/70 text-lg'>{step.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- What to Expect -->
+  <section class='py-20 md:py-28 bg-brand-cream'>
+    <div class='max-w-5xl mx-auto px-6'>
+      <div class='text-center mb-16'>
+        <span
+          class='block w-12 h-[2px] bg-brand-gold mx-auto mb-6'
+          aria-hidden='true'></span>
+        <h2
+          class='text-3xl md:text-4xl font-display italic text-brand-blue mb-4'
+        >
+          What to Expect
+        </h2>
+      </div>
+      <div class='grid grid-cols-1 md:grid-cols-2 gap-10'>
+        <div class='bg-white rounded-2xl p-8 shadow-sm border border-gray-100'>
+          <h3 class='text-2xl font-display text-brand-blue mb-6'>
+            For Parents
+          </h3>
+          <ul class='space-y-4'>
+            <li class='flex items-start gap-3 text-brand-blue/70'>
+              <svg
+                class='w-5 h-5 text-brand-gold flex-shrink-0 mt-1'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                ><path
+                  fill-rule='evenodd'
+                  d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                  clip-rule='evenodd'></path></svg
+              >
+              Improved communication at home
+            </li>
+            <li class='flex items-start gap-3 text-brand-blue/70'>
+              <svg
+                class='w-5 h-5 text-brand-gold flex-shrink-0 mt-1'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                ><path
+                  fill-rule='evenodd'
+                  d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                  clip-rule='evenodd'></path></svg
+              >
+              Increased emotional regulation
+            </li>
+            <li class='flex items-start gap-3 text-brand-blue/70'>
+              <svg
+                class='w-5 h-5 text-brand-gold flex-shrink-0 mt-1'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                ><path
+                  fill-rule='evenodd'
+                  d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                  clip-rule='evenodd'></path></svg
+              >
+              Better school performance and organization
+            </li>
+            <li class='flex items-start gap-3 text-brand-blue/70'>
+              <svg
+                class='w-5 h-5 text-brand-gold flex-shrink-0 mt-1'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                ><path
+                  fill-rule='evenodd'
+                  d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                  clip-rule='evenodd'></path></svg
+              >
+              Healthier friendships and boundaries
+            </li>
+            <li class='flex items-start gap-3 text-brand-blue/70'>
+              <svg
+                class='w-5 h-5 text-brand-gold flex-shrink-0 mt-1'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                ><path
+                  fill-rule='evenodd'
+                  d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                  clip-rule='evenodd'></path></svg
+              >
+              More confidence and responsibility
+            </li>
+          </ul>
+        </div>
+        <div class='bg-white rounded-2xl p-8 shadow-sm border border-gray-100'>
+          <h3 class='text-2xl font-display text-brand-blue mb-6'>For Teens</h3>
+          <ul class='space-y-4'>
+            <li class='flex items-start gap-3 text-brand-blue/70'>
+              <svg
+                class='w-5 h-5 text-brand-gold flex-shrink-0 mt-1'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                ><path
+                  fill-rule='evenodd'
+                  d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                  clip-rule='evenodd'></path></svg
+              >
+              Feeling understood and supported
+            </li>
+            <li class='flex items-start gap-3 text-brand-blue/70'>
+              <svg
+                class='w-5 h-5 text-brand-gold flex-shrink-0 mt-1'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                ><path
+                  fill-rule='evenodd'
+                  d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                  clip-rule='evenodd'></path></svg
+              >
+              Practical tools for everyday challenges
+            </li>
+            <li class='flex items-start gap-3 text-brand-blue/70'>
+              <svg
+                class='w-5 h-5 text-brand-gold flex-shrink-0 mt-1'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                ><path
+                  fill-rule='evenodd'
+                  d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                  clip-rule='evenodd'></path></svg
+              >
+              Reduced anxiety
+            </li>
+            <li class='flex items-start gap-3 text-brand-blue/70'>
+              <svg
+                class='w-5 h-5 text-brand-gold flex-shrink-0 mt-1'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                ><path
+                  fill-rule='evenodd'
+                  d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                  clip-rule='evenodd'></path></svg
+              >
+              More motivation and clarity
+            </li>
+            <li class='flex items-start gap-3 text-brand-blue/70'>
+              <svg
+                class='w-5 h-5 text-brand-gold flex-shrink-0 mt-1'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                ><path
+                  fill-rule='evenodd'
+                  d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                  clip-rule='evenodd'></path></svg
+              >
+              Stronger sense of identity and self-worth
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class='py-20 md:py-28 bg-white'>
+    <div class='max-w-5xl mx-auto px-6'>
+      <div class='text-center mb-16'>
+        <span
+          class='block w-12 h-[2px] bg-brand-gold mx-auto mb-6'
+          aria-hidden='true'></span>
+        <h2
+          class='text-3xl md:text-4xl font-display italic text-brand-blue mb-4'
+        >
+          Program Investment
+        </h2>
+      </div>
+      <div class='grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto'>
+        <!-- Single Session -->
+        <div
+          class='bg-brand-cream rounded-2xl p-8 border border-gray-200 text-center'
+        >
+          <h3 class='text-xl font-display text-brand-blue mb-2'>
+            Single Session
+          </h3>
+          <p class='text-4xl font-bold text-brand-blue mb-1'>$175</p>
+          <p class='text-sm text-brand-blue/50 mb-6'>per session</p>
+          <ul class='text-left space-y-3 mb-8 text-brand-blue/70'>
+            <li class='flex items-start gap-2'>
+              <svg
+                class='w-5 h-5 text-brand-gold flex-shrink-0 mt-0.5'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                ><path
+                  fill-rule='evenodd'
+                  d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                  clip-rule='evenodd'></path></svg
+              >
+              One individual coaching session
+            </li>
+            <li class='flex items-start gap-2'>
+              <svg
+                class='w-5 h-5 text-brand-gold flex-shrink-0 mt-0.5'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                ><path
+                  fill-rule='evenodd'
+                  d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                  clip-rule='evenodd'></path></svg
+              >
+              60-minute personalized session
+            </li>
+            <li class='flex items-start gap-2'>
+              <svg
+                class='w-5 h-5 text-brand-gold flex-shrink-0 mt-0.5'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                ><path
+                  fill-rule='evenodd'
+                  d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                  clip-rule='evenodd'></path></svg
+              >
+              Trial session available
+            </li>
+          </ul>
+          <a
+            href='tel:8136092034'
+            class='inline-flex items-center px-6 py-3 border-2 border-brand-blue text-brand-blue font-semibold rounded-full hover:bg-brand-blue hover:text-white transition-all duration-300'
+          >
+            Book Single Session
+          </a>
+        </div>
+
+        <!-- 6-Week Program -->
+        <div
+          class='bg-brand-blue rounded-2xl p-8 text-center text-white relative overflow-hidden'
+        >
+          <span
+            class='absolute top-4 right-4 bg-brand-gold text-white text-xs font-bold px-3 py-1 rounded-full'
+          >
+            RECOMMENDED
+          </span>
+          <h3 class='text-xl font-display mb-2'>6-Week Program Package</h3>
+          <p class='text-sm text-white/60 line-through mb-1'>$1,050</p>
+          <p class='text-4xl font-bold mb-1'>$900</p>
+          <p class='text-sm text-brand-gold mb-6'>
+            Save $150 — Only $150 per session
+          </p>
+          <ul class='text-left space-y-3 mb-8 text-white/80'>
+            <li class='flex items-start gap-2'>
+              <svg
+                class='w-5 h-5 text-brand-gold flex-shrink-0 mt-0.5'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                ><path
+                  fill-rule='evenodd'
+                  d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                  clip-rule='evenodd'></path></svg
+              >
+              6 individual coaching sessions
+            </li>
+            <li class='flex items-start gap-2'>
+              <svg
+                class='w-5 h-5 text-brand-gold flex-shrink-0 mt-0.5'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                ><path
+                  fill-rule='evenodd'
+                  d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                  clip-rule='evenodd'></path></svg
+              >
+              Comprehensive parent consultation
+            </li>
+            <li class='flex items-start gap-2'>
+              <svg
+                class='w-5 h-5 text-brand-gold flex-shrink-0 mt-0.5'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                ><path
+                  fill-rule='evenodd'
+                  d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                  clip-rule='evenodd'></path></svg
+              >
+              Ongoing progress tracking
+            </li>
+            <li class='flex items-start gap-2'>
+              <svg
+                class='w-5 h-5 text-brand-gold flex-shrink-0 mt-0.5'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                ><path
+                  fill-rule='evenodd'
+                  d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                  clip-rule='evenodd'></path></svg
+              >
+              Tools & resources for long-term success
+            </li>
+            <li class='flex items-start gap-2'>
+              <svg
+                class='w-5 h-5 text-brand-gold flex-shrink-0 mt-0.5'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+                ><path
+                  fill-rule='evenodd'
+                  d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                  clip-rule='evenodd'></path></svg
+              >
+              Accountability & consistent support
+            </li>
+          </ul>
+          <a
+            href='tel:8136092034'
+            class='inline-flex items-center px-6 py-3 bg-brand-gold text-white font-semibold rounded-full hover:bg-brand-gold-dark transition-all duration-300'
+          >
+            Start 6-Week Program
+          </a>
+          <p class='text-xs text-white/50 mt-4'>
+            Flexible payment: Pay in full ($900) or split ($450 + $450)
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet Traci -->
+  <section class='py-20 md:py-28 bg-brand-cream'>
+    <div class='max-w-5xl mx-auto px-6'>
+      <div class='text-center mb-16'>
+        <span
+          class='block w-12 h-[2px] bg-brand-gold mx-auto mb-6'
+          aria-hidden='true'></span>
+        <h2
+          class='text-3xl md:text-4xl font-display italic text-brand-blue mb-4'
+        >
+          Why Traci?
+        </h2>
+        <p class='text-lg text-brand-blue/60'>
+          Your trusted guide to transformation
+        </p>
+      </div>
+      <div class='flex justify-center mb-12'>
+        <img
+          src='https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/f6623768-e576-48e3-00be-f1f5e1c72600/public'
+          alt='Traci Adams, Certified Life Coach specializing in adolescent coaching at Healthy Mind Specialists'
+          width='280'
+          height='280'
+          class='rounded-full object-cover shadow-lg border-4 border-brand-gold/30'
+          loading='lazy'
+        />
+      </div>
+      <div class='grid grid-cols-1 md:grid-cols-2 gap-8'>
+        <div class='bg-white rounded-2xl p-8 shadow-sm border border-gray-100'>
+          <h3 class='text-xl font-display text-brand-blue mb-3'>
+            Specialized Adolescent Focus
+          </h3>
+          <p class='text-brand-blue/60'>
+            Expert in parent-teen communication, conflict reduction, and
+            establishing healthy habits and routines (sleep, school,
+            organization, boundaries).
+          </p>
+        </div>
+        <div class='bg-white rounded-2xl p-8 shadow-sm border border-gray-100'>
+          <h3 class='text-xl font-display text-brand-blue mb-3'>
+            Clinically Supported Model
+          </h3>
+          <p class='text-brand-blue/60'>
+            Her work is supported by licensed mental health professionals and
+            aligned with ethical and evidence-based standards.
+          </p>
+        </div>
+        <div class='bg-white rounded-2xl p-8 shadow-sm border border-gray-100'>
+          <h3 class='text-xl font-display text-brand-blue mb-3'>
+            Integrated Care Advantage
+          </h3>
+          <p class='text-brand-blue/60'>
+            If deeper clinical support is needed, the clinic has professional
+            resources for psychological evaluation and coordinated care —
+            ensuring continuity and early identification of concerns.
+          </p>
+        </div>
+        <div class='bg-white rounded-2xl p-8 shadow-sm border border-gray-100'>
+          <h3 class='text-xl font-display text-brand-blue mb-3'>
+            Emotional Regulation & Anxiety Support
+          </h3>
+          <p class='text-brand-blue/60'>
+            Specialized in supporting emotional regulation, anxiety-related
+            behaviors, stress management, transitions, and family dynamic
+            challenges.
+          </p>
+        </div>
+      </div>
+      <div class='mt-12 text-center'>
+        <blockquote
+          class='text-xl md:text-2xl font-display italic text-brand-blue/80 max-w-2xl mx-auto mb-6'
+        >
+          "Not every adolescent needs therapy. But no adolescent should be
+          guided without clinical awareness."
+        </blockquote>
+        <p class='text-brand-gold font-semibold'>— Traci's Philosophy</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class='py-20 md:py-28 bg-white'>
+    <div class='max-w-5xl mx-auto px-6'>
+      <div class='text-center mb-16'>
+        <span
+          class='block w-12 h-[2px] bg-brand-gold mx-auto mb-6'
+          aria-hidden='true'></span>
+        <h2
+          class='text-3xl md:text-4xl font-display italic text-brand-blue mb-4'
+        >
+          Inside the Program
+        </h2>
+        <p class='text-lg text-brand-blue/60'>
+          A glimpse into the Strong Mind Teens experience
+        </p>
+      </div>
+      <div class='grid grid-cols-1 md:grid-cols-3 gap-6'>
+        <img
+          src='https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/84d3593e-6c31-4ae5-1ca7-568eaab2bb00/public'
+          alt='Strong Mind Teens adolescent coaching session at Healthy Mind Specialists'
+          width='400'
+          height='300'
+          class='w-full h-72 object-cover rounded-2xl shadow-sm'
+          loading='lazy'
+        />
+        <img
+          src='https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/05467d69-3383-4009-4125-1665dbd32c00/public'
+          alt='Teen coaching and emotional regulation support at Healthy Mind Specialists'
+          width='400'
+          height='300'
+          class='w-full h-72 object-cover rounded-2xl shadow-sm'
+          loading='lazy'
+        />
+        <img
+          src='https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/b394d150-b3c9-4f09-7ceb-8c15687c9a00/public'
+          alt='Adolescent mental health coaching program at Healthy Mind Specialists in Tampa FL'
+          width='400'
+          height='300'
+          class='w-full h-72 object-cover rounded-2xl shadow-sm'
+          loading='lazy'
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class='py-20 md:py-28 bg-brand-blue text-white text-center'>
+    <div class='max-w-3xl mx-auto px-6'>
+      <h2 class='text-3xl md:text-4xl font-display italic mb-6'>
+        Direction, Structure, and Support — So You Don't Have to Navigate This
+        Alone
+      </h2>
+      <p class='text-white/60 mb-4'>
+        Supported by Healthy Mind Specialists — Anxiety Clinic | Riverview,
+        Tampa, FL
+      </p>
+      <div
+        class='flex flex-col sm:flex-row items-center justify-center gap-4 mt-8'
+      >
+        <a
+          href='tel:8136092034'
+          class='inline-flex items-center px-8 py-4 bg-brand-gold text-white font-semibold rounded-full hover:bg-brand-gold-dark transition-all duration-300 shadow-lg hover:shadow-xl'
+        >
+          Start the Journey — 813-609-2034
+        </a>
+        <a
+          href='/staff/traci-adams-clc'
+          class='inline-flex items-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300'
+        >
+          Meet Traci
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

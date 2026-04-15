@@ -1,0 +1,198 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { breadcrumbSchema } from "../../utils/seo";
+
+const siteUrl = "https://healthymindspecialists.com";
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "HIPAA Consent", url: `${siteUrl}/legal/hipaa-consent` },
+  ]),
+];
+---
+
+<Layout
+  title='HIPAA Consent & Privacy Practices'
+  description='Review the HIPAA consent and privacy practices of Healthy Mind Specialists. Learn how we protect your health information.'
+  schema={schemas}
+>
+  <!-- Hero Banner -->
+  <section class='relative bg-brand-blue py-20 md:py-28 overflow-hidden'>
+    <div class='absolute inset-0 opacity-[0.05]' aria-hidden='true'>
+      <div
+        class='absolute -top-24 -left-24 w-[500px] h-[500px] bg-brand-gold rounded-full blur-[120px]'
+      >
+      </div>
+    </div>
+    <div class='relative z-10 max-w-4xl mx-auto px-6 text-center'>
+      <div
+        class='flex items-center justify-center gap-3 mb-6'
+        aria-hidden='true'
+      >
+        <span class='block w-10 h-[1.5px] bg-brand-gold'></span>
+        <span class='block w-2 h-2 rounded-full border border-brand-gold'
+        ></span>
+        <span class='block w-10 h-[1.5px] bg-brand-gold'></span>
+      </div>
+      <h1
+        class='text-3xl md:text-5xl font-display italic text-white leading-tight'
+      >
+        HIPAA Notice of <span class='text-brand-gold-light'
+          >Privacy Practices</span
+        >
+      </h1>
+      <p
+        class='mt-4 text-white/70 text-base md:text-lg max-w-2xl mx-auto font-sans'
+      >
+        Your privacy is important to us. This notice describes how medical
+        information about you may be used and disclosed.
+      </p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class='max-w-4xl mx-auto px-6 py-16 md:py-24'>
+    <article
+      class='prose prose-lg prose-brand-blue max-w-none font-sans text-brand-blue/80 leading-relaxed space-y-8'
+    >
+      <div class='bg-brand-cream rounded-2xl p-8 border border-brand-gold/10'>
+        <p
+          class='text-sm uppercase tracking-widest text-brand-gold font-semibold mb-2'
+        >
+          Effective Date
+        </p>
+        <p class='text-brand-blue font-medium'>January 1, 2024</p>
+      </div>
+
+      <h2 class='font-display text-2xl text-brand-blue !mt-12'>
+        Our Commitment to Your Privacy
+      </h2>
+      <p>
+        Healthy Mind Specialists is committed to protecting the privacy and
+        confidentiality of your Protected Health Information (PHI) in accordance
+        with the Health Insurance Portability and Accountability Act of 1996
+        (HIPAA). This notice describes how medical information about you may be
+        used and disclosed and how you can get access to this information.
+      </p>
+
+      <h2 class='font-display text-2xl text-brand-blue'>
+        How We May Use and Disclose Your PHI
+      </h2>
+      <p>We may use and disclose your PHI for the following purposes:</p>
+
+      <h3 class='font-display text-xl text-brand-blue'>Treatment</h3>
+      <p>
+        We may use your PHI to provide, coordinate, or manage your mental health
+        care and related services. This includes consultation with other health
+        care providers regarding your treatment and referrals to other health
+        care providers.
+      </p>
+
+      <h3 class='font-display text-xl text-brand-blue'>Payment</h3>
+      <p>
+        We may use and disclose your PHI to obtain payment for services provided
+        to you. This includes disclosure to your health plan or insurance
+        company for determination of benefits, pre-authorization, and billing
+        purposes.
+      </p>
+
+      <h3 class='font-display text-xl text-brand-blue'>
+        Health Care Operations
+      </h3>
+      <p>
+        We may use and disclose your PHI for operational purposes, including
+        quality assessment and improvement activities, case management,
+        training, licensing, accreditation, and business planning.
+      </p>
+
+      <h2 class='font-display text-2xl text-brand-blue'>
+        Your Rights Regarding Your PHI
+      </h2>
+      <p>
+        You have the following rights regarding the PHI we maintain about you:
+      </p>
+      <ul class='space-y-3'>
+        <li>
+          <strong>Right to Access:</strong> You have the right to inspect and obtain
+          a copy of your PHI maintained in our records.
+        </li>
+        <li>
+          <strong>Right to Amend:</strong> You may request amendments to your PHI
+          if you believe the information is incorrect or incomplete.
+        </li>
+        <li>
+          <strong>Right to an Accounting of Disclosures:</strong> You have the right
+          to receive a list of instances where we have disclosed your PHI for purposes
+          other than treatment, payment, or health care operations.
+        </li>
+        <li>
+          <strong>Right to Request Restrictions:</strong> You may request that we
+          limit how we use or disclose your PHI for treatment, payment, or health
+          care operations.
+        </li>
+        <li>
+          <strong>Right to Request Confidential Communications:</strong> You may request
+          that we communicate with you about health matters using alternative means
+          or at alternative locations.
+        </li>
+        <li>
+          <strong>Right to a Paper Copy:</strong> You have the right to obtain a paper
+          copy of this Notice of Privacy Practices upon request.
+        </li>
+      </ul>
+
+      <h2 class='font-display text-2xl text-brand-blue'>Our Duties</h2>
+      <p>
+        We are required by law to maintain the privacy and security of your PHI
+        and to provide you with this Notice of our legal duties and privacy
+        practices. We are required to abide by the terms of this Notice
+        currently in effect. We reserve the right to change the terms of this
+        Notice and to make the new provisions effective for all PHI we maintain.
+      </p>
+
+      <h2 class='font-display text-2xl text-brand-blue'>Complaints</h2>
+      <p>
+        If you believe your privacy rights have been violated, you may file a
+        complaint with our practice or with the Secretary of the Department of
+        Health and Human Services. There will be no retaliation for filing a
+        complaint.
+      </p>
+
+      <h2 class='font-display text-2xl text-brand-blue'>Contact Information</h2>
+      <div class='bg-brand-cream rounded-2xl p-8 border border-brand-gold/10'>
+        <p class='font-medium text-brand-blue'>Healthy Mind Specialists</p>
+        <p>11906 Boyette Road, Riverview, FL 33569</p>
+        <p>
+          Phone: <a
+            href='tel:8136092034'
+            class='text-brand-blue-light hover:text-brand-gold transition-colors'
+            >(813) 609-2034</a>
+        </p>
+        <p>
+          Email: <a
+            href='mailto:info@healthymindspecialists.com'
+            class='text-brand-blue-light hover:text-brand-gold transition-colors'
+            >info@healthymindspecialists.com</a>
+        </p>
+      </div>
+
+      <h2 class='font-display text-2xl text-brand-blue'>
+        Consent for Contact Form Submission
+      </h2>
+      <p>
+        By checking the HIPAA consent checkbox on our contact form, you
+        acknowledge that you have read and understand this Notice of Privacy
+        Practices. You consent to the collection and use of your personal
+        information (name, email, phone number, and any information you provide
+        in the message field) solely for the purpose of responding to your
+        inquiry and scheduling appointments.
+      </p>
+      <p>
+        Your information will be transmitted securely and will not be shared
+        with third parties except as necessary for your treatment, as required
+        by law, or as described in this notice.
+      </p>
+    </article>
+  </section>
+</Layout>

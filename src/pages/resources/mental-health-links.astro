@@ -1,0 +1,411 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { breadcrumbSchema } from "../../utils/seo";
+
+const siteUrl = "https://healthymindspecialists.com";
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "Resources", url: `${siteUrl}/resources` },
+    {
+      name: "Mental Health Links",
+      url: `${siteUrl}/resources/mental-health-links`,
+    },
+  ]),
+];
+
+const categories = [
+  {
+    title: "Associations & Institutes",
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" /></svg>`,
+    links: [
+      {
+        name: "American Academy of Child & Adolescent Psychiatry",
+        url: "https://www.aacap.org/",
+      },
+      {
+        name: "American Association for Marriage and Family Therapy",
+        url: "https://www.aamft.org/",
+      },
+      {
+        name: "American Counseling Association",
+        url: "https://www.counseling.org/",
+      },
+      {
+        name: "American Psychiatric Association",
+        url: "https://www.psychiatry.org/",
+      },
+      {
+        name: "American Psychological Association",
+        url: "https://www.apa.org/",
+      },
+      {
+        name: "American Psychological Society",
+        url: "https://www.psychologicalscience.org/",
+      },
+      {
+        name: "Mental Health America",
+        url: "https://www.mentalhealthamerica.net/",
+      },
+      { name: "MentalHealth.gov", url: "https://www.mentalhealth.gov/" },
+      {
+        name: "National Institute of Mental Health",
+        url: "https://www.nimh.nih.gov/",
+      },
+      {
+        name: "National Mental Health Association",
+        url: "https://www.nmha.org/",
+      },
+      {
+        name: "National Eating Disorders Association",
+        url: "https://www.nationaleatingdisorders.org/",
+      },
+      {
+        name: "National Sleep Foundation",
+        url: "https://www.sleepfoundation.org/",
+      },
+      {
+        name: "National Women's Health Resource Center",
+        url: "https://www.healthywomen.org/",
+      },
+      {
+        name: "The National Child Traumatic Stress Network",
+        url: "https://www.nctsn.org/trauma-types/terrorism",
+      },
+      {
+        name: "NAMI (National Alliance on Mental Illness)",
+        url: "https://www.nami.org/",
+      },
+      {
+        name: "Substance Abuse and Mental Health Services Administration",
+        url: "https://www.samhsa.gov/",
+      },
+      {
+        name: "Centers for Disease Control and Prevention (CDC)",
+        url: "https://www.cdc.gov/",
+      },
+    ],
+  },
+  {
+    title: "Suicide Awareness & Hotlines",
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>`,
+    links: [
+      {
+        name: "American Foundation for Suicide Prevention",
+        url: "https://www.afsp.org/",
+      },
+      {
+        name: "Suicide Awareness Voices of Education",
+        url: "https://www.save.org/",
+      },
+      {
+        name: "Suicide: Read This First",
+        url: "https://www.metanoia.org/suicide/",
+      },
+    ],
+  },
+  {
+    title: "Depression",
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.182 16.318A4.486 4.486 0 0012.016 15a4.486 4.486 0 00-3.198 1.318M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" /></svg>`,
+    links: [
+      {
+        name: "Bipolar Disorder News — Pendulum.org",
+        url: "http://www.pendulum.org/",
+      },
+      {
+        name: "Depression and How Therapy Can Help",
+        url: "https://www.apa.org/topics/depress/recover.aspx",
+      },
+      {
+        name: "Depression Screening",
+        url: "https://adaa.org/living-with-anxiety/ask-and-learn/screenings/screening-depression",
+      },
+      {
+        name: "Depression and Bipolar Support Alliance (DBSA)",
+        url: "https://www.dbsalliance.org/",
+      },
+    ],
+  },
+  {
+    title: "Anxiety Disorders",
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" /></svg>`,
+    links: [
+      {
+        name: "Answers to Your Questions About Panic Disorder",
+        url: "https://www.apa.org/pubinfo/panic.html",
+      },
+    ],
+  },
+  {
+    title: "Obsessive-Compulsive Disorder (OCD)",
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3" /></svg>`,
+    links: [
+      { name: "Beyond OCD", url: "https://www.beyondocd.org/" },
+      { name: "International OCD Foundation", url: "https://iocdf.org/" },
+      {
+        name: "Trichotillomania Learning Center",
+        url: "https://www.bfrb.org/",
+      },
+    ],
+  },
+  {
+    title: "Posttraumatic Stress Disorder (PTSD)",
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>`,
+    links: [
+      {
+        name: "Give an Hour — For Veterans and Their Families",
+        url: "https://www.giveanhour.org/",
+      },
+      { name: "National Center for PTSD", url: "https://www.ptsd.va.gov/" },
+      { name: "The Gift From Within", url: "https://www.giftfromwithin.org/" },
+      { name: "Sidran Institute", url: "https://www.sidran.org/" },
+    ],
+  },
+  {
+    title: "Addiction & Recovery",
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182" /></svg>`,
+    links: [
+      { name: "Alcoholics Anonymous", url: "https://www.aa.org/" },
+      { name: "Center for On-Line Addiction", url: "http://netaddiction.com/" },
+      { name: "Web of Addictions", url: "https://www.well.com/user/woa/" },
+    ],
+  },
+  {
+    title: "Eating Disorders",
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" /></svg>`,
+    links: [
+      {
+        name: "American Dietetic Association",
+        url: "https://www.eatright.org/",
+      },
+    ],
+  },
+  {
+    title: "Personality Disorders",
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>`,
+    links: [
+      {
+        name: "Personality Disorders — APA",
+        url: "https://www.psychiatry.org/patients-families/personality-disorders/what-are-personality-disorders",
+      },
+    ],
+  },
+  {
+    title: "Attention-Deficit Hyperactivity Disorder",
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>`,
+    links: [
+      {
+        name: "ADDA — Attention Deficit Disorder Association",
+        url: "https://www.add.org/",
+      },
+      {
+        name: "ADHD — National Institute of Mental Health",
+        url: "https://www.nimh.nih.gov/health/topics/attention-deficit-hyperactivity-disorder-adhd/index.shtml",
+      },
+    ],
+  },
+  {
+    title: "Child Abuse & Domestic Violence",
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285zm0 13.036h.008v.008H12v-.008z" /></svg>`,
+    links: [
+      { name: "Childhelp USA", url: "https://www.childhelp.org/" },
+      {
+        name: "Questions and Answers about Memories of Childhood Abuse",
+        url: "https://www.apa.org/topics/trauma/memories.aspx",
+      },
+      {
+        name: "The National Domestic Violence Hotline",
+        url: "https://www.thehotline.org/",
+      },
+    ],
+  },
+  {
+    title: "Developmental Disorders",
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" /></svg>`,
+    links: [
+      {
+        name: "Developmental Disabilities — CDC",
+        url: "https://www.cdc.gov/ncbddd/developmentaldisabilities/",
+      },
+    ],
+  },
+  {
+    title: "Diagnosis",
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15a2.25 2.25 0 012.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0118 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3l1.5 1.5 3-3.75" /></svg>`,
+    links: [
+      {
+        name: "DSM-5: Diagnoses and Criteria",
+        url: "https://dsm.psychiatryonline.org/doi/book/10.1176/appi.books.9780890425596",
+      },
+    ],
+  },
+  {
+    title: "Medication",
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" /></svg>`,
+    links: [
+      {
+        name: "DrugWatch.com — Medication Information & Side Effects",
+        url: "https://www.drugwatch.com/",
+      },
+    ],
+  },
+];
+---
+
+<Layout
+  title='Mental Health Links — Resources & Support'
+  description='Explore curated mental health resources including associations, crisis hotlines, depression, anxiety, PTSD, and addiction support links.'
+  schema={schemas}
+>
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- HERO BANNER                                                -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section
+    class='relative bg-brand-blue py-24 md:py-32 lg:py-40 overflow-hidden'
+  >
+    <!-- Background image -->
+    <img
+      src='https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=1920&h=1080&fit=crop&q=80'
+      alt='Calm sunset over the ocean representing peace and mental well-being'
+      width='1920'
+      height='1080'
+      loading='eager'
+      fetchpriority='high'
+      class='absolute inset-0 w-full h-full object-cover'
+    />
+    <!-- Dark overlay for text readability -->
+    <div class='absolute inset-0 bg-brand-blue/70' aria-hidden='true'></div>
+    <!-- Ambient glow -->
+    <div
+      class='absolute inset-0 opacity-[0.06] pointer-events-none'
+      aria-hidden='true'
+    >
+      <div
+        class='absolute -top-24 -left-24 w-[500px] h-[500px] bg-brand-gold rounded-full blur-[120px]'
+      >
+      </div>
+      <div
+        class='absolute -bottom-32 -right-16 w-[400px] h-[400px] bg-brand-gold-light rounded-full blur-[100px]'
+      >
+      </div>
+    </div>
+    <div class='relative z-10 max-w-4xl mx-auto px-6 text-center'>
+      <div
+        class='flex items-center justify-center gap-3 mb-6'
+        aria-hidden='true'
+      >
+        <span class='block w-10 h-[1.5px] bg-brand-gold'></span>
+        <span class='block w-2 h-2 rounded-full border border-brand-gold'
+        ></span>
+        <span class='block w-10 h-[1.5px] bg-brand-gold'></span>
+      </div>
+      <h1
+        class='text-3xl md:text-5xl font-display italic text-white leading-tight'
+      >
+        Mental Health <span class='text-brand-gold-light'>Links</span>
+      </h1>
+      <p
+        class='mt-4 text-white/70 text-base md:text-lg max-w-2xl mx-auto font-sans'
+      >
+        The following links provide additional online mental health care
+        information. Please also check our physical health resources for a more
+        comprehensive understanding of your overall well-being.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- RESOURCE CATEGORIES                                        -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section class='max-w-6xl mx-auto px-6 py-16 md:py-24'>
+    <div class='grid grid-cols-1 md:grid-cols-2 gap-8'>
+      {
+        categories.map((category) => (
+          <div class='bg-white rounded-2xl border border-brand-gold/10 shadow-lg shadow-brand-blue/5 p-8 hover:shadow-xl hover:border-brand-gold/20 transition-all duration-300'>
+            <div class='flex items-center gap-3 mb-6'>
+              <span class='flex-shrink-0 w-11 h-11 rounded-xl bg-brand-blue/5 flex items-center justify-center text-brand-blue'>
+                <Fragment set:html={category.icon} />
+              </span>
+              <h2 class='font-display text-xl text-brand-blue'>
+                {category.title}
+              </h2>
+            </div>
+            <ul class='space-y-3'>
+              {category.links.map((link) => (
+                <li>
+                  <a
+                    href={link.url}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    class='group flex items-center gap-2 text-brand-blue/70 hover:text-brand-gold transition-colors duration-200 font-sans text-[15px]'
+                  >
+                    <svg
+                      class='w-4 h-4 flex-shrink-0 text-brand-gold/50 group-hover:text-brand-gold transition-colors duration-200'
+                      fill='none'
+                      viewBox='0 0 24 24'
+                      stroke='currentColor'
+                      stroke-width='2'
+                    >
+                      <path
+                        stroke-linecap='round'
+                        stroke-linejoin='round'
+                        d='M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25'
+                      />
+                    </svg>
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- CTA — CONTACT                                              -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section class='bg-brand-cream py-16 md:py-24'>
+    <div class='max-w-3xl mx-auto px-6 text-center'>
+      <div
+        class='flex items-center justify-center gap-3 mb-6'
+        aria-hidden='true'
+      >
+        <span class='block w-8 h-[1.5px] bg-brand-gold'></span>
+        <span class='block w-2 h-2 rounded-full border border-brand-gold'
+        ></span>
+        <span class='block w-8 h-[1.5px] bg-brand-gold'></span>
+      </div>
+      <h2 class='font-display text-2xl md:text-3xl text-brand-blue italic'>
+        Need Professional Support?
+      </h2>
+      <p
+        class='mt-4 text-brand-blue/60 font-sans text-base md:text-lg max-w-xl mx-auto leading-relaxed'
+      >
+        If you or a loved one is struggling with mental health challenges, our
+        compassionate team is here to help. Reach out to schedule a consultation
+        today.
+      </p>
+      <a
+        href='/contact'
+        class='inline-flex items-center gap-2 mt-8 px-8 py-3.5 bg-brand-blue text-white font-semibold rounded-full hover:bg-brand-blue-light transition-colors duration-300 shadow-lg shadow-brand-blue/20'
+      >
+        Contact Us
+        <svg
+          class='w-4 h-4'
+          fill='none'
+          viewBox='0 0 24 24'
+          stroke='currentColor'
+          stroke-width='2'
+        >
+          <path
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3'></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+</Layout>

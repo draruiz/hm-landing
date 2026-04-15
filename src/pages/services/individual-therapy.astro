@@ -1,0 +1,198 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { breadcrumbSchema } from "../../utils/seo";
+
+const siteUrl = "https://healthymindspecialists.com";
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "Our Services", url: `${siteUrl}/#services` },
+    {
+      name: "Individual Therapy",
+      url: `${siteUrl}/services/individual-therapy`,
+    },
+  ]),
+];
+---
+
+<Layout
+  title='Individual Therapy'
+  description='One-on-one therapy sessions focused on personal growth, healing, and resilience with truly customized care at Healthy Mind Specialists.'
+  schema={schemas}
+>
+  <!-- Hero Banner -->
+  <section class='relative h-[420px] md:h-[500px] overflow-hidden'>
+    <img
+      src='https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1920&h=600&fit=crop&q=80'
+      alt='Aerial view of turquoise ocean water representing clarity through individual therapy'
+      width='1920'
+      height='600'
+      class='absolute inset-0 w-full h-full object-cover'
+      loading='eager'
+    />
+    <div
+      class='absolute inset-0 bg-gradient-to-r from-brand-blue/80 to-brand-blue/40'
+    >
+    </div>
+    <div class='relative h-full flex items-center'>
+      <div class='max-w-4xl mx-auto px-6 text-white'>
+        <h1 class='text-4xl md:text-5xl lg:text-6xl font-display italic mb-4'>
+          Individual Therapy
+        </h1>
+        <p class='text-xl md:text-2xl text-white/80 max-w-2xl'>
+          Truly customized therapy — because you deserve individualized
+          attention.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class='py-20 md:py-28'>
+    <div class='max-w-4xl mx-auto px-6'>
+      <!-- Intro -->
+      <div class='mb-16'>
+        <h2
+          class='text-3xl md:text-4xl font-display italic text-brand-blue mb-6'
+        >
+          Is Individual Therapy Right for You?
+        </h2>
+        <div class='space-y-5 text-lg text-brand-blue/70 leading-relaxed'>
+          <p>
+            Are you having a difficult time handling the struggles in your life?
+            Could you use an expert opinion on what you're going through, or a
+            non-judgmental ear just to listen? Do you think you could benefit
+            the most from individualized attention?
+          </p>
+          <p>
+            If you answered "yes" to any of these questions, then individual
+            therapy could be the solution you've been seeking. Individual
+            therapy differs from group or alternative therapy methods in that
+            you are the sole focus of a single therapist who helps you develop
+            and achieve your goals for therapy.
+          </p>
+          <p>
+            If you've been feeling hopeless or lost lately, or struggling with a
+            problem in your life that feels unsurmountable, individual therapy
+            could help you improve your everyday life. Individual therapy helps
+            you win against whatever you're battling by putting a real expert in
+            your corner.
+          </p>
+        </div>
+      </div>
+
+      <!-- Image break -->
+      <div class='mb-16 rounded-2xl overflow-hidden shadow-lg'>
+        <img
+          src='https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=1200&h=500&fit=crop&q=80'
+          alt='Calm therapy environment representing safe space for individual therapy sessions'
+          width='1200'
+          height='500'
+          loading='lazy'
+          class='w-full h-[300px] md:h-[400px] object-cover'
+        />
+      </div>
+
+      <!-- Signs section -->
+      <div class='mb-16'>
+        <h2
+          class='text-3xl md:text-4xl font-display italic text-brand-blue mb-6'
+        >
+          Signs Individual Therapy Could Help
+        </h2>
+        <div
+          class='bg-brand-cream/50 rounded-2xl p-8 md:p-10 border border-brand-blue/5'
+        >
+          <ul class='space-y-4'>
+            {
+              [
+                "You keep worrying about the same problem over and over",
+                "You don't know who you could ever trust with knowing about your secret struggle",
+                "You wish there was somebody who could tell you why you feel this way",
+                "You're interested in therapy, but you don't want to give up total control",
+                "Other areas of your life are being negatively impacted by your struggle",
+                "You need somebody to listen to you and your feelings for once",
+                "You're interested in therapy, but not sure how it could fit into your life",
+              ].map((item) => (
+                <li class='flex items-start gap-3 text-brand-blue/70'>
+                  <svg
+                    class='w-5 h-5 text-brand-gold mt-1 shrink-0'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    stroke-width='2'
+                    stroke='currentColor'
+                  >
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      d='M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
+                    />
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+
+      <!-- Why individual therapy -->
+      <div class='mb-16'>
+        <h2
+          class='text-3xl md:text-4xl font-display italic text-brand-blue mb-6'
+        >
+          Why Choose Individual Therapy?
+        </h2>
+        <div class='space-y-5 text-lg text-brand-blue/70 leading-relaxed'>
+          <p>
+            Individual therapy is so helpful for so many people because it's the
+            best way to get truly customized therapy. Group therapy may have its
+            own set of numerous advantages, but if you want more control over
+            the pacing of your therapy, the methods used, the amount of analysis
+            or feedback you can receive, and the timing of your sessions, you
+            owe it to yourself to look into individual therapy.
+          </p>
+          <p>
+            If you're looking for help in improving your everyday life — or for
+            a more tailored therapy experience — you would be a great fit for
+            our individual therapy services.
+          </p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div
+        class='text-center bg-brand-cream/60 rounded-2xl p-10 md:p-14 border border-brand-blue/5'
+      >
+        <h2
+          class='text-2xl md:text-3xl font-display italic text-brand-blue mb-4'
+        >
+          Ready to Take the First Step?
+        </h2>
+        <p class='text-brand-blue/60 mb-8 max-w-xl mx-auto'>
+          Reach out today for an assessment for individual therapy or to
+          schedule your first appointment.
+        </p>
+        <a
+          href='/contact'
+          class='inline-flex items-center px-8 py-4 text-base font-semibold rounded-full border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300'
+        >
+          Contact Us
+          <svg
+            class='w-5 h-5 ml-2'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke-width='2'
+            stroke='currentColor'
+          >
+            <path
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3'></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

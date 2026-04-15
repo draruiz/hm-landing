@@ -1,20 +1,26 @@
 ---
 /**
- * Hero section with video background and rotating psychologist quotes.
- * Designed for the homepage with SEO-optimized heading and semantic HTML.
+ * Awwwards-quality Hero — cinematic video background, GSAP-powered
+ * split-text entrance, elegant quote carousel, decorative ornaments.
  */
 export interface Props {
   heading: string;
+  subheading?: string;
   ctaText: string;
   ctaHref: string;
+  secondaryCtaText?: string;
+  secondaryCtaHref?: string;
   videoSrc: string;
   posterSrc?: string;
 }
 
 const {
   heading,
+  subheading = "Integrative Psychological Services",
   ctaText,
   ctaHref,
+  secondaryCtaText,
+  secondaryCtaHref,
   videoSrc,
   posterSrc = "/images/hero-poster.jpg",
 } = Astro.props;
@@ -45,15 +51,19 @@ const quotes = [
     author: "William James",
   },
 ];
+
+/* Split heading into words for staggered reveal */
+const words = heading.split(" ");
 ---
 
 <section
+  id='hero'
   class='relative min-h-screen flex items-center justify-center overflow-hidden'
   aria-label='Welcome hero'
 >
-  <!-- Video Background -->
+  <!-- ═══ Video Background ═══ -->
   <video
-    class='absolute inset-0 w-full h-full object-cover'
+    class='hero-video absolute inset-0 w-full h-full object-cover scale-105'
     autoplay
     muted
     loop
@@ -65,84 +75,356 @@ const quotes = [
     <source src={videoSrc} type='video/mp4' />
   </video>
 
-  <!-- Dark overlay for readability -->
-  <div class='absolute inset-0 bg-brand-blue/60' aria-hidden='true'></div>
+  <!-- ═══ Overlay stack (gradient + colour + vignette + grain) ═══ -->
+  <div class='absolute inset-0 hero-gradient' aria-hidden='true'></div>
+  <div
+    class='absolute inset-0 bg-brand-blue/50 mix-blend-multiply'
+    aria-hidden='true'
+  >
+  </div>
+  <div class='absolute inset-0 hero-vignette' aria-hidden='true'></div>
+  <div class='absolute inset-0 hero-grain' aria-hidden='true'></div>
 
-  <!-- Content -->
-  <div class='relative z-10 max-w-4xl mx-auto px-4 text-center'>
+  <!-- ═══ Decorative ornaments ═══ -->
+  <div
+    class='hero-ornament absolute top-10 left-8 md:left-16 flex flex-col items-center gap-3 opacity-0'
+    aria-hidden='true'
+  >
+    <span
+      class='block w-px h-20 bg-gradient-to-b from-transparent via-brand-gold/60 to-transparent'
+    ></span>
+    <span class='block w-2 h-2 rounded-full border border-brand-gold/50'></span>
+  </div>
+  <div
+    class='hero-ornament absolute bottom-28 right-8 md:right-16 flex flex-col items-center gap-3 opacity-0'
+    aria-hidden='true'
+  >
+    <span class='block w-2 h-2 rounded-full border border-brand-gold/50'></span>
+    <span
+      class='block w-px h-20 bg-gradient-to-b from-transparent via-brand-gold/60 to-transparent'
+    ></span>
+  </div>
+  <div
+    class='hero-ornament absolute top-1/4 right-12 md:right-24 opacity-0'
+    aria-hidden='true'
+  >
+    <svg
+      width='60'
+      height='60'
+      viewBox='0 0 60 60'
+      fill='none'
+      class='text-brand-gold/20'
+    >
+      <circle cx='30' cy='30' r='29' stroke='currentColor' stroke-width='0.5'
+      ></circle>
+      <circle cx='30' cy='30' r='18' stroke='currentColor' stroke-width='0.5'
+      ></circle>
+    </svg>
+  </div>
+
+  <!-- ═══ Main Content ═══ -->
+  <div class='relative z-10 max-w-5xl mx-auto px-6 md:px-10 text-center'>
+    <!-- Subheading -->
+    <p
+      class='hero-subtitle opacity-0 text-xs md:text-sm tracking-[0.35em] uppercase text-brand-gold-light font-sans font-medium mb-6 md:mb-8'
+    >
+      {subheading}
+    </p>
+
+    <!-- Accessible h1 kept for SEO -->
     <h1 class='sr-only'>{heading}</h1>
 
-    <!-- Quote rotator -->
+    <!-- Visible heading — word-by-word reveal -->
+    <div class='hero-title-wrap mb-8 md:mb-12' aria-hidden='true'>
+      <p
+        class='text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-white leading-[1.15] tracking-tight'
+      >
+        {
+          words.map((word, i) => (
+            <span class='hero-word inline-block overflow-hidden mr-[0.3em]'>
+              <span class='hero-word-inner inline-block translate-y-full opacity-0'>
+                {word}
+              </span>
+            </span>
+          ))
+        }
+      </p>
+    </div>
+
+    <!-- Divider line -->
+    <div
+      class='hero-divider mx-auto mb-8 md:mb-10 w-0 h-px bg-gradient-to-r from-transparent via-brand-gold to-transparent'
+    >
+    </div>
+
+    <!-- Quote carousel -->
     <blockquote
       id='hero-quote'
-      class='mb-10'
+      class='hero-quote mb-10 md:mb-14 opacity-0'
       aria-live='polite'
       aria-atomic='true'
     >
       <p
         id='hero-quote-text'
-        class='text-2xl md:text-4xl lg:text-5xl font-display italic text-white leading-snug md:leading-tight drop-shadow-lg'
+        class='text-base sm:text-lg md:text-xl lg:text-2xl font-display italic text-white/90 leading-relaxed max-w-3xl mx-auto'
       >
         &ldquo;{quotes[0].text}&rdquo;
       </p>
       <footer class='mt-4'>
         <cite
           id='hero-quote-author'
-          class='text-lg md:text-xl text-brand-gold-light font-sans not-italic font-medium tracking-wide'
+          class='text-sm md:text-base text-brand-gold-light font-sans not-italic font-medium tracking-widest uppercase'
         >
-          &mdash; {quotes[0].author}
+          {quotes[0].author}
         </cite>
       </footer>
     </blockquote>
 
-    <a
-      href={ctaHref}
-      class='inline-block px-10 py-3.5 text-base md:text-lg font-semibold border-2 border-white text-white rounded-sm hover:bg-white hover:text-brand-blue transition-all duration-300 tracking-wide'
+    <!-- CTAs -->
+    <div
+      class='hero-cta flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0'
     >
-      {ctaText}
-    </a>
+      <a
+        href={ctaHref}
+        class='group relative inline-flex items-center gap-2 px-10 py-4 text-sm md:text-base font-semibold tracking-widest uppercase bg-brand-gold text-brand-blue-dark rounded-none overflow-hidden transition-colors duration-500 hover:bg-brand-gold-light'
+      >
+        <span class='relative z-10'>{ctaText}</span>
+        <svg
+          class='relative z-10 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1'
+          fill='none'
+          viewBox='0 0 24 24'
+          stroke='currentColor'
+          stroke-width='2'
+        >
+          <path
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            d='M17 8l4 4m0 0l-4 4m4-4H3'></path>
+        </svg>
+      </a>
+      {
+        secondaryCtaText && secondaryCtaHref && (
+          <a
+            href={secondaryCtaHref}
+            class='inline-flex items-center gap-2 px-10 py-4 text-sm md:text-base font-semibold tracking-widest uppercase border border-white/30 text-white rounded-none transition-all duration-500 hover:border-white hover:bg-white/10'
+          >
+            {secondaryCtaText}
+          </a>
+        )
+      }
+    </div>
+  </div>
+
+  <!-- ═══ Scroll indicator ═══ -->
+  <div
+    class='scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-0'
+  >
+    <span class='text-[10px] tracking-[0.3em] uppercase text-white/50 font-sans'
+      >Scroll</span
+    >
+    <div
+      class='w-5 h-9 rounded-full border border-white/30 flex items-start justify-center pt-1.5'
+    >
+      <span class='scroll-dot block w-1 h-1 rounded-full bg-brand-gold'></span>
+    </div>
   </div>
 </section>
 
-<!-- Quote rotation script (minimal, deferred) -->
-<script define:vars={{ quotes }}>
+<!-- ═══ GSAP Entrance + Quote Carousel ═══ -->
+<script>
+  import gsap from "gsap";
+
   document.addEventListener("DOMContentLoaded", () => {
+    /* ── Reduced-motion: show everything instantly ── */
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (prefersReduced) {
+      document
+        .querySelectorAll<HTMLElement>(
+          ".hero-word-inner, .hero-subtitle, .hero-divider, .hero-quote, .hero-cta, .scroll-indicator, .hero-ornament",
+        )
+        .forEach((el) => {
+          el.style.opacity = "1";
+          el.style.transform = "none";
+        });
+      // Divider still needs width
+      const divider = document.querySelector<HTMLElement>(".hero-divider");
+      if (divider) divider.style.width = "120px";
+      startQuoteRotation();
+      return;
+    }
+
+    /* ── Master entrance timeline ── */
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+    // Subtle zoom on video
+    tl.to(".hero-video", { scale: 1, duration: 6, ease: "power1.out" }, 0);
+
+    // Word-by-word title reveal
+    tl.to(
+      ".hero-word-inner",
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.9,
+        stagger: 0.08,
+        ease: "power4.out",
+      },
+      0.3,
+    );
+
+    // Subheading fade up
+    tl.fromTo(
+      ".hero-subtitle",
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8 },
+      0.15,
+    );
+
+    // Divider expand
+    tl.to(
+      ".hero-divider",
+      { width: "120px", duration: 1, ease: "power2.inOut" },
+      1.0,
+    );
+
+    // Quote fade in
+    tl.fromTo(
+      ".hero-quote",
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8 },
+      1.3,
+    );
+
+    // CTA buttons
+    tl.fromTo(
+      ".hero-cta",
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.7 },
+      1.6,
+    );
+
+    // Scroll indicator
+    tl.fromTo(
+      ".scroll-indicator",
+      { y: 10, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6 },
+      1.9,
+    );
+
+    // Ornaments
+    tl.fromTo(
+      ".hero-ornament",
+      { opacity: 0 },
+      { opacity: 1, duration: 1.2, stagger: 0.2 },
+      1.2,
+    );
+
+    // Scroll dot loop
+    gsap.to(".scroll-dot", {
+      y: 14,
+      duration: 1.5,
+      repeat: -1,
+      yoyo: true,
+      ease: "power1.inOut",
+    });
+
+    // Quote rotation (start after entrance)
+    tl.call(startQuoteRotation, [], 2.5);
+  });
+
+  /* ── Quote carousel ── */
+  const heroQuotes = [
+    {
+      text: "Just because no one else can heal or do inner work for you doesn\u2019t mean you can, should, or need to do it alone.",
+      author: "Lisa Olivera",
+    },
+    {
+      text: "What mental health needs is more sunlight, more candor, and more unashamed conversation.",
+      author: "Glenn Close",
+    },
+    {
+      text: "You don\u2019t have to control your thoughts. You just have to stop letting them control you.",
+      author: "Dan Millman",
+    },
+    {
+      text: "There is hope, even when your brain tells you there isn\u2019t.",
+      author: "John Green",
+    },
+    {
+      text: "Vulnerability is not winning or losing; it\u2019s having the courage to show up and be seen when we have no control over the outcome.",
+      author: "Bren\u00e9 Brown",
+    },
+    {
+      text: "The greatest discovery of my generation is that a human being can alter his life by altering his attitudes.",
+      author: "William James",
+    },
+  ];
+
+  let quoteIndex = 0;
+
+  function startQuoteRotation() {
     const textEl = document.getElementById("hero-quote-text");
     const authorEl = document.getElementById("hero-quote-author");
     if (!textEl || !authorEl) return;
 
-    let currentIndex = 0;
-    const total = quotes.length;
-
-    function fadeOut(el) {
-      el.style.transition = "opacity 0.8s ease";
-      el.style.opacity = "0";
-    }
-
-    function fadeIn(el) {
-      el.style.transition = "opacity 0.8s ease";
-      el.style.opacity = "1";
-    }
-
     setInterval(() => {
-      fadeOut(textEl);
-      fadeOut(authorEl);
-
-      setTimeout(() => {
-        currentIndex = (currentIndex + 1) % total;
-        const quote = quotes[currentIndex];
-        textEl.textContent = `\u201C${quote.text}\u201D`;
-        authorEl.textContent = `\u2014 ${quote.author}`;
-        fadeIn(textEl);
-        fadeIn(authorEl);
-      }, 800);
-    }, 6000);
-  });
+      const tl = gsap.timeline();
+      tl.to([textEl, authorEl], {
+        y: -20,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power2.in",
+        stagger: 0.05,
+      });
+      tl.call(() => {
+        quoteIndex = (quoteIndex + 1) % heroQuotes.length;
+        const q = heroQuotes[quoteIndex];
+        textEl.textContent = `\u201C${q.text}\u201D`;
+        authorEl.textContent = q.author;
+      });
+      tl.fromTo(
+        [textEl, authorEl],
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, ease: "power2.out", stagger: 0.05 },
+      );
+    }, 7000);
+  }
 </script>
 
 <style>
-  #hero-quote-text,
-  #hero-quote-author {
-    opacity: 1;
+  /* Gradient overlay — cinematic dark-to-transparent bottom-heavy */
+  .hero-gradient {
+    background: linear-gradient(
+      180deg,
+      rgba(15, 36, 64, 0.3) 0%,
+      rgba(15, 36, 64, 0.1) 40%,
+      rgba(15, 36, 64, 0.5) 70%,
+      rgba(15, 36, 64, 0.85) 100%
+    );
+  }
+
+  /* Vignette for cinematic framing */
+  .hero-vignette {
+    background: radial-gradient(
+      ellipse at center,
+      transparent 50%,
+      rgba(15, 36, 64, 0.5) 100%
+    );
+  }
+
+  /* Film grain texture */
+  .hero-grain {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+
+  /* Ensure initial hidden state for CSS-only render before JS loads */
+  .hero-word-inner {
+    will-change: transform, opacity;
   }
 </style>

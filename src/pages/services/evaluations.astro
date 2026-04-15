@@ -1,0 +1,636 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { breadcrumbSchema } from "../../utils/seo";
+
+const siteUrl = "https://healthymindspecialists.com";
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "Our Services", url: `${siteUrl}/#services` },
+    {
+      name: "Comprehensive Psychological Evaluations",
+      url: `${siteUrl}/services/evaluations`,
+    },
+  ]),
+];
+
+const evaluationTypes = [
+  {
+    name: "Neurodevelopmental Evaluations",
+    description:
+      "Assess attention, executive functioning, social communication, and behavioral regulation. Often used to evaluate for ADHD, Autism Spectrum Disorder, and related concerns in both children and adults.",
+    href: "/services/online-adhd-evaluations",
+    image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&h=400&fit=crop&q=80",
+    imageAlt: "Child in a focused learning environment during a neurodevelopmental evaluation",
+  },
+  {
+    name: "Educational (Psychoeducational) Evaluations",
+    description:
+      "Examine cognitive abilities, academic achievement, and learning processes to identify learning disabilities, giftedness, or school-based challenges. Results support accommodation requests through IEPs or 504 Plans.",
+    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=400&fit=crop&q=80",
+    imageAlt: "Student studying at a desk representing psychoeducational assessment",
+  },
+  {
+    name: "Diagnostic Clarification & Personality Assessments",
+    description:
+      "Clarify complex, overlapping, or unresolved psychiatric symptoms using structured interviews and standardized personality instruments (e.g., MMPI-3, PAI). Ideal for individuals whose prior treatment has not resulted in sustained improvement.",
+    image: "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=600&h=400&fit=crop&q=80",
+    imageAlt: "Professional conversation between clinician and client for diagnostic clarification",
+  },
+  {
+    name: "Cognitive & Psychological Assessments",
+    description:
+      "Explore attention, memory, processing speed, and executive functioning within the context of emotional or behavioral health. Findings clarify how psychological symptoms affect cognitive performance.",
+    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&h=400&fit=crop&q=80",
+    imageAlt: "Person engaged in cognitive tasks during a psychological assessment",
+  },
+  {
+    name: "Vocational Assessments",
+    description:
+      "Identify cognitive strengths, interests, and psychological factors that influence career functioning or decision-making. Often used by young adults, career changers, or individuals experiencing work-related challenges.",
+    image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&h=400&fit=crop&q=80",
+    imageAlt: "Young professional exploring career options through vocational assessment",
+  },
+  {
+    name: "Bariatric Surgery Evaluations",
+    description:
+      "Assess psychological readiness for weight loss surgery in partnership with medical providers. The process examines eating behaviors, coping strategies, trauma history, and overall emotional well-being.",
+    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&h=400&fit=crop&q=80",
+    imageAlt: "Healthcare professional reviewing bariatric surgery evaluation documentation",
+  },
+];
+
+const processSteps = [
+  {
+    number: "01",
+    title: "Clinical Interview",
+    description:
+      "An in-depth conversation exploring emotional, behavioral, medical, academic, and social history. For minors, parent input is essential.",
+    icon: "M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155",
+  },
+  {
+    number: "02",
+    title: "Standardized Testing",
+    description:
+      "Administration of psychological and cognitive measures selected to address specific concerns — assessing memory, attention, learning, personality, executive functioning, or emotional patterns.",
+    icon: "M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z",
+  },
+  {
+    number: "03",
+    title: "Collateral Input & Records Review",
+    description:
+      "Review of relevant educational or medical records, with optional input from teachers, physicians, or other providers.",
+    icon: "M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v16.5c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9zm3.75 11.625a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z",
+  },
+  {
+    number: "04",
+    title: "Comprehensive Report & Feedback",
+    description:
+      "A written report with integrated findings, diagnostic impressions (when applicable), and clear, individualized recommendations. A feedback session is included to review results and discuss next steps.",
+    icon: "M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6",
+  },
+];
+
+const whyChooseUs = [
+  {
+    title: "Specialized Knowledge",
+    text: "Expertise in neurodevelopmental conditions, emotional dysregulation, trauma, and complex presentations.",
+    icon: "M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.62 48.62 0 0112 20.904a48.62 48.62 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5",
+  },
+  {
+    title: "Extensive Experience",
+    text: "Evaluations for ADHD, autism, learning challenges, personality patterns, and treatment resistance.",
+    icon: "M11.42 15.17l-5.658-5.658a8.99 8.99 0 0112.728 0l1.06 1.06M18.36 18.36l-5.658-5.658m0 0l5.658-5.658a8.99 8.99 0 010 12.728M7.757 16.243l5.659 5.658",
+  },
+  {
+    title: "Precision in Assessment",
+    text: "Validated tools that allow for accurate diagnosis and practical, strengths-based recommendations.",
+    icon: "M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z",
+  },
+  {
+    title: "Thoughtful Communication",
+    text: "Every stage of the process — from interviews to written reports to collaborative planning — handled with care.",
+    icon: "M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z",
+  },
+];
+---
+
+<Layout
+  title='Comprehensive Psychological Evaluations'
+  description='In-depth psychological evaluations covering cognitive, emotional, and behavioral functioning to inform diagnosis and treatment planning.'
+  schema={schemas}
+>
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- HERO — Clean title section                                 -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section
+    class='relative overflow-hidden bg-brand-blue'
+    id='eval-hero'
+  >
+    <!-- Background image -->
+    <img
+      src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1920&h=1080&fit=crop&q=80'
+      alt=''
+      width='1920'
+      height='1080'
+      class='absolute inset-0 w-full h-full object-cover'
+      loading='eager'
+      fetchpriority='high'
+      aria-hidden='true'
+    />
+    <div class='absolute inset-0 bg-brand-blue/70'></div>
+    <!-- Ambient glow -->
+    <div class='absolute inset-0 opacity-[0.06] pointer-events-none' aria-hidden='true'>
+      <div class='absolute -top-32 -left-32 w-[600px] h-[600px] bg-brand-gold rounded-full blur-[140px]'></div>
+      <div class='absolute -bottom-40 -right-20 w-[500px] h-[500px] bg-brand-gold-light rounded-full blur-[120px]'></div>
+    </div>
+    <!-- Grid overlay -->
+    <div
+      class='absolute inset-0 opacity-[0.03]'
+      style='background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px); background-size: 60px 60px;'
+      aria-hidden='true'
+    ></div>
+
+    <div class='relative z-10 max-w-5xl mx-auto px-6 pt-36 pb-24 md:pt-44 md:pb-32 text-center'>
+      <!-- Gold ornament -->
+      <div class='hero-ornament flex items-center justify-center gap-3 mb-6' aria-hidden='true'>
+        <span class='block w-10 h-[1.5px] bg-brand-gold'></span>
+        <span class='block w-2.5 h-2.5 rounded-full border border-brand-gold'></span>
+        <span class='block w-10 h-[1.5px] bg-brand-gold'></span>
+      </div>
+
+      <h1 class='hero-title text-4xl md:text-6xl lg:text-7xl font-display italic text-white leading-tight'>
+        Comprehensive Psychological<br />
+        <span class='text-brand-gold-light'>Evaluations</span>
+      </h1>
+
+      <p class='hero-subtitle mt-6 text-white/65 text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto font-sans leading-relaxed'>
+        Accurate insights, practical guidance, and compassionate understanding — a meaningful starting point for lasting change.
+      </p>
+
+      <div class='hero-cta mt-10'>
+        <a
+          href='/contact'
+          class='inline-flex items-center px-8 py-4 text-base font-semibold rounded-full bg-brand-gold text-brand-blue hover:bg-brand-gold-light transition-all duration-300'
+        >
+          Schedule a Consultation
+          <svg class='w-5 h-5 ml-2' fill='none' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor'>
+            <path stroke-linecap='round' stroke-linejoin='round' d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3' />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- INTRO — Split image + text                                 -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section class='py-24 md:py-36 overflow-hidden'>
+    <div class='max-w-7xl mx-auto px-6'>
+      <div class='grid lg:grid-cols-2 gap-12 lg:gap-20 items-center'>
+        <!-- Image -->
+        <div class='reveal-left relative'>
+          <div class='rounded-3xl overflow-hidden shadow-2xl'>
+            <img
+              src='https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=800&h=1000&fit=crop&q=80'
+              alt='Compassionate professional meeting with a client during a psychological evaluation session'
+              width='800'
+              height='1000'
+              loading='lazy'
+              class='w-full h-[400px] md:h-[550px] object-cover'
+            />
+          </div>
+          <!-- Decorative accent -->
+          <div class='absolute -bottom-6 -right-6 w-48 h-48 bg-brand-gold/10 rounded-3xl -z-10' aria-hidden='true'></div>
+          <div class='absolute -top-6 -left-6 w-32 h-32 border-2 border-brand-gold/20 rounded-3xl -z-10' aria-hidden='true'></div>
+        </div>
+
+        <!-- Text -->
+        <div class='reveal-right'>
+          <span class='inline-block text-sm font-semibold text-brand-gold uppercase tracking-widest mb-4'>About Our Evaluations</span>
+          <h2 class='text-3xl md:text-4xl lg:text-5xl font-display italic text-brand-blue mb-6 leading-tight'>
+            More Than Answers —<br />A Meaningful Starting Point
+          </h2>
+          <div class='space-y-5 text-lg text-brand-blue/70 leading-relaxed'>
+            <p>
+              A comprehensive psychological evaluation at Healthy Mind Specialists
+              offers more than answers — it offers a meaningful starting point.
+              Whether you are facing mental health challenges that affect
+              relationships, work, academics, or general well-being, or simply
+              seeking to better understand how you operate, our evaluations are
+              designed to provide accurate insights, practical guidance, and
+              compassionate understanding.
+            </p>
+            <p>
+              Each evaluation includes a thoughtful combination of clinical
+              interviews and assessment tools that explore personality, behavioral
+              patterns, and developmental functioning.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- WHY PURSUE — Alternating layout with image                 -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section class='py-24 md:py-36 bg-brand-cream/40 overflow-hidden'>
+    <div class='max-w-7xl mx-auto px-6'>
+      <div class='grid lg:grid-cols-2 gap-12 lg:gap-20 items-center'>
+        <!-- Text first on desktop -->
+        <div class='reveal-left order-2 lg:order-1'>
+          <span class='inline-block text-sm font-semibold text-brand-gold uppercase tracking-widest mb-4'>Why Evaluate</span>
+          <h2 class='text-3xl md:text-4xl lg:text-5xl font-display italic text-brand-blue mb-6 leading-tight'>
+            Why Pursue a Psychological Evaluation?
+          </h2>
+          <p class='text-lg text-brand-blue/70 leading-relaxed mb-8'>
+            Psychological evaluations are helpful for identifying the underlying
+            contributors to emotional, cognitive, academic, or behavioral
+            difficulties. Many individuals, parents, and medical providers seek
+            evaluation services when:
+          </p>
+          <ul class='space-y-4'>
+            {
+              [
+                "Symptoms have persisted or intensified without clear cause",
+                "There is uncertainty or conflict around an existing diagnosis",
+                "Academic concerns arise around attention, learning, or giftedness",
+                "Personality traits or relationship patterns seem to repeat or interfere",
+                "Medical providers require documentation for procedures such as bariatric surgery",
+                "Clients seek to better understand how their mind works and what they need to thrive",
+              ].map((item) => (
+                <li class='flex items-start gap-3 text-brand-blue/70'>
+                  <svg class='w-5 h-5 text-brand-gold mt-1 shrink-0' fill='none' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor'>
+                    <path stroke-linecap='round' stroke-linejoin='round' d='M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z' />
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+          <p class='text-lg text-brand-blue/70 leading-relaxed mt-6'>
+            An evaluation can guide treatment, clarify educational accommodations,
+            and provide greater clarity for individuals at any stage of life.
+          </p>
+        </div>
+
+        <!-- Image -->
+        <div class='reveal-right order-1 lg:order-2 relative'>
+          <div class='rounded-3xl overflow-hidden shadow-2xl'>
+            <img
+              src='https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?w=800&h=1000&fit=crop&q=80'
+              alt='Person reflecting during a psychological evaluation consultation'
+              width='800'
+              height='1000'
+              loading='lazy'
+              class='w-full h-[400px] md:h-[550px] object-cover'
+            />
+          </div>
+          <div class='absolute -bottom-6 -left-6 w-48 h-48 bg-brand-gold/10 rounded-3xl -z-10' aria-hidden='true'></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- PROCESS — Numbered timeline steps                          -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section class='py-24 md:py-36 overflow-hidden'>
+    <div class='max-w-5xl mx-auto px-6'>
+      <div class='text-center mb-16 md:mb-20'>
+        <span class='inline-block text-sm font-semibold text-brand-gold uppercase tracking-widest mb-4'>The Process</span>
+        <h2 class='text-3xl md:text-4xl lg:text-5xl font-display italic text-brand-blue leading-tight'>
+          What to Expect
+        </h2>
+        <p class='text-lg text-brand-blue/70 leading-relaxed mt-6 max-w-2xl mx-auto'>
+          Each evaluation is personalized based on the referral question, client age, and goals. The process typically includes:
+        </p>
+      </div>
+
+      <!-- Timeline -->
+      <div class='relative'>
+        <!-- Vertical line -->
+        <div class='absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-brand-blue/10 -translate-x-1/2 hidden md:block' aria-hidden='true'></div>
+
+        <div class='space-y-12 md:space-y-0'>
+          {
+            processSteps.map((step, i) => (
+              <div class={`reveal-up md:flex items-center gap-8 md:gap-12 ${i % 2 === 0 ? '' : 'md:flex-row-reverse'} ${i > 0 ? 'md:mt-16' : ''}`}>
+                <!-- Content -->
+                <div class={`flex-1 ${i % 2 === 0 ? 'md:text-right' : ''}`}>
+                  <div class={`bg-white rounded-2xl p-8 shadow-lg border border-brand-blue/5 hover:shadow-xl transition-shadow duration-500 ${i % 2 === 0 ? 'md:mr-8' : 'md:ml-8'}`}>
+                    <div class={`flex items-center gap-4 mb-4 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+                      <div class='w-12 h-12 rounded-xl bg-brand-gold/10 flex items-center justify-center shrink-0'>
+                        <svg class='w-6 h-6 text-brand-gold' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'>
+                          <path stroke-linecap='round' stroke-linejoin='round' d={step.icon} />
+                        </svg>
+                      </div>
+                      <h3 class='text-xl font-semibold text-brand-blue'>{step.title}</h3>
+                    </div>
+                    <p class={`text-brand-blue/70 leading-relaxed ${i % 2 === 0 ? 'md:text-right' : ''}`}>{step.description}</p>
+                  </div>
+                </div>
+
+                <!-- Number circle -->
+                <div class='hidden md:flex w-16 h-16 rounded-full bg-brand-blue text-white items-center justify-center shrink-0 z-10 shadow-lg'>
+                  <span class='text-lg font-display italic'>{step.number}</span>
+                </div>
+
+                <!-- Spacer -->
+                <div class='flex-1 hidden md:block' />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- FULL-WIDTH IMAGE BREAK                                     -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section class='relative h-[50vh] md:h-[60vh] overflow-hidden parallax-image'>
+    <img
+      src='https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=1920&h=900&fit=crop&q=80'
+      alt='Calm serene landscape representing clarity and peace after psychological evaluation'
+      width='1920'
+      height='900'
+      loading='lazy'
+      class='absolute inset-0 w-full h-full object-cover'
+    />
+    <div class='absolute inset-0 bg-brand-blue/50'></div>
+    <div class='relative h-full flex items-center justify-center text-center px-6'>
+      <blockquote class='max-w-3xl reveal-up'>
+        <p class='text-2xl md:text-3xl lg:text-4xl font-display italic text-white leading-snug'>
+          "A psychological evaluation is more than a checklist of symptoms — it is an opportunity to name what has been confusing, understand what has been hidden, and build a path forward."
+        </p>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- WHY CHOOSE US — Feature grid with icons                    -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section class='py-24 md:py-36 overflow-hidden'>
+    <div class='max-w-7xl mx-auto px-6'>
+      <div class='grid lg:grid-cols-2 gap-12 lg:gap-20 items-center'>
+        <div class='reveal-left'>
+          <span class='inline-block text-sm font-semibold text-brand-gold uppercase tracking-widest mb-4'>Why Us</span>
+          <h2 class='text-3xl md:text-4xl lg:text-5xl font-display italic text-brand-blue mb-6 leading-tight'>
+            Why Choose Healthy Mind Specialists?
+          </h2>
+          <p class='text-lg text-brand-blue/70 leading-relaxed'>
+            Our evaluation services reflect a high standard of clinical
+            expertise and specialization. Each assessment is guided by
+            professionals with advanced training in psychological testing,
+            diagnostic formulation, and therapeutic interpretation. We bring
+            years of experience working with individuals across the
+            lifespan — from young children to adults — and are skilled in
+            identifying patterns that often go unnoticed.
+          </p>
+        </div>
+
+        <div class='grid sm:grid-cols-2 gap-6 reveal-right'>
+          {
+            whyChooseUs.map((item, i) => (
+              <div class={`group bg-white rounded-2xl p-6 border border-brand-blue/5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ${i === 1 ? 'sm:translate-y-6' : i === 3 ? 'sm:translate-y-6' : ''}`}>
+                <div class='w-12 h-12 rounded-xl bg-brand-gold/10 flex items-center justify-center mb-4 group-hover:bg-brand-gold/20 transition-colors'>
+                  <svg class='w-6 h-6 text-brand-gold' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='currentColor'>
+                    <path stroke-linecap='round' stroke-linejoin='round' d={item.icon} />
+                  </svg>
+                </div>
+                <h3 class='text-lg font-semibold text-brand-blue mb-2'>{item.title}</h3>
+                <p class='text-brand-blue/70 text-sm leading-relaxed'>{item.text}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- TYPES OF EVALUATIONS — Visual cards grid                   -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section class='py-24 md:py-36 bg-brand-cream/40 overflow-hidden'>
+    <div class='max-w-7xl mx-auto px-6'>
+      <div class='text-center mb-16 md:mb-20'>
+        <span class='inline-block text-sm font-semibold text-brand-gold uppercase tracking-widest mb-4'>Our Services</span>
+        <h2 class='text-3xl md:text-4xl lg:text-5xl font-display italic text-brand-blue leading-tight'>
+          Types of Evaluations
+        </h2>
+      </div>
+
+      <div class='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
+        {
+          evaluationTypes.map((evalType) => (
+            <div class='eval-card group bg-white rounded-2xl overflow-hidden shadow-sm border border-brand-blue/5 hover:shadow-xl hover:-translate-y-2 transition-all duration-500'>
+              <div class='h-48 overflow-hidden'>
+                <img
+                  src={evalType.image}
+                  alt={evalType.imageAlt}
+                  width='600'
+                  height='400'
+                  loading='lazy'
+                  class='w-full h-full object-cover group-hover:scale-105 transition-transform duration-700'
+                />
+              </div>
+              <div class='p-6'>
+                <h3 class='text-lg font-semibold text-brand-blue mb-3 group-hover:text-brand-gold transition-colors'>
+                  {evalType.name}
+                </h3>
+                <p class='text-brand-blue/70 text-sm leading-relaxed'>
+                  {evalType.description}
+                </p>
+                {evalType.href && (
+                  <a
+                    href={evalType.href}
+                    class='inline-flex items-center mt-4 text-sm font-semibold text-brand-blue hover:text-brand-gold transition-colors'
+                  >
+                    Learn more
+                    <svg class='w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform' fill='none' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor'>
+                      <path stroke-linecap='round' stroke-linejoin='round' d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3' />
+                    </svg>
+                  </a>
+                )}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- CTA — Immersive final section                              -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section class='relative py-32 md:py-44 overflow-hidden'>
+    <img
+      src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&h=800&fit=crop&q=80'
+      alt='Peaceful ocean horizon representing hope and new beginnings after evaluation'
+      width='1920'
+      height='800'
+      loading='lazy'
+      class='absolute inset-0 w-full h-full object-cover'
+    />
+    <div class='absolute inset-0 bg-brand-blue/75'></div>
+    <div class='relative z-10 max-w-3xl mx-auto px-6 text-center reveal-up'>
+      <div class='flex items-center justify-center gap-3 mb-6' aria-hidden='true'>
+        <span class='block w-10 h-[1.5px] bg-brand-gold'></span>
+        <span class='block w-2.5 h-2.5 rounded-full border border-brand-gold'></span>
+        <span class='block w-10 h-[1.5px] bg-brand-gold'></span>
+      </div>
+      <h2 class='text-3xl md:text-4xl lg:text-5xl font-display italic text-white mb-6'>
+        Ready to Get Started?
+      </h2>
+      <p class='text-white/70 text-lg md:text-xl mb-10 max-w-xl mx-auto'>
+        Reach out today to learn more about our evaluation services or to
+        schedule an initial consultation.
+      </p>
+      <a
+        href='/contact'
+        class='inline-flex items-center px-10 py-5 text-base font-semibold rounded-full bg-brand-gold text-brand-blue hover:bg-brand-gold-light transition-all duration-300 shadow-lg hover:shadow-xl'
+      >
+        Contact Us
+        <svg class='w-5 h-5 ml-2' fill='none' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor'>
+          <path stroke-linecap='round' stroke-linejoin='round' d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3' />
+        </svg>
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- GSAP ANIMATIONS                                            -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<script>
+  import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener("astro:page-load", () => {
+    const mm = gsap.matchMedia();
+
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+      // Hero entrance
+      const heroTl = gsap.timeline({
+        defaults: { ease: "power3.out", duration: 1 },
+      });
+      gsap.set([".hero-ornament", ".hero-title", ".hero-subtitle", ".hero-cta", ".scroll-indicator"], { y: 30 });
+
+      heroTl
+        .to(".hero-ornament", { opacity: 1, y: 0, duration: 0.6 })
+        .to(".hero-title", { opacity: 1, y: 0 }, "-=0.4")
+        .to(".hero-subtitle", { opacity: 1, y: 0, duration: 0.8 }, "-=0.6")
+        .to(".hero-cta", { opacity: 1, y: 0, duration: 0.6 }, "-=0.4")
+        .to(".scroll-indicator", { opacity: 1, y: 0, duration: 0.6 }, "-=0.2");
+
+      // Reveal left elements
+      gsap.utils.toArray<HTMLElement>(".reveal-left").forEach((el) => {
+        gsap.fromTo(
+          el,
+          { x: -60, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 85%",
+              end: "bottom 20%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      });
+
+      // Reveal right elements
+      gsap.utils.toArray<HTMLElement>(".reveal-right").forEach((el) => {
+        gsap.fromTo(
+          el,
+          { x: 60, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 85%",
+              end: "bottom 20%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      });
+
+      // Reveal up elements
+      gsap.utils.toArray<HTMLElement>(".reveal-up").forEach((el) => {
+        gsap.fromTo(
+          el,
+          { y: 50, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 85%",
+              end: "bottom 20%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      });
+
+      // Evaluation cards stagger
+      ScrollTrigger.batch(".eval-card", {
+        onEnter: (elements) => {
+          gsap.fromTo(
+            elements,
+            { y: 60, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: "power3.out" }
+          );
+        },
+        start: "top 88%",
+        once: true,
+      });
+
+      // Parallax image
+      const parallaxImg = document.querySelector(".parallax-image img");
+      if (parallaxImg) {
+        gsap.fromTo(
+          parallaxImg,
+          { yPercent: -10 },
+          {
+            yPercent: 10,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".parallax-image",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1,
+            },
+          }
+        );
+      }
+    });
+
+    // Fallback: show everything immediately when reduced motion is preferred
+    mm.add("(prefers-reduced-motion: reduce)", () => {
+      gsap.set(
+        [".hero-ornament", ".hero-title", ".hero-subtitle", ".hero-cta", ".scroll-indicator"],
+        { opacity: 1, y: 0 }
+      );
+      gsap.set(
+        [".reveal-left", ".reveal-right", ".reveal-up", ".eval-card"],
+        { opacity: 1, x: 0, y: 0 }
+      );
+    });
+  });
+</script>

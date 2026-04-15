@@ -1,0 +1,212 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { breadcrumbSchema } from "../../utils/seo";
+
+const siteUrl = "https://healthymindspecialists.com";
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "Our Services", url: `${siteUrl}/#services` },
+    { name: "EMDR Therapy", url: `${siteUrl}/services/emdr` },
+  ]),
+];
+---
+
+<Layout
+  title='EMDR Therapy'
+  description='Eye Movement Desensitization and Reprocessing (EMDR) therapy — a proven integrative approach for trauma, anxiety, phobias, and more.'
+  schema={schemas}
+>
+  <!-- Hero Banner -->
+  <section class='relative h-[420px] md:h-[500px] overflow-hidden'>
+    <img
+      src='https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=1920&h=600&fit=crop&q=80'
+      alt='Calm serene landscape representing EMDR therapy for trauma processing'
+      width='1920'
+      height='600'
+      class='absolute inset-0 w-full h-full object-cover'
+      loading='eager'
+    />
+    <div
+      class='absolute inset-0 bg-gradient-to-r from-brand-blue/80 to-brand-blue/40'
+    >
+    </div>
+    <div class='relative h-full flex items-center'>
+      <div class='max-w-4xl mx-auto px-6 text-white'>
+        <h1 class='text-4xl md:text-5xl lg:text-6xl font-display italic mb-4'>
+          EMDR Therapy
+        </h1>
+        <p class='text-xl md:text-2xl text-white/80 max-w-2xl'>
+          Reprocess trauma. Reclaim your life.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class='py-20 md:py-28'>
+    <div class='max-w-4xl mx-auto px-6'>
+      <!-- What is EMDR -->
+      <div class='mb-16'>
+        <h2
+          class='text-3xl md:text-4xl font-display italic text-brand-blue mb-6'
+        >
+          What Is EMDR Therapy?
+        </h2>
+        <div class='space-y-5 text-lg text-brand-blue/70 leading-relaxed'>
+          <p>
+            Eye Movement Desensitization and Reprocessing (EMDR) therapy is an
+            integrative psychotherapy approach that has been extensively
+            researched and proven effective for the treatment of trauma. EMDR is
+            a set of standardized protocols that incorporates elements from
+            different treatment approaches.
+          </p>
+        </div>
+      </div>
+
+      <!-- How EMDR works -->
+      <div class='mb-16'>
+        <h2
+          class='text-3xl md:text-4xl font-display italic text-brand-blue mb-6'
+        >
+          How Does EMDR Work?
+        </h2>
+        <div class='space-y-5 text-lg text-brand-blue/70 leading-relaxed'>
+          <p>
+            EMDR therapy is an integrative psychotherapy method that uses a
+            technique called bilateral stimulation to repeatedly activate
+            opposite sides of the brain. Therapists often use eye movements to
+            facilitate bilateral stimulation. These eye movements mimic the
+            period of sleep referred to as rapid eye movement or REM sleep, and
+            this portion of sleep is frequently considered to be the time when
+            the mind processes the recent events in the person's life.
+          </p>
+          <p>
+            EMDR seems to help the brain reprocess the trapped memories in such
+            a way that normal information processing is resumed. Therapists
+            often use EMDR to help clients uncover and process beliefs that
+            developed as the result of relational traumas, or childhood abuse
+            and/or neglect.
+          </p>
+        </div>
+      </div>
+
+      <!-- Image break -->
+      <div class='mb-16 rounded-2xl overflow-hidden shadow-lg'>
+        <img
+          src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&h=500&fit=crop&q=80'
+          alt='Peaceful natural scene representing the healing process of EMDR therapy'
+          width='1200'
+          height='500'
+          loading='lazy'
+          class='w-full h-[300px] md:h-[400px] object-cover'
+        />
+      </div>
+
+      <!-- What EMDR helps -->
+      <div class='mb-16'>
+        <h2
+          class='text-3xl md:text-4xl font-display italic text-brand-blue mb-6'
+        >
+          What Does EMDR Help?
+        </h2>
+        <p class='text-lg text-brand-blue/70 leading-relaxed mb-8'>
+          EMDR was originally established as helpful for PTSD, although it's
+          been proven useful for treatment in the following conditions:
+        </p>
+        <div class='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
+          {
+            [
+              "Panic Attacks",
+              "Complicated Grief",
+              "Dissociative Disorders",
+              "Disturbing Memories",
+              "Phobias",
+              "Pain Disorders",
+              "Performance Anxiety",
+              "Addictions",
+              "Stress Reduction",
+              "Sexual and/or Physical Abuse",
+              "Body Dysmorphic Disorders",
+              "Personality Disorders",
+            ].map((condition) => (
+              <div class='flex items-center gap-3 bg-brand-cream/50 rounded-xl px-5 py-4 border border-brand-blue/5'>
+                <svg
+                  class='w-5 h-5 text-brand-gold shrink-0'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke-width='2'
+                  stroke='currentColor'
+                >
+                  <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    d='M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
+                  />
+                </svg>
+                <span class='text-brand-blue/70 text-sm'>{condition}</span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Is EMDR for you -->
+      <div class='mb-16'>
+        <h2
+          class='text-3xl md:text-4xl font-display italic text-brand-blue mb-6'
+        >
+          Could EMDR Be Right for You?
+        </h2>
+        <div class='space-y-5 text-lg text-brand-blue/70 leading-relaxed'>
+          <p>
+            Do you experience distressing emotions that appear to you, and
+            perhaps to others, to be excessive given the current situation? Do
+            you tend to be highly reactive to certain triggers? Is there one or
+            more dysfunctional beliefs that you believe about yourself that on
+            an intellectual level you know is not true?
+          </p>
+          <p>
+            If so, you may be a good candidate for EMDR therapy. Contact us
+            today for a free phone consultation to see if EMDR might help you
+            release what no longer serves you.
+          </p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div
+        class='text-center bg-brand-cream/60 rounded-2xl p-10 md:p-14 border border-brand-blue/5'
+      >
+        <h2
+          class='text-2xl md:text-3xl font-display italic text-brand-blue mb-4'
+        >
+          Take the First Step Toward Healing
+        </h2>
+        <p class='text-brand-blue/60 mb-8 max-w-xl mx-auto'>
+          Reach out for a free consultation to see if EMDR therapy is right for
+          you.
+        </p>
+        <a
+          href='/contact'
+          class='inline-flex items-center px-8 py-4 text-base font-semibold rounded-full border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300'
+        >
+          Contact Us
+          <svg
+            class='w-5 h-5 ml-2'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke-width='2'
+            stroke='currentColor'
+          >
+            <path
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3'></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

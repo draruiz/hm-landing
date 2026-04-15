@@ -6,3 +6,7 @@ Disallow: /_astro/
 Disallow: /admin/
 
 Sitemap: https://healthymindspecialists.com/sitemap-index.xml
+
+# LLMs.txt — Generative Engine Optimization
+# https://llmstxt.org
+LLMsTxt: https://healthymindspecialists.com/llms.txt

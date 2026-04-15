@@ -1,0 +1,147 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { breadcrumbSchema } from "../../utils/seo";
+
+const siteUrl = "https://healthymindspecialists.com";
+const staffName = "Dr. Grissel M. Lloyd, PsyD";
+const staffRole = "Licensed Clinical Psychologist";
+const staffSlug = "dr-grissel-m-lloyd-psyd";
+const bannerImage =
+  "https://brightervisionclients.com/resize/63bd841c407b4bb641b23b5b/attachments/c4b1165c-3f2a-47d6-999a-9932498b9ee1?top=0.0000&left=0.0000&bottom=0.5655&right=1.0000";
+const tagline =
+  "Working together to uncover meaning, restore balance, and create lasting change.";
+const profileImage =
+  "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/f2f396df-4594-4d5f-4390-c7cbc0e09b00/public";
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "About Us", url: `${siteUrl}/about` },
+    { name: staffName, url: `${siteUrl}/staff/${staffSlug}` },
+  ]),
+];
+---
+
+<Layout
+  title={staffName}
+  description={`Meet ${staffName}, ${staffRole} at Healthy Mind Specialists in Tampa, FL. Areas of focus include anxiety, OCD, phobias, stress management, and women's mental health.`}
+  schema={schemas}
+>
+  <!-- Hero Banner -->
+  <section class='relative h-[420px] md:h-[500px] overflow-hidden'>
+    <img
+      src={bannerImage}
+      alt={`Portrait of ${staffName}, ${staffRole} at Healthy Mind Specialists`}
+      width='1920'
+      height='600'
+      class='absolute inset-0 w-full h-full object-cover'
+      loading='eager'
+    />
+    <div
+      class='absolute inset-0 bg-gradient-to-r from-brand-blue/80 to-brand-blue/40'
+    >
+    </div>
+    <div class='relative h-full flex items-center'>
+      <div class='max-w-4xl mx-auto px-6 text-white'>
+        <h1 class='text-4xl md:text-5xl lg:text-6xl font-display italic mb-4'>
+          {staffName}
+        </h1>
+        <p class='text-xl md:text-2xl text-white/80 max-w-2xl'>
+          {staffRole}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class='py-20 md:py-28'>
+    <div class='max-w-4xl mx-auto px-6'>
+      <!-- Profile + Tagline -->
+      <div class='mb-12 md:flex md:items-start md:gap-10'>
+        <img
+          src={profileImage}
+          alt={`${staffName}, ${staffRole}`}
+          width='280'
+          height='280'
+          class='w-48 h-48 md:w-64 md:h-64 rounded-2xl object-cover shadow-lg mb-6 md:mb-0 mx-auto md:mx-0 flex-shrink-0'
+          loading='lazy'
+        />
+        <div>
+          <p
+            class='text-2xl md:text-3xl font-display italic text-brand-blue/80'
+          >
+            {tagline}
+          </p>
+          <span class='block w-16 h-[2px] bg-brand-gold mt-6'></span>
+        </div>
+      </div>
+
+      <!-- Bio Content -->
+      <div class='prose prose-lg max-w-none text-brand-blue/80 space-y-6'>
+        <p>
+          Reaching out for support isn't always easy, especially with someone
+          who begins as a stranger. However, therapy offers something rare and
+          powerful, an objective space where you can be fully seen and heard,
+          free from judgment or fear that your vulnerability will be used
+          against you.
+        </p>
+        <p>Hello, I'm Dr. Grissel Lloyd, and I'm so glad you're here.</p>
+        <p>
+          Life brings challenges, transitions, and internal roadblocks that can
+          feel overwhelming, even when we've worked hard and done our best. In
+          our work together, we'll explore the thought patterns, behavioral
+          habits, and subconscious narratives that may be holding you back. It
+          is my job to meet you where you are and move forward together with you
+          owning the power to rewrite your life's story. My approach is
+          collaborative, respectful, and deeply personalized, because your
+          journey is your own, and you deserve to lead it with clarity and
+          intention.
+        </p>
+        <p>
+          My areas of focus include anxiety, OCD, specific phobias, stress
+          management, and women's mental health, particularly the emotional and
+          psychological impact of hormonal changes, including menopause. With a
+          strong foundation in relational and behavioral work, I also specialize
+          in helping individuals navigate breakups, shifting dynamics, and
+          patterns that disrupt connection and growth. These moments of pain or
+          uncertainty can become powerful turning points, and I am here to help
+          you move through them with support and purpose.
+        </p>
+        <p>
+          With more than 20 years in behavioral health, I bring a diverse
+          clinical background to my work. I have served as a board-certified
+          behavior analyst, a licensed mental health counselor, and now as a
+          licensed clinical psychologist. I've had the privilege of supporting
+          children, adolescents, adults, and families across community settings,
+          schools, the Department of Corrections, inpatient psychiatric
+          facilities, clinics, and private practice. What I've learned is that
+          we are all doing the best we can with the resources we have. What do
+          you do when that does not seem to be enough, or things didn't work out
+          as you had hoped? Sometimes, we need a new kind of help to move
+          forward.
+        </p>
+        <p>
+          I'm originally from the Caribbean, though I consider myself a citizen
+          of the world. I love to travel, explore different cultures, and
+          experiment with new recipes. On a typical day, you'll find me with
+          friends and family, practicing Spanish, or relaxing with a good sci-fi
+          or fantasy show.
+        </p>
+        <p>
+          If you're ready to take the next step, I'm here to walk with you.
+          Let's begin.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class='mt-16 text-center'>
+        <a
+          href='/contact'
+          class='inline-flex items-center px-8 py-4 bg-brand-blue text-white font-semibold rounded-full hover:bg-brand-blue-light transition-all duration-300 shadow-lg hover:shadow-xl'
+        >
+          Schedule a Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

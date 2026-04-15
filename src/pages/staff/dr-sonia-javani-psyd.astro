@@ -1,0 +1,116 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { breadcrumbSchema } from "../../utils/seo";
+
+const siteUrl = "https://healthymindspecialists.com";
+const staffName = "Dr. Sonia Javani, PsyD";
+const staffRole = "Director of Practicum and Internship Training";
+const staffSlug = "dr-sonia-javani-psyd";
+const bannerImage =
+  "https://brightervisionclients.com/resize/63bd841c407b4bb641b23b5b/attachments/8a221dce-b237-4249-8b6e-6b3945077609?top=0.0000&left=0.0000&bottom=1.0000&right=1.0000";
+const tagline =
+  "Creating a reflective, authentic space where developing clinicians can grow with confidence and purpose.";
+const profileImage =
+  "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/37569d14-63fe-4060-0043-9e9c1baaed00/public";
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "About Us", url: `${siteUrl}/about` },
+    { name: staffName, url: `${siteUrl}/staff/${staffSlug}` },
+  ]),
+];
+---
+
+<Layout
+  title={staffName}
+  description={`Meet ${staffName}, ${staffRole} at Healthy Mind Specialists in Tampa, FL. Psychologist and clinical supervisor specializing in CBT, ACT, and psychodynamic theory.`}
+  schema={schemas}
+>
+  <!-- Hero Banner -->
+  <section class='relative h-[420px] md:h-[500px] overflow-hidden'>
+    <img
+      src={bannerImage}
+      alt={`Portrait of ${staffName}, ${staffRole} at Healthy Mind Specialists`}
+      width='1920'
+      height='600'
+      class='absolute inset-0 w-full h-full object-cover'
+      loading='eager'
+    />
+    <div
+      class='absolute inset-0 bg-gradient-to-r from-brand-blue/80 to-brand-blue/40'
+    >
+    </div>
+    <div class='relative h-full flex items-center'>
+      <div class='max-w-4xl mx-auto px-6 text-white'>
+        <h1 class='text-4xl md:text-5xl lg:text-6xl font-display italic mb-4'>
+          {staffName}
+        </h1>
+        <p class='text-xl md:text-2xl text-white/80 max-w-2xl'>
+          {staffRole}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class='py-20 md:py-28'>
+    <div class='max-w-4xl mx-auto px-6'>
+      <!-- Profile + Tagline -->
+      <div class='mb-12 md:flex md:items-start md:gap-10'>
+        <img
+          src={profileImage}
+          alt={`${staffName}, ${staffRole}`}
+          width='280'
+          height='280'
+          class='w-48 h-48 md:w-64 md:h-64 rounded-2xl object-cover shadow-lg mb-6 md:mb-0 mx-auto md:mx-0 flex-shrink-0'
+          loading='lazy'
+        />
+        <div>
+          <p
+            class='text-2xl md:text-3xl font-display italic text-brand-blue/80'
+          >
+            {tagline}
+          </p>
+          <span class='block w-16 h-[2px] bg-brand-gold mt-6'></span>
+        </div>
+      </div>
+
+      <!-- Bio Content -->
+      <div class='prose prose-lg max-w-none text-brand-blue/80 space-y-6'>
+        <p>
+          As a psychologist and clinical supervisor, I'm passionate about
+          creating a reflective, authentic space where developing clinicians can
+          grow with confidence and purpose. I approach supervision much like I
+          approach clinical work, with curiosity, compassion, and a belief in
+          the importance of self-awareness and connection.
+        </p>
+        <p>
+          My approach to supervision is collaborative and reflective. I draw
+          from Cognitive Behavioral Therapy (CBT), Acceptance and Commitment
+          Therapy (ACT), and psychodynamic theory, not just as treatment
+          frameworks, but as tools for deepening clinical understanding and
+          sharpening conceptual thinking. I encourage trainees to cultivate
+          their own voice as clinicians while honoring the values of cultural
+          humility, compassion, and evidence-based care.
+        </p>
+        <p>
+          Above all, I strive to show up with radical genuineness. Supervision
+          is a collaborative process, and I consider it a privilege to walk
+          alongside others as they grow, not just in skill, but in confidence,
+          insight, and clarity.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class='mt-16 text-center'>
+        <a
+          href='/contact'
+          class='inline-flex items-center px-8 py-4 bg-brand-blue text-white font-semibold rounded-full hover:bg-brand-blue-light transition-all duration-300 shadow-lg hover:shadow-xl'
+        >
+          Schedule a Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,138 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { breadcrumbSchema } from "../../utils/seo";
+
+const siteUrl = "https://healthymindspecialists.com";
+const staffName = "Chloe Johnson, LMHC";
+const staffRole = "Licensed Mental Health Counselor";
+const staffSlug = "chloe-johnson-lmhc";
+const bannerImage =
+  "https://brightervisionclients.com/resize/63bd841c407b4bb641b23b5b/attachments/5f686685-4804-461c-b7e8-2198428c488b?top=0.0000&left=0.0000&bottom=1.0000&right=1.0000";
+const tagline =
+  "Supporting children, teens, and young adults in building resilience, confidence, and self-understanding.";
+const profileImage =
+  "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/ca480842-0849-4ea3-bd0f-403dd430ad00/public";
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "About Us", url: `${siteUrl}/about` },
+    { name: staffName, url: `${siteUrl}/staff/${staffSlug}` },
+  ]),
+];
+---
+
+<Layout
+  title={staffName}
+  description={`Meet ${staffName}, ${staffRole} at Healthy Mind Specialists in Tampa, FL. Over six years of experience supporting children, adolescents, and young adults with anxiety, trauma, and LGBTQ+ issues.`}
+  schema={schemas}
+>
+  <!-- Hero Banner -->
+  <section class='relative h-[420px] md:h-[500px] overflow-hidden'>
+    <img
+      src={bannerImage}
+      alt={`Portrait of ${staffName}, ${staffRole} at Healthy Mind Specialists`}
+      width='1920'
+      height='600'
+      class='absolute inset-0 w-full h-full object-cover'
+      loading='eager'
+    />
+    <div
+      class='absolute inset-0 bg-gradient-to-r from-brand-blue/80 to-brand-blue/40'
+    >
+    </div>
+    <div class='relative h-full flex items-center'>
+      <div class='max-w-4xl mx-auto px-6 text-white'>
+        <h1 class='text-4xl md:text-5xl lg:text-6xl font-display italic mb-4'>
+          {staffName}
+        </h1>
+        <p class='text-xl md:text-2xl text-white/80 max-w-2xl'>
+          {staffRole}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class='py-20 md:py-28'>
+    <div class='max-w-4xl mx-auto px-6'>
+      <!-- Profile + Tagline -->
+      <div class='mb-12 md:flex md:items-start md:gap-10'>
+        <img
+          src={profileImage}
+          alt={`${staffName}, ${staffRole}`}
+          width='280'
+          height='280'
+          class='w-48 h-48 md:w-64 md:h-64 rounded-2xl object-cover shadow-lg mb-6 md:mb-0 mx-auto md:mx-0 flex-shrink-0'
+          loading='lazy'
+        />
+        <div>
+          <p
+            class='text-2xl md:text-3xl font-display italic text-brand-blue/80'
+          >
+            {tagline}
+          </p>
+          <span class='block w-16 h-[2px] bg-brand-gold mt-6'></span>
+        </div>
+      </div>
+
+      <!-- Bio Content -->
+      <div class='prose prose-lg max-w-none text-brand-blue/80 space-y-6'>
+        <p>
+          Hello! I'm Chloë Johnson, and I'm so glad you're here. Everyone
+          deserves a space where they feel heard, valued, and empowered to grow.
+          As a licensed mental health therapist, I'm dedicated to creating that
+          space for my clients, fostering a journey of healing and
+          transformation.
+        </p>
+        <p>
+          Originally from the Midwest, I found my heart and home in Florida when
+          I moved here for school in 2014. The sunshine, warm community, and
+          opportunities to grow professionally made me stay! When I'm not
+          working, I love spending time with friends and family—movie nights,
+          game nights, and afternoons at the park with my nephew are some of my
+          favorite ways to recharge and stay connected.
+        </p>
+        <p>
+          With over six years of experience, I've worked closely with children,
+          adolescents, young adults, and families to address a wide range of
+          challenges, including anxiety, PTSD, grief, sexual trauma, childhood
+          trauma, self-esteem struggles, bullying, and LGBTQ+ issues. I also
+          have experience supporting individuals with autism, antisocial
+          personality disorder, and schizophrenia.
+        </p>
+        <p>
+          I believe therapy is about more than addressing challenges—it's about
+          helping you build a stronger connection with yourself and the world
+          around you. My goal is to help you feel empowered, confident, and
+          resilient, no matter what life throws your way.
+        </p>
+        <p>
+          I blend evidence-based techniques with a compassionate,
+          client-centered approach. Grounded in trauma-informed care and
+          influenced by Rogerian and Jungian philosophies, I use modalities such
+          as Trust-Based Relational Intervention (TBRI), Dialectical Behavior
+          Therapy (DBT), and Trauma-Focused Cognitive Behavioral Therapy
+          (TF-CBT). What does this mean for you? It means our work together will
+          be tailored to your unique experiences, strengths, and goals.
+        </p>
+        <p>
+          Taking the first step toward healing can feel overwhelming, but you
+          don't have to do it alone. Together, we'll create a path forward that
+          feels right for you. When you're ready, I'm here to help. Let's
+          connect!
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class='mt-16 text-center'>
+        <a
+          href='/contact'
+          class='inline-flex items-center px-8 py-4 bg-brand-blue text-white font-semibold rounded-full hover:bg-brand-blue-light transition-all duration-300 shadow-lg hover:shadow-xl'
+        >
+          Schedule a Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

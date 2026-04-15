@@ -1,0 +1,221 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { breadcrumbSchema } from "../utils/seo";
+
+const siteUrl = "https://healthymindspecialists.com";
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "About Us", url: `${siteUrl}/about` },
+  ]),
+];
+---
+
+<Layout
+  title='About Us — Integrative Psychological Care'
+  description='Learn about Healthy Mind Specialists, our Anxiety Clinic, and the experienced team led by Dr. Grissel M. Lloyd and Dr. Maria A. Ruiz in Tampa, FL.'
+  schema={schemas}
+>
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- HERO BANNER                                                -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section
+    class='relative bg-brand-blue py-24 md:py-32 lg:py-40 overflow-hidden'
+    aria-label='About hero'
+  >
+    <!-- Background image -->
+    <img
+      src='https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1920&h=1080&fit=crop&q=80'
+      alt='Serene wellness scene representing mental health care and mindfulness'
+      width='1920'
+      height='1080'
+      loading='eager'
+      fetchpriority='high'
+      class='absolute inset-0 w-full h-full object-cover'
+    />
+    <!-- Dark overlay for text readability -->
+    <div class='absolute inset-0 bg-brand-blue/70' aria-hidden='true'></div>
+    <div
+      class='absolute inset-0 opacity-[0.06] pointer-events-none'
+      aria-hidden='true'
+    >
+      <div
+        class='absolute -top-32 -left-32 w-[600px] h-[600px] bg-brand-gold rounded-full blur-[140px]'
+      >
+      </div>
+      <div
+        class='absolute -bottom-40 -right-20 w-[500px] h-[500px] bg-brand-gold-light rounded-full blur-[120px]'
+      >
+      </div>
+    </div>
+    <div
+      class='absolute inset-0 opacity-[0.03]'
+      style='background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px); background-size: 60px 60px;'
+      aria-hidden='true'
+    >
+    </div>
+
+    <div class='relative z-10 max-w-4xl mx-auto px-6 text-center'>
+      <div
+        class='flex items-center justify-center gap-3 mb-6'
+        aria-hidden='true'
+      >
+        <span class='block w-10 h-[1.5px] bg-brand-gold'></span>
+        <span class='block w-2.5 h-2.5 rounded-full border border-brand-gold'
+        ></span>
+        <span class='block w-10 h-[1.5px] bg-brand-gold'></span>
+      </div>
+
+      <h1
+        class='text-4xl md:text-5xl lg:text-6xl font-display italic text-white leading-tight'
+      >
+        About <span class='text-brand-gold-light'>Us</span>
+      </h1>
+
+      <p
+        class='mt-5 text-white/65 text-base md:text-lg lg:text-xl max-w-2xl mx-auto font-sans leading-relaxed'
+      >
+        Integrative psychological care rooted in compassion, expertise, and a
+        deep commitment to your well-being.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- ANXIETY CLINIC                                             -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section class='py-20 md:py-28 bg-white' aria-labelledby='anxiety-heading'>
+    <div class='max-w-4xl mx-auto px-6'>
+      <div class='text-center mb-12'>
+        <span
+          class='block w-12 h-[2px] bg-brand-gold mx-auto mb-6'
+          aria-hidden='true'></span>
+        <h2
+          id='anxiety-heading'
+          class='text-3xl md:text-4xl lg:text-5xl font-display italic text-brand-blue mb-4'
+        >
+          Anxiety Clinic
+        </h2>
+      </div>
+
+      <div class='space-y-6 text-brand-blue/80 text-lg leading-relaxed'>
+        <p>
+          Here at Healthy Mind Specialists, we provide integrative psychological
+          care for any mental health challenges, but we have chosen to
+          specialize in treating anxiety. We see anxiety as the center of a web
+          that is sprawled across many life domains. When we have an anxious
+          mind, it permeates all areas of our lives.
+        </p>
+
+        <p>
+          Sometimes it's our relationships, careers, loved ones, or even random
+          encounters. Our minds hyper-focus on areas of vulnerabilities and all
+          the "what if" scenarios you can create. The intrusive thoughts don't
+          seem to stop. It can be very distressing! It is not unusual to also
+          have other diagnoses that occur concurrently. In fact, 60% of
+          individuals with anxiety also have challenges with some form of
+          depression.
+        </p>
+
+        <p>
+          You may not even realize that you have challenges with anxiety.
+          Anxiety is more than being nervous or fearful about the future or the
+          unknown. Did you know for some individuals, anxiety shows up as anger
+          management problems, control issues, or even impulsivity? What is
+          common is the incredible amount of time that is spent in your head.
+          Anxiety is exhausting! Let us help you sort it all out.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- OUR FOUNDERS                                               -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section
+    class='py-20 md:py-28 bg-brand-cream'
+    aria-labelledby='founders-heading'
+  >
+    <div class='max-w-4xl mx-auto px-6'>
+      <div class='text-center mb-12'>
+        <span
+          class='block w-12 h-[2px] bg-brand-gold mx-auto mb-6'
+          aria-hidden='true'></span>
+        <h2
+          id='founders-heading'
+          class='text-3xl md:text-4xl lg:text-5xl font-display italic text-brand-blue mb-4'
+        >
+          Our Founders
+        </h2>
+      </div>
+
+      <div class='space-y-6 text-brand-blue/80 text-lg leading-relaxed'>
+        <p>
+          Healthy Mind Specialists, LLC is spearheaded by
+          <a
+            href='/staff/dr-grissel-m-lloyd-psyd'
+            class='text-brand-blue font-semibold hover:text-brand-gold transition-colors duration-200'
+            >Dr. Grissel M. Lloyd</a
+          > and
+          <a
+            href='/staff/dr-maria-a-ruiz-psyd'
+            class='text-brand-blue font-semibold hover:text-brand-gold transition-colors duration-200'
+            >Dr. Maria A. Ruiz</a
+          >, who bring a total of 22 years of experience in the behavioral
+          health field.
+        </p>
+
+        <p>
+          Our mission is to provide top-notch integrative care. Grissel Lloyd,
+          PsyD is a board-certified behavior analyst, a licensed mental health
+          counselor, and a Doctor of Psychology. She is also a clinical
+          psychology professor at the Florida School of Professional Psychology
+          at National Louis University.
+        </p>
+
+        <p>
+          Maria Ruiz, PsyD has been practicing as a life coach, is an
+          international speaker specializing in self-esteem, attachment, and
+          trauma issues, and has a professional Instagram following of over
+          100,000.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- CTA                                                        -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section class='py-20 md:py-28 bg-white' aria-label='Call to action'>
+    <div class='max-w-3xl mx-auto px-6 text-center'>
+      <span
+        class='block w-12 h-[2px] bg-brand-gold mx-auto mb-6'
+        aria-hidden='true'></span>
+      <h2 class='text-3xl md:text-4xl font-display italic text-brand-blue mb-4'>
+        Ready to Get Started?
+      </h2>
+      <p class='text-brand-blue/60 text-lg max-w-xl mx-auto mb-10'>
+        Reach out today and let us help you on your path to a healthier mind.
+      </p>
+      <a
+        href='/contact'
+        class='inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-semibold px-8 py-4 rounded-full transition-colors duration-300 shadow-lg shadow-brand-gold/20'
+      >
+        Contact Us
+        <svg
+          class='w-4 h-4'
+          fill='none'
+          viewBox='0 0 24 24'
+          stroke='currentColor'
+          stroke-width='2'
+        >
+          <path
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3'></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+</Layout>

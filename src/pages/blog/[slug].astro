@@ -1,0 +1,340 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { blogPosts, getPostBySlug } from "../../utils/blog-data";
+import { articleSchema, breadcrumbSchema, readingTime } from "../../utils/seo";
+
+export function getStaticPaths() {
+  return blogPosts.map((post) => ({ params: { slug: post.slug } }));
+}
+
+const { slug } = Astro.params;
+const post = getPostBySlug(slug!);
+
+if (!post) {
+  return Astro.redirect("/blog");
+}
+
+const siteUrl = "https://healthymindspecialists.com";
+const siteName = "Healthy Mind Specialists";
+const timeToRead = readingTime(post.content);
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "Blog", url: `${siteUrl}/blog` },
+    { name: post.title, url: `${siteUrl}/blog/${slug}` },
+  ]),
+  articleSchema({
+    title: post.title,
+    description: post.description,
+    url: `${siteUrl}/blog/${slug}`,
+    image: post.heroImage,
+    datePublished: post.publishedDate,
+    dateModified: post.modifiedDate,
+    authorName: post.author,
+    publisherName: siteName,
+    publisherLogo: `${siteUrl}/og-default.png`,
+  }),
+];
+
+// Split content into paragraphs for rendering
+const sections = post.content
+  .trim()
+  .split("\n\n")
+  .filter((s) => s.trim());
+---
+
+<Layout
+  title={post.title}
+  description={post.description}
+  ogImage={post.heroImage}
+  ogType='article'
+  publishedDate={post.publishedDate}
+  modifiedDate={post.modifiedDate}
+  author={post.author}
+  schema={schemas}
+>
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- HERO IMAGE                                                 -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section
+    class='relative bg-brand-blue overflow-hidden'
+    aria-label='Article hero'
+  >
+    <img
+      src={post.heroImage}
+      alt={post.title}
+      width='1200'
+      height='630'
+      loading='eager'
+      fetchpriority='high'
+      class='w-full h-[320px] md:h-[420px] lg:h-[500px] object-cover'
+    />
+    <div
+      class='absolute inset-0 bg-gradient-to-t from-brand-blue/60 to-transparent'
+    >
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- ARTICLE CONTENT                                            -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <article class='py-16 md:py-24 bg-white' aria-labelledby='article-title'>
+    <div class='max-w-3xl mx-auto px-6'>
+      <!-- Meta info -->
+      <div
+        class='flex flex-wrap items-center gap-3 text-sm text-brand-blue/50 mb-6'
+      >
+        <span
+          class='inline-block bg-brand-cream text-brand-blue font-medium px-3 py-1 rounded-full text-xs'
+        >
+          {post.category}
+        </span>
+        <time datetime={post.publishedDate}>
+          {
+            new Date(post.publishedDate).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+          }
+        </time>
+        <span aria-hidden='true'>·</span>
+        <span>{timeToRead}</span>
+      </div>
+
+      <!-- Title -->
+      <h1
+        id='article-title'
+        class='text-3xl md:text-4xl lg:text-5xl font-display italic text-brand-blue leading-tight mb-6'
+      >
+        {post.title}
+      </h1>
+
+      <!-- Author -->
+      <div class='flex items-center gap-3 pb-8 mb-10 border-b border-gray-100'>
+        <div
+          class='w-10 h-10 rounded-full bg-brand-cream flex items-center justify-center text-brand-blue font-semibold text-sm'
+        >
+          {
+            post.author
+              .split(" ")
+              .map((n) => n[0])
+              .slice(0, 2)
+              .join("")
+          }
+        </div>
+        <div>
+          <p class='text-brand-blue font-medium text-sm'>{post.author}</p>
+          <p class='text-brand-blue/40 text-xs'>Healthy Mind Specialists</p>
+        </div>
+      </div>
+
+      <!-- Article body -->
+      <div class='prose prose-lg max-w-none'>
+        {
+          sections.map((section, i) => {
+            const insertImage = i === Math.floor(sections.length / 3);
+
+            if (section.startsWith("## ")) {
+              return (
+                <>
+                  {insertImage && (
+                    <figure class='my-10'>
+                      <img
+                        src={post.secondaryImage}
+                        alt={`Illustration related to ${post.title}`}
+                        width='800'
+                        height='500'
+                        loading='lazy'
+                        class='w-full rounded-xl object-cover'
+                      />
+                    </figure>
+                  )}
+                  <h2 class='text-2xl md:text-3xl font-display italic text-brand-blue mt-12 mb-4'>
+                    {section.replace("## ", "")}
+                  </h2>
+                </>
+              );
+            }
+
+            if (section.startsWith("### ")) {
+              return (
+                <h3 class='text-xl md:text-2xl font-display italic text-brand-blue mt-8 mb-3'>
+                  {section.replace("### ", "")}
+                </h3>
+              );
+            }
+
+            if (section.startsWith("**") && section.includes(":**")) {
+              const [label, ...rest] = section.split(":**");
+              return (
+                <>
+                  {insertImage && (
+                    <figure class='my-10'>
+                      <img
+                        src={post.secondaryImage}
+                        alt={`Illustration related to ${post.title}`}
+                        width='800'
+                        height='500'
+                        loading='lazy'
+                        class='w-full rounded-xl object-cover'
+                      />
+                    </figure>
+                  )}
+                  <p class='text-brand-blue/80 text-lg leading-relaxed mb-4'>
+                    <strong class='text-brand-blue'>
+                      {label.replace(/^\*\*/, "")}:
+                    </strong>
+                    {rest.join(":**")}
+                  </p>
+                </>
+              );
+            }
+
+            if (section.startsWith("- ")) {
+              const items = section
+                .split("\n")
+                .filter((l) => l.startsWith("- "));
+              return (
+                <ul class='list-disc list-inside space-y-2 text-brand-blue/80 text-lg mb-4 pl-4'>
+                  {items.map((item) => (
+                    <li>
+                      {item
+                        .replace(/^- \*\*(.+?)\*\*/, "$1")
+                        .replace(/^- /, "")}
+                    </li>
+                  ))}
+                </ul>
+              );
+            }
+
+            if (section.startsWith("**Phase")) {
+              return (
+                <p class='text-brand-blue/80 text-lg leading-relaxed mb-4'>
+                  <strong class='text-brand-blue'>
+                    {section.split("**")[1]}
+                  </strong>
+                  {section.split("**")[2] || ""}
+                </p>
+              );
+            }
+
+            return (
+              <>
+                {insertImage && (
+                  <figure class='my-10'>
+                    <img
+                      src={post.secondaryImage}
+                      alt={`Illustration related to ${post.title}`}
+                      width='800'
+                      height='500'
+                      loading='lazy'
+                      class='w-full rounded-xl object-cover'
+                    />
+                  </figure>
+                )}
+                <p class='text-brand-blue/80 text-lg leading-relaxed mb-6'>
+                  {section}
+                </p>
+              </>
+            );
+          })
+        }
+      </div>
+
+      <!-- Tags -->
+      <div class='mt-12 pt-8 border-t border-gray-100'>
+        <div class='flex flex-wrap items-center gap-2'>
+          <span class='text-sm text-brand-blue/40 font-medium'>Tags:</span>
+          {
+            post.tags.map((tag) => (
+              <span class='inline-block bg-brand-cream text-brand-blue/70 text-xs font-medium px-3 py-1 rounded-full'>
+                {tag}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Internal links -->
+      <div class='mt-12 p-8 bg-brand-cream rounded-2xl'>
+        <h2 class='text-xl font-display italic text-brand-blue mb-4'>
+          Related Resources
+        </h2>
+        <ul class='space-y-3'>
+          <li>
+            <a
+              href='/services/individual-therapy'
+              class='text-brand-blue hover:text-brand-gold transition-colors duration-200 font-medium'
+            >
+              Learn about our Individual Therapy services
+            </a>
+          </li>
+          <li>
+            <a
+              href='/services/emdr'
+              class='text-brand-blue hover:text-brand-gold transition-colors duration-200 font-medium'
+            >
+              Explore EMDR Therapy at Healthy Mind Specialists
+            </a>
+          </li>
+          <li>
+            <a
+              href='/get-started/appointment-request'
+              class='text-brand-blue hover:text-brand-gold transition-colors duration-200 font-medium'
+            >
+              Schedule your appointment today
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- BACK TO BLOG + CTA                                        -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section class='py-16 md:py-20 bg-brand-cream' aria-label='Navigation'>
+    <div
+      class='max-w-3xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6'
+    >
+      <a
+        href='/blog'
+        class='inline-flex items-center gap-2 text-brand-blue hover:text-brand-gold font-medium transition-colors duration-200'
+      >
+        <svg
+          class='w-4 h-4'
+          fill='none'
+          viewBox='0 0 24 24'
+          stroke='currentColor'
+          stroke-width='2'
+        >
+          <path
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            d='M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18'></path>
+        </svg>
+        Back to Blog
+      </a>
+      <a
+        href='/get-started/appointment-request'
+        class='inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-semibold px-6 py-3 rounded-full transition-colors duration-300 shadow-lg shadow-brand-gold/20'
+      >
+        Book a Consultation
+        <svg
+          class='w-4 h-4'
+          fill='none'
+          viewBox='0 0 24 24'
+          stroke='currentColor'
+          stroke-width='2'
+        >
+          <path
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3'></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+</Layout>

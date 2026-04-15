@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+/* Ensure animated elements are visible when reduced motion is preferred or JS fails */
+@media (prefers-reduced-motion: reduce) {
+  .hero-ornament,
+  .hero-title,
+  .hero-subtitle,
+  .hero-cta,
+  .scroll-indicator {
+    opacity: 1 !important;
+  }
+}
+
 @theme {
   /* Brand Colors - Healthy Mind Specialists */
   --color-brand-blue: #1b3a5c;

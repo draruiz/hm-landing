@@ -1,0 +1,137 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { breadcrumbSchema } from "../../utils/seo";
+
+const siteUrl = "https://healthymindspecialists.com";
+const staffName = "Kiyomi Taylor, LMHC";
+const staffRole = "Licensed Mental Health Counselor";
+const staffSlug = "kiyomi-taylor-lmhc";
+const bannerImage =
+  "https://brightervisionclients.com/resize/63bd841c407b4bb641b23b5b/attachments/97ad3d5b-a2bf-4122-87b0-3019cd88197c?top=0.0000&left=0.0000&bottom=1.0000&right=1.0000";
+const tagline =
+  "Guiding adults through trauma, anxiety, and life stress with clarity and empowerment.";
+const profileImage =
+  "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/8a32b006-f77d-4ff5-13ad-9a4c2158eb00/public";
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "About Us", url: `${siteUrl}/about` },
+    { name: staffName, url: `${siteUrl}/staff/${staffSlug}` },
+  ]),
+];
+---
+
+<Layout
+  title={staffName}
+  description={`Meet ${staffName}, ${staffRole} at Healthy Mind Specialists in Tampa, FL. Over 10 years of experience specializing in EMDR, trauma, anxiety, PTSD, and military family support.`}
+  schema={schemas}
+>
+  <!-- Hero Banner -->
+  <section class='relative h-[420px] md:h-[500px] overflow-hidden'>
+    <img
+      src={bannerImage}
+      alt={`Portrait of ${staffName}, ${staffRole} at Healthy Mind Specialists`}
+      width='1920'
+      height='600'
+      class='absolute inset-0 w-full h-full object-cover'
+      loading='eager'
+    />
+    <div
+      class='absolute inset-0 bg-gradient-to-r from-brand-blue/80 to-brand-blue/40'
+    >
+    </div>
+    <div class='relative h-full flex items-center'>
+      <div class='max-w-4xl mx-auto px-6 text-white'>
+        <h1 class='text-4xl md:text-5xl lg:text-6xl font-display italic mb-4'>
+          {staffName}
+        </h1>
+        <p class='text-xl md:text-2xl text-white/80 max-w-2xl'>
+          {staffRole}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class='py-20 md:py-28'>
+    <div class='max-w-4xl mx-auto px-6'>
+      <!-- Profile + Tagline -->
+      <div class='mb-12 md:flex md:items-start md:gap-10'>
+        <img
+          src={profileImage}
+          alt={`${staffName}, ${staffRole}`}
+          width='280'
+          height='280'
+          class='w-48 h-48 md:w-64 md:h-64 rounded-2xl object-cover shadow-lg mb-6 md:mb-0 mx-auto md:mx-0 flex-shrink-0'
+          loading='lazy'
+        />
+        <div>
+          <p
+            class='text-2xl md:text-3xl font-display italic text-brand-blue/80'
+          >
+            {tagline}
+          </p>
+          <span class='block w-16 h-[2px] bg-brand-gold mt-6'></span>
+        </div>
+      </div>
+
+      <!-- Bio Content -->
+      <div class='prose prose-lg max-w-none text-brand-blue/80 space-y-6'>
+        <p>
+          Life can be chaotic and challenging. There are times when we hit
+          roadblocks and detours in the road and need someone to come alongside
+          us for support.
+        </p>
+        <p>
+          I am a licensed mental health counselor and have over 10 years of
+          experience helping people unpack old unwanted patterns while building
+          a more empowered mind.
+        </p>
+        <p>
+          I use various therapeutic modalities such as EMDR, Narrative, CBT,
+          Motivational Interviewing, and Mindfulness.
+        </p>
+        <p>
+          I had the privilege to work extensively with active-duty Marines and
+          Sailors and their family members in the last six years. Now I am ready
+          to work with clients utilizing the knowledge and skills I acquired
+          through serving people who served our country facing life and various
+          emotional challenges.
+        </p>
+        <p>
+          Areas of speciality include anxiety, PTSD, sexual trauma, childhood
+          trauma, bullying, job stress, performance anxiety, phobias, sleep
+          disorders, grief, infidelity, and low self-esteem.
+        </p>
+        <p>
+          I am bilingual (English/Japanese). I can help with international
+          marital or relationship issues in general. Adjustment and
+          acculturation (moving to the US from different countries) issues are
+          another area of my therapeutic strengths.
+        </p>
+        <p>
+          I have worked with populations with conditions or impairments that are
+          usually associated with challenges with employment. As a CRC
+          (certified rehabilitation counselor) I can help with job-seeking
+          anxiety, emotional regulation, work-related stress management, and
+          self-esteem concerns.
+        </p>
+        <p>
+          Are you ready to unpack your emotional heaviness and finally let
+          yourself heal? I am here to hear your story!
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class='mt-16 text-center'>
+        <a
+          href='/contact'
+          class='inline-flex items-center px-8 py-4 bg-brand-blue text-white font-semibold rounded-full hover:bg-brand-blue-light transition-all duration-300 shadow-lg hover:shadow-xl'
+        >
+          Schedule a Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

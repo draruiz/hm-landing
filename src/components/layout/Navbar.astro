@@ -2,44 +2,68 @@
 const navItems = [
   { label: "Home", href: "/" },
   {
-    label: "About",
+    label: "About Us",
     href: "/about",
     children: [
-      { label: "Our Story", href: "/about" },
-      { label: "Our Team", href: "/about/team" },
+      {
+        label: "Dr. Grissel M. Lloyd, PsyD",
+        href: "/staff/dr-grissel-m-lloyd-psyd",
+      },
+      { label: "Dr. Maria A. Ruiz, PsyD", href: "/staff/dr-maria-a-ruiz-psyd" },
+      { label: "Kiyomi Taylor, LMHC", href: "/staff/kiyomi-taylor-lmhc" },
+      { label: "Chloe Johnson, LMHC", href: "/staff/chloe-johnson-lmhc" },
+      { label: "Lori Smith, LMHC", href: "/staff/lori-smith-lmhc" },
+      { label: "Edward Porter, LCSW", href: "/staff/edward-porter-lcsw" },
+      { label: "Morgan Adams, MSW", href: "/staff/morgan-adams-msw" },
+      { label: "Dr. Asia Wardlaw, PsyD", href: "/staff/dr-asia-wardlaw-psyd" },
+      { label: "Dr. Sonia Javani, PsyD", href: "/staff/dr-sonia-javani-psyd" },
+      { label: "Traci Adams, CLC", href: "/staff/traci-adams-clc" },
+      { label: "Terika Brewer, MA", href: "/staff/terika-brewer-ma" },
     ],
   },
   {
     label: "Our Services",
-    href: "/services",
+    href: "/#services",
     children: [
-      { label: "Individual Therapy", href: "/services/individual-therapy" },
-      { label: "Couples Therapy", href: "/services/couples-therapy" },
-      { label: "Family Therapy", href: "/services/family-therapy" },
-      { label: "Group Therapy", href: "/services/group-therapy" },
+      {
+        label: "Comprehensive Psychological Evaluations",
+        href: "/services/evaluations",
+      },
+      {
+        label: "Online ADHD Evaluations",
+        href: "/services/online-adhd-evaluations",
+      },
     ],
   },
   {
     label: "What We Treat",
-    href: "/conditions",
-    children: [
-      { label: "Anxiety", href: "/conditions/anxiety" },
-      { label: "Depression", href: "/conditions/depression" },
-      { label: "PTSD & Trauma", href: "/conditions/ptsd-trauma" },
-      { label: "ADHD", href: "/conditions/adhd" },
-    ],
+    href: "/#what-we-treat",
   },
   {
     label: "Get Started",
-    href: "/get-started",
+    href: "#",
     children: [
-      { label: "New Patients", href: "/get-started/new-patients" },
-      { label: "Insurance & Fees", href: "/get-started/insurance" },
       { label: "FAQs", href: "/get-started/faqs" },
+      { label: "Rates & Insurance", href: "/get-started/rates-insurance" },
+      {
+        label: "Appointment Request",
+        href: "/get-started/appointment-request",
+      },
     ],
   },
-  { label: "Resources", href: "/resources" },
+  {
+    label: "Resources",
+    href: "#",
+    children: [
+      { label: "Mental Health Links", href: "/resources/mental-health-links" },
+      {
+        label: "Physical Health Links",
+        href: "/resources/physical-health-links",
+      },
+    ],
+  },
   { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 ---
 
@@ -183,8 +207,12 @@ const navItems = [
                   )}
                 </a>
                 {item.children && (
-                  <div class='absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50'>
-                    <div class='bg-white rounded-xl shadow-lg border border-gray-100 py-2 min-w-[220px]'>
+                  <div
+                    class={`absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 ${item.children.length > 5 ? "-left-4" : ""}`}
+                  >
+                    <div
+                      class={`bg-white rounded-xl shadow-lg border border-gray-100 py-2 ${item.children.length > 5 ? "min-w-[280px]" : "min-w-[220px]"}`}
+                    >
                       {item.children.map((child) => (
                         <a
                           href={child.href}

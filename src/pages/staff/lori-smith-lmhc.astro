@@ -1,0 +1,124 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { breadcrumbSchema } from "../../utils/seo";
+
+const siteUrl = "https://healthymindspecialists.com";
+const staffName = "Lori Smith, LMHC";
+const staffRole = "Licensed Mental Health Counselor";
+const staffSlug = "lori-smith-lmhc";
+const bannerImage =
+  "https://brightervisionclients.com/resize/63bd841c407b4bb641b23b5b/attachments/ccb17be4-07ff-4627-b555-eaf63dc657bc?top=0.2181&left=0.0000&bottom=1.0000&right=1.0000";
+const tagline =
+  "Taking the first step toward support isn't always easy, but it's a powerful move toward healing.";
+const profileImage =
+  "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/c5514d94-2e9a-49bf-d22e-5a1faf6d7b00/public";
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "About Us", url: `${siteUrl}/about` },
+    { name: staffName, url: `${siteUrl}/staff/${staffSlug}` },
+  ]),
+];
+---
+
+<Layout
+  title={staffName}
+  description={`Meet ${staffName}, ${staffRole} at Healthy Mind Specialists in Tampa, FL. Over 15 years of experience treating anxiety, depression, ADHD, and offering Christian counseling.`}
+  schema={schemas}
+>
+  <!-- Hero Banner -->
+  <section class='relative h-[420px] md:h-[500px] overflow-hidden'>
+    <img
+      src={bannerImage}
+      alt={`Portrait of ${staffName}, ${staffRole} at Healthy Mind Specialists`}
+      width='1920'
+      height='600'
+      class='absolute inset-0 w-full h-full object-cover'
+      loading='eager'
+    />
+    <div
+      class='absolute inset-0 bg-gradient-to-r from-brand-blue/80 to-brand-blue/40'
+    >
+    </div>
+    <div class='relative h-full flex items-center'>
+      <div class='max-w-4xl mx-auto px-6 text-white'>
+        <h1 class='text-4xl md:text-5xl lg:text-6xl font-display italic mb-4'>
+          {staffName}
+        </h1>
+        <p class='text-xl md:text-2xl text-white/80 max-w-2xl'>
+          {staffRole}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class='py-20 md:py-28'>
+    <div class='max-w-4xl mx-auto px-6'>
+      <!-- Profile + Tagline -->
+      <div class='mb-12 md:flex md:items-start md:gap-10'>
+        <img
+          src={profileImage}
+          alt={`${staffName}, ${staffRole}`}
+          width='280'
+          height='280'
+          class='w-48 h-48 md:w-64 md:h-64 rounded-2xl object-cover shadow-lg mb-6 md:mb-0 mx-auto md:mx-0 flex-shrink-0'
+          loading='lazy'
+        />
+        <div>
+          <p
+            class='text-2xl md:text-3xl font-display italic text-brand-blue/80'
+          >
+            {tagline}
+          </p>
+          <span class='block w-16 h-[2px] bg-brand-gold mt-6'></span>
+        </div>
+      </div>
+
+      <!-- Bio Content -->
+      <div class='prose prose-lg max-w-none text-brand-blue/80 space-y-6'>
+        <p>
+          I'm Lori Smith, Licensed Mental Health Counselor (LMHC), and a
+          Licensed Professional Counselor (LPC) and I'm here to walk alongside
+          you as you navigate life's challenges and move toward greater clarity,
+          confidence, and peace of mind.
+        </p>
+        <p>
+          I hold a Master of Science in Clinical Mental Health Counseling and
+          have worked with children, adults, couples, families, and groups to
+          address a wide range of concerns. My over 15 years of experience
+          includes treating anxiety, depression, mood disorders, ADHD,
+          behavioral concerns, personality disorders, and learning challenges. I
+          also offer a compassionate, faith-sensitive approach for those who
+          desire Christian counseling or pastoral support, integrating your
+          spiritual values into the therapeutic process.
+        </p>
+        <p>
+          My counseling style blends evidence-based techniques with a
+          person-centered philosophy, always honoring your unique story and
+          goals. I tailor our work together to meet your unique
+          needs—emotionally, mentally, and spiritually. Whether you're
+          overwhelmed by a current crisis or working through long-standing
+          patterns, my goal is to support you in rediscovering the strength and
+          joy that may feel just out of reach.
+        </p>
+        <p>
+          If you're ready to grow stronger, more resilient, and more aligned
+          with who you were created to be, I'd be honored to support you. Your
+          healthier, more confident future starts here.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class='mt-16 text-center'>
+        <a
+          href='/contact'
+          class='inline-flex items-center px-8 py-4 bg-brand-blue text-white font-semibold rounded-full hover:bg-brand-blue-light transition-all duration-300 shadow-lg hover:shadow-xl'
+        >
+          Schedule a Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

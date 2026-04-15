@@ -1,45 +1,120 @@
 ---
 /**
- * Meet Our Staff — immersive card carousel with 3D tilt, animated gradient rings,
- * and staggered scroll reveal. Awwwards-level micro-interactions.
+ * Meet Our Staff — horizontal scrolling carousel showcasing all team members
+ * with real photos, roles, and short bios. Drag-to-scroll + snap on mobile.
  */
 const staff = [
   {
     name: "Dr. Maria A. Ruiz, PsyD",
-    role: "Licensed Psychologist",
-    bio: "Helping you uncover patterns, understand your emotions, and create meaningful change.",
+    role: "Licensed Clinical Psychologist",
+    bio: "Life can bring moments that force us to pause and reconsider who we are. Dr. Ruiz helps you uncover patterns, understand your emotions, and create meaningful change.",
     image:
-      "https://images.unsplash.com/photo-1594824476967-48c8b964f07d?w=400&h=400&fit=crop&q=80&crop=faces",
-    imageAlt:
-      "Portrait of Dr. Maria A. Ruiz, licensed psychologist at Healthy Mind Specialists",
-    href: "/staff/maria-ruiz",
-    accent: "from-brand-teal via-brand-teal-light to-brand-gold/40",
-    ring: "conic-gradient(from 0deg, #b8d8d8, #c5a55a, #b8d8d8)",
+      "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/aee50b9f-80b8-451e-f614-898548535100/public",
+    imageAlt: "Dr. Maria A. Ruiz, Licensed Clinical Psychologist",
+    href: "/staff/dr-maria-a-ruiz-psyd",
+  },
+  {
+    name: "Dr. Asia Wardlaw, PsyD",
+    role: "Director of Diagnostic Services",
+    bio: "Specializing in psychological and neuropsychological assessment for children, adolescents, and adults — uncovering the 'why' and providing a clear path forward.",
+    image:
+      "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/6e817f35-0729-4415-e9cc-106de5df9400/public",
+    imageAlt: "Dr. Asia Wardlaw, Director of Diagnostic Services",
+    href: "/staff/dr-asia-wardlaw-psyd",
+  },
+  {
+    name: "Dr. Grissel M. Lloyd, PsyD",
+    role: "Licensed Clinical Psychologist",
+    bio: "Therapy offers something rare and powerful — an objective space where you can be fully seen and heard, free from judgment or fear.",
+    image:
+      "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/f2f396df-4594-4d5f-4390-c7cbc0e09b00/public",
+    imageAlt: "Dr. Grissel M. Lloyd, Licensed Clinical Psychologist",
+    href: "/staff/dr-grissel-m-lloyd-psyd",
+  },
+  {
+    name: "Dr. Sonia Javani, PsyD",
+    role: "Director of Practicum & Internship Training",
+    bio: "Passionate about creating a reflective, authentic space where developing clinicians can grow with confidence, curiosity, and purpose.",
+    image:
+      "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/37569d14-63fe-4060-0043-9e9c1baaed00/public",
+    imageAlt: "Dr. Sonia Javani, Director of Practicum and Internship Training",
+    href: "/staff/dr-sonia-javani-psyd",
   },
   {
     name: "Kiyomi Taylor, LMHC",
     role: "Licensed Mental Health Counselor",
-    bio: "Offering support, insight, and practical tools for healing from trauma, stress, and self-doubt.",
+    bio: "Life can be chaotic and challenging. Sometimes we hit roadblocks and need someone to come alongside us for support, insight, and practical tools for healing.",
     image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&q=80&crop=faces",
-    imageAlt:
-      "Portrait of Kiyomi Taylor, licensed mental health counselor at Healthy Mind Specialists",
-    href: "/staff/kiyomi-taylor",
-    accent: "from-brand-gold via-brand-gold-light to-brand-teal/40",
-    ring: "conic-gradient(from 120deg, #c5a55a, #b8d8d8, #c5a55a)",
+      "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/8a32b006-f77d-4ff5-13ad-9a4c2158eb00/public",
+    imageAlt: "Kiyomi Taylor, Licensed Mental Health Counselor",
+    href: "/staff/kiyomi-taylor-lmhc",
   },
   {
-    name: "Dr. Asia Wardlaw, PsyD",
-    role: "Licensed Psychologist",
-    bio: "Specializing in psychological testing that reveals answers, supports planning, and builds long-term understanding.",
+    name: "Chloe Johnson, LMHC",
+    role: "Licensed Mental Health Counselor",
+    bio: "Everyone deserves a space where they feel heard, valued, and empowered to grow. Dedicated to fostering a journey of healing and transformation.",
     image:
-      "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=400&h=400&fit=crop&q=80&crop=faces",
-    imageAlt:
-      "Portrait of Dr. Asia Wardlaw, licensed psychologist at Healthy Mind Specialists",
-    href: "/staff/asia-wardlaw",
-    accent: "from-brand-blue-light via-brand-teal to-brand-gold/40",
-    ring: "conic-gradient(from 240deg, #2a5a8c, #b8d8d8, #c5a55a, #2a5a8c)",
+      "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/ca480842-0849-4ea3-bd0f-403dd430ad00/public",
+    imageAlt: "Chloe Johnson, Licensed Mental Health Counselor",
+    href: "/staff/chloe-johnson-lmhc",
   },
+  {
+    name: "Edward Porter, LCSW",
+    role: "Licensed Clinical Social Worker",
+    bio: "If you're navigating anxiety, depression, or major life transitions, therapy can offer a supportive space to pause, reflect, and begin making sense of what you're carrying.",
+    image:
+      "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/4d62b896-9a42-4628-4cff-d32dfb4bca00/public",
+    imageAlt: "Edward Porter, Licensed Clinical Social Worker",
+    href: "/staff/edward-porter-lcsw",
+  },
+  {
+    name: "Lori Smith, LMHC",
+    role: "Licensed Mental Health Counselor",
+    bio: "Walking alongside you as you navigate life's challenges and move toward greater clarity, confidence, and peace of mind.",
+    image:
+      "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/c5514d94-2e9a-49bf-d22e-5a1faf6d7b00/public",
+    imageAlt: "Lori Smith, Licensed Mental Health Counselor",
+    href: "/staff/lori-smith-lmhc",
+  },
+  {
+    name: "Morgan Adams, MSW",
+    role: "Life & Mindfulness Coach",
+    bio: "When stress or difficult experiences begin to take over, having the right support can make a meaningful difference — regaining grounding, clarity, and confidence.",
+    image:
+      "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/b13d28c3-98c3-4dbd-7ba7-d16aefbad700/public",
+    imageAlt: "Morgan Adams, Life & Mindfulness Coach",
+    href: "/staff/morgan-adams-msw",
+  },
+  {
+    name: "Traci Adams, CLC",
+    role: "Certified Life Coach",
+    bio: "Life doesn't always follow a straight path. Sometimes we need support to move forward with clarity, confidence, and renewed purpose.",
+    image:
+      "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/96c2a220-7c97-4a54-5bed-de73b398c600/public",
+    imageAlt: "Traci Adams, Certified Life Coach",
+    href: "/staff/traci-adams-clc",
+  },
+  {
+    name: "Terika Brewer, MA",
+    role: "Operations Manager",
+    bio: "Over 15 years of experience in the mental health field, ensuring the day-to-day efficiency and long-term sustainability of the practice.",
+    image:
+      "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/59e6bfdb-7439-4ca4-89a9-1eeccb23ad00/public",
+    imageAlt: "Terika Brewer, Operations Manager",
+    href: "/staff/terika-brewer-ma",
+  },
+];
+
+const accentColors = [
+  "from-brand-teal via-brand-teal-light to-brand-gold/40",
+  "from-brand-gold via-brand-gold-light to-brand-teal/40",
+  "from-brand-blue-light via-brand-teal to-brand-gold/40",
+];
+
+const ringColors = [
+  "conic-gradient(from 0deg, #b8d8d8, #c5a55a, #b8d8d8)",
+  "conic-gradient(from 120deg, #c5a55a, #b8d8d8, #c5a55a)",
+  "conic-gradient(from 240deg, #2a5a8c, #b8d8d8, #c5a55a, #2a5a8c)",
 ];
 ---
 
@@ -79,9 +154,9 @@ const staff = [
   >
   </div>
 
-  <div class='relative max-w-7xl mx-auto px-6'>
+  <div class='relative'>
     <!-- Section header -->
-    <div class='text-center mb-20 md:mb-28'>
+    <div class='text-center mb-20 md:mb-28 px-6'>
       <span
         class='block w-12 h-[2px] bg-brand-gold mx-auto mb-6'
         aria-hidden='true'></span>
@@ -97,103 +172,35 @@ const staff = [
       </p>
     </div>
 
-    <!-- Staff cards -->
-    <div class='staff-grid grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12'>
-      {
-        staff.map((member, i) => (
-          <article
-            class='group relative opacity-0 translate-y-10 staff-card'
-            style={`--card-delay: ${i * 150}ms`}
-          >
-            {/* Card with glassmorphism + 3D tilt via CSS */}
-            <div class='staff-card-inner relative bg-white/60 backdrop-blur-lg border border-white/60 rounded-3xl p-8 pt-28 md:pt-32 text-center shadow-[0_4px_30px_-8px_rgba(27,58,92,0.08)] hover:shadow-[0_24px_64px_-16px_rgba(27,58,92,0.16)] transition-all duration-700 ease-out hover:-translate-y-2'>
-              {/* Gradient accent top edge */}
-              <div
-                class={`absolute top-0 left-6 right-6 h-[3px] rounded-full bg-gradient-to-r ${member.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
-                aria-hidden='true'
-              />
-
-              {/* Photo container — floats above the card */}
-              <div class='absolute left-1/2 -translate-x-1/2 -top-16 md:-top-20'>
-                {/* Animated gradient ring */}
-                <div
-                  class='staff-ring absolute -inset-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-[2px]'
-                  style={`background: ${member.ring}`}
-                  aria-hidden='true'
-                />
-
-                {/* Image wrapper */}
-                <div class='relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white shadow-lg group-hover:shadow-xl transition-shadow duration-500'>
-                  <img
-                    src={member.image}
-                    alt={member.imageAlt}
-                    width='160'
-                    height='160'
-                    loading='lazy'
-                    class='w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out'
-                  />
-                </div>
-              </div>
-
-              {/* Content */}
-              <div class='mt-4'>
-                <h3 class='text-xl md:text-2xl font-display text-brand-blue mb-1 group-hover:text-brand-blue-light transition-colors duration-300'>
-                  {member.name}
-                </h3>
-                <span class='block text-sm font-medium text-brand-gold tracking-wide uppercase mb-4'>
-                  {member.role}
-                </span>
-
-                {/* Decorative divider */}
-                <span
-                  class='block w-8 h-[1.5px] bg-brand-gold/40 mx-auto mb-4 group-hover:w-12 transition-all duration-500'
-                  aria-hidden='true'
-                />
-
-                <p class='text-brand-blue/60 text-sm md:text-base leading-relaxed mb-6'>
-                  {member.bio}
-                </p>
-
-                {/* CTA button */}
-                <a
-                  href={member.href}
-                  class='inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold rounded-full border-2 border-brand-blue/20 text-brand-blue hover:border-brand-gold hover:text-brand-gold hover:bg-brand-gold/5 transition-all duration-300 group/btn'
-                  aria-label={`Read more about ${member.name}`}
-                >
-                  Read More
-                  <svg
-                    class='w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover/btn:opacity-100 group-hover/btn:translate-x-0 transition-all duration-300'
-                    fill='none'
-                    viewBox='0 0 24 24'
-                    stroke-width='2.5'
-                    stroke='currentColor'
-                  >
-                    <path
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
-                      d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3'
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </article>
-        ))
-      }
-    </div>
-
-    <!-- Bottom CTA -->
-    <div class='text-center mt-16 md:mt-20 opacity-0 translate-y-6 staff-cta'>
-      <a
-        href='/staff'
-        class='inline-flex items-center gap-2 px-8 py-3.5 text-base font-semibold rounded-full border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300'
+    <!-- Scroll controls -->
+    <div class='hidden md:flex justify-end gap-3 max-w-7xl mx-auto px-6 mb-8'>
+      <button
+        class='staff-scroll-btn staff-scroll-left w-11 h-11 rounded-full border-2 border-brand-blue/20 text-brand-blue/40 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold hover:bg-brand-gold/5 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed'
+        aria-label='Scroll staff left'
+        disabled
       >
-        View all team members
         <svg
           class='w-4 h-4'
           fill='none'
           viewBox='0 0 24 24'
-          stroke-width='2'
+          stroke-width='2.5'
+          stroke='currentColor'
+        >
+          <path
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            d='M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18'></path>
+        </svg>
+      </button>
+      <button
+        class='staff-scroll-btn staff-scroll-right w-11 h-11 rounded-full border-2 border-brand-blue/20 text-brand-blue/40 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold hover:bg-brand-gold/5 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed'
+        aria-label='Scroll staff right'
+      >
+        <svg
+          class='w-4 h-4'
+          fill='none'
+          viewBox='0 0 24 24'
+          stroke-width='2.5'
           stroke='currentColor'
         >
           <path
@@ -201,7 +208,107 @@ const staff = [
             stroke-linejoin='round'
             d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3'></path>
         </svg>
-      </a>
+      </button>
+    </div>
+
+    <!-- Staff horizontal scroll -->
+    <div
+      class='staff-scroll-container overflow-x-auto pt-20 md:pt-24 pb-8 scroll-smooth'
+      role='region'
+      aria-label='Staff members carousel'
+      tabindex='0'
+    >
+      <div
+        class='staff-grid flex gap-6 lg:gap-8 px-6 md:px-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))]'
+      >
+        {
+          staff.map((member, i) => (
+            <article
+              class='group relative flex-shrink-0 w-[300px] md:w-[340px] opacity-0 translate-y-10 staff-card'
+              style={`--card-delay: ${i * 100}ms`}
+            >
+              <div class='staff-card-inner relative bg-white/60 backdrop-blur-lg border border-white/60 rounded-3xl p-6 pt-24 md:pt-28 text-center shadow-[0_4px_30px_-8px_rgba(27,58,92,0.08)] hover:shadow-[0_24px_64px_-16px_rgba(27,58,92,0.16)] transition-all duration-700 ease-out hover:-translate-y-2 h-full flex flex-col'>
+                {/* Gradient accent top edge */}
+                <div
+                  class={`absolute top-0 left-6 right-6 h-[3px] rounded-full bg-gradient-to-r ${accentColors[i % 3]} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                  aria-hidden='true'
+                />
+
+                {/* Photo container */}
+                <div class='absolute left-1/2 -translate-x-1/2 -top-14 md:-top-16'>
+                  <div
+                    class='staff-ring absolute -inset-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-[2px]'
+                    style={`background: ${ringColors[i % 3]}`}
+                    aria-hidden='true'
+                  />
+                  <div class='relative w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-white shadow-lg group-hover:shadow-xl transition-shadow duration-500'>
+                    <img
+                      src={member.image}
+                      alt={member.imageAlt}
+                      width='128'
+                      height='128'
+                      loading='lazy'
+                      class='w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out'
+                    />
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div class='mt-2 flex flex-col flex-1'>
+                  <h3 class='text-lg md:text-xl font-display text-brand-blue mb-1 group-hover:text-brand-blue-light transition-colors duration-300'>
+                    {member.name}
+                  </h3>
+                  <span class='block text-xs font-medium text-brand-gold tracking-wide uppercase mb-3'>
+                    {member.role}
+                  </span>
+
+                  <span
+                    class='block w-8 h-[1.5px] bg-brand-gold/40 mx-auto mb-3 group-hover:w-12 transition-all duration-500'
+                    aria-hidden='true'
+                  />
+
+                  <p class='text-brand-blue/60 text-sm leading-relaxed mb-5 flex-1'>
+                    {member.bio}
+                  </p>
+
+                  <a
+                    href={member.href}
+                    class='inline-flex items-center justify-center gap-2 px-5 py-2 text-sm font-semibold rounded-full border-2 border-brand-blue/20 text-brand-blue hover:border-brand-gold hover:text-brand-gold hover:bg-brand-gold/5 transition-all duration-300 group/btn mt-auto'
+                    aria-label={`Learn more about ${member.name}`}
+                  >
+                    Learn More
+                    <svg
+                      class='w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover/btn:opacity-100 group-hover/btn:translate-x-0 transition-all duration-300'
+                      fill='none'
+                      viewBox='0 0 24 24'
+                      stroke-width='2.5'
+                      stroke='currentColor'
+                    >
+                      <path
+                        stroke-linecap='round'
+                        stroke-linejoin='round'
+                        d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3'
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Scroll progress dots -->
+    <div class='flex justify-center gap-2 mt-6 staff-dots' aria-hidden='true'>
+      {
+        staff.map((_, i) => (
+          <button
+            class={`staff-dot w-2 h-2 rounded-full transition-all duration-300 ${i === 0 ? "bg-brand-gold w-6" : "bg-brand-blue/20"}`}
+            data-index={i}
+          />
+        ))
+      }
     </div>
   </div>
 </section>
@@ -215,17 +322,29 @@ const staff = [
     transition-delay: var(--card-delay, 0ms);
   }
 
-  .staff-cta {
-    transition:
-      opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-    transition-delay: 500ms;
-  }
-
-  .staff-visible .staff-card,
-  .staff-visible .staff-cta {
+  .staff-visible .staff-card {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .staff-scroll-container {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .staff-scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Snap scrolling on touch devices */
+  @media (pointer: coarse) {
+    .staff-scroll-container {
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .staff-card {
+      scroll-snap-align: center;
+    }
   }
 
   /* Animated spinning gradient ring */
@@ -259,15 +378,23 @@ const staff = [
     }
   }
 
-  /* 3D tilt perspective on hover — subtle */
+  /* 3D tilt perspective on hover */
   .staff-card-inner {
     transform-style: preserve-3d;
     perspective: 800px;
   }
 
-  /* Smooth card tilt powered by JS below */
   .staff-card-inner.tilting {
     transition: none;
+  }
+
+  /* Drag cursor */
+  .staff-scroll-container.dragging {
+    cursor: grabbing;
+    user-select: none;
+  }
+  .staff-scroll-container:not(.dragging) {
+    cursor: grab;
   }
 </style>
 
@@ -282,9 +409,119 @@ const staff = [
           observer.disconnect();
         }
       },
-      { threshold: 0.12 },
+      { threshold: 0.1 },
     );
     observer.observe(staffGrid);
+  }
+
+  // Scroll container logic
+  const scrollContainer = document.querySelector<HTMLElement>(
+    ".staff-scroll-container",
+  );
+  const scrollLeft =
+    document.querySelector<HTMLButtonElement>(".staff-scroll-left");
+  const scrollRight = document.querySelector<HTMLButtonElement>(
+    ".staff-scroll-right",
+  );
+  const dots = document.querySelectorAll<HTMLButtonElement>(".staff-dot");
+
+  if (scrollContainer) {
+    const cardWidth = 356; // card width + gap
+
+    // Arrow buttons
+    scrollLeft?.addEventListener("click", () => {
+      scrollContainer.scrollBy({ left: -cardWidth, behavior: "smooth" });
+    });
+    scrollRight?.addEventListener("click", () => {
+      scrollContainer.scrollBy({ left: cardWidth, behavior: "smooth" });
+    });
+
+    // Update button states + dots on scroll
+    const updateControls = () => {
+      const { scrollLeft: sl, scrollWidth, clientWidth } = scrollContainer;
+      if (scrollLeft) scrollLeft.disabled = sl <= 10;
+      if (scrollRight)
+        scrollRight.disabled = sl + clientWidth >= scrollWidth - 10;
+
+      // Update dots
+      const cards = scrollContainer.querySelectorAll(".staff-card");
+      const containerRect = scrollContainer.getBoundingClientRect();
+      const containerCenter = containerRect.left + containerRect.width / 2;
+
+      let closestIdx = 0;
+      let closestDist = Infinity;
+      cards.forEach((card, idx) => {
+        const cardRect = card.getBoundingClientRect();
+        const cardCenter = cardRect.left + cardRect.width / 2;
+        const dist = Math.abs(cardCenter - containerCenter);
+        if (dist < closestDist) {
+          closestDist = dist;
+          closestIdx = idx;
+        }
+      });
+
+      dots.forEach((dot, idx) => {
+        if (idx === closestIdx) {
+          dot.classList.add("bg-brand-gold", "w-6");
+          dot.classList.remove("bg-brand-blue/20");
+        } else {
+          dot.classList.remove("bg-brand-gold", "w-6");
+          dot.classList.add("bg-brand-blue/20");
+        }
+      });
+    };
+
+    scrollContainer.addEventListener("scroll", updateControls, {
+      passive: true,
+    });
+    updateControls();
+
+    // Dot click navigation
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        const idx = Number(dot.dataset.index);
+        const cards = scrollContainer.querySelectorAll(".staff-card");
+        if (cards[idx]) {
+          cards[idx].scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center",
+          });
+        }
+      });
+    });
+
+    // Desktop drag-to-scroll
+    if (window.matchMedia("(pointer: fine)").matches) {
+      let isDown = false;
+      let startX = 0;
+      let scrollStart = 0;
+
+      scrollContainer.addEventListener("mousedown", (e) => {
+        isDown = true;
+        scrollContainer.classList.add("dragging");
+        startX = e.pageX - scrollContainer.offsetLeft;
+        scrollStart = scrollContainer.scrollLeft;
+      });
+
+      scrollContainer.addEventListener("mouseleave", () => {
+        isDown = false;
+        scrollContainer.classList.remove("dragging");
+      });
+
+      scrollContainer.addEventListener("mouseup", () => {
+        isDown = false;
+        scrollContainer.classList.remove("dragging");
+      });
+
+      scrollContainer.addEventListener("mousemove", (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - scrollContainer.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        scrollContainer.scrollLeft = scrollStart - walk;
+      });
+    }
   }
 
   // 3D tilt effect on desktop

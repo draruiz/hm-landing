@@ -1,0 +1,126 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { breadcrumbSchema } from "../../utils/seo";
+
+const siteUrl = "https://healthymindspecialists.com";
+const staffName = "Dr. Asia Wardlaw, PsyD";
+const staffRole = "Director of Diagnostic Services";
+const staffSlug = "dr-asia-wardlaw-psyd";
+const bannerImage =
+  "https://brightervisionclients.com/resize/63bd841c407b4bb641b23b5b/attachments/61f3145a-b6b8-4d06-99b1-37fcb18b9ea0?top=0.0000&left=0.2572&bottom=1.0000&right=1.0000";
+const tagline =
+  "I believe clarity leads to confidence, especially when you're searching for answers about learning, behavior, or emotional well-being.";
+const profileImage =
+  "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/6e817f35-0729-4415-e9cc-106de5df9400/public";
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "About Us", url: `${siteUrl}/about` },
+    { name: staffName, url: `${siteUrl}/staff/${staffSlug}` },
+  ]),
+];
+---
+
+<Layout
+  title={staffName}
+  description={`Meet ${staffName}, ${staffRole} at Healthy Mind Specialists in Tampa, FL. Specializing in ADHD, autism, learning disabilities, and comprehensive psychological assessment.`}
+  schema={schemas}
+>
+  <!-- Hero Banner -->
+  <section class='relative h-[420px] md:h-[500px] overflow-hidden'>
+    <img
+      src={bannerImage}
+      alt={`Portrait of ${staffName}, ${staffRole} at Healthy Mind Specialists`}
+      width='1920'
+      height='600'
+      class='absolute inset-0 w-full h-full object-cover'
+      loading='eager'
+    />
+    <div
+      class='absolute inset-0 bg-gradient-to-r from-brand-blue/80 to-brand-blue/40'
+    >
+    </div>
+    <div class='relative h-full flex items-center'>
+      <div class='max-w-4xl mx-auto px-6 text-white'>
+        <h1 class='text-4xl md:text-5xl lg:text-6xl font-display italic mb-4'>
+          {staffName}
+        </h1>
+        <p class='text-xl md:text-2xl text-white/80 max-w-2xl'>
+          {staffRole}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class='py-20 md:py-28'>
+    <div class='max-w-4xl mx-auto px-6'>
+      <!-- Profile + Tagline -->
+      <div class='mb-12 md:flex md:items-start md:gap-10'>
+        <img
+          src={profileImage}
+          alt={`${staffName}, ${staffRole}`}
+          width='280'
+          height='280'
+          class='w-48 h-48 md:w-64 md:h-64 rounded-2xl object-cover shadow-lg mb-6 md:mb-0 mx-auto md:mx-0 flex-shrink-0'
+          loading='lazy'
+        />
+        <div>
+          <p
+            class='text-2xl md:text-3xl font-display italic text-brand-blue/80'
+          >
+            {tagline}
+          </p>
+          <span class='block w-16 h-[2px] bg-brand-gold mt-6'></span>
+        </div>
+      </div>
+
+      <!-- Bio Content -->
+      <div class='prose prose-lg max-w-none text-brand-blue/80 space-y-6'>
+        <p>
+          As a licensed clinical psychologist, I specialize in psychological and
+          neuropsychological assessment for children, adolescents, and adults.
+          Whether you're navigating academic concerns, mood and behavioral
+          changes, or questions about neurodevelopment, I offer comprehensive
+          evaluations designed to uncover the "why" and provide a clear path
+          forward.
+        </p>
+        <p>
+          I earned my Doctorate in Clinical Psychology (PsyD) from The Florida
+          School of Professional Psychology at National Louis University in
+          Tampa, Florida. My training spans a wide range of clinical settings,
+          including hospitals, community mental health clinics, therapeutic
+          group homes, detention centers, and state prisons. During my
+          pre-doctoral internship with the Florida Department of Corrections, I
+          gained advanced experience in forensic and diagnostic assessment.
+        </p>
+        <p>
+          My areas of focus include ADHD, autism spectrum disorders, learning
+          disabilities, behavioral challenges, developmental conditions, mood
+          disorders, and personality-related concerns. I use culturally
+          responsive, evidence-based practices to ensure that each evaluation
+          leads to meaningful insights, whether for treatment planning, school
+          support, or diagnostic clarification.
+        </p>
+        <p>
+          In addition to conducting assessments, I supervise practicum students
+          and psychometricians to ensure the highest standards of ethical,
+          high-quality care. I view psychological testing not just as a clinical
+          service, but as a powerful tool for self-understanding, direction, and
+          long-term support.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class='mt-16 text-center'>
+        <a
+          href='/contact'
+          class='inline-flex items-center px-8 py-4 bg-brand-blue text-white font-semibold rounded-full hover:bg-brand-blue-light transition-all duration-300 shadow-lg hover:shadow-xl'
+        >
+          Schedule a Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

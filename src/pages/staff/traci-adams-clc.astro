@@ -1,0 +1,170 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { breadcrumbSchema } from "../../utils/seo";
+
+const siteUrl = "https://healthymindspecialists.com";
+const staffName = "Traci Adams, CLC";
+const staffRole = "Certified Life Coach";
+const staffSlug = "traci-adams-clc";
+const bannerImage =
+  "https://brightervisionclients.com/resize/63bd841c407b4bb641b23b5b/attachments/4ccff524-d01c-4fed-bdaa-cabbc00bbcbf?top=0.0715&left=0.0000&bottom=0.9104&right=1.0000";
+const tagline =
+  "Specializing in working with teens, young adults, and couples.";
+const profileImage =
+  "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/96c2a220-7c97-4a54-5bed-de73b398c600/public";
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "About Us", url: `${siteUrl}/about` },
+    { name: staffName, url: `${siteUrl}/staff/${staffSlug}` },
+  ]),
+];
+---
+
+<Layout
+  title={staffName}
+  description={`Meet ${staffName}, ${staffRole} at Healthy Mind Specialists in Tampa, FL. Specializing in adolescent coaching, young adults, and couples with over 20 years of case management experience.`}
+  schema={schemas}
+>
+  <!-- Hero Banner -->
+  <section class='relative h-[420px] md:h-[500px] overflow-hidden'>
+    <img
+      src={bannerImage}
+      alt={`Portrait of ${staffName}, ${staffRole} at Healthy Mind Specialists`}
+      width='1920'
+      height='600'
+      class='absolute inset-0 w-full h-full object-cover'
+      loading='eager'
+    />
+    <div
+      class='absolute inset-0 bg-gradient-to-r from-brand-blue/80 to-brand-blue/40'
+    >
+    </div>
+    <div class='relative h-full flex items-center'>
+      <div class='max-w-4xl mx-auto px-6 text-white'>
+        <h1 class='text-4xl md:text-5xl lg:text-6xl font-display italic mb-4'>
+          {staffName}
+        </h1>
+        <p class='text-xl md:text-2xl text-white/80 max-w-2xl'>
+          {staffRole}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Strong Mind Teens Highlight -->
+  <section class='bg-brand-cream py-12'>
+    <div class='max-w-4xl mx-auto px-6'>
+      <div
+        class='bg-white rounded-2xl shadow-lg border border-brand-gold/20 p-8 md:p-10 flex flex-col md:flex-row items-center gap-6 md:gap-10'
+      >
+        <div class='flex-1'>
+          <h2
+            class='text-2xl md:text-3xl font-display italic text-brand-blue mb-3'
+          >
+            Strong Mind Teens
+          </h2>
+          <p class='text-brand-blue/70 text-lg mb-1'>
+            Sign Up for our PREMIUM 6-week adolescent coaching program
+          </p>
+          <p class='text-brand-blue/60'>
+            Designed specifically to address the real and current struggles
+            adolescents face today. Structured, practical coaching adapted to
+            the adolescent's language and emotional stage. This is not a space
+            to simply talk — it is guided support with direction.
+          </p>
+        </div>
+        <div class='flex-shrink-0'>
+          <a
+            href='/programs/strong-mind-teens'
+            class='inline-flex items-center px-8 py-4 bg-brand-gold text-white font-semibold rounded-full hover:bg-brand-gold-dark transition-all duration-300 shadow-lg hover:shadow-xl'
+          >
+            Learn More
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class='py-20 md:py-28'>
+    <div class='max-w-4xl mx-auto px-6'>
+      <!-- Profile + Tagline -->
+      <div class='mb-12 md:flex md:items-start md:gap-10'>
+        <img
+          src={profileImage}
+          alt={`${staffName}, ${staffRole}`}
+          width='280'
+          height='280'
+          class='w-48 h-48 md:w-64 md:h-64 rounded-2xl object-cover shadow-lg mb-6 md:mb-0 mx-auto md:mx-0 flex-shrink-0'
+          loading='lazy'
+        />
+        <div>
+          <p
+            class='text-2xl md:text-3xl font-display italic text-brand-blue/80'
+          >
+            {tagline}
+          </p>
+          <span class='block w-16 h-[2px] bg-brand-gold mt-6'></span>
+        </div>
+      </div>
+
+      <!-- Bio Content -->
+      <div class='prose prose-lg max-w-none text-brand-blue/80 space-y-6'>
+        <p>
+          Life doesn't always follow a straight path, and sometimes, we need
+          support to move forward with clarity and confidence.
+        </p>
+        <p>
+          As a Certified Professional Life Coach at Healthy Mind Specialists, I
+          work with teens, young adults, and couples who are navigating life
+          transitions, relationship challenges, and high-stress environments. My
+          goal is to create a safe, supportive space where you can feel
+          empowered to grow, reconnect, and take meaningful steps toward lasting
+          change.
+        </p>
+        <p>
+          With over 20 years of experience as a case manager in a variety of
+          settings, I bring practical insight, deep empathy, and a calm,
+          grounded approach to every session. Coaching offers a forward-focused,
+          collaborative process that helps you develop new strategies, improve
+          communication, and move through stuck points, without requiring a
+          clinical diagnosis or diving into past trauma.
+        </p>
+        <p>
+          My work is informed by specialized training in Dialectical Behavior
+          Therapy (DBT) for adolescents, trauma-informed communication, cultural
+          connection in families, and adolescent development. I also have a
+          passion for supporting parents and caregivers through difficult
+          behavioral dynamics at home.
+        </p>
+        <p>
+          Whether you are feeling overwhelmed, disconnected, or simply ready for
+          something to shift, I offer tools and perspective that meet you where
+          you are. Together, we can strengthen your sense of balance,
+          resilience, and purpose, one step at a time.
+        </p>
+        <p>
+          When I'm not coaching, you can find me enjoying the Florida sunshine,
+          spending time with my grandchildren, Alice and Eli, and continuing my
+          lifelong passion for mental wellness.
+        </p>
+        <p>
+          If you're ready to explore what's next, I'd be honored to walk with
+          you. Let's connect.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class='mt-16 text-center'>
+        <a
+          href='/contact'
+          class='inline-flex items-center px-8 py-4 bg-brand-blue text-white font-semibold rounded-full hover:bg-brand-blue-light transition-all duration-300 shadow-lg hover:shadow-xl'
+        >
+          Schedule a Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

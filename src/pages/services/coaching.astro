@@ -1,0 +1,236 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { breadcrumbSchema } from "../../utils/seo";
+
+const siteUrl = "https://healthymindspecialists.com";
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "Our Services", url: `${siteUrl}/#services` },
+    { name: "Life Coaching", url: `${siteUrl}/services/coaching` },
+  ]),
+];
+---
+
+<Layout
+  title='Life Coaching'
+  description='Action-oriented life coaching to help you set meaningful goals, overcome obstacles, and design a fulfilling future at Healthy Mind Specialists.'
+  schema={schemas}
+>
+  <!-- Hero Banner -->
+  <section class='relative h-[420px] md:h-[500px] overflow-hidden'>
+    <img
+      src='https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=1920&h=600&fit=crop&q=80'
+      alt='Bright sunrise representing life coaching and personal transformation'
+      width='1920'
+      height='600'
+      class='absolute inset-0 w-full h-full object-cover'
+      loading='eager'
+    />
+    <div
+      class='absolute inset-0 bg-gradient-to-r from-brand-blue/80 to-brand-blue/40'
+    >
+    </div>
+    <div class='relative h-full flex items-center'>
+      <div class='max-w-4xl mx-auto px-6 text-white'>
+        <h1 class='text-4xl md:text-5xl lg:text-6xl font-display italic mb-4'>
+          Life Coaching
+        </h1>
+        <p class='text-xl md:text-2xl text-white/80 max-w-2xl'>
+          Unlock your potential. Design the future you desire.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class='py-20 md:py-28'>
+    <div class='max-w-4xl mx-auto px-6'>
+      <!-- Benefits -->
+      <div class='mb-16'>
+        <h2
+          class='text-3xl md:text-4xl font-display italic text-brand-blue mb-6'
+        >
+          The Transformative Benefits of a Life Coach
+        </h2>
+        <div class='space-y-5 text-lg text-brand-blue/70 leading-relaxed'>
+          <p>
+            Life coaching is distinct from therapy in that it focuses on your
+            present and future, rather than healing past wounds. While therapy
+            often addresses emotional trauma and mental health concerns, life
+            coaching is action-oriented and helps you set and achieve meaningful
+            goals, overcome obstacles, and create a life aligned with your
+            aspirations.
+          </p>
+          <p>
+            A life coach empowers you to take charge of your life's narrative,
+            uncover your full potential, and design a fulfilling future.
+            Together, you and your coach will work to identify your goals,
+            develop strategies, and make purposeful decisions to move forward
+            with confidence.
+          </p>
+        </div>
+      </div>
+
+      <!-- Image break -->
+      <div class='mb-16 rounded-2xl overflow-hidden shadow-lg'>
+        <img
+          src='https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&h=500&fit=crop&q=80'
+          alt='Collaborative coaching session representing life coaching support and guidance'
+          width='1200'
+          height='500'
+          loading='lazy'
+          class='w-full h-[300px] md:h-[400px] object-cover'
+        />
+      </div>
+
+      <!-- Holistic Approach -->
+      <div class='mb-16'>
+        <h2
+          class='text-3xl md:text-4xl font-display italic text-brand-blue mb-6'
+        >
+          A Holistic Approach to Life Coaching
+        </h2>
+        <p class='text-lg text-brand-blue/70 leading-relaxed mb-8'>
+          Life coaching considers every area of your life. Unlike therapy, which
+          is often rooted in addressing emotional pain or past experiences, life
+          coaching emphasizes achieving goals, cultivating balance, and
+          designing the future you desire.
+        </p>
+        <div class='grid grid-cols-1 md:grid-cols-2 gap-6'>
+          {
+            [
+              {
+                title: "Career",
+                desc: "Break through barriers and achieve professional growth.",
+              },
+              {
+                title: "Relationships",
+                desc: "Strengthen connections with family, friends, and partners.",
+              },
+              {
+                title: "Health & Wellness",
+                desc: "Build habits that promote mental and physical vitality.",
+              },
+              {
+                title: "Finances",
+                desc: "Develop strategies for financial clarity and empowerment.",
+              },
+              {
+                title: "Personal Growth",
+                desc: "Foster self-awareness, mindfulness, and inner peace.",
+              },
+              {
+                title: "Environment & Recreation",
+                desc: "Create a balanced, joyful lifestyle.",
+              },
+            ].map((item) => (
+              <div class='bg-brand-cream/50 rounded-xl p-6 border border-brand-blue/5'>
+                <h3 class='text-lg font-display text-brand-blue mb-2'>
+                  {item.title}
+                </h3>
+                <p class='text-brand-blue/60 text-sm leading-relaxed'>
+                  {item.desc}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Why work with a coach -->
+      <div class='mb-16'>
+        <h2
+          class='text-3xl md:text-4xl font-display italic text-brand-blue mb-6'
+        >
+          Why Work with a Life Coach?
+        </h2>
+        <p class='text-lg text-brand-blue/70 leading-relaxed mb-8'>
+          A life coach is your partner in growth and transformation. Together,
+          you will:
+        </p>
+        <div
+          class='bg-brand-cream/50 rounded-2xl p-8 md:p-10 border border-brand-blue/5'
+        >
+          <ul class='space-y-4'>
+            {
+              [
+                {
+                  bold: "Inspire and Motivate Yourself",
+                  desc: "Tap into your strengths and overcome barriers.",
+                },
+                {
+                  bold: "Stay Accountable",
+                  desc: "Maintain focus and commitment to your goals.",
+                },
+                {
+                  bold: "Build Confidence",
+                  desc: "Recognize your abilities and move past self-doubt.",
+                },
+                {
+                  bold: "Create Meaningful Change",
+                  desc: "Develop actionable strategies for lasting success.",
+                },
+              ].map((item) => (
+                <li class='flex items-start gap-3 text-brand-blue/70'>
+                  <svg
+                    class='w-5 h-5 text-brand-gold mt-1 shrink-0'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    stroke-width='2'
+                    stroke='currentColor'
+                  >
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      d='M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
+                    />
+                  </svg>
+                  <span>
+                    <strong class='text-brand-blue'>{item.bold}:</strong>{" "}
+                    {item.desc}
+                  </span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div
+        class='text-center bg-brand-cream/60 rounded-2xl p-10 md:p-14 border border-brand-blue/5'
+      >
+        <h2
+          class='text-2xl md:text-3xl font-display italic text-brand-blue mb-4'
+        >
+          Ready to Transform Your Life?
+        </h2>
+        <p class='text-brand-blue/60 mb-8 max-w-xl mx-auto'>
+          If you're ready to take control of your present and design a
+          fulfilling future, a life coach can help you get there. Start your
+          journey today.
+        </p>
+        <a
+          href='/contact'
+          class='inline-flex items-center px-8 py-4 text-base font-semibold rounded-full border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300'
+        >
+          Contact Us
+          <svg
+            class='w-5 h-5 ml-2'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke-width='2'
+            stroke='currentColor'
+          >
+            <path
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3'></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

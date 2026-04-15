@@ -1,0 +1,139 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { breadcrumbSchema } from "../../utils/seo";
+
+const siteUrl = "https://healthymindspecialists.com";
+const staffName = "Morgan Adams, MSW";
+const staffRole = "Life & Mindfulness Coach";
+const staffSlug = "morgan-adams-msw";
+const bannerImage =
+  "https://brightervisionclients.com/resize/63bd841c407b4bb641b23b5b/attachments/581f5940-598e-4c4b-9b2f-d04ae531d8d4?top=0.0000&left=0.0000&bottom=1.0000&right=1.0000";
+const tagline =
+  "Helping you build confidence, clarity, and calm through mindfulness and personalized life strategies.";
+const profileImage =
+  "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/b13d28c3-98c3-4dbd-7ba7-d16aefbad700/public";
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "About Us", url: `${siteUrl}/about` },
+    { name: staffName, url: `${siteUrl}/staff/${staffSlug}` },
+  ]),
+];
+---
+
+<Layout
+  title={staffName}
+  description={`Meet ${staffName}, ${staffRole} at Healthy Mind Specialists in Tampa, FL. Certified in mindfulness, meditation, and sexual assault survivor support with a Master's in Social Work.`}
+  schema={schemas}
+>
+  <!-- Hero Banner -->
+  <section class='relative h-[420px] md:h-[500px] overflow-hidden'>
+    <img
+      src={bannerImage}
+      alt={`Portrait of ${staffName}, ${staffRole} at Healthy Mind Specialists`}
+      width='1920'
+      height='600'
+      class='absolute inset-0 w-full h-full object-cover'
+      loading='eager'
+    />
+    <div
+      class='absolute inset-0 bg-gradient-to-r from-brand-blue/80 to-brand-blue/40'
+    >
+    </div>
+    <div class='relative h-full flex items-center'>
+      <div class='max-w-4xl mx-auto px-6 text-white'>
+        <h1 class='text-4xl md:text-5xl lg:text-6xl font-display italic mb-4'>
+          {staffName}
+        </h1>
+        <p class='text-xl md:text-2xl text-white/80 max-w-2xl'>
+          {staffRole}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class='py-20 md:py-28'>
+    <div class='max-w-4xl mx-auto px-6'>
+      <!-- Profile + Tagline -->
+      <div class='mb-12 md:flex md:items-start md:gap-10'>
+        <img
+          src={profileImage}
+          alt={`${staffName}, ${staffRole}`}
+          width='280'
+          height='280'
+          class='w-48 h-48 md:w-64 md:h-64 rounded-2xl object-cover shadow-lg mb-6 md:mb-0 mx-auto md:mx-0 flex-shrink-0'
+          loading='lazy'
+        />
+        <div>
+          <p
+            class='text-2xl md:text-3xl font-display italic text-brand-blue/80'
+          >
+            {tagline}
+          </p>
+          <span class='block w-16 h-[2px] bg-brand-gold mt-6'></span>
+        </div>
+      </div>
+
+      <!-- Bio Content -->
+      <div class='prose prose-lg max-w-none text-brand-blue/80 space-y-6'>
+        <p>
+          Life can feel overwhelming, fast-paced, and emotionally heavy at
+          times. When stress, uncertainty, or difficult experiences begin to
+          take over, having the right support can make a meaningful difference.
+          I'm Morgan Adams, a life and mindfulness coach, and my work centers on
+          walking alongside you as you regain a sense of grounding, clarity, and
+          confidence.
+        </p>
+        <p>
+          My approach is personalized and practical. I incorporate mindfulness,
+          meditation, and coping strategies tailored to your unique needs and
+          life circumstances. Coaching offers a supportive space to slow down,
+          gain perspective, and develop tools that help you navigate challenges
+          with greater intention and self-trust. Whether you are feeling stuck,
+          emotionally drained, or simply ready for a shift, our work together
+          focuses on helping you move forward in a way that feels authentic and
+          sustainable.
+        </p>
+        <p>
+          I am certified to work with survivors of sexual assault and am deeply
+          committed to supporting individuals through healing and personal
+          growth. My professional background includes experience in schools,
+          crisis centers, community-based mental health programs, and work with
+          children who have special needs. These settings have shaped a
+          compassionate, flexible, and client-centered approach rooted in
+          respect, safety, and empowerment.
+        </p>
+        <p>
+          My educational background includes a Bachelor's degree in Social Work
+          from Southeastern University and a Master's degree in Social Work from
+          the University of Central Florida. I also hold an Associate's degree
+          in Theology and a certificate in American Sign Language, which
+          supports meaningful connection with individuals from diverse
+          backgrounds and lived experiences.
+        </p>
+        <p>
+          Originally from Indiana, I moved to Florida at 15 and quickly knew it
+          would become home. Outside of work, I enjoy fishing, reading, and
+          spending time outdoors in the Florida sunshine.
+        </p>
+        <p>
+          If you are ready to explore new ways of coping, reconnect with
+          yourself, and create meaningful change, I would be honored to support
+          you.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class='mt-16 text-center'>
+        <a
+          href='/contact'
+          class='inline-flex items-center px-8 py-4 bg-brand-blue text-white font-semibold rounded-full hover:bg-brand-blue-light transition-all duration-300 shadow-lg hover:shadow-xl'
+        >
+          Schedule a Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

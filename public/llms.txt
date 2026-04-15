@@ -1,0 +1,48 @@
+# Healthy Mind Specialists
+
+> Integrative psychological services providing individual, couples, family, and group therapy in Tampa, FL. Compassionate, evidence-based mental health care in Riverview, Florida.
+
+## About
+
+Healthy Mind Specialists is a mental health practice located at 11906 Boyette Rd, Riverview, FL 33569. We offer compassionate, integrative psychological services tailored to each client's unique needs. Our licensed psychologists and mental health counselors combine evidence-based therapies to support personal growth, healing, and resilience. Phone: (813) 609-2034.
+
+## Services
+
+- [Integrative Care](/services): Holistic approach combining evidence-based therapies tailored to your unique needs.
+- [Individual Therapy](/services/individual-therapy): One-on-one sessions focused on personal growth, healing, and resilience.
+- [Group Therapy](/services/group-therapy): Shared healing experiences guided by licensed professionals in a safe space.
+- [Psychological Evaluations](/services/evaluations): Comprehensive assessments to inform diagnosis, treatment planning, and growth.
+
+## Specialties
+
+- [Mindfulness](/services/mindfulness): Present-moment awareness and sustainable habits for lasting mental wellness.
+- [Therapy for Self-Esteem](/services/self-esteem): Rediscover your self-worth and develop a compassionate inner dialogue.
+
+## Conditions We Treat
+
+- [Counseling for Anxiety](/conditions/anxiety): Manage worry, panic, and restlessness with proven therapeutic techniques.
+- [Life Transitions](/conditions/life-transitions): Navigate change with confidence — career shifts, loss, relocation, and new chapters.
+- [Obsessive Compulsive Disorder](/conditions/ocd): Evidence-based OCD treatment including ERP and cognitive behavioral therapy.
+- [Social Anxiety Disorder](/conditions/social-anxiety): Overcome social fears and rebuild confidence in professional and personal settings.
+
+## Our Team
+
+- [Dr. Maria A. Ruiz, PsyD](/staff/maria-ruiz) — Licensed Psychologist. Helping you uncover patterns, understand your emotions, and create meaningful change.
+- [Kiyomi Taylor, LMHC](/staff/kiyomi-taylor) — Licensed Mental Health Counselor. Offering support, insight, and practical tools for healing from trauma, stress, and self-doubt.
+- [Dr. Asia Wardlaw, PsyD](/staff/asia-wardlaw) — Licensed Psychologist. Specializing in psychological testing that reveals answers, supports planning, and builds long-term understanding.
+
+## Getting Started
+
+- [Frequently Asked Questions](/get-started/faqs)
+- [Rates & Insurance](/get-started/insurance)
+- [Request an Appointment](/get-started)
+
+## Location
+
+11906 Boyette Rd, Riverview, FL 33569
+Phone: (813) 609-2034
+Website: https://healthymindspecialists.com
+
+## Optional
+
+- [Full details](llms-full.txt): Extended information about all services, conditions, and staff.

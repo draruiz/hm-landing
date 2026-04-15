@@ -60,6 +60,53 @@ export const breadcrumbSchema = (items: { name: string; url: string }[]) => ({
   })),
 });
 
+export const faqSchema = (faqs: { question: string; answer: string }[]) => ({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map(({ question, answer }) => ({
+    "@type": "Question",
+    name: question,
+    acceptedAnswer: { "@type": "Answer", text: answer },
+  })),
+});
+
+export const articleSchema = ({
+  title,
+  description,
+  url,
+  image,
+  datePublished,
+  dateModified,
+  authorName,
+  publisherName,
+  publisherLogo,
+}: {
+  title: string;
+  description: string;
+  url: string;
+  image: string;
+  datePublished: string;
+  dateModified: string;
+  authorName: string;
+  publisherName: string;
+  publisherLogo: string;
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: title,
+  description,
+  url,
+  image,
+  datePublished,
+  dateModified,
+  author: { "@type": "Person", name: authorName },
+  publisher: {
+    "@type": "Organization",
+    name: publisherName,
+    logo: { "@type": "ImageObject", url: publisherLogo },
+  },
+});
+
 export function readingTime(content: string): string {
   const words = content.trim().split(/\s+/).length;
   const minutes = Math.ceil(words / 200);

@@ -1,0 +1,288 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { breadcrumbSchema } from "../../utils/seo";
+
+const siteUrl = "https://healthymindspecialists.com";
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "Our Services", url: `${siteUrl}/#services` },
+    {
+      name: "Supervision & Consultation",
+      url: `${siteUrl}/services/supervision-and-consultation`,
+    },
+  ]),
+];
+---
+
+<Layout
+  title='Supervision and Consultation'
+  description='Professional clinical supervision and consultation services for individuals seeking licensure as mental health counselors or psychologists.'
+  schema={schemas}
+>
+  <!-- Hero Banner -->
+  <section class='relative h-[420px] md:h-[500px] overflow-hidden'>
+    <img
+      src='https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1920&h=600&fit=crop&q=80'
+      alt='Professional setting representing clinical supervision and consultation services'
+      width='1920'
+      height='600'
+      class='absolute inset-0 w-full h-full object-cover'
+      loading='eager'
+    />
+    <div
+      class='absolute inset-0 bg-gradient-to-r from-brand-blue/80 to-brand-blue/40'
+    >
+    </div>
+    <div class='relative h-full flex items-center'>
+      <div class='max-w-4xl mx-auto px-6 text-white'>
+        <h1 class='text-4xl md:text-5xl lg:text-6xl font-display italic mb-4'>
+          Supervision & Consultation
+        </h1>
+        <p class='text-xl md:text-2xl text-white/80 max-w-2xl'>
+          Expert guidance on your path to licensure and professional growth.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class='py-20 md:py-28'>
+    <div class='max-w-4xl mx-auto px-6'>
+      <!-- Intro -->
+      <div class='mb-16'>
+        <h2
+          class='text-3xl md:text-4xl font-display italic text-brand-blue mb-6'
+        >
+          Supporting Your Professional Journey
+        </h2>
+        <div class='space-y-5 text-lg text-brand-blue/70 leading-relaxed'>
+          <p>
+            Healthy Mind Specialists offer supervision and consultation services
+            to individuals seeking licensure as a licensed mental health
+            counselor or a licensed clinical psychologist.
+          </p>
+        </div>
+      </div>
+
+      <!-- Supervision vs Consultation -->
+      <div class='mb-16'>
+        <h2
+          class='text-3xl md:text-4xl font-display italic text-brand-blue mb-6'
+        >
+          Supervision vs. Consultation
+        </h2>
+        <div class='grid grid-cols-1 md:grid-cols-2 gap-8'>
+          <!-- Supervision Card -->
+          <div
+            class='bg-brand-cream/50 rounded-2xl p-8 border border-brand-blue/5'
+          >
+            <div class='flex items-center gap-3 mb-5'>
+              <div
+                class='w-12 h-12 bg-brand-blue/10 rounded-xl flex items-center justify-center'
+              >
+                <svg
+                  class='w-6 h-6 text-brand-blue'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke-width='1.5'
+                  stroke='currentColor'
+                >
+                  <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    d='M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z'
+                  ></path>
+                </svg>
+              </div>
+              <h3 class='text-2xl font-display text-brand-blue'>Supervision</h3>
+            </div>
+            <ul class='space-y-3 text-brand-blue/70'>
+              <li class='flex items-start gap-2'>
+                <svg
+                  class='w-4 h-4 text-brand-gold mt-1 shrink-0'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke-width='2'
+                  stroke='currentColor'
+                >
+                  <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    d='M4.5 12.75l6 6 9-13.5'></path>
+                </svg>
+                <span
+                  >Clinical supervisors are legally responsible for the actions
+                  of their supervisees</span
+                >
+              </li>
+              <li class='flex items-start gap-2'>
+                <svg
+                  class='w-4 h-4 text-brand-gold mt-1 shrink-0'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke-width='2'
+                  stroke='currentColor'
+                >
+                  <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    d='M4.5 12.75l6 6 9-13.5'></path>
+                </svg>
+                <span>Can insist on a course of action and review files</span>
+              </li>
+              <li class='flex items-start gap-2'>
+                <svg
+                  class='w-4 h-4 text-brand-gold mt-1 shrink-0'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke-width='2'
+                  stroke='currentColor'
+                >
+                  <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    d='M4.5 12.75l6 6 9-13.5'></path>
+                </svg>
+                <span
+                  >Supervision is documented due to fiduciary responsibility and
+                  liability</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Consultation Card -->
+          <div
+            class='bg-brand-cream/50 rounded-2xl p-8 border border-brand-blue/5'
+          >
+            <div class='flex items-center gap-3 mb-5'>
+              <div
+                class='w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center'
+              >
+                <svg
+                  class='w-6 h-6 text-brand-gold'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke-width='1.5'
+                  stroke='currentColor'
+                >
+                  <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    d='M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155'
+                  ></path>
+                </svg>
+              </div>
+              <h3 class='text-2xl font-display text-brand-blue'>
+                Consultation
+              </h3>
+            </div>
+            <ul class='space-y-3 text-brand-blue/70'>
+              <li class='flex items-start gap-2'>
+                <svg
+                  class='w-4 h-4 text-brand-gold mt-1 shrink-0'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke-width='2'
+                  stroke='currentColor'
+                >
+                  <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    d='M4.5 12.75l6 6 9-13.5'></path>
+                </svg>
+                <span
+                  >Consultants are not responsible for the work of their
+                  consultees</span
+                >
+              </li>
+              <li class='flex items-start gap-2'>
+                <svg
+                  class='w-4 h-4 text-brand-gold mt-1 shrink-0'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke-width='2'
+                  stroke='currentColor'
+                >
+                  <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    d='M4.5 12.75l6 6 9-13.5'></path>
+                </svg>
+                <span
+                  >Information sharing is voluntary — the consultee can choose
+                  to implement suggestions or not</span
+                >
+              </li>
+              <li class='flex items-start gap-2'>
+                <svg
+                  class='w-4 h-4 text-brand-gold mt-1 shrink-0'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke-width='2'
+                  stroke='currentColor'
+                >
+                  <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    d='M4.5 12.75l6 6 9-13.5'></path>
+                </svg>
+                <span
+                  >Documentation is not required, and there is no fiduciary
+                  responsibility or liability</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image break -->
+      <div class='mb-16 rounded-2xl overflow-hidden shadow-lg'>
+        <img
+          src='https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200&h=500&fit=crop&q=80'
+          alt='Professional consultation meeting representing clinical supervision services'
+          width='1200'
+          height='500'
+          loading='lazy'
+          class='w-full h-[300px] md:h-[400px] object-cover'
+        />
+      </div>
+
+      <!-- CTA -->
+      <div
+        class='text-center bg-brand-cream/60 rounded-2xl p-10 md:p-14 border border-brand-blue/5'
+      >
+        <h2
+          class='text-2xl md:text-3xl font-display italic text-brand-blue mb-4'
+        >
+          Interested in Supervision or Consultation?
+        </h2>
+        <p class='text-brand-blue/60 mb-8 max-w-xl mx-auto'>
+          Whether you're seeking licensure or professional guidance, we're here
+          to support your growth. Reach out to learn more.
+        </p>
+        <a
+          href='/contact'
+          class='inline-flex items-center px-8 py-4 text-base font-semibold rounded-full border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300'
+        >
+          Contact Us
+          <svg
+            class='w-5 h-5 ml-2'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke-width='2'
+            stroke='currentColor'
+          >
+            <path
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3'></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,117 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { breadcrumbSchema } from "../../utils/seo";
+
+const siteUrl = "https://healthymindspecialists.com";
+const staffName = "Terika Brewer, MA";
+const staffRole = "Operations Manager";
+const staffSlug = "terika-brewer-ma";
+const bannerImage =
+  "https://brightervisionclients.com/resize/63bd841c407b4bb641b23b5b/attachments/482e48b6-bb75-4f13-92d2-7477e229491d?top=0.1927&left=0.0000&bottom=0.6218&right=1.0000";
+const tagline =
+  "Ensuring the day-to-day efficiency and long-term sustainability of the practice with warmth and professionalism.";
+const profileImage =
+  "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/59e6bfdb-7439-4ca4-89a9-1eeccb23ad00/public";
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "About Us", url: `${siteUrl}/about` },
+    { name: staffName, url: `${siteUrl}/staff/${staffSlug}` },
+  ]),
+];
+---
+
+<Layout
+  title={staffName}
+  description={`Meet ${staffName}, ${staffRole} at Healthy Mind Specialists in Tampa, FL. Over 15 years of experience in mental health administration, IEP consultation, and applied behavior analysis.`}
+  schema={schemas}
+>
+  <!-- Hero Banner -->
+  <section class='relative h-[420px] md:h-[500px] overflow-hidden'>
+    <img
+      src={bannerImage}
+      alt={`Portrait of ${staffName}, ${staffRole} at Healthy Mind Specialists`}
+      width='1920'
+      height='600'
+      class='absolute inset-0 w-full h-full object-cover'
+      loading='eager'
+    />
+    <div
+      class='absolute inset-0 bg-gradient-to-r from-brand-blue/80 to-brand-blue/40'
+    >
+    </div>
+    <div class='relative h-full flex items-center'>
+      <div class='max-w-4xl mx-auto px-6 text-white'>
+        <h1 class='text-4xl md:text-5xl lg:text-6xl font-display italic mb-4'>
+          {staffName}
+        </h1>
+        <p class='text-xl md:text-2xl text-white/80 max-w-2xl'>
+          {staffRole}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class='py-20 md:py-28'>
+    <div class='max-w-4xl mx-auto px-6'>
+      <!-- Profile + Tagline -->
+      <div class='mb-12 md:flex md:items-start md:gap-10'>
+        <img
+          src={profileImage}
+          alt={`${staffName}, ${staffRole}`}
+          width='280'
+          height='280'
+          class='w-48 h-48 md:w-64 md:h-64 rounded-2xl object-cover shadow-lg mb-6 md:mb-0 mx-auto md:mx-0 flex-shrink-0'
+          loading='lazy'
+        />
+        <div>
+          <p
+            class='text-2xl md:text-3xl font-display italic text-brand-blue/80'
+          >
+            {tagline}
+          </p>
+          <span class='block w-16 h-[2px] bg-brand-gold mt-6'></span>
+        </div>
+      </div>
+
+      <!-- Bio Content -->
+      <div class='prose prose-lg max-w-none text-brand-blue/80 space-y-6'>
+        <p>
+          Terika Brewer is a seasoned administrative professional with over 15
+          years of experience in the mental health field. She holds a Bachelor
+          of Arts in Psychology and a Master of Science in Applied Behavior
+          Analysis. In her role as Operations Manager at Healthy Mind
+          Specialists, Terika ensures the day-to-day efficiency and long-term
+          sustainability of the practice.
+        </p>
+        <p>
+          With a warm, approachable presence, she creates a welcoming
+          environment for both clients and team members. Terika brings a
+          solution-focused mindset to every challenge and is known for her
+          collaborative spirit, clear communication, and unwavering
+          professionalism.
+        </p>
+        <p>
+          In addition to her operational leadership, Terika offers IEP
+          consultation services to help parents better understand and navigate
+          their child's educational support plans. Her unique blend of
+          behavioral health expertise and administrative insight allows her to
+          bridge the gap between clinical care and client experience with
+          compassion and precision.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class='mt-16 text-center'>
+        <a
+          href='/contact'
+          class='inline-flex items-center px-8 py-4 bg-brand-blue text-white font-semibold rounded-full hover:bg-brand-blue-light transition-all duration-300 shadow-lg hover:shadow-xl'
+        >
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
