@@ -1,0 +1,85 @@
+---
+/**
+ * Research / Approach Section — Dark immersive panel with methodology highlights.
+ * Clean, confident, no canvas animations. Pure CSS for performance.
+ */
+const methods = [
+  {
+    title: "Evidence-Based",
+    description: "Every treatment we offer is grounded in peer-reviewed research and clinical best practices.",
+  },
+  {
+    title: "Culturally Responsive",
+    description: "We honor the diverse identities and lived experiences of every client we serve.",
+  },
+  {
+    title: "Trauma-Informed",
+    description: "Safety, choice, and collaboration are at the core of everything we do.",
+  },
+  {
+    title: "Outcome-Driven",
+    description: "We track progress and adjust treatment to ensure you are moving toward your goals.",
+  },
+];
+---
+
+<section class='relative bg-brand-blue py-24 md:py-36 overflow-hidden' aria-label='Our Approach'>
+  <div class='max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-20'>
+    <!-- Header -->
+    <div class='grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 mb-16 md:mb-24'>
+      <div data-animate>
+        <span class='font-mono text-[11px] tracking-[0.3em] uppercase text-brand-gold block mb-4'>
+          06 — Approach
+        </span>
+        <h2 class='text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-brand-white leading-[1.05] tracking-[-0.02em]'>
+          Science meets<br />compassion.
+        </h2>
+      </div>
+      <div class='flex flex-col justify-end' data-animate>
+        <p class='text-brand-white/40 text-base font-light leading-relaxed'>
+          We integrate the latest psychological research with genuine human
+          connection. Our approach isn't just about treating symptoms — it's about
+          understanding you as a whole person and supporting lasting change.
+        </p>
+      </div>
+    </div>
+
+    <!-- Methods grid -->
+    <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-brand-white/10' data-animate>
+      {
+        methods.map((method, i) => (
+          <div class='bg-brand-blue p-8 md:p-10 group hover:bg-brand-blue-light transition-colors duration-500'>
+            <span class='font-mono text-[10px] tracking-[0.2em] text-brand-gold/50 block mb-6'>
+              0{i + 1}
+            </span>
+            <h3 class='text-lg font-display font-bold text-brand-white mb-3'>
+              {method.title}
+            </h3>
+            <p class='text-sm text-brand-white/40 font-light leading-relaxed'>
+              {method.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Subtle grid lines -->
+  <div class='absolute inset-0 pointer-events-none' aria-hidden='true'>
+    <div class='absolute left-[25%] top-0 bottom-0 w-px bg-brand-white/[0.02]'></div>
+    <div class='absolute left-[50%] top-0 bottom-0 w-px bg-brand-white/[0.02]'></div>
+    <div class='absolute left-[75%] top-0 bottom-0 w-px bg-brand-white/[0.02]'></div>
+  </div>
+</section>
+
+<script>
+  const obs = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) e.target.classList.add("is-visible");
+      });
+    },
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll("section[aria-label='Our Approach'] [data-animate]").forEach((el) => obs.observe(el));
+</script>

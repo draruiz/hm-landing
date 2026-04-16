@@ -1,313 +1,58 @@
 ---
 /**
- * What We Treat — Modern interactive tabbed showcase.
- * Horizontal pill selector + featured content panel with Unsplash imagery.
+ * What We Treat — Horizontal scrolling tags with bold typographic statement.
+ * Brutalist-elegant, no tabs. Clean and scannable.
  */
 const conditions = [
-  {
-    id: "anxiety",
-    title: "Counseling for Anxiety",
-    image:
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&h=700&fit=crop&q=80",
-    imageAlt: "Calm ocean shoreline at sunset representing anxiety relief",
-    description:
-      "Is anxiety taking over your life? Does it feel like you can't control it no matter how hard you try? Our practice offers the most effective forms of treatment to get the relief you deserve. Therapy treats more than just symptoms — it uncovers the underlying causes of your worries and fears, helps you learn to relax, and develops better coping mechanisms and problem-solving skills.",
-    highlights: [
-      "Evidence-based anxiety treatment",
-      "Overcome nervousness, panic & dread",
-      "Develop lasting coping skills",
-    ],
-  },
-  {
-    id: "child-therapy",
-    title: "Child & Adolescent Therapy",
-    image:
-      "https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?w=900&h=700&fit=crop&q=80",
-    imageAlt: "Parent and child walking together representing family therapy",
-    description:
-      "We understand the unique challenges children and adolescents face as they grow. Therapy offers a safe and supportive space to explore thoughts and emotions, address challenges, learn healthy coping strategies, and build resilience. Our evidence-based approaches include CBT, Trauma-Focused CBT, DBT, and Trust-Based Relational Intervention.",
-    highlights: [
-      "Anxiety, depression & PTSD support",
-      "Family-centered therapy sessions",
-      "Trauma-informed & client-centered care",
-    ],
-  },
-  {
-    id: "trauma",
-    title: "Counseling for Trauma",
-    image:
-      "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=900&h=700&fit=crop&q=80",
-    imageAlt:
-      "Golden sunrise over field representing hope and healing from trauma",
-    description:
-      "Trauma can shape how we see ourselves and the world around us. Whether from accidents, abuse, loss, or other distressing events, the effects can disrupt daily life and relationships. With the guidance of a skilled therapist using approaches like CBT and EMDR, you can safely process distressing memories, build resilience, and find hope for the future.",
-    highlights: [
-      "CBT & EMDR evidence-based therapy",
-      "Process & release emotional impact",
-      "Rebuild confidence & sense of control",
-    ],
-  },
-  {
-    id: "life-transitions",
-    title: "Life Transitions",
-    image:
-      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=900&h=700&fit=crop&q=80",
-    imageAlt: "Scenic mountain path representing navigating life transitions",
-    description:
-      "Life often presents challenges in the form of sudden change — divorce, career shifts, relocation, loss, or new beginnings. These transitions can leave us feeling stressed and vulnerable. But with the right tools and mindset, you can overcome adversity and transform into a more authentic, confident version of yourself. We offer a warm environment where you can receive care, compassion, and guidance.",
-    highlights: [
-      "Career, relationships & family changes",
-      "Moving, retirement & new chapters",
-      "Build resilience through change",
-    ],
-  },
-  {
-    id: "mindfulness",
-    title: "Mindfulness & Wellness Coaching",
-    image:
-      "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&h=700&fit=crop&q=80",
-    imageAlt: "Person meditating peacefully representing mindfulness coaching",
-    description:
-      "Feeling stuck, overwhelmed, or uninspired? Life coaching is about transformation — helping you identify what truly matters, overcome barriers, and build a life that feels purposeful and joyful. Our mindfulness-based health and wellness coaching combines proven techniques with mindfulness practices to help you gain clarity about your priorities and develop practical tools to navigate life's challenges.",
-    highlights: [
-      "Gain clarity on priorities & goals",
-      "Cultivate mindfulness & presence",
-      "Build resilience & take action",
-    ],
-  },
-  {
-    id: "ocd",
-    title: "Obsessive Compulsive Disorder",
-    image:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&h=700&fit=crop&q=80",
-    imageAlt: "Clean organized space representing clarity from OCD treatment",
-    description:
-      "Obsessive-Compulsive Disorder involves unwanted thoughts, images, or urges that cause anxiety and distress. Individuals with OCD often have significant difficulty pushing away these thoughts and develop compulsive behaviors in response. Research shows that Cognitive Behavioral Therapy (CBT) is one of the most effective treatments, and together we'll create a strategy that works for you.",
-    highlights: [
-      "Cognitive Behavioral Therapy (CBT)",
-      "Address intrusive thoughts & compulsions",
-      "Personalized treatment strategies",
-    ],
-  },
-  {
-    id: "social-anxiety",
-    title: "Social Anxiety Disorder",
-    image:
-      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=900&h=700&fit=crop&q=80",
-    imageAlt: "Friends gathering together representing social confidence",
-    description:
-      "People who experience daily social anxiety tend to avoid everyday interactions that cause significant fear, anxiety, and self-consciousness. Social anxiety disorder is a chronic condition, but learning coping skills in therapy can help you gain the confidence you need to improve your ability to interact with others and overcome the fear of being judged or criticized.",
-    highlights: [
-      "Overcome fear of social situations",
-      "Build communication confidence",
-      "Proven coping skill development",
-    ],
-  },
-  {
-    id: "self-esteem",
-    title: "Therapy for Self-Esteem",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=900&h=700&fit=crop&q=80",
-    imageAlt: "Confident person smiling representing self-esteem therapy",
-    description:
-      "Self-esteem speaks to how we feel about ourselves. People with low self-esteem often feel shame and self-doubt, leading to depression, anxiety, isolation, and a lack of resilience. A knowledgeable and supportive therapist can help you develop a healthier sense of self, discovering where your low self-esteem originated and replacing negative beliefs with self-love and compassion.",
-    highlights: [
-      "Overcome self-doubt & negative beliefs",
-      "Build self-love & compassion",
-      "Address root causes from childhood",
-    ],
-  },
+  { name: "Anxiety Disorders", detail: "Generalized anxiety, social anxiety, panic disorder, phobias" },
+  { name: "Depression", detail: "Major depression, persistent depressive disorder, seasonal affective" },
+  { name: "Trauma & PTSD", detail: "Complex trauma, acute stress, childhood trauma, combat-related" },
+  { name: "ADHD", detail: "Inattentive, hyperactive-impulsive, combined type — children through adults" },
+  { name: "OCD", detail: "Obsessions, compulsions, hoarding, body-focused repetitive behaviors" },
+  { name: "Bipolar Disorder", detail: "Bipolar I & II, cyclothymia, mood stabilization support" },
+  { name: "Personality Disorders", detail: "Borderline, narcissistic, avoidant — with compassion and structure" },
+  { name: "Grief & Loss", detail: "Bereavement, complicated grief, anticipatory grief, ambiguous loss" },
+  { name: "Relationship Issues", detail: "Communication, boundaries, codependency, attachment patterns" },
+  { name: "Substance Use", detail: "Dual diagnosis support, recovery maintenance, harm reduction approach" },
 ];
 ---
 
-<section
-  id='what-we-treat'
-  class='relative py-28 md:py-36 bg-brand-cream overflow-hidden'
-  aria-labelledby='treat-heading'
->
-  <div class='max-w-7xl mx-auto px-6'>
-    <!-- Section header -->
-    <div class='text-center mb-14 md:mb-18'>
-      <span
-        class='block w-12 h-[2px] bg-brand-gold mx-auto mb-6'
-        aria-hidden='true'></span>
-      <h2
-        id='treat-heading'
-        class='text-4xl md:text-5xl lg:text-6xl font-display italic text-brand-blue mb-4'
-      >
-        What We Treat
-      </h2>
-      <p class='text-lg text-brand-blue/60 max-w-xl mx-auto'>
-        Specialized treatment for the challenges that matter most to your mental
-        health journey.
-      </p>
-    </div>
-
-    <!-- Mobile carousel nav — visible < md -->
-    <div
-      class='flex items-center justify-between mb-8 md:hidden'
-      aria-label='Browse treatments'
-    >
-      <button
-        class='treat-prev w-10 h-10 rounded-full bg-white border border-brand-blue/15 shadow-md flex items-center justify-center text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300 cursor-pointer'
-        aria-label='Previous treatment'
-      >
-        <svg
-          class='w-5 h-5'
-          fill='none'
-          viewBox='0 0 24 24'
-          stroke-width='2'
-          stroke='currentColor'
-        >
-          <path
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            d='M15.75 19.5L8.25 12l7.5-7.5'></path>
-        </svg>
-      </button>
-
-      <div class='text-center'>
-        <span class='treat-counter text-sm font-semibold text-brand-blue'
-          >1 / {conditions.length}</span
-        >
+<section id='what-we-treat' class='relative bg-brand-cream py-24 md:py-36 overflow-hidden' aria-label='What We Treat'>
+  <div class='max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-20'>
+    <!-- Header -->
+    <div class='flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 md:mb-24'>
+      <div data-animate>
+        <span class='font-mono text-[11px] tracking-[0.3em] uppercase text-brand-muted block mb-4'>
+          05 — Conditions
+        </span>
+        <h2 class='text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-brand-charcoal leading-[1.05] tracking-[-0.02em]'>
+          Whatever you're<br />facing — we treat it.
+        </h2>
       </div>
-
-      <button
-        class='treat-next w-10 h-10 rounded-full bg-white border border-brand-blue/15 shadow-md flex items-center justify-center text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300 cursor-pointer'
-        aria-label='Next treatment'
-      >
-        <svg
-          class='w-5 h-5'
-          fill='none'
-          viewBox='0 0 24 24'
-          stroke-width='2'
-          stroke='currentColor'
-        >
-          <path
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            d='M8.25 4.5l7.5 7.5-7.5 7.5'></path>
-        </svg>
-      </button>
+      <div class='max-w-sm' data-animate>
+        <p class='text-brand-charcoal/50 text-sm font-light leading-relaxed'>
+          Our team has expertise across a wide spectrum of mental health conditions.
+          This is a partial list — if you don't see your concern, reach out.
+        </p>
+      </div>
     </div>
 
-    <!-- Desktop tab navigation — hidden on mobile -->
-    <div class='relative mb-14 hidden md:block'>
-      <nav
-        class='flex gap-3 flex-wrap justify-center'
-        role='tablist'
-        aria-label='Treatment options'
-      >
-        {
-          conditions.map((c, i) => (
-            <button
-              role='tab'
-              id={`tab-${c.id}`}
-              aria-selected={i === 0 ? "true" : "false"}
-              aria-controls={`panel-${c.id}`}
-              tabindex={i === 0 ? 0 : -1}
-              class:list={[
-                "treat-tab shrink-0 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer whitespace-nowrap border",
-                i === 0
-                  ? "bg-brand-blue text-white border-brand-blue shadow-lg shadow-brand-blue/20"
-                  : "bg-white text-brand-blue/70 border-brand-blue/15 hover:border-brand-blue/40 hover:text-brand-blue",
-              ]}
-            >
-              {c.title}
-            </button>
-          ))
-        }
-      </nav>
-    </div>
-
-    <!-- Content panels — swipeable on mobile -->
-    <div class='treat-panels relative' id='treat-panels-wrapper'>
+    <!-- Conditions grid -->
+    <div class='grid grid-cols-1 md:grid-cols-2 gap-px bg-brand-charcoal/10' data-animate>
       {
-        conditions.map((c, i) => (
-          <div
-            role='tabpanel'
-            id={`panel-${c.id}`}
-            aria-labelledby={`tab-${c.id}`}
-            class:list={["treat-panel", i === 0 ? "treat-panel--active" : ""]}
-            tabindex='0'
-          >
-            <div class='grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center'>
-              {/* Image side */}
-              <div class='relative rounded-2xl overflow-hidden aspect-[4/3] lg:aspect-[3/2] shadow-2xl shadow-brand-blue/10'>
-                <img
-                  src={c.image}
-                  alt={c.imageAlt}
-                  width='900'
-                  height='700'
-                  class='w-full h-full object-cover transition-transform duration-700 ease-out treat-panel-img'
-                  loading={i === 0 ? "eager" : "lazy"}
-                />
-                <div
-                  class='absolute inset-0 bg-gradient-to-t from-brand-blue/30 via-transparent to-transparent'
-                  aria-hidden='true'
-                />
-                {/* Floating badge */}
-                <div class='absolute top-5 left-5 bg-white/90 backdrop-blur-sm rounded-full px-4 py-1.5 shadow-lg'>
-                  <span class='text-xs font-semibold text-brand-blue tracking-wide uppercase'>
-                    {c.title.split(" ").slice(0, 2).join(" ")}
-                  </span>
-                </div>
-              </div>
-
-              {/* Text side */}
-              <div class='flex flex-col justify-center'>
-                <h3 class='text-2xl md:text-3xl lg:text-4xl font-display text-brand-blue mb-5 leading-tight'>
-                  {c.title}
+        conditions.map((cond, i) => (
+          <div class='bg-brand-cream p-6 md:p-8 group hover:bg-brand-white transition-colors duration-400'>
+            <div class='flex items-start justify-between gap-4'>
+              <div>
+                <span class='font-mono text-[10px] tracking-[0.2em] text-brand-muted block mb-2'>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 class='text-lg md:text-xl font-display font-bold text-brand-charcoal group-hover:text-brand-gold transition-colors duration-300'>
+                  {cond.name}
                 </h3>
-
-                <p class='text-brand-blue/70 text-base md:text-lg leading-relaxed mb-8'>
-                  {c.description}
+                <p class='mt-2 text-sm text-brand-charcoal/40 font-light leading-relaxed'>
+                  {cond.detail}
                 </p>
-
-                {/* Highlights */}
-                <ul class='space-y-3 mb-10'>
-                  {c.highlights.map((h) => (
-                    <li class='flex items-start gap-3 text-brand-blue/80'>
-                      <span class='mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-brand-gold/20 flex items-center justify-center'>
-                        <svg
-                          class='w-3 h-3 text-brand-gold-dark'
-                          fill='none'
-                          viewBox='0 0 24 24'
-                          stroke-width='3'
-                          stroke='currentColor'
-                        >
-                          <path
-                            stroke-linecap='round'
-                            stroke-linejoin='round'
-                            d='M4.5 12.75l6 6 9-13.5'
-                          />
-                        </svg>
-                      </span>
-                      <span class='text-sm md:text-base font-medium'>{h}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA */}
-                <a
-                  href='/contact'
-                  class='group/btn inline-flex items-center gap-3 self-start px-8 py-3.5 rounded-full bg-brand-blue text-white font-semibold text-base shadow-lg shadow-brand-blue/20 hover:bg-brand-blue-light hover:shadow-xl hover:shadow-brand-blue/30 transition-all duration-300'
-                >
-                  Contact Us Today
-                  <svg
-                    class='w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1'
-                    fill='none'
-                    viewBox='0 0 24 24'
-                    stroke-width='2'
-                    stroke='currentColor'
-                  >
-                    <path
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
-                      d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3'
-                    />
-                  </svg>
-                </a>
               </div>
             </div>
           </div>
@@ -315,373 +60,38 @@ const conditions = [
       }
     </div>
 
-    <!-- Progress dots — mobile only -->
-    <div class='flex justify-center gap-2.5 mt-8 md:hidden' aria-hidden='true'>
-      {
-        conditions.map((c, i) => (
-          <button
-            class:list={[
-              "treat-dot h-2 rounded-full transition-all duration-300 cursor-pointer",
-              i === 0 ? "bg-brand-blue w-7" : "bg-brand-blue/20 w-2",
-            ]}
-            data-dot-index={i}
-          />
-        ))
-      }
-    </div>
-
-    <!-- Swipe hint — shown briefly on mobile -->
-    <p
-      class='treat-swipe-hint text-center text-xs text-brand-blue/40 mt-4 md:hidden flex items-center justify-center gap-1.5'
-    >
-      <svg
-        class='w-4 h-4 animate-bounce-x'
-        fill='none'
-        viewBox='0 0 24 24'
-        stroke-width='1.5'
-        stroke='currentColor'
+    <!-- Bottom CTA -->
+    <div class='mt-12 text-center' data-animate>
+      <p class='text-brand-charcoal/40 text-sm font-light mb-4'>
+        Don't see your concern listed?
+      </p>
+      <a
+        href='/contact'
+        class='group inline-flex items-center gap-2 text-sm font-semibold tracking-[0.1em] uppercase text-brand-charcoal hover:text-brand-gold transition-colors duration-300'
       >
-        <path
-          stroke-linecap='round'
-          stroke-linejoin='round'
-          d='M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5'
-        ></path>
-      </svg>
-      Swipe to explore treatments
-    </p>
+        <span>Get in touch</span>
+        <svg
+          class='w-4 h-4 transition-transform duration-300 group-hover:translate-x-1'
+          fill='none'
+          viewBox='0 0 24 24'
+          stroke='currentColor'
+          stroke-width='2'
+        >
+          <path stroke-linecap='round' stroke-linejoin='round' d='M17 8l4 4m0 0l-4 4m4-4H3'></path>
+        </svg>
+      </a>
+    </div>
   </div>
 </section>
 
-<style>
-  /* Panel visibility & animation */
-  .treat-panel {
-    display: none;
-    opacity: 0;
-    transform: translateY(12px);
-  }
-
-  .treat-panel--active {
-    display: block;
-    animation: treatPanelIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  }
-
-  /* Swipe direction animations */
-  .treat-panel--slide-left {
-    display: block;
-    animation: treatSlideLeft 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  }
-
-  .treat-panel--slide-right {
-    display: block;
-    animation: treatSlideRight 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  }
-
-  @keyframes treatPanelIn {
-    from {
-      opacity: 0;
-      transform: translateY(12px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes treatSlideLeft {
-    from {
-      opacity: 0;
-      transform: translateX(60px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes treatSlideRight {
-    from {
-      opacity: 0;
-      transform: translateX(-60px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  /* Image zoom on panel activation */
-  .treat-panel--active .treat-panel-img,
-  .treat-panel--slide-left .treat-panel-img,
-  .treat-panel--slide-right .treat-panel-img {
-    animation: treatImgZoom 6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  }
-
-  @keyframes treatImgZoom {
-    from {
-      transform: scale(1.08);
-    }
-    to {
-      transform: scale(1);
-    }
-  }
-
-  /* Section entrance */
-  .treat-panels {
-    opacity: 0;
-    transform: translateY(20px);
-    transition:
-      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .treat-section-visible .treat-panels {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Swipe hint bounce animation */
-  @keyframes bounceX {
-    0%,
-    100% {
-      transform: translateX(0);
-    }
-    50% {
-      transform: translateX(4px);
-    }
-  }
-  .animate-bounce-x {
-    animation: bounceX 1.2s ease-in-out infinite;
-  }
-
-  /* Fade out swipe hint */
-  .treat-swipe-hint {
-    transition: opacity 0.5s ease;
-  }
-  .treat-swipe-hint--hidden {
-    opacity: 0;
-    pointer-events: none;
-  }
-</style>
-
 <script>
-  const section = document.querySelector("[aria-labelledby='treat-heading']");
-  const tabs = document.querySelectorAll<HTMLButtonElement>(".treat-tab");
-  const panels = document.querySelectorAll<HTMLElement>(".treat-panel");
-  const dots = document.querySelectorAll<HTMLButtonElement>(".treat-dot");
-  const prevBtn = document.querySelector<HTMLButtonElement>(".treat-prev");
-  const nextBtn = document.querySelector<HTMLButtonElement>(".treat-next");
-  const counter = document.querySelector<HTMLElement>(".treat-counter");
-  const panelsWrapper = document.getElementById("treat-panels-wrapper");
-  const swipeHint = document.querySelector<HTMLElement>(".treat-swipe-hint");
-  const totalPanels = panels.length;
-  let currentIndex = 0;
-
-  function activateTab(
-    index: number,
-    direction: "left" | "right" | "none" = "none",
-  ) {
-    currentIndex = index;
-
-    // Update desktop tabs
-    tabs.forEach((tab, i) => {
-      const isActive = i === index;
-      tab.setAttribute("aria-selected", String(isActive));
-      tab.tabIndex = isActive ? 0 : -1;
-
-      if (isActive) {
-        tab.classList.add(
-          "bg-brand-blue",
-          "text-white",
-          "border-brand-blue",
-          "shadow-lg",
-          "shadow-brand-blue/20",
-        );
-        tab.classList.remove(
-          "bg-white",
-          "text-brand-blue/70",
-          "border-brand-blue/15",
-          "hover:border-brand-blue/40",
-          "hover:text-brand-blue",
-        );
-      } else {
-        tab.classList.remove(
-          "bg-brand-blue",
-          "text-white",
-          "border-brand-blue",
-          "shadow-lg",
-          "shadow-brand-blue/20",
-        );
-        tab.classList.add(
-          "bg-white",
-          "text-brand-blue/70",
-          "border-brand-blue/15",
-          "hover:border-brand-blue/40",
-          "hover:text-brand-blue",
-        );
-      }
-    });
-
-    // Update panels with directional animation
-    panels.forEach((panel, i) => {
-      panel.classList.remove(
-        "treat-panel--active",
-        "treat-panel--slide-left",
-        "treat-panel--slide-right",
-      );
-      if (i === index) {
-        if (direction === "left") {
-          panel.classList.add("treat-panel--slide-left");
-        } else if (direction === "right") {
-          panel.classList.add("treat-panel--slide-right");
-        } else {
-          panel.classList.add("treat-panel--active");
-        }
-      }
-    });
-
-    // Update dots
-    dots.forEach((dot, i) => {
-      if (i === index) {
-        dot.classList.add("bg-brand-blue", "w-7");
-        dot.classList.remove("bg-brand-blue/20", "w-2");
-      } else {
-        dot.classList.remove("bg-brand-blue", "w-7");
-        dot.classList.add("bg-brand-blue/20", "w-2");
-      }
-    });
-
-    // Update counter
-    if (counter) {
-      counter.textContent = `${index + 1} / ${totalPanels}`;
-    }
-
-    // Hide swipe hint after first interaction
-    if (
-      swipeHint &&
-      !swipeHint.classList.contains("treat-swipe-hint--hidden")
-    ) {
-      swipeHint.classList.add("treat-swipe-hint--hidden");
-    }
-  }
-
-  function goNext() {
-    activateTab((currentIndex + 1) % totalPanels, "left");
-  }
-
-  function goPrev() {
-    activateTab((currentIndex - 1 + totalPanels) % totalPanels, "right");
-  }
-
-  // Desktop tab click handlers
-  tabs.forEach((tab, i) => {
-    tab.addEventListener("click", () => {
-      const dir =
-        i > currentIndex ? "left" : i < currentIndex ? "right" : "none";
-      activateTab(i, dir);
-    });
-  });
-
-  // Dot click handlers
-  dots.forEach((dot, i) => {
-    dot.addEventListener("click", () => {
-      const dir =
-        i > currentIndex ? "left" : i < currentIndex ? "right" : "none";
-      activateTab(i, dir);
-    });
-  });
-
-  // Prev / Next buttons (mobile)
-  prevBtn?.addEventListener("click", goPrev);
-  nextBtn?.addEventListener("click", goNext);
-
-  // Touch swipe on panels wrapper
-  if (panelsWrapper) {
-    let touchStartX = 0;
-    let touchStartY = 0;
-    let isSwiping = false;
-
-    panelsWrapper.addEventListener(
-      "touchstart",
-      (e: TouchEvent) => {
-        touchStartX = e.touches[0].clientX;
-        touchStartY = e.touches[0].clientY;
-        isSwiping = false;
-      },
-      { passive: true },
-    );
-
-    panelsWrapper.addEventListener(
-      "touchmove",
-      (e: TouchEvent) => {
-        const dx = e.touches[0].clientX - touchStartX;
-        const dy = e.touches[0].clientY - touchStartY;
-        // Only consider horizontal swipes (prevent hijacking vertical scroll)
-        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 10) {
-          isSwiping = true;
-        }
-      },
-      { passive: true },
-    );
-
-    panelsWrapper.addEventListener(
-      "touchend",
-      (e: TouchEvent) => {
-        const dx = e.changedTouches[0].clientX - touchStartX;
-        if (isSwiping && Math.abs(dx) > 50) {
-          if (dx < 0) {
-            goNext(); // swipe left → next
-          } else {
-            goPrev(); // swipe right → prev
-          }
-        }
-      },
-      { passive: true },
-    );
-  }
-
-  // Keyboard navigation (arrow keys within tab list)
-  tabs.forEach((tab, i) => {
-    tab.addEventListener("keydown", (e: KeyboardEvent) => {
-      let nextIndex = i;
-      if (e.key === "ArrowRight" || e.key === "ArrowDown") {
-        e.preventDefault();
-        nextIndex = (i + 1) % tabs.length;
-      } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
-        e.preventDefault();
-        nextIndex = (i - 1 + tabs.length) % tabs.length;
-      } else if (e.key === "Home") {
-        e.preventDefault();
-        nextIndex = 0;
-      } else if (e.key === "End") {
-        e.preventDefault();
-        nextIndex = tabs.length - 1;
-      } else {
-        return;
-      }
-      const dir = nextIndex > i ? "left" : "right";
-      activateTab(nextIndex, dir);
-      tabs[nextIndex].focus();
-    });
-  });
-
-  // Intersection observer for entrance animation
-  if (section) {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          section.classList.add("treat-section-visible");
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 },
-    );
-    observer.observe(section);
-  }
-
-  // Auto-hide swipe hint after 4 seconds
-  if (swipeHint) {
-    setTimeout(() => {
-      swipeHint.classList.add("treat-swipe-hint--hidden");
-    }, 4000);
-  }
+  const obs = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) e.target.classList.add("is-visible");
+      });
+    },
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll("#what-we-treat [data-animate]").forEach((el) => obs.observe(el));
 </script>

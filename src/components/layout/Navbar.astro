@@ -1,378 +1,279 @@
 ---
+/**
+ * Agency-grade Navbar — minimal, clean, fullscreen mobile overlay.
+ * No top bar. Logo left, links center, CTA right.
+ * Transparent on hero, solid on scroll.
+ */
 const navItems = [
-  { label: "Home", href: "/" },
-  {
-    label: "About Us",
-    href: "/about",
-    children: [
-      {
-        label: "Dr. Grissel M. Lloyd, PsyD",
-        href: "/staff/dr-grissel-m-lloyd-psyd",
-      },
-      { label: "Dr. Maria A. Ruiz, PsyD", href: "/staff/dr-maria-a-ruiz-psyd" },
-      { label: "Kiyomi Taylor, LMHC", href: "/staff/kiyomi-taylor-lmhc" },
-      { label: "Chloe Johnson, LMHC", href: "/staff/chloe-johnson-lmhc" },
-      { label: "Lori Smith, LMHC", href: "/staff/lori-smith-lmhc" },
-      { label: "Edward Porter, LCSW", href: "/staff/edward-porter-lcsw" },
-      { label: "Morgan Adams, MSW", href: "/staff/morgan-adams-msw" },
-      { label: "Dr. Asia Wardlaw, PsyD", href: "/staff/dr-asia-wardlaw-psyd" },
-      { label: "Dr. Sonia Javani, PsyD", href: "/staff/dr-sonia-javani-psyd" },
-      { label: "Traci Adams, CLC", href: "/staff/traci-adams-clc" },
-      { label: "Terika Brewer, MA", href: "/staff/terika-brewer-ma" },
-    ],
-  },
-  {
-    label: "Our Services",
-    href: "/#services",
-    children: [
-      {
-        label: "Comprehensive Psychological Evaluations",
-        href: "/services/evaluations",
-      },
-      {
-        label: "Online ADHD Evaluations",
-        href: "/services/online-adhd-evaluations",
-      },
-    ],
-  },
-  {
-    label: "What We Treat",
-    href: "/#what-we-treat",
-  },
-  {
-    label: "Get Started",
-    href: "#",
-    children: [
-      { label: "FAQs", href: "/get-started/faqs" },
-      { label: "Rates & Insurance", href: "/get-started/rates-insurance" },
-      {
-        label: "Appointment Request",
-        href: "/get-started/appointment-request",
-      },
-    ],
-  },
-  {
-    label: "Resources",
-    href: "#",
-    children: [
-      { label: "Mental Health Links", href: "/resources/mental-health-links" },
-      {
-        label: "Physical Health Links",
-        href: "/resources/physical-health-links",
-      },
-    ],
-  },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/#services" },
+  { label: "Our Team", href: "/#team" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
+
+const logoUrl =
+  "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/3d99200b-f6c7-41b4-5c63-c40b4fbc9000/public";
 ---
 
-<header class='w-full sticky top-0 z-50'>
-  <!-- Top Bar -->
-  <div class='bg-brand-blue text-white text-sm'>
-    <div
-      class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-10'
-    >
-      <!-- Social Icons -->
-      <div class='hidden sm:flex items-center gap-4'>
-        <a
-          href='mailto:info@healthymindspecialists.com'
-          aria-label='Send us an email'
-          class='hover:text-brand-gold transition-colors duration-200'
-        >
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            class='w-4 h-4'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-            stroke-width='2'
-          >
-            <path
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              d='M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
-            ></path>
-          </svg>
-        </a>
-        <a
-          href='tel:8136092034'
-          aria-label='Call us'
-          class='hover:text-brand-gold transition-colors duration-200'
-        >
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            class='w-4 h-4'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-            stroke-width='2'
-          >
-            <path
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              d='M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z'
-            ></path>
-          </svg>
-        </a>
-        <a
-          href='https://www.instagram.com/healthymindspecialists'
-          target='_blank'
-          rel='noopener noreferrer'
-          aria-label='Follow us on Instagram'
-          class='hover:text-brand-gold transition-colors duration-200'
-        >
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            class='w-4 h-4'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-            stroke-width='2'
-          >
-            <rect x='2' y='2' width='20' height='20' rx='5' ry='5'></rect>
-            <path d='M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z'></path>
-            <line x1='17.5' y1='6.5' x2='17.51' y2='6.5'></line>
-          </svg>
-        </a>
-      </div>
-
-      <!-- Contact Info -->
-      <div class='flex items-center gap-2 mx-auto sm:mx-0 sm:ml-auto'>
-        <span class='hidden md:inline'>Make an Appointment:</span>
-        <a
-          href='tel:8136092034'
-          class='font-semibold hover:text-brand-gold transition-colors duration-200'
-          >813-609-2034</a
-        >
-        <span class='hidden md:inline'>|</span>
-        <a
-          href='mailto:info@healthymindspecialists.com'
-          class='hidden md:inline hover:text-brand-gold transition-colors duration-200'
-          >info@healthymindspecialists.com</a
-        >
-      </div>
-    </div>
-  </div>
-
-  <!-- Main Navbar -->
+<header
+  id='site-header'
+  class='fixed top-0 left-0 right-0 z-50 transition-all duration-500'
+>
   <nav
-    class='bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100'
+    class='nav-inner mx-auto flex items-center justify-between px-6 sm:px-10 md:px-16 lg:px-20 h-20 md:h-24'
     aria-label='Main navigation'
   >
-    <div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-      <div class='flex items-center justify-between h-20'>
-        <!-- Logo -->
-        <a
-          href='/'
-          class='flex-shrink-0'
-          aria-label='Healthy Mind Specialists - Home'
-        >
-          <img
-            src='https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/3d99200b-f6c7-41b4-5c63-c40b4fbc9000/public'
-            alt='Healthy Mind Specialists - Integrative Psychological Services'
-            width='200'
-            height='60'
-            class='h-14 w-auto'
-            loading='eager'
-            fetchpriority='high'
-          />
-        </a>
+    <!-- Logo -->
+    <a
+      href='/'
+      class='relative z-50 flex-shrink-0'
+      aria-label='Healthy Mind Specialists - Home'
+    >
+      <img
+        src={logoUrl}
+        alt='Healthy Mind Specialists'
+        width='180'
+        height='54'
+        class='h-10 md:h-12 w-auto nav-logo transition-all duration-300'
+        loading='eager'
+        fetchpriority='high'
+      />
+    </a>
 
-        <!-- Desktop Navigation -->
-        <div class='hidden lg:flex items-center gap-1'>
-          {
-            navItems.map((item) => (
-              <div class='relative group'>
-                <a
-                  href={item.href}
-                  class='inline-flex items-center gap-1 px-3 py-2 text-sm font-medium text-brand-blue hover:text-brand-gold transition-colors duration-200 rounded-md'
-                >
-                  {item.label}
-                  {item.children && (
-                    <svg
-                      xmlns='http://www.w3.org/2000/svg'
-                      class='w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180'
-                      fill='none'
-                      viewBox='0 0 24 24'
-                      stroke='currentColor'
-                      stroke-width='2'
-                    >
-                      <path
-                        stroke-linecap='round'
-                        stroke-linejoin='round'
-                        d='M19 9l-7 7-7-7'
-                      />
-                    </svg>
-                  )}
-                </a>
-                {item.children && (
-                  <div
-                    class={`absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 ${item.children.length > 5 ? "-left-4" : ""}`}
-                  >
-                    <div
-                      class={`bg-white rounded-xl shadow-lg border border-gray-100 py-2 ${item.children.length > 5 ? "min-w-[280px]" : "min-w-[220px]"}`}
-                    >
-                      {item.children.map((child) => (
-                        <a
-                          href={child.href}
-                          class='block px-4 py-2.5 text-sm text-brand-blue hover:bg-brand-cream hover:text-brand-gold transition-colors duration-150'
-                        >
-                          {child.label}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))
-          }
-
-          <!-- Contact CTA Button -->
+    <!-- Desktop links -->
+    <div class='hidden lg:flex items-center gap-1'>
+      {
+        navItems.map((item) => (
           <a
-            href='/contact'
-            class='ml-4 inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-full border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300'
+            href={item.href}
+            class='nav-link relative px-4 py-2 text-[13px] font-medium tracking-[0.08em] uppercase text-brand-white/70 hover:text-brand-white transition-colors duration-300'
           >
-            Contact
+            {item.label}
           </a>
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <button
-          id='mobile-menu-btn'
-          type='button'
-          class='lg:hidden inline-flex items-center justify-center p-2 rounded-lg text-brand-blue hover:bg-brand-cream transition-colors duration-200'
-          aria-expanded='false'
-          aria-controls='mobile-menu'
-          aria-label='Open main menu'
-        >
-          <svg
-            id='menu-icon-open'
-            xmlns='http://www.w3.org/2000/svg'
-            class='w-6 h-6'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-            stroke-width='2'
-          >
-            <path
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              d='M4 6h16M4 12h16M4 18h16'></path>
-          </svg>
-          <svg
-            id='menu-icon-close'
-            xmlns='http://www.w3.org/2000/svg'
-            class='w-6 h-6 hidden'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-            stroke-width='2'
-          >
-            <path
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              d='M6 18L18 6M6 6l12 12'></path>
-          </svg>
-        </button>
-      </div>
+        ))
+      }
     </div>
 
-    <!-- Mobile Menu -->
-    <div
-      id='mobile-menu'
-      class='lg:hidden hidden'
-      role='navigation'
-      aria-label='Mobile navigation'
-    >
-      <div
-        class='px-4 pb-6 pt-2 space-y-1 bg-white border-t border-gray-100 shadow-lg'
+    <!-- CTA + Menu button -->
+    <div class='flex items-center gap-6'>
+      <a
+        href='/get-started/appointment-request'
+        class='nav-cta hidden lg:inline-flex items-center gap-2 px-6 py-3 text-[12px] font-semibold tracking-[0.15em] uppercase border border-brand-gold/50 text-brand-gold hover:bg-brand-gold hover:text-brand-blue transition-all duration-400'
       >
-        {
-          navItems.map((item) => (
-            <div>
-              {item.children ? (
-                <div class='mobile-dropdown'>
-                  <button
-                    type='button'
-                    class='mobile-dropdown-btn w-full flex items-center justify-between px-3 py-3 text-base font-medium text-brand-blue hover:bg-brand-cream rounded-lg transition-colors duration-150'
-                    aria-expanded='false'
-                  >
-                    {item.label}
-                    <svg
-                      xmlns='http://www.w3.org/2000/svg'
-                      class='w-4 h-4 transition-transform duration-200'
-                      fill='none'
-                      viewBox='0 0 24 24'
-                      stroke='currentColor'
-                      stroke-width='2'
-                    >
-                      <path
-                        stroke-linecap='round'
-                        stroke-linejoin='round'
-                        d='M19 9l-7 7-7-7'
-                      />
-                    </svg>
-                  </button>
-                  <div class='mobile-dropdown-content hidden pl-4 space-y-1'>
-                    {item.children.map((child) => (
-                      <a
-                        href={child.href}
-                        class='block px-3 py-2 text-sm text-brand-gray hover:text-brand-gold hover:bg-brand-cream rounded-lg transition-colors duration-150'
-                      >
-                        {child.label}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              ) : (
-                <a
-                  href={item.href}
-                  class='block px-3 py-3 text-base font-medium text-brand-blue hover:bg-brand-cream rounded-lg transition-colors duration-150'
-                >
-                  {item.label}
-                </a>
-              )}
-            </div>
-          ))
-        }
-        <div class='pt-3'>
-          <a
-            href='/contact'
-            class='block w-full text-center px-5 py-3 text-base font-semibold rounded-full border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300'
-          >
-            Contact
-          </a>
-        </div>
-      </div>
+        Book Now
+      </a>
+
+      <!-- Mobile hamburger -->
+      <button
+        id='mobile-menu-btn'
+        type='button'
+        class='relative z-50 lg:hidden flex flex-col items-end gap-1.5 p-2'
+        aria-expanded='false'
+        aria-controls='mobile-menu'
+        aria-label='Toggle menu'
+      >
+        <span
+          class='hamburger-line block w-7 h-[1.5px] bg-brand-white transition-all duration-300 origin-center'
+        ></span>
+        <span
+          class='hamburger-line block w-5 h-[1.5px] bg-brand-white transition-all duration-300 origin-center'
+        ></span>
+        <span
+          class='hamburger-line block w-7 h-[1.5px] bg-brand-white transition-all duration-300 origin-center'
+        ></span>
+      </button>
     </div>
   </nav>
 </header>
 
+<!-- Fullscreen mobile menu -->
+<div
+  id='mobile-menu'
+  class='fixed inset-0 z-40 bg-brand-blue flex flex-col justify-center items-center opacity-0 pointer-events-none transition-opacity duration-500'
+  role='navigation'
+  aria-label='Mobile navigation'
+  aria-hidden='true'
+>
+  <div class='flex flex-col items-center gap-2'>
+    {
+      navItems.map((item, i) => (
+        <a
+          href={item.href}
+          class='mobile-nav-link block text-3xl sm:text-4xl font-display font-bold text-brand-white/80 hover:text-brand-gold tracking-tight transition-all duration-300 py-2'
+          style={`transition-delay: ${i * 60}ms`}
+        >
+          {item.label}
+        </a>
+      ))
+    }
+    <div class='w-12 h-px bg-brand-gold/30 my-6'></div>
+    <a
+      href='/get-started/appointment-request'
+      class='inline-flex items-center gap-2 px-8 py-4 text-sm font-semibold tracking-[0.15em] uppercase bg-brand-gold text-brand-blue transition-all duration-500 hover:bg-brand-gold-light mt-2'
+    >
+      Book a Consultation
+    </a>
+  </div>
+
+  <!-- Contact in mobile -->
+  <div class='absolute bottom-10 flex flex-col items-center gap-2'>
+    <a
+      href='tel:8136092034'
+      class='font-mono text-sm text-brand-white/40 hover:text-brand-gold transition-colors'
+    >
+      813-609-2034
+    </a>
+    <a
+      href='mailto:info@healthymindspecialists.com'
+      class='font-mono text-xs text-brand-white/30 hover:text-brand-gold transition-colors'
+    >
+      info@healthymindspecialists.com
+    </a>
+  </div>
+</div>
+
 <script>
-  // Mobile menu toggle
+  const header = document.getElementById("site-header");
   const menuBtn = document.getElementById("mobile-menu-btn");
   const mobileMenu = document.getElementById("mobile-menu");
-  const iconOpen = document.getElementById("menu-icon-open");
-  const iconClose = document.getElementById("menu-icon-close");
+  const hamburgerLines = document.querySelectorAll(".hamburger-line");
+  let isMenuOpen = false;
 
-  menuBtn?.addEventListener("click", () => {
-    const isOpen = mobileMenu?.classList.toggle("hidden") === false;
-    menuBtn.setAttribute("aria-expanded", String(isOpen));
-    iconOpen?.classList.toggle("hidden", isOpen);
-    iconClose?.classList.toggle("hidden", !isOpen);
-  });
+  // Scroll behavior — add background on scroll
+  function updateHeader() {
+    if (!header) return;
+    if (window.scrollY > 60) {
+      header.classList.add("nav-scrolled");
+    } else {
+      header.classList.remove("nav-scrolled");
+    }
+  }
 
-  // Mobile dropdown toggles
-  document.querySelectorAll(".mobile-dropdown-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const content = btn.nextElementSibling;
-      const isOpen = content?.classList.toggle("hidden") === false;
-      btn.setAttribute("aria-expanded", String(isOpen));
-      const svg = btn.querySelector("svg");
-      if (svg) {
-        svg.style.transform = isOpen ? "rotate(180deg)" : "";
+  window.addEventListener("scroll", updateHeader, { passive: true });
+  updateHeader();
+
+  // Mobile menu toggle
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener("click", () => {
+      isMenuOpen = !isMenuOpen;
+
+      if (isMenuOpen) {
+        mobileMenu.classList.remove("opacity-0", "pointer-events-none");
+        mobileMenu.classList.add("opacity-100", "pointer-events-auto");
+        mobileMenu.setAttribute("aria-hidden", "false");
+        menuBtn.setAttribute("aria-expanded", "true");
+        document.body.style.overflow = "hidden";
+        // X shape
+        hamburgerLines[0]?.classList.add("translate-y-[4.5px]", "rotate-45");
+        hamburgerLines[1]?.classList.add("opacity-0", "scale-x-0");
+        hamburgerLines[2]?.classList.add("-translate-y-[4.5px]", "-rotate-45");
+      } else {
+        mobileMenu.classList.add("opacity-0", "pointer-events-none");
+        mobileMenu.classList.remove("opacity-100", "pointer-events-auto");
+        mobileMenu.setAttribute("aria-hidden", "true");
+        menuBtn.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+        hamburgerLines[0]?.classList.remove("translate-y-[4.5px]", "rotate-45");
+        hamburgerLines[1]?.classList.remove("opacity-0", "scale-x-0");
+        hamburgerLines[2]?.classList.remove(
+          "-translate-y-[4.5px]",
+          "-rotate-45",
+        );
       }
     });
-  });
+
+    // Close on link click
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        isMenuOpen = false;
+        mobileMenu.classList.add("opacity-0", "pointer-events-none");
+        mobileMenu.classList.remove("opacity-100", "pointer-events-auto");
+        mobileMenu.setAttribute("aria-hidden", "true");
+        menuBtn.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+        hamburgerLines[0]?.classList.remove("translate-y-[4.5px]", "rotate-45");
+        hamburgerLines[1]?.classList.remove("opacity-0", "scale-x-0");
+        hamburgerLines[2]?.classList.remove(
+          "-translate-y-[4.5px]",
+          "-rotate-45",
+        );
+      });
+    });
+  }
 </script>
+
+<style>
+  /* Transparent by default, solid white on scroll */
+  #site-header {
+    background: transparent;
+  }
+
+  /* Logo inverted to white over dark hero */
+  .nav-logo {
+    filter: brightness(0) invert(1);
+  }
+
+  #site-header.nav-scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  #site-header.nav-scrolled .nav-inner {
+    height: 4rem;
+  }
+
+  /* Scrolled: show original dark logo */
+  #site-header.nav-scrolled .nav-logo {
+    height: 2rem;
+    filter: none;
+  }
+
+  /* Link underline effect */
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    left: 1rem;
+    right: 1rem;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* Scrolled state — dark text links */
+  #site-header.nav-scrolled .nav-link {
+    color: rgba(15, 23, 42, 0.65);
+  }
+
+  #site-header.nav-scrolled .nav-link:hover {
+    color: rgba(15, 23, 42, 1);
+  }
+
+  /* Scrolled state — dark CTA border */
+  #site-header.nav-scrolled .nav-cta {
+    border-color: rgba(15, 23, 42, 0.2);
+    color: rgba(15, 23, 42, 0.8);
+  }
+
+  #site-header.nav-scrolled .nav-cta:hover {
+    background: var(--color-brand-gold, #c8a24e);
+    border-color: var(--color-brand-gold, #c8a24e);
+    color: #fff;
+  }
+
+  /* Scrolled state — dark hamburger lines */
+  #site-header.nav-scrolled .hamburger-line {
+    background: rgba(15, 23, 42, 0.8);
+  }
+</style>

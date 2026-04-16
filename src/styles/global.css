@@ -6,27 +6,91 @@
   .hero-title,
   .hero-subtitle,
   .hero-cta,
-  .scroll-indicator {
+  .scroll-indicator,
+  [data-animate] {
     opacity: 1 !important;
+    transform: none !important;
+  }
+  .marquee-track {
+    animation: none !important;
   }
 }
 
 @theme {
-  /* Brand Colors - Healthy Mind Specialists */
-  --color-brand-blue: #1b3a5c;
-  --color-brand-blue-light: #2a5a8c;
-  --color-brand-blue-dark: #0f2440;
-  --color-brand-gold: #c5a55a;
-  --color-brand-gold-light: #d4ba7a;
+  /* Brand Colors — Brutalist Elegance */
+  --color-brand-blue: #0a0f1a;
+  --color-brand-blue-light: #1a2332;
+  --color-brand-blue-dark: #050810;
+  --color-brand-gold: #c8a45c;
+  --color-brand-gold-light: #dbbf7a;
   --color-brand-gold-dark: #a68b3e;
-  --color-brand-white: #ffffff;
-  --color-brand-cream: #f8f6f0;
+  --color-brand-white: #fafafa;
+  --color-brand-cream: #f5f3ee;
   --color-brand-gray: #6b7280;
-  --color-brand-gray-light: #f3f4f6;
+  --color-brand-gray-light: #f0f0f0;
   --color-brand-teal: #b8d8d8;
   --color-brand-teal-light: #e0f0f0;
+  --color-brand-charcoal: #1a1a1a;
+  --color-brand-muted: #94918a;
 
-  /* Font families */
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-  --font-display: "Playfair Display", Georgia, serif;
+  /* Font families — Brutalist + Elegant */
+  --font-sans: "Space Grotesk", system-ui, -apple-system, sans-serif;
+  --font-display: "Syne", "Space Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
+}
+
+/* Global brutalist base */
+::selection {
+  background: var(--color-brand-gold);
+  color: var(--color-brand-blue);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 30s linear infinite;
+}
+
+/* Section reveal animations */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Horizontal rule - brutalist */
+.hr-brutal {
+  height: 1px;
+  background: currentColor;
+  opacity: 0.15;
+  border: none;
+}
+
+/* Number labels */
+.section-number {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.4;
 }

@@ -2,11 +2,13 @@
 import CTAMapSection from "../components/ui/CTAMapSection.astro";
 import EvaluationsSection from "../components/ui/EvaluationsSection.astro";
 import Hero from "../components/ui/Hero.astro";
+import ResearchSection from "../components/ui/ResearchSection.astro";
 import ServicesSection from "../components/ui/ServicesSection.astro";
 import SpecialtiesSection from "../components/ui/SpecialtiesSection.astro";
 import StaffSection from "../components/ui/StaffSection.astro";
 import WelcomeSection from "../components/ui/WelcomeSection.astro";
 import WhatWeTreatSection from "../components/ui/WhatWeTreatSection.astro";
+import WorkshopsSection from "../components/ui/WorkshopsSection.astro";
 import Layout from "../layouts/Layout.astro";
 import { localBusinessSchema, websiteSchema } from "../utils/seo";
 
@@ -40,20 +42,22 @@ const schemas = [
 >
   <Hero
     heading='Compassionate Mental Health Care in Tampa'
-    subheading='Healthy Mind Specialists — Integrative Psychological Services'
+    subheading='Integrative Psychological Services'
     ctaText='Book a Consultation'
     ctaHref='/get-started/appointment-request'
-    secondaryCtaText='Our Services'
-    secondaryCtaHref='/services'
+    secondaryCtaText='Explore Services'
+    secondaryCtaHref='/#services'
     videoSrc='https://cdn.pixabay.com/video/2020/10/02/51494-467703591_large.mp4'
     posterSrc='https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=1920&h=1080&fit=crop&q=80'
   />
 
   <WelcomeSection />
-  <SpecialtiesSection />
   <ServicesSection />
+  <SpecialtiesSection />
   <EvaluationsSection />
   <WhatWeTreatSection />
+  <ResearchSection />
+  <WorkshopsSection />
   <StaffSection />
   <CTAMapSection />
 </Layout>

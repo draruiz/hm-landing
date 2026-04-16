@@ -1,0 +1,737 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { breadcrumbSchema } from "../../utils/seo";
+
+const siteUrl = "https://healthymindspecialists.com";
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "Programs", url: `${siteUrl}/programs` },
+    {
+      name: "Workshops & Professional Training",
+      url: `${siteUrl}/programs/workshops`,
+    },
+  ]),
+];
+
+const workshops = [
+  {
+    id: "clinical-intensives",
+    category: "Clinical Intensives",
+    tagColor: "bg-brand-teal/10 text-brand-teal border-brand-teal/20",
+    items: [
+      {
+        title: "EMDR Therapy: From Foundations to Advanced Practice",
+        description:
+          "A comprehensive intensive covering all eight phases of EMDR therapy, with live demonstrations, practicum sessions, and advanced applications for complex trauma. Participants leave with the confidence and skill to integrate EMDR into their clinical practice immediately.",
+        duration: "5 days · 40 CE hours",
+        format: "In-person & Virtual",
+        level: "Intermediate to Advanced",
+      },
+      {
+        title: "Trauma-Informed Assessment & Diagnostics",
+        description:
+          "Explore cutting-edge neuropsychological assessment methods through a trauma-informed lens. Learn to identify masked presentations, interpret overlapping symptom profiles, and deliver evaluations that account for the full spectrum of a client's lived experience.",
+        duration: "3 days · 24 CE hours",
+        format: "In-person",
+        level: "Advanced",
+      },
+      {
+        title: "Integrative Approaches to Anxiety & Depression",
+        description:
+          "Bridge the gap between third-wave CBT, somatic experiencing, and traditional psychodynamic approaches. This intensive builds a flexible clinical framework for treating anxiety and mood disorders that goes beyond single-modality thinking.",
+        duration: "3 days · 24 CE hours",
+        format: "In-person & Virtual",
+        level: "All Levels",
+      },
+    ],
+  },
+  {
+    id: "coaching-tracks",
+    category: "Coaching Certification Tracks",
+    tagColor: "bg-brand-gold/10 text-brand-gold-dark border-brand-gold/20",
+    items: [
+      {
+        title: "Evidence-Based Coaching Foundations",
+        description:
+          "A rigorous coaching certification track that grounds coaching methodology in behavioral psychology, motivational interviewing, and positive psychology research. Designed for counselors, social workers, and aspiring coaches who want a psychology-first approach.",
+        duration: "12 weeks · 60 CE hours",
+        format: "Virtual (Live Cohort)",
+        level: "Foundations",
+      },
+      {
+        title: "Executive & Leadership Coaching",
+        description:
+          "Specialize in high-performance coaching for executives, founders, and organizational leaders. Covers systems thinking, emotional intelligence assessment, stakeholder management, and evidence-based performance optimization.",
+        duration: "8 weeks · 40 CE hours",
+        format: "Virtual (Live Cohort)",
+        level: "Advanced",
+      },
+    ],
+  },
+  {
+    id: "masterclasses",
+    category: "Virtual Masterclasses",
+    tagColor: "bg-brand-blue/10 text-brand-blue border-brand-blue/10",
+    items: [
+      {
+        title: "The Neuroscience of Resilience",
+        description:
+          "Explore the latest research on neuroplasticity, stress inoculation, and vagal tone — and learn how to translate these findings into practical interventions your clients can use daily.",
+        duration: "90 min · 1.5 CE hours",
+        format: "Virtual (Live)",
+        level: "All Levels",
+      },
+      {
+        title: "Culturally Responsive Clinical Practice",
+        description:
+          "An evidence-based masterclass on anti-racist practice, intersectional assessment, and culturally adapted interventions. Includes case consultations and reflexive practice exercises.",
+        duration: "90 min · 1.5 CE hours",
+        format: "Virtual (Live)",
+        level: "All Levels",
+      },
+      {
+        title: "ACT for Complex Presentations",
+        description:
+          "Go beyond introductory ACT protocols. Learn advanced defusion techniques, values work for existential themes, and creative hopelessness approaches for clients with chronic conditions and personality patterns.",
+        duration: "90 min · 1.5 CE hours",
+        format: "Virtual (Live)",
+        level: "Intermediate",
+      },
+    ],
+  },
+];
+
+const differentiators = [
+  {
+    title: "Research-First Curriculum",
+    description:
+      "Every workshop is built on peer-reviewed evidence, updated annually with the latest findings in neuroscience, psychopharmacology, and clinical outcomes research.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>`,
+  },
+  {
+    title: "Real Clinical Practice",
+    description:
+      "No passive lectures. Our programs integrate live demonstrations, practicum pairs, case consultations, and supervised practice — because skills are built through doing.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>`,
+  },
+  {
+    title: "Global Community",
+    description:
+      "Join a network of practitioners across 5 continents. Our alumni gain access to ongoing peer consultation groups, research sharing forums, and collaborative case discussions.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 10.5c0 .463-.036.92-.104 1.368" /></svg>`,
+  },
+  {
+    title: "CE Credits & Certification",
+    description:
+      "All workshops and tracks are approved for Continuing Education credits. Coaching tracks conclude with a recognized certification endorsed by our clinical directors.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" /></svg>`,
+  },
+];
+
+const faqs = [
+  {
+    question: "Who are the workshops designed for?",
+    answer:
+      "Our workshops are designed for licensed psychologists, mental health counselors, social workers, certified coaches, and graduate students in clinical programs. Each workshop specifies its recommended experience level.",
+  },
+  {
+    question: "Can I attend remotely?",
+    answer:
+      "Yes. Most of our programs are offered in both in-person and virtual formats. Virtual sessions are conducted live (not pre-recorded) to ensure full interaction, Q&A, and practicum participation.",
+  },
+  {
+    question: "Are CE credits included?",
+    answer:
+      "All workshops and certification tracks include Continuing Education credits. Specific credit hours are listed for each program. Certificates are issued upon completion.",
+  },
+  {
+    question: "What is the investment?",
+    answer:
+      "Pricing varies by program type and duration. Clinical intensives start at $895, coaching certification tracks at $2,400, and individual masterclasses at $75. Early-bird and group discounts are available.",
+  },
+  {
+    question: "How do I register?",
+    answer:
+      "Click the 'Request Information' button on this page to receive detailed information about upcoming dates, pricing, and registration. We also offer priority waitlists for high-demand programs.",
+  },
+];
+---
+
+<Layout
+  title='Workshops & Professional Training for Psychologists and Coaches'
+  description='Evidence-based workshops, clinical intensives, and coaching certification tracks for mental health professionals worldwide. CE credits available.'
+  schema={schemas}
+>
+  <!-- ─── Hero ─── -->
+  <section
+    class='relative min-h-[70vh] flex items-center bg-brand-blue-dark overflow-hidden'
+  >
+    <!-- Animated grid background -->
+    <div class='absolute inset-0' aria-hidden='true'>
+      <div
+        class='absolute inset-0 opacity-[0.03]'
+        style='background-image: linear-gradient(rgba(255,255,255,.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.15) 1px, transparent 1px); background-size: 80px 80px;'
+      >
+      </div>
+      <!-- Radial glow -->
+      <div
+        class='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-brand-teal/8 rounded-full blur-[200px]'
+      >
+      </div>
+      <div
+        class='absolute top-0 right-0 w-[600px] h-[600px] bg-brand-gold/5 rounded-full blur-[160px] -translate-y-1/2 translate-x-1/4'
+      >
+      </div>
+    </div>
+
+    <!-- Floating particles -->
+    <div
+      class='absolute inset-0 overflow-hidden pointer-events-none'
+      aria-hidden='true'
+    >
+      <div
+        class='absolute top-[20%] left-[15%] w-1 h-1 bg-brand-teal/40 rounded-full animate-pulse'
+      >
+      </div>
+      <div
+        class='absolute top-[60%] left-[80%] w-1.5 h-1.5 bg-brand-gold/30 rounded-full animate-pulse'
+        style='animation-delay: 1s'
+      >
+      </div>
+      <div
+        class='absolute top-[40%] left-[60%] w-1 h-1 bg-white/20 rounded-full animate-pulse'
+        style='animation-delay: 2s'
+      >
+      </div>
+      <div
+        class='absolute top-[75%] left-[25%] w-1 h-1 bg-brand-teal/30 rounded-full animate-pulse'
+        style='animation-delay: 0.5s'
+      >
+      </div>
+      <div
+        class='absolute top-[30%] left-[90%] w-1.5 h-1.5 bg-brand-gold/20 rounded-full animate-pulse'
+        style='animation-delay: 1.5s'
+      >
+      </div>
+    </div>
+
+    <div class='relative z-10 max-w-5xl mx-auto px-6 py-32 md:py-40'>
+      <!-- Breadcrumb -->
+      <nav aria-label='Breadcrumb' class='mb-10'>
+        <ol class='flex items-center gap-2 text-sm text-white/30'>
+          <li>
+            <a href='/' class='hover:text-white/60 transition-colors'>Home</a>
+          </li>
+          <li aria-hidden='true'><span class='mx-1'>/</span></li>
+          <li>
+            <a
+              href='/programs/strong-mind-teens'
+              class='hover:text-white/60 transition-colors'>Programs</a>
+          </li>
+          <li aria-hidden='true'><span class='mx-1'>/</span></li>
+          <li class='text-white/60'>Workshops</li>
+        </ol>
+      </nav>
+
+      <!-- Badge -->
+      <div
+        class='inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-brand-teal/20 bg-brand-teal/5 mb-8'
+      >
+        <span class='relative flex h-2 w-2'>
+          <span
+            class='animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-teal opacity-50'
+          ></span>
+          <span class='relative inline-flex rounded-full h-2 w-2 bg-brand-teal'
+          ></span>
+        </span>
+        <span
+          class='text-brand-teal/80 text-xs font-semibold tracking-[0.2em] uppercase'
+          >Professional Development</span
+        >
+      </div>
+
+      <h1
+        class='text-4xl md:text-6xl lg:text-7xl font-display text-white leading-[1.08] mb-8'
+      >
+        Workshops & Training<br class='hidden md:block' />
+        <span class='italic text-brand-gold-light'>for the World's</span><br
+          class='hidden md:block'
+        />
+        Best Practitioners
+      </h1>
+
+      <p
+        class='text-lg md:text-xl text-white/45 max-w-2xl leading-relaxed mb-12'
+      >
+        Evidence-based professional training programs designed by clinicians,
+        for clinicians. From intensive clinical workshops to coaching
+        certification tracks — we share the research, the methods, and the
+        mission.
+      </p>
+
+      <div class='flex flex-col sm:flex-row gap-4'>
+        <a
+          href='#programs'
+          class='group inline-flex items-center justify-center gap-3 px-8 py-4 bg-brand-gold text-brand-blue-dark font-semibold tracking-wide rounded-full hover:bg-brand-gold-light transition-all duration-300 shadow-[0_8px_30px_-8px_rgba(197,165,90,0.4)]'
+        >
+          Explore Programs
+          <svg
+            class='w-5 h-5 group-hover:translate-y-1 transition-transform duration-300'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
+            stroke-width='2'
+          >
+            <path
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              d='M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3'></path>
+          </svg>
+        </a>
+        <a
+          href='/get-started/appointment-request'
+          class='group inline-flex items-center justify-center gap-3 px-8 py-4 border border-white/20 text-white font-semibold tracking-wide rounded-full hover:border-white/40 hover:bg-white/5 transition-all duration-300'
+        >
+          Request Information
+          <svg
+            class='w-4 h-4 group-hover:translate-x-1 transition-transform duration-300'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
+            stroke-width='2'
+          >
+            <path
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3'></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── What Makes Us Different ─── -->
+  <section
+    class='relative py-28 md:py-36 bg-white overflow-hidden'
+    aria-labelledby='diff-heading'
+  >
+    <div
+      class='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-cream rounded-full blur-3xl opacity-60'
+      aria-hidden='true'
+    >
+    </div>
+
+    <div class='relative max-w-6xl mx-auto px-6'>
+      <div class='text-center mb-20'>
+        <span
+          class='block w-12 h-[2px] bg-brand-gold mx-auto mb-6'
+          aria-hidden='true'></span>
+        <h2
+          id='diff-heading'
+          class='text-4xl md:text-5xl lg:text-6xl font-display italic text-brand-blue mb-4'
+        >
+          What sets our training apart
+        </h2>
+        <p class='text-lg text-brand-blue/50 max-w-xl mx-auto'>
+          We don't teach theory in a vacuum. Every program is rooted in real
+          clinical practice and ongoing research.
+        </p>
+      </div>
+
+      <div class='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8'>
+        {
+          differentiators.map((d, i) => (
+            <div class='group text-center'>
+              <div
+                class='inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-brand-cream text-brand-blue/40 group-hover:text-brand-gold group-hover:bg-brand-gold/10 transition-all duration-500 mb-6'
+                set:html={d.icon}
+              />
+              <h3 class='text-lg font-display text-brand-blue mb-3'>
+                {d.title}
+              </h3>
+              <p class='text-brand-blue/50 text-sm leading-relaxed'>
+                {d.description}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Programs Catalog ─── -->
+  <section
+    id='programs'
+    class='relative py-28 md:py-36 bg-brand-cream/40 overflow-hidden'
+    aria-labelledby='programs-heading'
+  >
+    <div
+      class='absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-teal/5 rounded-full blur-[140px] translate-y-1/3 -translate-x-1/4'
+      aria-hidden='true'
+    >
+    </div>
+
+    <div class='relative max-w-6xl mx-auto px-6'>
+      <div class='text-center mb-20'>
+        <span
+          class='block w-12 h-[2px] bg-brand-gold mx-auto mb-6'
+          aria-hidden='true'></span>
+        <h2
+          id='programs-heading'
+          class='text-4xl md:text-5xl lg:text-6xl font-display italic text-brand-blue mb-4'
+        >
+          Our Programs
+        </h2>
+        <p class='text-lg text-brand-blue/50 max-w-xl mx-auto'>
+          From single masterclasses to multi-week certification tracks, find the
+          program that fits your career stage and goals.
+        </p>
+      </div>
+
+      {
+        workshops.map((category) => (
+          <div class='mb-20 last:mb-0' id={category.id}>
+            {/* Category label */}
+            <div class='flex items-center gap-4 mb-10'>
+              <h3 class='text-2xl md:text-3xl font-display text-brand-blue'>
+                {category.category}
+              </h3>
+              <span class='flex-1 h-px bg-brand-blue/10' aria-hidden='true' />
+            </div>
+
+            <div class='space-y-6'>
+              {category.items.map((item) => (
+                <div class='group bg-white rounded-2xl p-8 md:p-10 border border-brand-blue/8 hover:border-brand-gold/20 shadow-sm hover:shadow-lg transition-all duration-500'>
+                  <div class='flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-10'>
+                    <div class='flex-1'>
+                      <h4 class='text-xl md:text-2xl font-display text-brand-blue mb-4 group-hover:text-brand-blue-dark transition-colors'>
+                        {item.title}
+                      </h4>
+                      <p class='text-brand-blue/50 leading-relaxed mb-6'>
+                        {item.description}
+                      </p>
+                      <div class='flex flex-wrap gap-3'>
+                        <span
+                          class={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold border ${category.tagColor}`}
+                        >
+                          {item.duration}
+                        </span>
+                        <span class='inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-brand-cream text-brand-blue/50 border border-brand-blue/8'>
+                          {item.format}
+                        </span>
+                        <span class='inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-brand-cream text-brand-blue/50 border border-brand-blue/8'>
+                          {item.level}
+                        </span>
+                      </div>
+                    </div>
+                    <div class='flex-shrink-0 lg:self-center'>
+                      <a
+                        href='/get-started/appointment-request'
+                        class='inline-flex items-center gap-2 px-6 py-3 border-2 border-brand-blue/15 text-brand-blue font-semibold text-sm tracking-wide rounded-full hover:border-brand-gold hover:text-brand-gold transition-all duration-300 group/btn'
+                      >
+                        Learn More
+                        <svg
+                          class='w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300'
+                          fill='none'
+                          viewBox='0 0 24 24'
+                          stroke='currentColor'
+                          stroke-width='2'
+                        >
+                          <path
+                            stroke-linecap='round'
+                            stroke-linejoin='round'
+                            d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3'
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- ─── Testimonials ─── -->
+  <section
+    class='relative py-28 md:py-36 bg-brand-blue-dark overflow-hidden'
+    aria-labelledby='testimonials-heading'
+  >
+    <div
+      class='absolute inset-0 opacity-[0.03]'
+      style='background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px); background-size: 60px 60px;'
+      aria-hidden='true'
+    >
+    </div>
+    <div
+      class='absolute top-0 left-1/3 w-[500px] h-[500px] bg-brand-gold/5 rounded-full blur-[150px]'
+      aria-hidden='true'
+    >
+    </div>
+
+    <div class='relative z-10 max-w-5xl mx-auto px-6'>
+      <div class='text-center mb-16'>
+        <span
+          class='block w-12 h-[2px] bg-brand-gold mx-auto mb-6'
+          aria-hidden='true'></span>
+        <h2
+          id='testimonials-heading'
+          class='text-4xl md:text-5xl font-display italic text-white mb-4'
+        >
+          Voices from our alumni
+        </h2>
+      </div>
+
+      <div class='grid grid-cols-1 md:grid-cols-2 gap-8'>
+        <blockquote
+          class='relative p-8 md:p-10 rounded-2xl bg-white/[0.04] backdrop-blur-sm border border-white/[0.08]'
+        >
+          <span
+            class='absolute top-4 left-6 text-[100px] font-display text-white/[0.04] leading-none select-none pointer-events-none'
+            aria-hidden='true'>"</span
+          >
+          <p
+            class='relative text-white/70 text-lg leading-relaxed mb-6 italic font-display'
+          >
+            "The EMDR intensive completely transformed how I approach trauma in
+            my practice. The balance between research theory and hands-on
+            practicum was exceptional."
+          </p>
+          <footer class='flex items-center gap-3'>
+            <div
+              class='w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold font-display'
+            >
+              D
+            </div>
+            <div>
+              <cite class='not-italic font-semibold text-white text-sm'
+                >Dr. Elena Torres</cite
+              >
+              <span class='block text-white/35 text-xs mt-0.5'
+                >Clinical Psychologist · Madrid, Spain</span
+              >
+            </div>
+          </footer>
+        </blockquote>
+
+        <blockquote
+          class='relative p-8 md:p-10 rounded-2xl bg-white/[0.04] backdrop-blur-sm border border-white/[0.08]'
+        >
+          <span
+            class='absolute top-4 left-6 text-[100px] font-display text-white/[0.04] leading-none select-none pointer-events-none'
+            aria-hidden='true'>"</span
+          >
+          <p
+            class='relative text-white/70 text-lg leading-relaxed mb-6 italic font-display'
+          >
+            "The coaching certification track didn't just teach me techniques —
+            it gave me a research-backed framework that my clients can feel. My
+            practice has grown 3x since completing the program."
+          </p>
+          <footer class='flex items-center gap-3'>
+            <div
+              class='w-10 h-10 rounded-full bg-brand-teal/20 flex items-center justify-center text-brand-teal font-display'
+            >
+              J
+            </div>
+            <div>
+              <cite class='not-italic font-semibold text-white text-sm'
+                >James Okafor</cite
+              >
+              <span class='block text-white/35 text-xs mt-0.5'
+                >Executive Coach · London, UK</span
+              >
+            </div>
+          </footer>
+        </blockquote>
+
+        <blockquote
+          class='relative p-8 md:p-10 rounded-2xl bg-white/[0.04] backdrop-blur-sm border border-white/[0.08]'
+        >
+          <span
+            class='absolute top-4 left-6 text-[100px] font-display text-white/[0.04] leading-none select-none pointer-events-none'
+            aria-hidden='true'>"</span
+          >
+          <p
+            class='relative text-white/70 text-lg leading-relaxed mb-6 italic font-display'
+          >
+            "As someone who's attended workshops across three continents, I can
+            say Healthy Mind's approach is in a league of its own. The ongoing
+            community and peer consultation alone are worth the investment."
+          </p>
+          <footer class='flex items-center gap-3'>
+            <div
+              class='w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center text-brand-gold font-display'
+            >
+              A
+            </div>
+            <div>
+              <cite class='not-italic font-semibold text-white text-sm'
+                >Dr. Anika Patel</cite
+              >
+              <span class='block text-white/35 text-xs mt-0.5'
+                >Neuropsychologist · Toronto, Canada</span
+              >
+            </div>
+          </footer>
+        </blockquote>
+
+        <blockquote
+          class='relative p-8 md:p-10 rounded-2xl bg-white/[0.04] backdrop-blur-sm border border-white/[0.08]'
+        >
+          <span
+            class='absolute top-4 left-6 text-[100px] font-display text-white/[0.04] leading-none select-none pointer-events-none'
+            aria-hidden='true'>"</span
+          >
+          <p
+            class='relative text-white/70 text-lg leading-relaxed mb-6 italic font-display'
+          >
+            "The culturally responsive practice masterclass challenged my
+            assumptions in the best way. Every mental health professional should
+            take this workshop."
+          </p>
+          <footer class='flex items-center gap-3'>
+            <div
+              class='w-10 h-10 rounded-full bg-brand-teal/20 flex items-center justify-center text-brand-teal font-display'
+            >
+              M
+            </div>
+            <div>
+              <cite class='not-italic font-semibold text-white text-sm'
+                >Maria Gonzalez, LMHC</cite
+              >
+              <span class='block text-white/35 text-xs mt-0.5'
+                >Mental Health Counselor · Miami, USA</span
+              >
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FAQ ─── -->
+  <section
+    class='relative py-28 md:py-36 bg-white overflow-hidden'
+    aria-labelledby='faq-heading'
+  >
+    <div class='relative max-w-3xl mx-auto px-6'>
+      <div class='text-center mb-16'>
+        <span
+          class='block w-12 h-[2px] bg-brand-gold mx-auto mb-6'
+          aria-hidden='true'></span>
+        <h2
+          id='faq-heading'
+          class='text-4xl md:text-5xl font-display italic text-brand-blue mb-4'
+        >
+          Frequently Asked Questions
+        </h2>
+      </div>
+
+      <div class='space-y-4' role='list'>
+        {
+          faqs.map((faq, i) => (
+            <details
+              class='group bg-brand-cream/50 rounded-2xl border border-brand-blue/8 overflow-hidden'
+              role='listitem'
+            >
+              <summary class='flex items-center justify-between cursor-pointer p-6 md:p-8 text-lg font-display text-brand-blue hover:text-brand-gold transition-colors duration-300 list-none [&::-webkit-details-marker]:hidden'>
+                {faq.question}
+                <svg
+                  class='w-5 h-5 flex-shrink-0 text-brand-blue/30 group-open:rotate-180 transition-transform duration-300'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke='currentColor'
+                  stroke-width='2'
+                >
+                  <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    d='M19.5 8.25l-7.5 7.5-7.5-7.5'
+                  />
+                </svg>
+              </summary>
+              <div class='px-6 md:px-8 pb-6 md:pb-8 -mt-2'>
+                <p class='text-brand-blue/55 leading-relaxed'>{faq.answer}</p>
+              </div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Bottom CTA ─── -->
+  <section
+    class='relative bg-brand-blue py-20 md:py-28 overflow-hidden'
+    aria-labelledby='bottom-cta-heading'
+  >
+    <div class='absolute inset-0 opacity-[0.07]' aria-hidden='true'>
+      <div
+        class='absolute -top-24 -left-24 w-[500px] h-[500px] bg-brand-gold rounded-full blur-[120px]'
+      >
+      </div>
+      <div
+        class='absolute -bottom-32 -right-32 w-[400px] h-[400px] bg-brand-gold-light rounded-full blur-[100px]'
+      >
+      </div>
+    </div>
+
+    <div class='relative z-10 max-w-4xl mx-auto px-6 text-center'>
+      <div
+        class='flex items-center justify-center gap-3 mb-8'
+        aria-hidden='true'
+      >
+        <span class='block w-8 h-[1.5px] bg-brand-gold'></span>
+        <span class='block w-2 h-2 rounded-full border border-brand-gold'
+        ></span>
+        <span class='block w-8 h-[1.5px] bg-brand-gold'></span>
+      </div>
+
+      <h2
+        id='bottom-cta-heading'
+        class='text-3xl md:text-4xl lg:text-5xl font-display italic text-white leading-tight mb-6'
+      >
+        Your next chapter as a <span class='text-brand-gold-light'
+          >practitioner</span
+        > starts here
+      </h2>
+      <p class='text-white/50 text-lg max-w-xl mx-auto mb-10'>
+        Join hundreds of clinicians and coaches worldwide who have transformed
+        their practice through our evidence-based training programs.
+      </p>
+
+      <div class='flex flex-col sm:flex-row items-center justify-center gap-4'>
+        <a
+          href='/get-started/appointment-request'
+          class='group inline-flex items-center gap-3 px-10 py-4 bg-brand-gold text-brand-blue-dark font-semibold tracking-wide rounded-full hover:bg-brand-gold-light transition-all duration-300 shadow-[0_8px_30px_-8px_rgba(197,165,90,0.4)]'
+        >
+          Request Information
+          <svg
+            class='w-5 h-5 group-hover:translate-x-1 transition-transform duration-300'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
+            stroke-width='2'
+          >
+            <path
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3'></path>
+          </svg>
+        </a>
+        <a
+          href='#programs'
+          class='text-white/50 hover:text-white font-medium text-sm tracking-wide transition-colors duration-300'
+        >
+          View all programs ↑
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
