@@ -5,11 +5,16 @@
  */
 ---
 
-<section class='relative bg-brand-white py-24 md:py-36 overflow-hidden' aria-label='Welcome'>
+<section
+  class='relative bg-brand-white py-24 md:py-36 overflow-hidden'
+  aria-label='Welcome'
+>
   <div class='max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-20'>
     <!-- Section label -->
     <div class='mb-16 md:mb-20' data-animate>
-      <span class='font-mono text-[11px] tracking-[0.3em] uppercase text-brand-muted'>
+      <span
+        class='font-mono text-[11px] tracking-[0.3em] uppercase text-brand-muted'
+      >
         01 — Welcome
       </span>
     </div>
@@ -18,7 +23,9 @@
     <div class='grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20'>
       <!-- Left: Big statement -->
       <div data-animate>
-        <h2 class='text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-brand-charcoal leading-[1.05] tracking-[-0.02em]'>
+        <h2
+          class='text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-brand-charcoal leading-[1.05] tracking-[-0.02em]'
+        >
           Your mental health<br />is not a luxury.<br />
           <span class='text-brand-gold'>It's the foundation.</span>
         </h2>
@@ -27,14 +34,18 @@
       <!-- Right: Description -->
       <div class='flex flex-col justify-end' data-animate>
         <div class='w-10 h-px bg-brand-charcoal/15 mb-6'></div>
-        <p class='text-brand-charcoal/60 text-base md:text-lg font-light leading-relaxed mb-6'>
+        <p
+          class='text-brand-charcoal/60 text-base md:text-lg font-light leading-relaxed mb-6'
+        >
           At Healthy Mind Specialists, we don't believe in one-size-fits-all
           treatment. Our integrative approach combines evidence-based therapies
           with compassionate care — meeting you exactly where you are.
         </p>
-        <p class='text-brand-charcoal/60 text-base md:text-lg font-light leading-relaxed mb-8'>
-          Whether you're navigating anxiety, trauma, relationship challenges,
-          or simply looking to grow — we're here for it. No judgment. Just real,
+        <p
+          class='text-brand-charcoal/60 text-base md:text-lg font-light leading-relaxed mb-8'
+        >
+          Whether you're navigating anxiety, trauma, relationship challenges, or
+          simply looking to grow — we're here for it. No judgment. Just real,
           meaningful support.
         </p>
         <a
@@ -49,29 +60,59 @@
             stroke='currentColor'
             stroke-width='2'
           >
-            <path stroke-linecap='round' stroke-linejoin='round' d='M17 8l4 4m0 0l-4 4m4-4H3'></path>
+            <path
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              d='M17 8l4 4m0 0l-4 4m4-4H3'></path>
           </svg>
         </a>
       </div>
     </div>
 
     <!-- Stats row -->
-    <div class='mt-20 md:mt-28 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 border-t border-brand-charcoal/10 pt-12' data-animate>
+    <div
+      class='mt-20 md:mt-28 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 border-t border-brand-charcoal/10 pt-12'
+      data-animate
+    >
       <div>
-        <span class='block text-4xl md:text-5xl font-display font-extrabold text-brand-charcoal tracking-tight'>22+</span>
-        <span class='block mt-2 text-xs font-mono tracking-[0.15em] uppercase text-brand-muted'>Combined Years</span>
+        <span
+          class='block text-4xl md:text-5xl font-display font-extrabold text-brand-charcoal tracking-tight'
+          >22+</span
+        >
+        <span
+          class='block mt-2 text-xs font-mono tracking-[0.15em] uppercase text-brand-muted'
+          >Combined Years</span
+        >
       </div>
       <div>
-        <span class='block text-4xl md:text-5xl font-display font-extrabold text-brand-charcoal tracking-tight'>11</span>
-        <span class='block mt-2 text-xs font-mono tracking-[0.15em] uppercase text-brand-muted'>Licensed Clinicians</span>
+        <span
+          class='block text-4xl md:text-5xl font-display font-extrabold text-brand-charcoal tracking-tight'
+          >11</span
+        >
+        <span
+          class='block mt-2 text-xs font-mono tracking-[0.15em] uppercase text-brand-muted'
+          >Licensed Clinicians</span
+        >
       </div>
       <div>
-        <span class='block text-4xl md:text-5xl font-display font-extrabold text-brand-charcoal tracking-tight'>3K+</span>
-        <span class='block mt-2 text-xs font-mono tracking-[0.15em] uppercase text-brand-muted'>Lives Impacted</span>
+        <span
+          class='block text-4xl md:text-5xl font-display font-extrabold text-brand-charcoal tracking-tight'
+          >3K+</span
+        >
+        <span
+          class='block mt-2 text-xs font-mono tracking-[0.15em] uppercase text-brand-muted'
+          >Lives Impacted</span
+        >
       </div>
       <div>
-        <span class='block text-4xl md:text-5xl font-display font-extrabold text-brand-charcoal tracking-tight'>2</span>
-        <span class='block mt-2 text-xs font-mono tracking-[0.15em] uppercase text-brand-muted'>Florida Locations</span>
+        <span
+          class='block text-4xl md:text-5xl font-display font-extrabold text-brand-charcoal tracking-tight'
+          >2</span
+        >
+        <span
+          class='block mt-2 text-xs font-mono tracking-[0.15em] uppercase text-brand-muted'
+          >Florida Locations</span
+        >
       </div>
     </div>
   </div>
@@ -86,7 +127,9 @@
         }
       });
     },
-    { threshold: 0.15 }
+    { threshold: 0.15 },
   );
-  document.querySelectorAll("[data-animate]").forEach((el) => observer.observe(el));
+  document
+    .querySelectorAll("[data-animate]")
+    .forEach((el) => observer.observe(el));
 </script>
