@@ -18,24 +18,20 @@ const schemas = [
   schema={schemas}
 >
   <!-- ═══════════════════════════════════════════════════════════ -->
-  <!-- HERO BANNER                                                -->
+  <!-- HERO — Editorial split with large typography                -->
   <!-- ═══════════════════════════════════════════════════════════ -->
   <section
-    class='relative bg-brand-blue py-24 md:py-32 lg:py-40 overflow-hidden'
+    class='relative bg-brand-blue min-h-[70vh] md:min-h-[80vh] overflow-hidden'
     aria-label='About hero'
   >
-    <!-- Background image -->
-    <img
-      src='https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1920&h=1080&fit=crop&q=80'
-      alt='Serene wellness scene representing mental health care and mindfulness'
-      width='1920'
-      height='1080'
-      loading='eager'
-      fetchpriority='high'
-      class='absolute inset-0 w-full h-full object-cover'
-    />
-    <!-- Dark overlay for text readability -->
-    <div class='absolute inset-0 bg-brand-blue/70' aria-hidden='true'></div>
+    <!-- Subtle grid overlay -->
+    <div
+      class='absolute inset-0 opacity-[0.03] pointer-events-none'
+      style='background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px); background-size: 60px 60px;'
+      aria-hidden='true'
+    >
+    </div>
+    <!-- Decorative glow -->
     <div
       class='absolute inset-0 opacity-[0.06] pointer-events-none'
       aria-hidden='true'
@@ -49,173 +45,547 @@ const schemas = [
       >
       </div>
     </div>
+
     <div
-      class='absolute inset-0 opacity-[0.03]'
-      style='background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px); background-size: 60px 60px;'
-      aria-hidden='true'
+      class='relative z-10 max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-20 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center min-h-[70vh] md:min-h-[80vh] py-32 lg:py-20'
     >
-    </div>
+      <!-- Left: Typography -->
+      <div>
+        <div class='mb-8 md:mb-12' data-animate>
+          <span
+            class='font-mono text-[11px] tracking-[0.3em] uppercase text-brand-gold'
+          >
+            About Us
+          </span>
+          <div class='w-12 h-px bg-brand-gold/40 mt-3'></div>
+        </div>
 
-    <div class='relative z-10 max-w-4xl mx-auto px-6 text-center'>
-      <div
-        class='flex items-center justify-center gap-3 mb-6'
-        aria-hidden='true'
-      >
-        <span class='block w-10 h-[1.5px] bg-brand-gold'></span>
-        <span class='block w-2.5 h-2.5 rounded-full border border-brand-gold'
-        ></span>
-        <span class='block w-10 h-[1.5px] bg-brand-gold'></span>
-      </div>
-
-      <h1
-        class='text-4xl md:text-5xl lg:text-6xl font-display italic text-white leading-tight'
-      >
-        About <span class='text-brand-gold-light'>Us</span>
-      </h1>
-
-      <p
-        class='mt-5 text-white/65 text-base md:text-lg lg:text-xl max-w-2xl mx-auto font-sans leading-relaxed'
-      >
-        Integrative psychological care rooted in compassion, expertise, and a
-        deep commitment to your well-being.
-      </p>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════ -->
-  <!-- ANXIETY CLINIC                                             -->
-  <!-- ═══════════════════════════════════════════════════════════ -->
-  <section class='py-20 md:py-28 bg-white' aria-labelledby='anxiety-heading'>
-    <div class='max-w-4xl mx-auto px-6'>
-      <div class='text-center mb-12'>
-        <span
-          class='block w-12 h-[2px] bg-brand-gold mx-auto mb-6'
-          aria-hidden='true'></span>
-        <h2
-          id='anxiety-heading'
-          class='text-3xl md:text-4xl lg:text-5xl font-display italic text-brand-blue mb-4'
+        <h1
+          class='text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-display font-extrabold text-brand-white leading-[0.95] tracking-[-0.03em] mb-8'
+          data-animate
         >
-          Anxiety Clinic
-        </h2>
+          Healing starts<br />with the right<br />
+          <span class='text-brand-gold-light'>connection.</span>
+        </h1>
+
+        <div class='w-16 h-px bg-brand-gold/50 mb-8' data-animate></div>
+
+        <p
+          class='text-brand-white/60 text-base md:text-lg font-light leading-relaxed max-w-md mb-10'
+          data-animate
+        >
+          Integrative psychological care rooted in compassion, expertise, and a
+          deep commitment to your well-being. We combine evidence-based
+          treatment with a genuinely human approach.
+        </p>
+
+        <div class='flex flex-col sm:flex-row items-start gap-4' data-animate>
+          <a
+            href='/get-started/appointment-request'
+            class='group inline-flex items-center gap-3 px-8 py-4 text-sm font-semibold tracking-[0.15em] uppercase bg-brand-gold text-brand-blue transition-all duration-500 hover:bg-brand-gold-light'
+          >
+            <span>Get Started</span>
+            <svg
+              class='w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+              stroke-width='2'
+            >
+              <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                d='M17 8l4 4m0 0l-4 4m4-4H3'></path>
+            </svg>
+          </a>
+          <a
+            href='#anxiety-clinic'
+            class='group inline-flex items-center gap-3 px-8 py-4 text-sm font-medium tracking-[0.15em] uppercase text-brand-white/70 border border-brand-white/15 transition-all duration-500 hover:text-brand-white hover:border-brand-white/40'
+          >
+            <span>Learn More</span>
+            <svg
+              class='w-4 h-4 transition-transform duration-300 group-hover:translate-y-1'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+              stroke-width='2'
+            >
+              <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                d='M12 4v16m0 0l-6-6m6 6l6-6'></path>
+            </svg>
+          </a>
+        </div>
       </div>
 
-      <div class='space-y-6 text-brand-blue/80 text-lg leading-relaxed'>
-        <p>
-          Here at Healthy Mind Specialists, we provide integrative psychological
-          care for any mental health challenges, but we have chosen to
-          specialize in treating anxiety. We see anxiety as the center of a web
-          that is sprawled across many life domains. When we have an anxious
-          mind, it permeates all areas of our lives.
-        </p>
+      <!-- Right: Stats stack -->
+      <div class='flex flex-col gap-6 lg:pl-10' data-animate>
+        <div class='grid grid-cols-2 gap-px bg-brand-white/10'>
+          <div class='bg-brand-blue p-6 md:p-8'>
+            <span
+              class='block text-4xl md:text-5xl font-display font-extrabold text-brand-white tracking-tight'
+              >22+</span
+            >
+            <span
+              class='block mt-2 text-xs font-mono tracking-[0.15em] uppercase text-brand-muted'
+              >Combined Years</span
+            >
+          </div>
+          <div class='bg-brand-blue p-6 md:p-8'>
+            <span
+              class='block text-4xl md:text-5xl font-display font-extrabold text-brand-white tracking-tight'
+              >11</span
+            >
+            <span
+              class='block mt-2 text-xs font-mono tracking-[0.15em] uppercase text-brand-muted'
+              >Licensed Clinicians</span
+            >
+          </div>
+          <div class='bg-brand-blue p-6 md:p-8'>
+            <span
+              class='block text-4xl md:text-5xl font-display font-extrabold text-brand-white tracking-tight'
+              >3K+</span
+            >
+            <span
+              class='block mt-2 text-xs font-mono tracking-[0.15em] uppercase text-brand-muted'
+              >Lives Impacted</span
+            >
+          </div>
+          <div class='bg-brand-blue p-6 md:p-8'>
+            <span
+              class='block text-4xl md:text-5xl font-display font-extrabold text-brand-white tracking-tight'
+              >2</span
+            >
+            <span
+              class='block mt-2 text-xs font-mono tracking-[0.15em] uppercase text-brand-muted'
+              >Florida Locations</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
 
-        <p>
-          Sometimes it's our relationships, careers, loved ones, or even random
-          encounters. Our minds hyper-focus on areas of vulnerabilities and all
-          the "what if" scenarios you can create. The intrusive thoughts don't
-          seem to stop. It can be very distressing! It is not unusual to also
-          have other diagnoses that occur concurrently. In fact, 60% of
-          individuals with anxiety also have challenges with some form of
-          depression.
-        </p>
-
-        <p>
-          You may not even realize that you have challenges with anxiety.
-          Anxiety is more than being nervous or fearful about the future or the
-          unknown. Did you know for some individuals, anxiety shows up as anger
-          management problems, control issues, or even impulsivity? What is
-          common is the incredible amount of time that is spent in your head.
-          Anxiety is exhausting! Let us help you sort it all out.
-        </p>
+    <!-- Decorative center line -->
+    <div class='absolute inset-0 pointer-events-none' aria-hidden='true'>
+      <div
+        class='absolute left-[50%] top-0 bottom-0 w-px bg-brand-white/[0.03]'
+      >
       </div>
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════ -->
-  <!-- OUR FOUNDERS                                               -->
+  <!-- ANXIETY CLINIC — Editorial two-column                      -->
   <!-- ═══════════════════════════════════════════════════════════ -->
   <section
-    class='py-20 md:py-28 bg-brand-cream'
-    aria-labelledby='founders-heading'
+    id='anxiety-clinic'
+    class='relative bg-brand-white py-24 md:py-36 overflow-hidden'
+    aria-labelledby='anxiety-heading'
   >
-    <div class='max-w-4xl mx-auto px-6'>
-      <div class='text-center mb-12'>
+    <div class='max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-20'>
+      <!-- Section label -->
+      <div class='mb-16 md:mb-20' data-animate>
         <span
-          class='block w-12 h-[2px] bg-brand-gold mx-auto mb-6'
-          aria-hidden='true'></span>
-        <h2
-          id='founders-heading'
-          class='text-3xl md:text-4xl lg:text-5xl font-display italic text-brand-blue mb-4'
+          class='font-mono text-[11px] tracking-[0.3em] uppercase text-brand-muted'
         >
-          Our Founders
-        </h2>
+          01 — Our Focus
+        </span>
       </div>
 
-      <div class='space-y-6 text-brand-blue/80 text-lg leading-relaxed'>
-        <p>
-          Healthy Mind Specialists, LLC is spearheaded by
-          <a
-            href='/staff/dr-grissel-m-lloyd-psyd'
-            class='text-brand-blue font-semibold hover:text-brand-gold transition-colors duration-200'
-            >Dr. Grissel M. Lloyd</a
-          > and
-          <a
-            href='/staff/dr-maria-a-ruiz-psyd'
-            class='text-brand-blue font-semibold hover:text-brand-gold transition-colors duration-200'
-            >Dr. Maria A. Ruiz</a
-          >, who bring a total of 22 years of experience in the behavioral
-          health field.
-        </p>
+      <div class='grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20'>
+        <!-- Left: Big heading -->
+        <div data-animate>
+          <h2
+            id='anxiety-heading'
+            class='text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-brand-charcoal leading-[1.05] tracking-[-0.02em]'
+          >
+            Anxiety is at the<br />center of everything.<br />
+            <span class='text-brand-gold'>We specialize in it.</span>
+          </h2>
+        </div>
 
-        <p>
-          Our mission is to provide top-notch integrative care. Grissel Lloyd,
-          PsyD is a board-certified behavior analyst, a licensed mental health
-          counselor, and a Doctor of Psychology. She is also a clinical
-          psychology professor at the Florida School of Professional Psychology
-          at National Louis University.
-        </p>
+        <!-- Right: Body text -->
+        <div class='flex flex-col justify-end' data-animate>
+          <div class='w-10 h-px bg-brand-charcoal/15 mb-6'></div>
+          <p
+            class='text-brand-charcoal/60 text-base md:text-lg font-light leading-relaxed mb-6'
+          >
+            Here at Healthy Mind Specialists, we provide integrative
+            psychological care for any mental health challenges, but we have
+            chosen to specialize in treating anxiety. We see anxiety as the
+            center of a web that is sprawled across many life domains. When we
+            have an anxious mind, it permeates all areas of our lives.
+          </p>
+          <p
+            class='text-brand-charcoal/60 text-base md:text-lg font-light leading-relaxed mb-6'
+          >
+            Sometimes it's our relationships, careers, loved ones, or even
+            random encounters. Our minds hyper-focus on areas of vulnerabilities
+            and all the "what if" scenarios you can create. The intrusive
+            thoughts don't seem to stop. In fact, 60% of individuals with
+            anxiety also have challenges with some form of depression.
+          </p>
+          <p
+            class='text-brand-charcoal/60 text-base md:text-lg font-light leading-relaxed'
+          >
+            You may not even realize that you have challenges with anxiety. For
+            some individuals, anxiety shows up as anger management problems,
+            control issues, or even impulsivity. Anxiety is exhausting — let us
+            help you sort it all out.
+          </p>
+        </div>
+      </div>
 
-        <p>
-          Maria Ruiz, PsyD has been practicing as a life coach, is an
-          international speaker specializing in self-esteem, attachment, and
-          trauma issues, and has a professional Instagram following of over
-          100,000.
-        </p>
+      <!-- Anxiety quick facts -->
+      <div
+        class='mt-20 md:mt-28 grid grid-cols-1 md:grid-cols-3 gap-px bg-brand-charcoal/10 border-t border-brand-charcoal/10'
+        data-animate
+      >
+        <div class='bg-brand-white p-8 md:p-10'>
+          <span
+            class='font-mono text-[10px] tracking-[0.2em] text-brand-gold block mb-3'
+            >01</span
+          >
+          <h3
+            class='text-base md:text-lg font-display font-bold text-brand-charcoal leading-tight mb-2'
+          >
+            More Than Worry
+          </h3>
+          <p class='text-sm text-brand-charcoal/50 font-light leading-relaxed'>
+            Anxiety can manifest as anger, impulsivity, or control issues — not
+            just nervousness.
+          </p>
+        </div>
+        <div class='bg-brand-white p-8 md:p-10'>
+          <span
+            class='font-mono text-[10px] tracking-[0.2em] text-brand-gold block mb-3'
+            >02</span
+          >
+          <h3
+            class='text-base md:text-lg font-display font-bold text-brand-charcoal leading-tight mb-2'
+          >
+            60% Comorbidity
+          </h3>
+          <p class='text-sm text-brand-charcoal/50 font-light leading-relaxed'>
+            Most individuals with anxiety also experience some form of
+            depression concurrently.
+          </p>
+        </div>
+        <div class='bg-brand-white p-8 md:p-10'>
+          <span
+            class='font-mono text-[10px] tracking-[0.2em] text-brand-gold block mb-3'
+            >03</span
+          >
+          <h3
+            class='text-base md:text-lg font-display font-bold text-brand-charcoal leading-tight mb-2'
+          >
+            Integrative Approach
+          </h3>
+          <p class='text-sm text-brand-charcoal/50 font-light leading-relaxed'>
+            We combine CBT, EMDR, and holistic methods tailored to your unique
+            experience.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════ -->
-  <!-- CTA                                                        -->
+  <!-- OUR FOUNDERS — Photo + bio cards, agency style              -->
   <!-- ═══════════════════════════════════════════════════════════ -->
-  <section class='py-20 md:py-28 bg-white' aria-label='Call to action'>
-    <div class='max-w-3xl mx-auto px-6 text-center'>
-      <span
-        class='block w-12 h-[2px] bg-brand-gold mx-auto mb-6'
-        aria-hidden='true'></span>
-      <h2 class='text-3xl md:text-4xl font-display italic text-brand-blue mb-4'>
-        Ready to Get Started?
-      </h2>
-      <p class='text-brand-blue/60 text-lg max-w-xl mx-auto mb-10'>
-        Reach out today and let us help you on your path to a healthier mind.
-      </p>
-      <a
-        href='/contact'
-        class='inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white font-semibold px-8 py-4 rounded-full transition-colors duration-300 shadow-lg shadow-brand-gold/20'
+  <section
+    class='relative bg-brand-cream py-24 md:py-36 overflow-hidden'
+    aria-labelledby='founders-heading'
+  >
+    <div class='max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-20'>
+      <!-- Header -->
+      <div
+        class='flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 md:mb-24'
       >
-        Contact Us
-        <svg
-          class='w-4 h-4'
-          fill='none'
-          viewBox='0 0 24 24'
-          stroke='currentColor'
-          stroke-width='2'
-        >
-          <path
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3'></path>
-        </svg>
-      </a>
+        <div data-animate>
+          <span
+            class='font-mono text-[11px] tracking-[0.3em] uppercase text-brand-muted block mb-4'
+          >
+            02 — Our Founders
+          </span>
+          <h2
+            id='founders-heading'
+            class='text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-brand-charcoal leading-[1.05] tracking-[-0.02em]'
+          >
+            The visionaries behind<br />the practice.
+          </h2>
+        </div>
+        <div class='max-w-sm' data-animate>
+          <p class='text-brand-charcoal/50 text-sm font-light leading-relaxed'>
+            Healthy Mind Specialists is led by two accomplished psychologists
+            with a combined 22 years of experience in the behavioral health
+            field.
+          </p>
+        </div>
+      </div>
+
+      <!-- Founder cards -->
+      <div class='grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12'>
+        <!-- Dr. Grissel M. Lloyd -->
+        <div class='group' data-animate>
+          <a href='/staff/dr-grissel-m-lloyd-psyd' class='block'>
+            <div
+              class='relative aspect-[4/5] bg-brand-blue overflow-hidden mb-6'
+            >
+              <img
+                src='https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/f2f396df-4594-4d5f-4390-c7cbc0e09b00/public'
+                alt='Dr. Grissel M. Lloyd, PsyD — Clinical Director at Healthy Mind Specialists'
+                width='640'
+                height='800'
+                loading='lazy'
+                decoding='async'
+                class='absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105'
+              />
+              <!-- Gradient overlay -->
+              <div
+                class='absolute inset-0 bg-gradient-to-t from-brand-blue/80 via-brand-blue/20 to-transparent'
+              >
+              </div>
+              <!-- Bottom info -->
+              <div class='absolute bottom-0 left-0 right-0 p-6 md:p-8'>
+                <span
+                  class='font-mono text-[10px] tracking-[0.15em] uppercase text-brand-gold block mb-2'
+                  >Co-Founder</span
+                >
+                <h3
+                  class='text-2xl md:text-3xl font-display font-bold text-brand-white leading-tight'
+                >
+                  Dr. Grissel M. Lloyd
+                </h3>
+                <span class='text-sm text-brand-white/60 font-light'
+                  >PsyD, BCBA, LMHC</span
+                >
+              </div>
+              <!-- Hover arrow -->
+              <div
+                class='absolute top-6 right-6 w-10 h-10 flex items-center justify-center bg-brand-gold/0 group-hover:bg-brand-gold transition-all duration-500'
+              >
+                <svg
+                  class='w-4 h-4 text-brand-white opacity-0 group-hover:opacity-100 transition-opacity duration-300'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke='currentColor'
+                  stroke-width='2'
+                >
+                  <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    d='M17 8l4 4m0 0l-4 4m4-4H3'></path>
+                </svg>
+              </div>
+            </div>
+          </a>
+          <div class='space-y-4'>
+            <div class='w-10 h-px bg-brand-charcoal/15'></div>
+            <p
+              class='text-brand-charcoal/60 text-base font-light leading-relaxed'
+            >
+              Board-certified behavior analyst, licensed mental health
+              counselor, and Doctor of Psychology. Dr. Lloyd also serves as a
+              clinical psychology professor at the Florida School of
+              Professional Psychology at National Louis University.
+            </p>
+            <a
+              href='/staff/dr-grissel-m-lloyd-psyd'
+              class='group/link inline-flex items-center gap-2 text-sm font-semibold tracking-[0.1em] uppercase text-brand-charcoal hover:text-brand-gold transition-colors duration-300'
+            >
+              <span>View full profile</span>
+              <svg
+                class='w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1'
+                fill='none'
+                viewBox='0 0 24 24'
+                stroke='currentColor'
+                stroke-width='2'
+              >
+                <path
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  d='M17 8l4 4m0 0l-4 4m4-4H3'></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Dr. Maria A. Ruiz -->
+        <div class='group' data-animate>
+          <a href='/staff/dr-maria-a-ruiz-psyd' class='block'>
+            <div
+              class='relative aspect-[4/5] bg-brand-blue overflow-hidden mb-6'
+            >
+              <img
+                src='https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/aee50b9f-80b8-451e-f614-898548535100/public'
+                alt='Dr. Maria A. Ruiz, PsyD — Licensed Psychologist at Healthy Mind Specialists'
+                width='640'
+                height='800'
+                loading='lazy'
+                decoding='async'
+                class='absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105'
+              />
+              <!-- Gradient overlay -->
+              <div
+                class='absolute inset-0 bg-gradient-to-t from-brand-blue/80 via-brand-blue/20 to-transparent'
+              >
+              </div>
+              <!-- Bottom info -->
+              <div class='absolute bottom-0 left-0 right-0 p-6 md:p-8'>
+                <span
+                  class='font-mono text-[10px] tracking-[0.15em] uppercase text-brand-gold block mb-2'
+                  >Co-Founder</span
+                >
+                <h3
+                  class='text-2xl md:text-3xl font-display font-bold text-brand-white leading-tight'
+                >
+                  Dr. Maria A. Ruiz
+                </h3>
+                <span class='text-sm text-brand-white/60 font-light'>PsyD</span>
+              </div>
+              <!-- Hover arrow -->
+              <div
+                class='absolute top-6 right-6 w-10 h-10 flex items-center justify-center bg-brand-gold/0 group-hover:bg-brand-gold transition-all duration-500'
+              >
+                <svg
+                  class='w-4 h-4 text-brand-white opacity-0 group-hover:opacity-100 transition-opacity duration-300'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke='currentColor'
+                  stroke-width='2'
+                >
+                  <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    d='M17 8l4 4m0 0l-4 4m4-4H3'></path>
+                </svg>
+              </div>
+            </div>
+          </a>
+          <div class='space-y-4'>
+            <div class='w-10 h-px bg-brand-charcoal/15'></div>
+            <p
+              class='text-brand-charcoal/60 text-base font-light leading-relaxed'
+            >
+              Life coach, international speaker specializing in self-esteem,
+              attachment, and trauma issues, with a professional Instagram
+              following of over 100,000. Dr. Ruiz brings a unique blend of
+              clinical expertise and public advocacy to the practice.
+            </p>
+            <a
+              href='/staff/dr-maria-a-ruiz-psyd'
+              class='group/link inline-flex items-center gap-2 text-sm font-semibold tracking-[0.1em] uppercase text-brand-charcoal hover:text-brand-gold transition-colors duration-300'
+            >
+              <span>View full profile</span>
+              <svg
+                class='w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1'
+                fill='none'
+                viewBox='0 0 24 24'
+                stroke='currentColor'
+                stroke-width='2'
+              >
+                <path
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  d='M17 8l4 4m0 0l-4 4m4-4H3'></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- CTA — Full-width dark panel                                 -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section
+    class='relative bg-brand-blue py-24 md:py-36 overflow-hidden'
+    aria-label='Call to action'
+  >
+    <!-- Decorative glow -->
+    <div
+      class='absolute inset-0 opacity-[0.06] pointer-events-none'
+      aria-hidden='true'
+    >
+      <div
+        class='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-gold rounded-full blur-[180px]'
+      >
+      </div>
+    </div>
+
+    <div
+      class='relative z-10 max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-20'
+    >
+      <div
+        class='flex flex-col md:flex-row md:items-center md:justify-between gap-10'
+      >
+        <div data-animate>
+          <span
+            class='font-mono text-[11px] tracking-[0.3em] uppercase text-brand-gold block mb-4'
+          >
+            03 — Next Step
+          </span>
+          <h2
+            class='text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-brand-white leading-[1.05] tracking-[-0.02em]'
+          >
+            Ready to start<br />your journey?
+          </h2>
+        </div>
+
+        <div class='max-w-sm' data-animate>
+          <p
+            class='text-brand-white/40 text-sm font-light leading-relaxed mb-8'
+          >
+            Reach out today and let us help you on your path to a healthier
+            mind. No judgment — just real, meaningful support.
+          </p>
+          <div class='flex flex-col sm:flex-row gap-4'>
+            <a
+              href='/get-started/appointment-request'
+              class='group inline-flex items-center gap-3 px-8 py-4 text-sm font-semibold tracking-[0.15em] uppercase bg-brand-gold text-brand-blue transition-all duration-500 hover:bg-brand-gold-light'
+            >
+              <span>Book an Appointment</span>
+              <svg
+                class='w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5'
+                fill='none'
+                viewBox='0 0 24 24'
+                stroke='currentColor'
+                stroke-width='2'
+              >
+                <path
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  d='M17 8l4 4m0 0l-4 4m4-4H3'></path>
+              </svg>
+            </a>
+            <a
+              href='/contact'
+              class='group inline-flex items-center gap-3 px-8 py-4 text-sm font-medium tracking-[0.15em] uppercase text-brand-white/70 border border-brand-white/15 transition-all duration-500 hover:text-brand-white hover:border-brand-white/40'
+            >
+              <span>Contact Us</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </Layout>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        }
+      });
+    },
+    { threshold: 0.15 },
+  );
+  document
+    .querySelectorAll("[data-animate]")
+    .forEach((el) => observer.observe(el));
+</script>

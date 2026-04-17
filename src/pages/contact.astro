@@ -26,6 +26,30 @@ const schemas = [
     },
   }),
 ];
+
+const headingWords = "Get in touch.".split(" ");
+
+const contactChannels = [
+  {
+    number: "01",
+    label: "Phone",
+    value: "(813) 609-2034",
+    href: "tel:8136092034",
+  },
+  {
+    number: "02",
+    label: "Email",
+    value: "info@healthymindspecialists.com",
+    href: "mailto:info@healthymindspecialists.com",
+  },
+  {
+    number: "03",
+    label: "Location",
+    value: "11906 Boyette Rd, Riverview, FL 33569",
+    href: "https://maps.google.com/?q=11906+Boyette+Rd,+Riverview,+FL+33569",
+  },
+  { number: "04", label: "Hours", value: "Mon – Fri, 8 AM – 9 PM", href: null },
+];
 ---
 
 <Layout
@@ -34,235 +58,313 @@ const schemas = [
   schema={schemas}
 >
   <!-- ═══════════════════════════════════════════════════════════ -->
-  <!-- HERO BANNER                                                -->
+  <!-- HERO — Split layout: Large type left + image right         -->
   <!-- ═══════════════════════════════════════════════════════════ -->
   <section
-    class='relative bg-brand-blue py-24 md:py-32 lg:py-40 overflow-hidden'
-    aria-label='Contact hero'
     id='contact-hero'
+    class='relative min-h-[85vh] bg-brand-blue overflow-hidden'
+    aria-label='Contact hero'
   >
-    <!-- Background image -->
-    <img
-      src='/images/contact-hero.jpg'
-      alt='Peaceful nature scene with warm sunlight for relaxation and mindfulness'
-      width='1920'
-      height='1280'
-      loading='eager'
-      fetchpriority='high'
-      class='absolute inset-0 w-full h-full object-cover'
-    />
-    <!-- Dark overlay for text readability -->
-    <div class='absolute inset-0 bg-brand-blue/70' aria-hidden='true'></div>
-    <!-- Ambient glow -->
-    <div
-      class='absolute inset-0 opacity-[0.06] pointer-events-none'
-      aria-hidden='true'
-    >
+    <!-- Background grid lines -->
+    <div class='absolute inset-0 pointer-events-none z-0' aria-hidden='true'>
       <div
-        class='absolute -top-32 -left-32 w-[600px] h-[600px] bg-brand-gold rounded-full blur-[140px]'
+        class='absolute left-[25%] top-0 bottom-0 w-px bg-brand-white/[0.03]'
       >
       </div>
       <div
-        class='absolute -bottom-40 -right-20 w-[500px] h-[500px] bg-brand-gold-light rounded-full blur-[120px]'
+        class='absolute left-[50%] top-0 bottom-0 w-px bg-brand-white/[0.03]'
+      >
+      </div>
+      <div
+        class='absolute left-[75%] top-0 bottom-0 w-px bg-brand-white/[0.03]'
       >
       </div>
     </div>
-    <!-- Grid overlay -->
-    <div
-      class='absolute inset-0 opacity-[0.03]'
-      style='background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px); background-size: 60px 60px;'
-      aria-hidden='true'
-    >
-    </div>
 
-    <div class='relative z-10 max-w-4xl mx-auto px-6 text-center'>
-      <!-- Gold ornament -->
+    <div class='relative z-10 grid grid-cols-1 lg:grid-cols-2 min-h-[85vh]'>
+      <!-- Left: Typography -->
       <div
-        class='hero-ornament flex items-center justify-center gap-3 mb-6 opacity-0'
-        aria-hidden='true'
+        class='flex flex-col justify-center px-6 sm:px-10 md:px-16 lg:px-20 xl:px-28 py-32 lg:py-20'
       >
-        <span class='block w-10 h-[1.5px] bg-brand-gold'></span>
-        <span class='block w-2.5 h-2.5 rounded-full border border-brand-gold'
-        ></span>
-        <span class='block w-10 h-[1.5px] bg-brand-gold'></span>
+        <div class='hero-label opacity-0 mb-8 md:mb-12'>
+          <span
+            class='font-mono text-[11px] tracking-[0.3em] uppercase text-brand-gold'
+          >
+            Contact Us
+          </span>
+          <div class='w-12 h-px bg-brand-gold/40 mt-3'></div>
+        </div>
+
+        <h1 class='sr-only'>Get in touch with Healthy Mind Specialists</h1>
+
+        <div class='hero-title-wrap mb-10 md:mb-14' aria-hidden='true'>
+          <p
+            class='text-[2rem] sm:text-4xl md:text-5xl lg:text-4xl xl:text-6xl font-display font-extrabold text-brand-white leading-[0.95] tracking-[-0.03em]'
+          >
+            {
+              headingWords.map((word) => (
+                <span class='hero-word inline-block overflow-hidden mr-[0.25em]'>
+                  <span class='hero-word-inner inline-block translate-y-full opacity-0'>
+                    {word}
+                  </span>
+                </span>
+              ))
+            }
+          </p>
+        </div>
+
+        <div class='hero-divider w-0 h-px bg-brand-gold/50 mb-8 md:mb-10'></div>
+
+        <p
+          class='hero-desc opacity-0 text-brand-white/60 text-base md:text-lg font-light leading-relaxed max-w-md mb-10 md:mb-14'
+        >
+          We'd love to hear from you. Reach out to schedule an appointment, ask
+          a question, or simply start a conversation about your care.
+        </p>
+
+        <div
+          class='hero-cta flex flex-col sm:flex-row items-start gap-4 opacity-0'
+        >
+          <a
+            href='#contact-form-section'
+            class='group inline-flex items-center gap-3 px-8 py-4 text-sm font-semibold tracking-[0.15em] uppercase bg-brand-gold text-brand-blue transition-all duration-500 hover:bg-brand-gold-light'
+          >
+            <span>Send a Message</span>
+            <svg
+              class='w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+              stroke-width='2'
+            >
+              <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                d='M17 8l4 4m0 0l-4 4m4-4H3'></path>
+            </svg>
+          </a>
+          <a
+            href='tel:8136092034'
+            class='group inline-flex items-center gap-3 px-8 py-4 text-sm font-medium tracking-[0.15em] uppercase text-brand-white/70 border border-brand-white/15 transition-all duration-500 hover:text-brand-white hover:border-brand-white/40'
+          >
+            <span>Call Us</span>
+            <svg
+              class='w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+              stroke-width='2'
+            >
+              <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                d='M17 8l4 4m0 0l-4 4m4-4H3'></path>
+            </svg>
+          </a>
+        </div>
       </div>
 
-      <h1
-        class='hero-title text-4xl md:text-5xl lg:text-6xl font-display italic text-white leading-tight opacity-0'
+      <!-- Right: Image accent -->
+      <div
+        class='hero-media relative hidden lg:flex items-center justify-center p-10 xl:p-16'
       >
-        Get in <span class='text-brand-gold-light'>Touch</span>
-      </h1>
+        <div
+          class='hero-frame absolute inset-10 xl:inset-16 border border-brand-gold/20 opacity-0'
+        >
+        </div>
 
-      <p
-        class='hero-subtitle mt-5 text-white/65 text-base md:text-lg lg:text-xl max-w-2xl mx-auto font-sans leading-relaxed opacity-0'
+        <div
+          class='hero-image-wrap relative w-full aspect-[3/4] max-h-[75vh] overflow-hidden opacity-0'
+        >
+          <img
+            src='/images/contact-hero.jpg'
+            alt='Peaceful nature scene with warm sunlight for relaxation and mindfulness'
+            width='800'
+            height='1067'
+            loading='eager'
+            fetchpriority='high'
+            class='hero-image absolute inset-0 w-full h-full object-cover scale-110'
+          />
+          <div class='absolute inset-0 bg-brand-blue/30 mix-blend-multiply'>
+          </div>
+          <div class='absolute bottom-6 left-6 right-6'>
+            <span
+              class='font-mono text-[10px] tracking-[0.2em] uppercase text-brand-white/50'
+            >
+              Tampa, FL — Riverview Office
+            </span>
+          </div>
+        </div>
+
+        <div
+          class='absolute -right-2 top-1/2 -translate-y-1/2 -rotate-90 origin-center'
+        >
+          <span
+            class='font-mono text-[10px] tracking-[0.4em] uppercase text-brand-white/20'
+          >
+            Healthy Mind Specialists
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile image -->
+    <div class='lg:hidden relative mx-6 mb-10 -mt-10'>
+      <div
+        class='hero-image-mobile relative aspect-video overflow-hidden opacity-0'
       >
-        We'd love to hear from you. Reach out to schedule an appointment or ask
-        any questions about our services.
-      </p>
+        <img
+          src='/images/contact-hero.jpg'
+          alt='Peaceful nature scene with warm sunlight for relaxation and mindfulness'
+          width='800'
+          height='450'
+          loading='eager'
+          class='absolute inset-0 w-full h-full object-cover'
+        />
+        <div class='absolute inset-0 bg-brand-blue/30 mix-blend-multiply'></div>
+      </div>
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════ -->
-  <!-- CONTACT INFO RIBBON                                        -->
+  <!-- CONTACT CHANNELS — Editorial numbered list                 -->
   <!-- ═══════════════════════════════════════════════════════════ -->
   <section
-    class='relative -mt-8 z-20 max-w-5xl mx-auto px-6'
-    aria-label='Contact details'
+    class='relative bg-brand-white py-24 md:py-36'
+    aria-label='Contact information'
   >
-    <div
-      class='contact-ribbon opacity-0 translate-y-6 bg-white rounded-2xl shadow-2xl shadow-brand-blue/8 border border-brand-gold/10 px-8 py-7 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4'
-    >
-      <!-- Phone -->
-      <a
-        href='tel:8136092034'
-        class='group flex items-center gap-4 justify-center md:justify-start'
-      >
+    <div class='max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-20'>
+      <div class='mb-16 md:mb-20'>
         <span
-          class='flex-shrink-0 w-12 h-12 rounded-xl bg-brand-blue/5 flex items-center justify-center group-hover:bg-brand-gold/10 transition-colors duration-300'
+          class='font-mono text-[11px] tracking-[0.3em] uppercase text-brand-muted'
         >
-          <svg
-            class='w-5 h-5 text-brand-blue group-hover:text-brand-gold transition-colors duration-300'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-            stroke-width='1.8'
-          >
-            <path
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              d='M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z'
-            ></path>
-          </svg>
+          01 — Reach Us
         </span>
-        <div>
-          <p
-            class='text-xs uppercase tracking-widest text-brand-blue/40 font-semibold'
-          >
-            Phone
-          </p>
-          <p
-            class='text-brand-blue font-medium group-hover:text-brand-gold transition-colors duration-300'
-          >
-            (813) 609-2034
+      </div>
+
+      <div class='grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 mb-16'>
+        <h2
+          class='text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-brand-charcoal leading-[1.05] tracking-[-0.02em]'
+        >
+          Multiple ways<br />to connect with us.
+        </h2>
+        <div class='flex flex-col justify-end'>
+          <div class='w-10 h-px bg-brand-charcoal/15 mb-6'></div>
+          <p class='text-black text-base md:text-lg leading-relaxed'>
+            Whether by phone, email, or in person — our team is ready to answer
+            your questions and help you get started on your path to wellness.
           </p>
         </div>
-      </a>
-      <!-- Email -->
-      <a
-        href='mailto:info@healthymindspecialists.com'
-        class='group flex items-center gap-4 justify-center'
-      >
-        <span
-          class='flex-shrink-0 w-12 h-12 rounded-xl bg-brand-blue/5 flex items-center justify-center group-hover:bg-brand-gold/10 transition-colors duration-300'
-        >
-          <svg
-            class='w-5 h-5 text-brand-blue group-hover:text-brand-gold transition-colors duration-300'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-            stroke-width='1.8'
-          >
-            <path
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              d='M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75'
-            ></path>
-          </svg>
-        </span>
-        <div>
-          <p
-            class='text-xs uppercase tracking-widest text-brand-blue/40 font-semibold'
-          >
-            Email
-          </p>
-          <p
-            class='text-brand-blue font-medium group-hover:text-brand-gold transition-colors duration-300'
-          >
-            info@healthymindspecialists.com
-          </p>
-        </div>
-      </a>
-      <!-- Address -->
-      <a
-        href='https://maps.google.com/?q=11906+Boyette+Rd,+Riverview,+FL+33569'
-        target='_blank'
-        rel='noopener noreferrer'
-        class='group flex items-center gap-4 justify-center md:justify-end'
-      >
-        <span
-          class='flex-shrink-0 w-12 h-12 rounded-xl bg-brand-blue/5 flex items-center justify-center group-hover:bg-brand-gold/10 transition-colors duration-300'
-        >
-          <svg
-            class='w-5 h-5 text-brand-blue group-hover:text-brand-gold transition-colors duration-300'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-            stroke-width='1.8'
-          >
-            <path
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              d='M15 10.5a3 3 0 11-6 0 3 3 0 016 0z'></path>
-            <path
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              d='M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z'
-            ></path>
-          </svg>
-        </span>
-        <div>
-          <p
-            class='text-xs uppercase tracking-widest text-brand-blue/40 font-semibold'
-          >
-            Location
-          </p>
-          <p
-            class='text-brand-blue font-medium group-hover:text-brand-gold transition-colors duration-300'
-          >
-            11906 Boyette Rd, Riverview, FL
-          </p>
-        </div>
-      </a>
+      </div>
+
+      <!-- Channels list -->
+      <div class='border-t border-brand-charcoal/10'>
+        {
+          contactChannels.map((channel) => {
+            const Tag = channel.href ? "a" : "div";
+            return (
+              <Tag
+                href={channel.href ?? undefined}
+                target={channel.href?.startsWith("http") ? "_blank" : undefined}
+                rel={
+                  channel.href?.startsWith("http")
+                    ? "noopener noreferrer"
+                    : undefined
+                }
+                class:list={[
+                  "contact-channel group flex flex-col md:flex-row md:items-center gap-4 md:gap-8 py-8 md:py-10 border-b border-brand-charcoal/10 -mx-6 px-6 sm:-mx-10 sm:px-10 md:-mx-16 md:px-16 lg:-mx-20 lg:px-20 transition-colors duration-300",
+                  channel.href &&
+                    "hover:bg-brand-charcoal/[0.02] cursor-pointer",
+                ]}
+              >
+                <span class='font-mono text-[11px] tracking-[0.2em] text-brand-muted md:w-16 flex-shrink-0'>
+                  {channel.number}
+                </span>
+                <span class='text-xs font-mono tracking-[0.15em] uppercase text-brand-gold md:w-24 flex-shrink-0'>
+                  {channel.label}
+                </span>
+                <span
+                  class:list={[
+                    "text-xl md:text-2xl lg:text-3xl font-display font-bold text-black md:flex-1 transition-colors duration-300",
+                    channel.href && "group-hover:text-brand-gold",
+                  ]}
+                >
+                  {channel.value}
+                </span>
+                {channel.href && (
+                  <svg
+                    class='hidden md:block w-5 h-5 text-brand-charcoal/20 group-hover:text-brand-gold group-hover:translate-x-1 transition-all duration-300 flex-shrink-0'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    stroke='currentColor'
+                    stroke-width='1.5'
+                  >
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      d='M17 8l4 4m0 0l-4 4m4-4H3'
+                    />
+                  </svg>
+                )}
+              </Tag>
+            );
+          })
+        }
+      </div>
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════ -->
-  <!-- FORM + MAP SECTION                                         -->
+  <!-- FORM SECTION — Brutalist editorial                         -->
   <!-- ═══════════════════════════════════════════════════════════ -->
   <section
-    class='py-20 md:py-28 lg:py-32 bg-white'
+    id='contact-form-section'
+    class='relative bg-brand-cream py-24 md:py-36'
     aria-labelledby='contact-form-heading'
   >
-    <div class='max-w-7xl mx-auto px-6'>
-      <div class='grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-start'>
-        <!-- ─── LEFT: Form ─── -->
-        <div class='form-container opacity-0 translate-y-8'>
-          <!-- Section heading -->
-          <div class='mb-10'>
-            <p
-              class='text-xs uppercase tracking-[0.2em] text-brand-gold font-semibold mb-3'
-            >
-              Book an Appointment
-            </p>
-            <h2
-              id='contact-form-heading'
-              class='text-3xl md:text-4xl font-display italic text-brand-blue leading-tight'
-            >
-              Send Us a <span class='text-brand-gold'>Message</span>
-            </h2>
-            <div class='w-12 h-[2px] bg-brand-gold mt-5' aria-hidden='true'>
-            </div>
-          </div>
+    <div class='max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-20'>
+      <!-- Section header -->
+      <div
+        class='flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 md:mb-24'
+      >
+        <div>
+          <span
+            class='font-mono text-[11px] tracking-[0.3em] uppercase text-brand-muted block mb-4'
+          >
+            02 — Message
+          </span>
+          <h2
+            id='contact-form-heading'
+            class='text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-brand-charcoal leading-[1.05] tracking-[-0.02em]'
+          >
+            Send us a<br />message.
+          </h2>
+        </div>
+        <div class='max-w-sm'>
+          <p class='text-black text-sm leading-relaxed'>
+            Fill out the form below and our team will get back to you within 24
+            hours. All information is kept confidential and secure.
+          </p>
+        </div>
+      </div>
 
-          <form id='contact-form' class='space-y-6' novalidate>
-            <!-- Row 1: Name + Email -->
-            <div class='grid grid-cols-1 sm:grid-cols-2 gap-5'>
-              <div class='form-field'>
+      <!-- Form grid -->
+      <div class='grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20'>
+        <!-- Form: 8 cols -->
+        <div class='lg:col-span-8 form-container'>
+          <form id='contact-form' class='space-y-0' novalidate>
+            <!-- Name + Email row -->
+            <div
+              class='grid grid-cols-1 sm:grid-cols-2 border-t border-brand-charcoal/10'
+            >
+              <div
+                class='form-field border-b border-brand-charcoal/10 sm:border-r py-6 sm:pr-6'
+              >
                 <label
                   for='name'
-                  class='block text-sm font-medium text-brand-blue/70 mb-2'
+                  class='block font-mono text-[11px] tracking-[0.15em] uppercase text-brand-muted mb-3'
                 >
-                  Name <span class='text-red-400' aria-hidden='true'>*</span>
+                  Name <span class='text-brand-gold' aria-hidden='true'>*</span>
                 </label>
                 <input
                   type='text'
@@ -271,15 +373,18 @@ const schemas = [
                   required
                   autocomplete='name'
                   placeholder='Your full name'
-                  class='w-full px-4 py-3.5 bg-brand-cream/50 border border-brand-blue/10 rounded-xl text-brand-blue placeholder:text-brand-blue/30 focus:outline-none focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 transition-all duration-300'
+                  class='w-full bg-transparent text-brand-charcoal text-lg font-light placeholder:text-brand-charcoal/25 focus:outline-none border-none p-0'
                 />
               </div>
-              <div class='form-field'>
+              <div
+                class='form-field border-b border-brand-charcoal/10 py-6 sm:pl-6'
+              >
                 <label
                   for='email'
-                  class='block text-sm font-medium text-brand-blue/70 mb-2'
+                  class='block font-mono text-[11px] tracking-[0.15em] uppercase text-brand-muted mb-3'
                 >
-                  Email <span class='text-red-400' aria-hidden='true'>*</span>
+                  Email <span class='text-brand-gold' aria-hidden='true'>*</span
+                  >
                 </label>
                 <input
                   type='email'
@@ -288,53 +393,60 @@ const schemas = [
                   required
                   autocomplete='email'
                   placeholder='you@example.com'
-                  class='w-full px-4 py-3.5 bg-brand-cream/50 border border-brand-blue/10 rounded-xl text-brand-blue placeholder:text-brand-blue/30 focus:outline-none focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 transition-all duration-300'
+                  class='w-full bg-transparent text-brand-charcoal text-lg font-light placeholder:text-brand-charcoal/25 focus:outline-none border-none p-0'
                 />
               </div>
             </div>
 
-            <!-- Row 2: Phone -->
-            <div class='form-field'>
+            <!-- Phone row -->
+            <div class='form-field border-b border-brand-charcoal/10 py-6'>
               <label
                 for='phone'
-                class='block text-sm font-medium text-brand-blue/70 mb-2'
-                >Phone</label
+                class='block font-mono text-[11px] tracking-[0.15em] uppercase text-brand-muted mb-3'
               >
+                Phone
+              </label>
               <input
                 type='tel'
                 id='phone'
                 name='phone'
                 autocomplete='tel'
                 placeholder='(555) 000-0000'
-                class='w-full px-4 py-3.5 bg-brand-cream/50 border border-brand-blue/10 rounded-xl text-brand-blue placeholder:text-brand-blue/30 focus:outline-none focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 transition-all duration-300'
+                class='w-full bg-transparent text-brand-charcoal text-lg font-light placeholder:text-brand-charcoal/25 focus:outline-none border-none p-0'
               />
             </div>
 
-            <!-- Row 3: Date + Time -->
-            <div class='grid grid-cols-1 sm:grid-cols-2 gap-5'>
-              <div class='form-field'>
+            <!-- Date + Time row -->
+            <div class='grid grid-cols-1 sm:grid-cols-2'>
+              <div
+                class='form-field border-b border-brand-charcoal/10 sm:border-r py-6 sm:pr-6'
+              >
                 <label
                   for='preferredDate'
-                  class='block text-sm font-medium text-brand-blue/70 mb-2'
-                  >Preferred Date</label
+                  class='block font-mono text-[11px] tracking-[0.15em] uppercase text-brand-muted mb-3'
                 >
+                  Preferred Date
+                </label>
                 <input
                   type='date'
                   id='preferredDate'
                   name='preferredDate'
-                  class='w-full px-4 py-3.5 bg-brand-cream/50 border border-brand-blue/10 rounded-xl text-brand-blue placeholder:text-brand-blue/30 focus:outline-none focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 transition-all duration-300'
+                  class='w-full bg-transparent text-brand-charcoal text-lg font-light placeholder:text-brand-charcoal/25 focus:outline-none border-none p-0'
                 />
               </div>
-              <div class='form-field'>
+              <div
+                class='form-field border-b border-brand-charcoal/10 py-6 sm:pl-6'
+              >
                 <label
                   for='time'
-                  class='block text-sm font-medium text-brand-blue/70 mb-2'
-                  >Preferred Time</label
+                  class='block font-mono text-[11px] tracking-[0.15em] uppercase text-brand-muted mb-3'
                 >
+                  Preferred Time
+                </label>
                 <select
                   id='time'
                   name='time'
-                  class='w-full px-4 py-3.5 bg-brand-cream/50 border border-brand-blue/10 rounded-xl text-brand-blue focus:outline-none focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 transition-all duration-300 appearance-none'
+                  class='w-full bg-transparent text-brand-charcoal text-lg font-light focus:outline-none border-none p-0 appearance-none cursor-pointer'
                 >
                   <option value=''>Select a time</option>
                   <option value='8:00 AM'>8:00 AM</option>
@@ -354,70 +466,71 @@ const schemas = [
               </div>
             </div>
 
-            <!-- Row 4: Message -->
-            <div class='form-field'>
+            <!-- Message row -->
+            <div class='form-field border-b border-brand-charcoal/10 py-6'>
               <label
                 for='comment'
-                class='block text-sm font-medium text-brand-blue/70 mb-2'
-                >Comment or Message</label
+                class='block font-mono text-[11px] tracking-[0.15em] uppercase text-brand-muted mb-3'
               >
+                Message
+              </label>
               <textarea
                 id='comment'
                 name='comment'
-                rows='5'
+                rows='4'
                 placeholder='Tell us how we can help you...'
-                class='w-full px-4 py-3.5 bg-brand-cream/50 border border-brand-blue/10 rounded-xl text-brand-blue placeholder:text-brand-blue/30 focus:outline-none focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 transition-all duration-300 resize-none'
+                class='w-full bg-transparent text-brand-charcoal text-lg font-light placeholder:text-brand-charcoal/25 focus:outline-none border-none p-0 resize-none'
               ></textarea>
             </div>
 
-            <!-- HIPAA Consent Checkbox -->
-            <div class='form-field'>
+            <!-- HIPAA Consent -->
+            <div class='form-field py-6'>
               <label class='flex items-start gap-3 cursor-pointer group'>
                 <input
                   type='checkbox'
                   id='hipaaConsent'
                   name='hipaaConsent'
                   required
-                  class='mt-1 w-5 h-5 rounded border-brand-blue/20 text-brand-gold focus:ring-brand-gold/30 accent-brand-gold cursor-pointer flex-shrink-0'
+                  class='mt-1 w-4 h-4 border-brand-charcoal/20 text-brand-gold focus:ring-brand-gold/30 accent-brand-gold cursor-pointer flex-shrink-0'
                 />
                 <span
-                  class='text-sm text-brand-blue/60 leading-relaxed group-hover:text-brand-blue/80 transition-colors duration-300'
+                  class='text-sm text-brand-charcoal font-light leading-relaxed transition-colors duration-300'
                 >
                   I have read and agree to the
                   <a
                     href='/legal/hipaa-consent'
                     target='_blank'
                     rel='noopener noreferrer'
-                    class='text-brand-blue font-medium underline decoration-brand-gold/40 underline-offset-2 hover:decoration-brand-gold hover:text-brand-gold transition-colors duration-300'
+                    class='text-brand-charcoal font-medium underline decoration-brand-gold/40 underline-offset-2 hover:decoration-brand-gold hover:text-brand-gold transition-colors duration-300'
                   >
                     HIPAA Notice of Privacy Practices
                   </a>
                   and consent to the collection and use of my information as described.
-                  <span class='text-red-400' aria-hidden='true'>*</span>
+                  <span class='text-brand-gold' aria-hidden='true'>*</span>
                 </span>
               </label>
-              <p id='hipaa-error' class='hidden mt-2 text-sm text-red-500 pl-8'>
+              <p
+                id='hipaa-error'
+                class='hidden mt-3 text-sm text-red-500 pl-7 font-mono text-[11px]'
+              >
                 You must agree to the HIPAA consent before submitting.
               </p>
             </div>
 
-            <!-- Submit Button -->
-            <div class='pt-2'>
+            <!-- Submit + security -->
+            <div
+              class='flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pt-4'
+            >
               <button
                 type='submit'
                 id='submit-btn'
-                class='group relative w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 bg-brand-blue text-white font-semibold tracking-wide rounded-xl overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-brand-blue/20 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none'
+                class='group inline-flex items-center gap-3 px-8 py-4 text-sm font-semibold tracking-[0.15em] uppercase bg-brand-blue text-brand-white transition-all duration-500 hover:bg-brand-charcoal disabled:opacity-40 disabled:cursor-not-allowed'
               >
-                <!-- Hover fill -->
-                <span
-                  class='absolute inset-0 bg-brand-gold/0 group-hover:bg-brand-gold transition-all duration-500 group-disabled:bg-transparent'
-                  aria-hidden='true'></span>
-                <span class='relative flex items-center gap-2'>
+                <span class='flex items-center gap-2'>
                   <span id='btn-text'>Send Message</span>
-                  <!-- Arrow icon -->
                   <svg
                     id='btn-arrow'
-                    class='w-5 h-5 transition-transform duration-300 group-hover:translate-x-1'
+                    class='w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5'
                     fill='none'
                     viewBox='0 0 24 24'
                     stroke='currentColor'
@@ -428,10 +541,9 @@ const schemas = [
                       stroke-linejoin='round'
                       d='M17 8l4 4m0 0l-4 4m4-4H3'></path>
                   </svg>
-                  <!-- Spinner (hidden by default) -->
                   <svg
                     id='btn-spinner'
-                    class='hidden w-5 h-5 animate-spin'
+                    class='hidden w-4 h-4 animate-spin'
                     viewBox='0 0 24 24'
                     fill='none'
                   >
@@ -450,35 +562,11 @@ const schemas = [
                   </svg>
                 </span>
               </button>
-            </div>
-
-            <!-- Security note -->
-            <p class='flex items-center gap-2 text-xs text-brand-blue/40 pt-1'>
-              <svg
-                class='w-4 h-4 text-green-500'
-                fill='none'
-                viewBox='0 0 24 24'
-                stroke='currentColor'
-                stroke-width='2'
-              >
-                <path
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  d='M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z'
-                ></path>
-              </svg>
-              Your information is encrypted and secure.
-            </p>
-          </form>
-
-          <!-- Success message (hidden) -->
-          <div id='success-message' class='hidden'>
-            <div class='text-center py-16'>
-              <div
-                class='w-20 h-20 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-6'
+              <span
+                class='flex items-center gap-2 font-mono text-[10px] tracking-[0.15em] uppercase text-brand-muted'
               >
                 <svg
-                  class='w-10 h-10 text-green-500'
+                  class='w-3.5 h-3.5 text-green-600'
                   fill='none'
                   viewBox='0 0 24 24'
                   stroke='currentColor'
@@ -487,27 +575,39 @@ const schemas = [
                   <path
                     stroke-linecap='round'
                     stroke-linejoin='round'
-                    d='M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
+                    d='M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z'
                   ></path>
                 </svg>
-              </div>
-              <h3 class='text-2xl font-display italic text-brand-blue mb-3'>
-                Message Sent!
+                Encrypted & Secure
+              </span>
+            </div>
+          </form>
+
+          <!-- Success message -->
+          <div id='success-message' class='hidden'>
+            <div class='py-20 text-center'>
+              <div class='w-10 h-px bg-brand-gold mx-auto mb-8'></div>
+              <h3
+                class='text-3xl md:text-4xl font-display font-extrabold text-brand-charcoal mb-4'
+              >
+                Message sent.
               </h3>
-              <p class='text-brand-blue/60 max-w-sm mx-auto'>
+              <p
+                class='text-brand-charcoal font-light max-w-sm mx-auto leading-relaxed'
+              >
                 Thank you for reaching out. Our team will get back to you within
                 24 hours.
               </p>
             </div>
           </div>
 
-          <!-- Error message (hidden) -->
-          <div id='error-message' class='hidden mt-4'>
+          <!-- Error message -->
+          <div id='error-message' class='hidden mt-6'>
             <div
-              class='bg-red-50 border border-red-100 rounded-xl p-4 flex items-start gap-3'
+              class='border border-red-200 bg-red-50/50 p-5 flex items-start gap-3'
             >
               <svg
-                class='w-5 h-5 text-red-500 flex-shrink-0 mt-0.5'
+                class='w-4 h-4 text-red-500 flex-shrink-0 mt-0.5'
                 fill='none'
                 viewBox='0 0 24 24'
                 stroke='currentColor'
@@ -519,65 +619,240 @@ const schemas = [
                   d='M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z'
                 ></path>
               </svg>
-              <p class='text-sm text-red-700'>
-                Something went wrong. Please try again or call us at <a
-                  href='tel:8136092034'
-                  class='font-semibold underline'>(813) 609-2034</a
+              <p class='text-sm text-red-700 font-light'>
+                Something went wrong. Please try again or call us at
+                <a href='tel:8136092034' class='font-semibold underline'
+                  >(813) 609-2034</a
                 >.
               </p>
             </div>
           </div>
         </div>
 
-        <!-- ─── RIGHT: Map + Info ─── -->
-        <div class='map-container opacity-0 translate-y-8 space-y-8'>
-          <!-- Map -->
-          <div
-            class='rounded-2xl overflow-hidden shadow-xl shadow-brand-blue/8 border border-brand-gold/10'
-          >
-            <iframe
-              title='Healthy Mind Specialists location'
-              class='w-full h-[380px] md:h-[420px] lg:h-[460px] grayscale-[20%] contrast-[1.05]'
-              loading='lazy'
-              referrerpolicy='no-referrer-when-downgrade'
-              src={`https://www.google.com/maps/embed/v1/place?key=${import.meta.env.PUBLIC_GOOGLE_MAPS_KEY}&q=11906+Boyette+Rd,+Riverview,+FL+33569&zoom=14&maptype=roadmap`}
-              allowfullscreen></iframe>
-          </div>
+        <!-- Sidebar info: 4 cols -->
+        <div class='lg:col-span-4'>
+          <div class='lg:sticky lg:top-32 space-y-10'>
+            <!-- Quick contact -->
+            <div>
+              <span
+                class='font-mono text-[11px] tracking-[0.15em] uppercase text-brand-muted block mb-6'
+              >
+                Quick Contact
+              </span>
+              <address class='not-italic space-y-5 text-black'>
+                <p class='flex items-start gap-3'>
+                  <svg
+                    class='w-4 h-4 text-brand-gold flex-shrink-0 mt-1'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    stroke='currentColor'
+                    stroke-width='1.5'
+                  >
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      d='M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z'
+                    ></path>
+                  </svg>
+                  <a
+                    href='tel:8136092034'
+                    class='hover:text-brand-gold transition-colors'
+                    >(813) 609-2034</a
+                  >
+                </p>
+                <p class='flex items-start gap-3'>
+                  <svg
+                    class='w-4 h-4 text-brand-gold flex-shrink-0 mt-1'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    stroke='currentColor'
+                    stroke-width='1.5'
+                  >
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      d='M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75'
+                    ></path>
+                  </svg>
+                  <a
+                    href='mailto:info@healthymindspecialists.com'
+                    class='hover:text-brand-gold transition-colors break-all'
+                    >info@healthymindspecialists.com</a
+                  >
+                </p>
+                <p class='flex items-start gap-3'>
+                  <svg
+                    class='w-4 h-4 text-brand-gold flex-shrink-0 mt-1'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    stroke='currentColor'
+                    stroke-width='1.5'
+                  >
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      d='M15 10.5a3 3 0 11-6 0 3 3 0 016 0z'></path>
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      d='M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z'
+                    ></path>
+                  </svg>
+                  <span>11906 Boyette Rd<br />Riverview, FL 33569</span>
+                </p>
+                <p class='flex items-start gap-3'>
+                  <svg
+                    class='w-4 h-4 text-brand-gold flex-shrink-0 mt-1'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    stroke='currentColor'
+                    stroke-width='1.5'
+                  >
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      d='M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z'></path>
+                  </svg>
+                  <span>Mon – Fri, 8 AM – 9 PM</span>
+                </p>
+              </address>
+            </div>
 
-          <!-- Office Info Card -->
-          <div
-            class='bg-brand-cream/60 rounded-2xl p-8 border border-brand-gold/10 space-y-6'
-          >
+            <!-- Divider -->
+            <div class='w-full h-px bg-brand-charcoal/10'></div>
+
+            <!-- Insurance note -->
             <div>
-              <div class='w-8 h-[2px] bg-brand-gold mb-4' aria-hidden='true'>
-              </div>
-              <h3 class='font-display text-xl text-brand-blue mb-1'>
-                Office Hours
-              </h3>
-              <p class='text-brand-blue/60 font-sans'>
-                Monday – Friday: 8:00 AM – 9:00 PM
-              </p>
-            </div>
-            <div class='h-px bg-brand-blue/5'></div>
-            <div>
-              <h3 class='font-display text-xl text-brand-blue mb-1'>
-                Our Address
-              </h3>
-              <p class='text-brand-blue/60 font-sans'>
-                11906 Boyette Road<br />Riverview, FL 33569
-              </p>
-            </div>
-            <div class='h-px bg-brand-blue/5'></div>
-            <div>
-              <h3 class='font-display text-xl text-brand-blue mb-1'>
+              <span
+                class='font-mono text-[11px] tracking-[0.15em] uppercase text-brand-muted block mb-3'
+              >
                 Insurance
-              </h3>
-              <p class='text-brand-blue/60 font-sans'>
-                We accept most major insurance plans. Contact us for details.
+              </span>
+              <p class='text-black text-sm leading-relaxed'>
+                We accept most major insurance plans.
+                <a
+                  href='/get-started/rates-insurance'
+                  class='text-brand-charcoal font-medium underline decoration-brand-gold/40 underline-offset-2 hover:text-brand-gold transition-colors duration-300'
+                >
+                  View rates & insurance details
+                </a>
               </p>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- MAP SECTION — Full-width split                             -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section class='relative bg-brand-white' aria-label='Location'>
+    <div class='grid grid-cols-1 lg:grid-cols-2'>
+      <!-- Left: Info -->
+      <div
+        class='flex flex-col justify-center px-6 sm:px-10 md:px-16 lg:px-20 py-20 md:py-28'
+      >
+        <span
+          class='font-mono text-[11px] tracking-[0.3em] uppercase text-brand-muted block mb-4'
+        >
+          03 — Visit Us
+        </span>
+        <h2
+          class='text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-brand-charcoal leading-[1.05] tracking-[-0.02em] mb-8'
+        >
+          Come say hello.
+        </h2>
+        <div class='w-10 h-px bg-brand-charcoal/15 mb-8'></div>
+
+        <address class='not-italic space-y-4 text-black'>
+          <p class='flex items-start gap-3'>
+            <svg
+              class='w-4 h-4 text-brand-gold flex-shrink-0 mt-1'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+              stroke-width='1.5'
+            >
+              <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                d='M15 10.5a3 3 0 11-6 0 3 3 0 016 0z'></path>
+              <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                d='M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z'
+              ></path>
+            </svg>
+            <span>11906 Boyette Rd<br />Riverview, FL 33569</span>
+          </p>
+          <p class='flex items-center gap-3'>
+            <svg
+              class='w-4 h-4 text-brand-gold flex-shrink-0'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+              stroke-width='1.5'
+            >
+              <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                d='M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z'
+              ></path>
+            </svg>
+            <a
+              href='tel:8136092034'
+              class='hover:text-brand-gold transition-colors'>813-609-2034</a
+            >
+          </p>
+          <p class='flex items-center gap-3'>
+            <svg
+              class='w-4 h-4 text-brand-gold flex-shrink-0'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+              stroke-width='1.5'
+            >
+              <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                d='M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z'></path>
+            </svg>
+            <span>Mon – Fri, 8 AM – 9 PM</span>
+          </p>
+        </address>
+
+        <a
+          href='https://maps.google.com/?q=11906+Boyette+Rd+Riverview+FL+33569'
+          target='_blank'
+          rel='noopener noreferrer'
+          class='group inline-flex items-center gap-2 mt-8 text-sm font-semibold tracking-[0.1em] uppercase text-brand-charcoal hover:text-brand-gold transition-colors duration-300'
+        >
+          <span>Get Directions</span>
+          <svg
+            class='w-4 h-4 transition-transform duration-300 group-hover:translate-x-1'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
+            stroke-width='2'
+          >
+            <path
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              d='M17 8l4 4m0 0l-4 4m4-4H3'></path>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Right: Map -->
+      <div class='relative min-h-[400px] lg:min-h-0 bg-brand-gray-light'>
+        <iframe
+          src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3527.5!2d-82.3076!3d27.8551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2cee8a6a7f4e5%3A0x6dcf7b3e9f7e0a1!2s11906%20Boyette%20Rd%2C%20Riverview%2C%20FL%2033569!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus'
+          class='absolute inset-0 w-full h-full border-0 grayscale contrast-125'
+          allowfullscreen
+          loading='lazy'
+          referrerpolicy='no-referrer-when-downgrade'
+          title='Healthy Mind Specialists office location'></iframe>
       </div>
     </div>
   </section>
@@ -587,57 +862,106 @@ const schemas = [
 <!-- GSAP ANIMATIONS + FORM LOGIC                               -->
 <!-- ═══════════════════════════════════════════════════════════ -->
 <script>
-  import { gsap } from "gsap";
+  import gsap from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // ─── Respect prefers-reduced-motion ───
   const prefersReduced = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
   ).matches;
 
+  // ─── data-animate reveals ───
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        }
+      });
+    },
+    { threshold: 0.15 },
+  );
+  document
+    .querySelectorAll("[data-animate]")
+    .forEach((el) => observer.observe(el));
+
   if (!prefersReduced) {
     // ─── Hero entrance timeline ───
-    const heroTl = gsap.timeline({
-      defaults: { ease: "power3.out", duration: 0.9 },
-    });
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-    heroTl
-      .to(".hero-ornament", { opacity: 1, y: 0, duration: 0.6 })
-      .to(".hero-title", { opacity: 1, y: 0 }, "-=0.4")
-      .to(".hero-subtitle", { opacity: 1, y: 0, duration: 0.7 }, "-=0.5");
+    tl.fromTo(
+      ".hero-label",
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8 },
+      0.2,
+    );
 
-    // Set initial states
-    gsap.set([".hero-ornament", ".hero-title", ".hero-subtitle"], { y: 30 });
+    tl.to(
+      ".hero-word-inner",
+      { y: 0, opacity: 1, duration: 1, stagger: 0.06, ease: "power4.out" },
+      0.4,
+    );
 
-    // ─── Contact ribbon ───
-    gsap.to(".contact-ribbon", {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: ".contact-ribbon",
-        start: "top 90%",
-        once: true,
+    tl.to(
+      ".hero-divider",
+      { width: "60px", duration: 0.8, ease: "power2.inOut" },
+      1.0,
+    );
+
+    tl.fromTo(
+      ".hero-desc",
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8 },
+      1.1,
+    );
+
+    tl.fromTo(
+      ".hero-cta",
+      { y: 15, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.7 },
+      1.3,
+    );
+
+    tl.fromTo(
+      ".hero-image-wrap",
+      { scale: 1.05, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 1.2, ease: "power2.out" },
+      0.5,
+    );
+
+    tl.fromTo(
+      ".hero-frame",
+      { opacity: 0, scale: 1.02 },
+      { opacity: 1, scale: 1, duration: 1, ease: "power2.out" },
+      0.7,
+    );
+
+    tl.fromTo(
+      ".hero-image-mobile",
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.8 },
+      1.0,
+    );
+
+    tl.to(".hero-image", { scale: 1, duration: 8, ease: "power1.out" }, 0);
+
+    // ─── Contact channels stagger ───
+    ScrollTrigger.batch(".contact-channel", {
+      onEnter: (elements) => {
+        gsap.from(elements, {
+          y: 20,
+          opacity: 0,
+          stagger: 0.08,
+          duration: 0.6,
+          ease: "power2.out",
+        });
       },
+      start: "top 90%",
+      once: true,
     });
 
-    // ─── Form container ───
-    gsap.to(".form-container", {
-      opacity: 1,
-      y: 0,
-      duration: 0.9,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: ".form-container",
-        start: "top 85%",
-        once: true,
-      },
-    });
-
-    // ─── Form fields stagger reveal ───
+    // ─── Form fields stagger ───
     ScrollTrigger.create({
       trigger: ".form-container",
       start: "top 80%",
@@ -649,38 +973,46 @@ const schemas = [
           stagger: 0.08,
           duration: 0.6,
           ease: "power2.out",
-          delay: 0.3,
+          delay: 0.2,
         });
       },
     });
 
-    // ─── Map container ───
-    gsap.to(".map-container", {
-      opacity: 1,
-      y: 0,
-      duration: 0.9,
-      ease: "power3.out",
-      delay: 0.15,
-      scrollTrigger: {
-        trigger: ".map-container",
-        start: "top 85%",
-        once: true,
-      },
-    });
-
-    // ─── Input focus micro-interactions ───
+    // ─── Input focus underline micro-interactions ───
     document
       .querySelectorAll<
         HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
       >("#contact-form input, #contact-form textarea, #contact-form select")
       .forEach((el) => {
+        const parent = el.closest(".form-field");
+        if (!parent) return;
         el.addEventListener("focus", () => {
-          gsap.to(el, { scale: 1.015, duration: 0.25, ease: "power2.out" });
+          gsap.to(parent, {
+            borderColor: "rgba(200,164,92,0.4)",
+            duration: 0.3,
+            ease: "power2.out",
+          });
         });
         el.addEventListener("blur", () => {
-          gsap.to(el, { scale: 1, duration: 0.2, ease: "power2.inOut" });
+          gsap.to(parent, {
+            borderColor: "rgba(26,26,26,0.1)",
+            duration: 0.3,
+            ease: "power2.out",
+          });
         });
       });
+  } else {
+    // Ensure hero elements are visible when motion is reduced
+    document
+      .querySelectorAll<HTMLElement>(
+        ".hero-word-inner, .hero-label, .hero-divider, .hero-desc, .hero-cta, .hero-image-wrap, .hero-image-mobile, .hero-frame",
+      )
+      .forEach((el) => {
+        el.style.opacity = "1";
+        el.style.transform = "none";
+      });
+    const divider = document.querySelector<HTMLElement>(".hero-divider");
+    if (divider) divider.style.width = "60px";
   }
 
   // ═══════════════════════════════════════════════════════════
@@ -700,7 +1032,6 @@ const schemas = [
 
   const API_BASE = import.meta.env.PUBLIC_HM_CMS_URL;
 
-  // Clear HIPAA error on check
   hipaaCheckbox.addEventListener("change", () => {
     if (hipaaCheckbox.checked) {
       hipaaError.classList.add("hidden");
@@ -710,7 +1041,6 @@ const schemas = [
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    // Validate HIPAA consent
     if (!hipaaCheckbox.checked) {
       hipaaError.classList.remove("hidden");
       hipaaCheckbox.focus();
@@ -724,7 +1054,6 @@ const schemas = [
       return;
     }
 
-    // Gather form data
     const formData = new FormData(form);
     const payload = {
       name: (formData.get("name") as string).trim(),
@@ -736,12 +1065,10 @@ const schemas = [
       hipaaConsent: true,
     };
 
-    // Client-side validation
     if (!payload.name || !payload.email) {
       return;
     }
 
-    // Show loading state
     submitBtn.disabled = true;
     btnText.textContent = "Sending...";
     btnArrow.classList.add("hidden");
@@ -759,7 +1086,6 @@ const schemas = [
         throw new Error(`Server responded with ${response.status}`);
       }
 
-      // ─── Success animation ───
       if (!prefersReduced) {
         gsap.to(form, {
           opacity: 0,
@@ -771,10 +1097,9 @@ const schemas = [
             successMessage.classList.remove("hidden");
             gsap.from(successMessage, {
               opacity: 0,
-              scale: 0.9,
               y: 20,
               duration: 0.6,
-              ease: "back.out(1.4)",
+              ease: "power3.out",
             });
           },
         });
@@ -783,7 +1108,6 @@ const schemas = [
         successMessage.classList.remove("hidden");
       }
     } catch {
-      // Show error
       errorMessage.classList.remove("hidden");
       if (!prefersReduced) {
         gsap.from(errorMessage, {
@@ -794,7 +1118,6 @@ const schemas = [
         });
       }
 
-      // Reset button
       submitBtn.disabled = false;
       btnText.textContent = "Send Message";
       btnArrow.classList.remove("hidden");
@@ -802,3 +1125,9 @@ const schemas = [
     }
   });
 </script>
+
+<style>
+  .hero-word-inner {
+    will-change: transform, opacity;
+  }
+</style>
