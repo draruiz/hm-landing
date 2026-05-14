@@ -33,13 +33,13 @@
   --color-brand-charcoal: #1a1a1a;
   --color-brand-muted: #94918a;
 
-  /* Font families — Brutalist + Elegant */
-  --font-sans: "Space Grotesk", system-ui, -apple-system, sans-serif;
-  --font-display: "Syne", "Space Grotesk", system-ui, sans-serif;
+  /* Font families — Refined Elegance */
+  --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
   --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
 }
 
-/* Global brutalist base */
+/* Global base */
 ::selection {
   background: var(--color-brand-gold);
   color: var(--color-brand-blue);

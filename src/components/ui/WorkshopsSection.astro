@@ -6,13 +6,15 @@ const programs = [
   {
     label: "Teen Program",
     title: "Strong Mind Teens",
-    description: "A specialized program designed to help adolescents build resilience, emotional regulation, and confidence during their most formative years.",
+    description:
+      "A specialized program designed to help adolescents build resilience, emotional regulation, and confidence during their most formative years.",
     href: "/programs/strong-mind-teens",
   },
   {
     label: "Community",
     title: "Workshops & Groups",
-    description: "Interactive workshops and group experiences focused on skill-building, psychoeducation, and community connection.",
+    description:
+      "Interactive workshops and group experiences focused on skill-building, psychoeducation, and community connection.",
     href: "/programs/workshops",
   },
 ];
@@ -22,10 +24,14 @@ const programs = [
   <div class='max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-20'>
     <!-- Header -->
     <div class='mb-16 md:mb-24' data-animate>
-      <span class='font-mono text-[11px] tracking-[0.3em] uppercase text-brand-muted block mb-4'>
+      <span
+        class='font-mono text-[11px] tracking-[0.3em] uppercase text-brand-muted block mb-4'
+      >
         07 — Programs
       </span>
-      <h2 class='text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-brand-charcoal leading-[1.05] tracking-[-0.02em] max-w-2xl'>
+      <h2
+        class='text-3xl sm:text-4xl md:text-5xl font-display font-semibold text-brand-charcoal leading-[1.1] tracking-[-0.01em] max-w-2xl'
+      >
         Beyond therapy.<br />Building communities.
       </h2>
     </div>
@@ -41,7 +47,7 @@ const programs = [
             <h3 class='text-2xl md:text-3xl font-display font-bold text-brand-charcoal mb-4 group-hover:text-brand-gold transition-colors duration-300'>
               {prog.title}
             </h3>
-            <div class='w-8 h-px bg-brand-charcoal/15 mb-5'></div>
+            <div class='w-8 h-px bg-brand-charcoal/15 mb-5' />
             <p class='text-brand-charcoal/50 text-sm font-light leading-relaxed mb-8'>
               {prog.description}
             </p>
@@ -57,7 +63,11 @@ const programs = [
                 stroke='currentColor'
                 stroke-width='2'
               >
-                <path stroke-linecap='round' stroke-linejoin='round' d='M17 8l4 4m0 0l-4 4m4-4H3' />
+                <path
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  d='M17 8l4 4m0 0l-4 4m4-4H3'
+                />
               </svg>
             </a>
           </div>
@@ -74,7 +84,9 @@ const programs = [
         if (e.isIntersecting) e.target.classList.add("is-visible");
       });
     },
-    { threshold: 0.1 }
+    { threshold: 0.1 },
   );
-  document.querySelectorAll("section[aria-label='Programs'] [data-animate]").forEach((el) => obs.observe(el));
+  document
+    .querySelectorAll("section[aria-label='Programs'] [data-animate]")
+    .forEach((el) => obs.observe(el));
 </script>

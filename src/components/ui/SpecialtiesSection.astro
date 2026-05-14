@@ -15,28 +15,41 @@ const specialties = [
 ];
 ---
 
-<section class='relative bg-brand-blue py-24 md:py-36 overflow-hidden' aria-label='Our Specialties'>
+<section
+  class='relative bg-brand-blue py-24 md:py-36 overflow-hidden'
+  aria-label='Our Specialties'
+>
   <div class='max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-20'>
     <!-- Header -->
-    <div class='flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 md:mb-24'>
+    <div
+      class='flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 md:mb-24'
+    >
       <div data-animate>
-        <span class='font-mono text-[11px] tracking-[0.3em] uppercase text-brand-gold block mb-4'>
+        <span
+          class='font-mono text-[11px] tracking-[0.3em] uppercase text-brand-gold block mb-4'
+        >
           03 — Specialties
         </span>
-        <h2 class='text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-brand-white leading-[1.05] tracking-[-0.02em]'>
+        <h2
+          class='text-3xl sm:text-4xl md:text-5xl font-display font-semibold text-brand-white leading-[1.1] tracking-[-0.01em]'
+        >
           Areas we<br />specialize in.
         </h2>
       </div>
       <div class='max-w-sm' data-animate>
         <p class='text-brand-white/40 text-sm font-light leading-relaxed'>
-          Our clinicians bring deep expertise across a wide range of mental health
-          challenges. We tailor every treatment plan to your unique needs.
+          Our clinicians bring deep expertise across a wide range of mental
+          health challenges. We tailor every treatment plan to your unique
+          needs.
         </p>
       </div>
     </div>
 
     <!-- Specialties grid — 2-col on mobile, 4-col on desktop -->
-    <div class='grid grid-cols-2 md:grid-cols-4 gap-px bg-brand-white/10' data-animate>
+    <div
+      class='grid grid-cols-2 md:grid-cols-4 gap-px bg-brand-white/10'
+      data-animate
+    >
       {
         specialties.map((item, i) => (
           <div class='bg-brand-blue p-6 md:p-8 lg:p-10 group hover:bg-brand-blue-light transition-colors duration-500'>
@@ -54,7 +67,8 @@ const specialties = [
 
   <!-- Decorative grid lines -->
   <div class='absolute inset-0 pointer-events-none' aria-hidden='true'>
-    <div class='absolute left-[50%] top-0 bottom-0 w-px bg-brand-white/[0.03]'></div>
+    <div class='absolute left-[50%] top-0 bottom-0 w-px bg-brand-white/[0.03]'>
+    </div>
   </div>
 </section>
 
@@ -65,7 +79,9 @@ const specialties = [
         if (e.isIntersecting) e.target.classList.add("is-visible");
       });
     },
-    { threshold: 0.1 }
+    { threshold: 0.1 },
   );
-  document.querySelectorAll("section[aria-label='Our Specialties'] [data-animate]").forEach((el) => obs.observe(el));
+  document
+    .querySelectorAll("section[aria-label='Our Specialties'] [data-animate]")
+    .forEach((el) => obs.observe(el));
 </script>
