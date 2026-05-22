@@ -56,6 +56,23 @@ const services = [
       </div>
     </div>
 
+    <!-- Full-bleed image banner between header and list -->
+    <div class='relative -mx-6 sm:-mx-10 md:-mx-16 lg:-mx-20 mb-0' data-animate>
+      <div class='relative h-[200px] md:h-[320px] overflow-hidden'>
+        <img
+          src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1600&q=80'
+          alt='Compassionate mental health professionals at Healthy Mind Specialists ready to support you'
+          class='w-full h-full object-cover object-top'
+          loading='lazy'
+          width='1600'
+          height='320'
+        />
+        <!-- Dual gradient: cream bleeds in from both sides, concealing edges -->
+        <div class='absolute inset-0 bg-gradient-to-r from-brand-cream via-transparent to-brand-cream/80 pointer-events-none'></div>
+        <div class='absolute inset-0 bg-gradient-to-b from-brand-cream/60 via-transparent to-brand-cream pointer-events-none'></div>
+      </div>
+    </div>
+
     <!-- Services list — editorial, numbered -->
     <div class='border-t border-brand-charcoal/10'>
       {

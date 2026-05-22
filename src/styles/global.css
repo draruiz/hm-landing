@@ -17,21 +17,21 @@
 }
 
 @theme {
-  /* Brand Colors — Brutalist Elegance */
-  --color-brand-blue: #0a0f1a;
-  --color-brand-blue-light: #1a2332;
-  --color-brand-blue-dark: #050810;
-  --color-brand-gold: #c8a45c;
-  --color-brand-gold-light: #dbbf7a;
-  --color-brand-gold-dark: #a68b3e;
-  --color-brand-white: #fafafa;
-  --color-brand-cream: #f5f3ee;
+  /* Brand Colors — Warm Elegant Palette */
+  --color-brand-blue: #181310;
+  --color-brand-blue-light: #2c231a;
+  --color-brand-blue-dark: #0d0b08;
+  --color-brand-gold: #c4975a;
+  --color-brand-gold-light: #d9ae74;
+  --color-brand-gold-dark: #a67d3f;
+  --color-brand-white: #f6f3ec;
+  --color-brand-cream: #dbd7ce;
   --color-brand-gray: #6b7280;
-  --color-brand-gray-light: #f0f0f0;
+  --color-brand-gray-light: #f0ede6;
   --color-brand-teal: #b8d8d8;
   --color-brand-teal-light: #e0f0f0;
-  --color-brand-charcoal: #1a1a1a;
-  --color-brand-muted: #94918a;
+  --color-brand-charcoal: #2a2724;
+  --color-brand-muted: #8c8880;
 
   /* Font families — Refined Elegance */
   --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;

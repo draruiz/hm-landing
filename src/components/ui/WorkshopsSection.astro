@@ -9,6 +9,8 @@ const programs = [
     description:
       "A specialized program designed to help adolescents build resilience, emotional regulation, and confidence during their most formative years.",
     href: "/programs/strong-mind-teens",
+    image: "https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=900&q=80",
+    imageAlt: "Teenagers engaged in a supportive group program at Healthy Mind Specialists",
   },
   {
     label: "Community",
@@ -16,6 +18,8 @@ const programs = [
     description:
       "Interactive workshops and group experiences focused on skill-building, psychoeducation, and community connection.",
     href: "/programs/workshops",
+    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=900&q=80",
+    imageAlt: "Adults participating in a community wellness workshop and group therapy session",
   },
 ];
 ---
@@ -37,13 +41,30 @@ const programs = [
     </div>
 
     <!-- Programs -->
-    <div class='grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16'>
+    <div class='grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-10'>
       {
         programs.map((prog) => (
           <div class='group' data-animate>
-            <span class='font-mono text-[10px] tracking-[0.3em] uppercase text-brand-gold block mb-4'>
-              {prog.label}
-            </span>
+            <!-- Image with gradient overlay + label chip -->
+            <div class='relative h-[280px] md:h-[360px] overflow-hidden mb-8'>
+              <img
+                src={prog.image}
+                alt={prog.imageAlt}
+                class='w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105'
+                loading='lazy'
+                width='900'
+                height='360'
+              />
+              <!-- Gradient: dark at bottom for text legibility -->
+              <div class='absolute inset-0 bg-gradient-to-t from-brand-charcoal/80 via-brand-charcoal/10 to-transparent pointer-events-none'></div>
+              <!-- Gold accent line on hover -->
+              <div class='absolute bottom-0 left-0 h-[3px] bg-brand-gold w-0 group-hover:w-full transition-all duration-500 ease-out'></div>
+              <!-- Label overlaid bottom-left -->
+              <span class='absolute bottom-5 left-5 font-mono text-[10px] tracking-[0.35em] uppercase text-brand-gold'>
+                {prog.label}
+              </span>
+            </div>
+
             <h3 class='text-2xl md:text-3xl font-display font-bold text-brand-charcoal mb-4 group-hover:text-brand-gold transition-colors duration-300'>
               {prog.title}
             </h3>

@@ -6,7 +6,7 @@
 ---
 
 <section
-  class='relative bg-brand-white py-24 md:py-36 overflow-hidden'
+  class='relative bg-brand-cream py-24 md:py-36 overflow-hidden'
   aria-label='Welcome'
 >
   <div class='max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-20'>
@@ -26,8 +26,9 @@
         <h2
           class='text-3xl sm:text-4xl md:text-5xl font-display font-semibold text-brand-charcoal leading-[1.1] tracking-[-0.01em]'
         >
-          Welcome.<br />
-          <span class='text-brand-gold'>We can help</span>
+          Your mental health<br />
+          is not a luxury.<br />
+          <em class='not-italic text-brand-gold'>It's the foundation.</em>
         </h2>
       </div>
 
@@ -68,6 +69,56 @@
               d='M17 8l4 4m0 0l-4 4m4-4H3'></path>
           </svg>
         </a>
+      </div>
+    </div>
+
+    <!-- Editorial image strip: two images + pull quote -->
+    <div
+      class='mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-end'
+      data-animate
+    >
+      <!-- Tall image with offset gold frame -->
+      <div
+        class='md:col-span-5 relative h-[280px] md:h-[400px] overflow-hidden'
+      >
+        <div
+          class='absolute inset-0 translate-x-2.5 translate-y-2.5 border border-brand-gold/35 pointer-events-none z-10'
+        >
+        </div>
+        <img
+          src='https://images.unsplash.com/photo-1573497491765-dccce02b29df?w=900&q=80'
+          alt='One-on-one therapy session with a caring clinician at Healthy Mind Specialists'
+          class='w-full h-full object-cover'
+          loading='lazy'
+          width='900'
+          height='400'
+        />
+      </div>
+      <!-- Second image — shifted down on desktop -->
+      <div
+        class='md:col-span-4 md:mt-14 relative h-[220px] md:h-[300px] overflow-hidden'
+      >
+        <img
+          src='https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=80'
+          alt='Peaceful natural landscape representing calm and mental wellness'
+          class='w-full h-full object-cover object-center'
+          loading='lazy'
+          width='700'
+          height='300'
+        />
+        <!-- Thin gold bottom bar -->
+        <div class='absolute bottom-0 left-0 right-0 h-[3px] bg-brand-gold/50'>
+        </div>
+      </div>
+      <!-- Pull quote aligned to bottom -->
+      <div class='md:col-span-3 flex items-end pb-3 pl-0 md:pl-6'>
+        <blockquote class='border-l-2 border-brand-gold/45 pl-5'>
+          <p
+            class='text-brand-charcoal/60 text-lg md:text-xl font-display font-light italic leading-relaxed'
+          >
+            "Healing isn't&nbsp;linear. But you don't walk it&nbsp;alone."
+          </p>
+        </blockquote>
       </div>
     </div>
 
