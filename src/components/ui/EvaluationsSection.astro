@@ -1,68 +1,127 @@
 ---
 /**
- * Evaluations Section — Two featured services with large imagery placeholders
- * and strong typography. Split panel layout.
+ * Testing Center Section — World-class research-driven assessment hub.
+ * Three navigable test cards with rich descriptions.
  */
-const evaluations = [
+const tests = [
   {
-    label: "Comprehensive",
+    index: "01",
+    label: "Neurodevelopmental",
     title: "Psychological Evaluations",
-    description: "Thorough assessments that provide clarity, diagnostic insight, and a personalized roadmap for treatment. Our licensed psychologists utilize standardized instruments and clinical interviews.",
+    description:
+      "Our gold-standard battery combines structured clinical interviews, standardized psychometric instruments, and behavioral observation to deliver diagnostic clarity across cognitive, emotional, and personality domains. Designed for complexity — built for precision.",
     href: "/services/evaluations",
-    features: ["Full diagnostic battery", "Written report", "Feedback session", "Treatment recommendations"],
+    features: [
+      "Full diagnostic battery",
+      "Standardized psychometric instruments",
+      "Written clinical report",
+      "Personalized feedback session",
+    ],
   },
   {
-    label: "Online",
-    title: "ADHD Evaluations",
-    description: "Convenient, thorough ADHD evaluations conducted virtually. Get the answers and support you need from the comfort of your own space.",
+    index: "02",
+    label: "Attention & Executive Function",
+    title: "Online ADHD Evaluations",
+    description:
+      "A research-informed, fully virtual evaluation protocol developed to identify attention-deficit/hyperactivity disorder across the lifespan. Our tiered assessment model adapts depth to clinical need — from rapid screening to comprehensive documentation.",
     href: "/services/online-adhd-evaluations",
-    features: ["Telehealth format", "Adult & adolescent", "Quick turnaround", "Insurance-friendly"],
+    features: [
+      "Telehealth-first protocol",
+      "Adult & adolescent populations",
+      "Tiered evaluation packages",
+      "Documentation for accommodations",
+    ],
+  },
+  {
+    index: "03",
+    label: "Autism Spectrum",
+    title: "Autism Spectrum Evaluation",
+    description:
+      "Many adults and children go undiagnosed for years because autism often looks different than people expect. Our gold-standard evaluations — using the ADOS-2 and ADI-R — help you finally understand yourself or your child, with actionable insight and a clear path forward.",
+    href: "/services/autism-evaluation",
+    features: [
+      "Adults, teens & children",
+      "ADOS-2 & ADI-R protocols",
+      "Insurance accepted",
+      "Post-evaluation support plan",
+    ],
   },
 ];
 ---
 
-<section class='relative bg-brand-white py-24 md:py-36' aria-label='Evaluations'>
-  <div class='max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-20'>
-    <!-- Header -->
-    <div class='mb-16 md:mb-24' data-animate>
-      <span class='font-mono text-[11px] tracking-[0.3em] uppercase text-brand-muted block mb-4'>
-        04 — Evaluations
+<section class='relative bg-brand-charcoal py-24 md:py-36 overflow-hidden' aria-label='Testing Center'>
+
+  <!-- Subtle background grid texture -->
+  <div class='absolute inset-0 opacity-[0.03] pointer-events-none' aria-hidden='true'>
+    <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'>
+      <defs>
+        <pattern id='tc-grid' width='60' height='60' patternUnits='userSpaceOnUse'>
+          <path d='M 60 0 L 0 0 0 60' fill='none' stroke='white' stroke-width='1'/>
+        </pattern>
+      </defs>
+      <rect width='100%' height='100%' fill='url(#tc-grid)'/>
+    </svg>
+  </div>
+
+  <div class='relative max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-20'>
+
+    <!-- Header block -->
+    <div class='mb-20 md:mb-28 max-w-3xl' data-animate>
+      <span class='font-mono text-[11px] tracking-[0.3em] uppercase text-brand-gold block mb-5'>
+        04 — Testing Center
       </span>
-      <h2 class='text-3xl sm:text-4xl md:text-5xl font-display font-semibold text-brand-charcoal leading-[1.1] tracking-[-0.01em] max-w-2xl'>
-        Clarity through expert assessment.
+      <h2 class='text-3xl sm:text-4xl md:text-5xl font-display font-semibold text-white leading-[1.1] tracking-[-0.01em] mb-6'>
+        World-class assessment.<br/>Research at the core.
       </h2>
+      <p class='text-white/45 text-base font-light leading-relaxed max-w-xl'>
+        Our Testing Center operates at the intersection of clinical excellence and psychological science. Every protocol we deploy is grounded in peer-reviewed research, validated instrumentation, and a commitment to continuous methodological development — so our findings hold up in any room, any context, worldwide.
+      </p>
     </div>
 
-    <!-- Two panels -->
-    <div class='grid grid-cols-1 md:grid-cols-2 gap-px bg-brand-charcoal/10'>
+    <!-- Three test cards -->
+    <div class='grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10'>
       {
-        evaluations.map((item) => (
-          <div class='bg-brand-white p-8 md:p-12 lg:p-16 group' data-animate>
-            <span class='font-mono text-[10px] tracking-[0.3em] uppercase text-brand-gold block mb-6'>
-              {item.label}
-            </span>
-            <h3 class='text-2xl md:text-3xl font-display font-bold text-brand-charcoal leading-tight mb-6'>
-              {item.title}
+        tests.map((test) => (
+          <a
+            href={test.href}
+            class='group relative bg-brand-charcoal p-8 md:p-10 lg:p-12 flex flex-col hover:bg-white/[0.04] transition-colors duration-300'
+            data-animate
+          >
+            <!-- Index + label -->
+            <div class='flex items-center justify-between mb-8'>
+              <span class='font-mono text-[10px] tracking-[0.3em] uppercase text-brand-gold'>
+                {test.label}
+              </span>
+              <span class='font-mono text-[10px] tracking-[0.2em] text-white/20'>
+                {test.index}
+              </span>
+            </div>
+
+            <!-- Title -->
+            <h3 class='text-xl md:text-2xl font-display font-bold text-white leading-tight mb-5 group-hover:text-brand-gold transition-colors duration-300'>
+              {test.title}
             </h3>
-            <p class='text-brand-charcoal/50 text-sm font-light leading-relaxed mb-8'>
-              {item.description}
+
+            <!-- Description -->
+            <p class='text-white/40 text-sm font-light leading-relaxed mb-8 flex-1'>
+              {test.description}
             </p>
-            <!-- Features list -->
+
+            <!-- Features -->
             <ul class='space-y-2 mb-10'>
-              {item.features.map((feat) => (
-                <li class='flex items-center gap-3 text-sm text-brand-charcoal/60'>
+              {test.features.map((feat) => (
+                <li class='flex items-center gap-3 text-xs text-white/35'>
                   <span class='block w-1 h-1 rounded-full bg-brand-gold flex-shrink-0' />
                   {feat}
                 </li>
               ))}
             </ul>
-            <a
-              href={item.href}
-              class='group/link inline-flex items-center gap-2 text-sm font-semibold tracking-[0.1em] uppercase text-brand-charcoal hover:text-brand-gold transition-colors duration-300'
-            >
-              <span>Learn more</span>
+
+            <!-- CTA arrow -->
+            <div class='inline-flex items-center gap-2 text-xs font-semibold tracking-[0.15em] uppercase text-white/40 group-hover:text-brand-gold transition-colors duration-300'>
+              <span>Explore evaluation</span>
               <svg
-                class='w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1'
+                class='w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1'
                 fill='none'
                 viewBox='0 0 24 24'
                 stroke='currentColor'
@@ -70,11 +129,20 @@ const evaluations = [
               >
                 <path stroke-linecap='round' stroke-linejoin='round' d='M17 8l4 4m0 0l-4 4m4-4H3' />
               </svg>
-            </a>
-          </div>
+            </div>
+
+            <!-- Bottom border highlight on hover -->
+            <span class='absolute bottom-0 left-0 w-0 h-px bg-brand-gold group-hover:w-full transition-all duration-500' aria-hidden='true' />
+          </a>
         ))
       }
     </div>
+
+    <!-- Bottom note -->
+    <p class='mt-12 text-white/20 text-xs font-mono tracking-[0.2em] uppercase' data-animate>
+      All assessments conducted by licensed doctoral-level psychologists
+    </p>
+
   </div>
 </section>
 
@@ -87,5 +155,5 @@ const evaluations = [
     },
     { threshold: 0.1 }
   );
-  document.querySelectorAll("section[aria-label='Evaluations'] [data-animate]").forEach((el) => obs.observe(el));
+  document.querySelectorAll("section[aria-label='Testing Center'] [data-animate]").forEach((el) => obs.observe(el));
 </script>

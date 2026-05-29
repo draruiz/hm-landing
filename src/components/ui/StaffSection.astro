@@ -10,7 +10,7 @@ const staff = [
   { name: "Chloe Johnson", title: "LMHC — Licensed Therapist", href: "/staff/chloe-johnson-lmhc", image: "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/ca480842-0849-4ea3-bd0f-403dd430ad00/public" },
   { name: "Lori Smith", title: "LMHC — Licensed Therapist", href: "/staff/lori-smith-lmhc", image: "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/c5514d94-2e9a-49bf-d22e-5a1faf6d7b00/public" },
   { name: "Edward Porter", title: "LCSW — Licensed Clinical SW", href: "/staff/edward-porter-lcsw", image: "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/4d62b896-9a42-4628-4cff-d32dfb4bca00/public" },
-  { name: "Morgan Adams", title: "MSW — Therapist", href: "/staff/morgan-adams-msw", image: "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/b13d28c3-98c3-4dbd-7ba7-d16aefbad700/public" },
+  { name: "Morgan Adams", title: "Mindfulness Specialist & Life Coach", href: "/staff/morgan-adams-msw", image: "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/b13d28c3-98c3-4dbd-7ba7-d16aefbad700/public" },
   { name: "Dr. Asia Wardlaw", title: "PsyD — Licensed Psychologist", href: "/staff/dr-asia-wardlaw-psyd", image: "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/6e817f35-0729-4415-e9cc-106de5df9400/public" },
   { name: "Dr. Sonia Javani", title: "PsyD — Licensed Psychologist", href: "/staff/dr-sonia-javani-psyd", image: "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/37569d14-63fe-4060-0043-9e9c1baaed00/public" },
   { name: "Traci Adams", title: "CLC — Life Coach", href: "/staff/traci-adams-clc", image: "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/96c2a220-7c97-4a54-5bed-de73b398c600/public" },
@@ -32,21 +32,44 @@ const staff = [
       </div>
       <div class='max-w-sm' data-animate>
         <p class='text-brand-charcoal/50 text-sm font-light leading-relaxed'>
-          A multidisciplinary team of licensed psychologists, therapists, and
-          counselors dedicated to your wellbeing.
+          A multidisciplinary team of licensed psychologists, therapists,
+          counselors, and coaching specialists dedicated to your wellbeing.
         </p>
       </div>
     </div>
   </div>
 
-  <!-- Horizontal scroll container -->
-  <div class='staff-scroll overflow-x-auto pb-6 scrollbar-hide' data-animate>
-    <div class='flex gap-4 md:gap-6 px-6 sm:px-10 md:px-16 lg:px-20' style='width: max-content;'>
+  <!-- Horizontal carousel (mobile + desktop) -->
+  <div class='relative' data-animate>
+    <button
+      id='team-prev'
+      type='button'
+      class='hidden md:flex absolute left-4 lg:left-8 top-[38%] -translate-y-1/2 z-20 w-11 h-11 items-center justify-center rounded-full bg-brand-white/90 text-brand-charcoal border border-brand-charcoal/10 shadow-sm hover:bg-brand-white transition-colors duration-300'
+      aria-label='Scroll team left'
+    >
+      <svg class='w-5 h-5' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2'>
+        <path stroke-linecap='round' stroke-linejoin='round' d='M15 19l-7-7 7-7' />
+      </svg>
+    </button>
+
+    <button
+      id='team-next'
+      type='button'
+      class='hidden md:flex absolute right-4 lg:right-8 top-[38%] -translate-y-1/2 z-20 w-11 h-11 items-center justify-center rounded-full bg-brand-white/90 text-brand-charcoal border border-brand-charcoal/10 shadow-sm hover:bg-brand-white transition-colors duration-300'
+      aria-label='Scroll team right'
+    >
+      <svg class='w-5 h-5' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2'>
+        <path stroke-linecap='round' stroke-linejoin='round' d='M9 5l7 7-7 7' />
+      </svg>
+    </button>
+
+    <div id='team-scroll' class='staff-scroll overflow-x-auto pb-6 scrollbar-hide scroll-smooth' data-animate>
+      <div class='flex gap-4 md:gap-6 px-6 sm:px-10 md:px-16 lg:px-20 w-max'>
       {
         staff.map((member, i) => (
           <a
             href={member.href}
-            class='group flex-shrink-0 w-64 md:w-72'
+            class='group flex-shrink-0 w-64 md:w-72 snap-start'
           >
             <!-- Photo card -->
             <div class='relative aspect-[3/4] bg-brand-blue overflow-hidden mb-4'>
@@ -81,6 +104,7 @@ const staff = [
           </a>
         ))
       }
+      </div>
     </div>
   </div>
 </section>
@@ -105,4 +129,36 @@ const staff = [
     { threshold: 0.1 }
   );
   document.querySelectorAll("#team [data-animate]").forEach((el) => obs.observe(el));
+
+  const teamScroll = document.getElementById("team-scroll");
+  const prevBtn = document.getElementById("team-prev");
+  const nextBtn = document.getElementById("team-next");
+
+  if (teamScroll) {
+    const scrollAmount = 360;
+
+    prevBtn?.addEventListener("click", () => {
+      teamScroll.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    });
+
+    nextBtn?.addEventListener("click", () => {
+      teamScroll.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    });
+
+    // Desktop fallback: use vertical wheel to move the horizontal carousel.
+    teamScroll.addEventListener(
+      "wheel",
+      (event) => {
+        if (window.innerWidth < 768) return;
+
+        const hasHorizontalSpace =
+          teamScroll.scrollWidth > teamScroll.clientWidth;
+        if (!hasHorizontalSpace) return;
+
+        event.preventDefault();
+        teamScroll.scrollBy({ left: event.deltaY, behavior: "auto" });
+      },
+      { passive: false }
+    );
+  }
 </script>

@@ -9,8 +9,9 @@ export interface Props {
   ctaHref: string;
   secondaryCtaText?: string;
   secondaryCtaHref?: string;
-  videoSrc: string;
+  videoSrc?: string;
   posterSrc?: string;
+  backgroundImageSrc?: string;
 }
 
 const {
@@ -22,6 +23,7 @@ const {
   secondaryCtaHref,
   videoSrc,
   posterSrc = "/images/hero-poster.jpg",
+  backgroundImageSrc,
 } = Astro.props;
 
 const headingWords = heading.split(" ");
@@ -43,19 +45,32 @@ const marqueeItems = [
   class='relative min-h-screen bg-brand-blue overflow-hidden flex flex-col'
   aria-label='Welcome hero'
 >
-  <!-- Full-width background video -->
-  <video
-    class='hero-video absolute inset-0 w-full h-full object-cover scale-105'
-    autoplay
-    muted
-    loop
-    playsinline
-    preload='metadata'
-    poster={posterSrc}
-    aria-hidden='true'
-  >
-    <source src={videoSrc} type='video/mp4' />
-  </video>
+  <!-- Background media -->
+  {
+    backgroundImageSrc ? (
+      <img
+        class='hero-video absolute inset-0 w-full h-full object-contain sm:object-cover sm:scale-105'
+        src={backgroundImageSrc}
+        alt=''
+        loading='eager'
+        decoding='async'
+        aria-hidden='true'
+      />
+    ) : (
+      <video
+        class='hero-video absolute inset-0 w-full h-full object-cover scale-105'
+        autoplay
+        muted
+        loop
+        playsinline
+        preload='metadata'
+        poster={posterSrc}
+        aria-hidden='true'
+      >
+        <source src={videoSrc} type='video/mp4' />
+      </video>
+    )
+  }
 
   <!-- Gradient overlay -->
   <div
