@@ -17,24 +17,24 @@
 }
 
 @theme {
-  /* Brand Colors — Warm Elegant Palette */
-  --color-brand-blue: #181310;
-  --color-brand-blue-light: #2c231a;
-  --color-brand-blue-dark: #0d0b08;
-  --color-brand-gold: #c4975a;
-  --color-brand-gold-light: #d9ae74;
-  --color-brand-gold-dark: #a67d3f;
-  --color-brand-white: #f6f3ec;
-  --color-brand-cream: #dbd7ce;
-  --color-brand-gray: #6b7280;
-  --color-brand-gray-light: #f0ede6;
-  --color-brand-teal: #b8d8d8;
-  --color-brand-teal-light: #e0f0f0;
-  --color-brand-charcoal: #2a2724;
-  --color-brand-muted: #8c8880;
+  /* Brand Colors — Cold · Deep · Mystical */
+  --color-brand-blue: #0a1931; /* Ocean Deep — hero bg, dark sections */
+  --color-brand-blue-light: #152d50; /* Navy mid — card bg, dark elements */
+  --color-brand-blue-dark: #040810; /* Nebula Black — deepest overlays */
+  --color-brand-gold: #87ceeb; /* Glacier — primary accent (CTAs, dividers) */
+  --color-brand-gold-light: #a8ddf5; /* Light Glacier — hover states */
+  --color-brand-gold-dark: #5bbad8; /* Deep Glacier — pressed/active */
+  --color-brand-white: #f0f8ff; /* Quartz — light backgrounds */
+  --color-brand-cream: #e2f0fb; /* Soft Quartz — subtle surfaces */
+  --color-brand-gray: #4a6a8a; /* Blue-gray — secondary text */
+  --color-brand-gray-light: #eaf4ff; /* Very light Quartz — section bg */
+  --color-brand-teal: #87ceeb; /* Glacier teal — highlights */
+  --color-brand-teal-light: #d0edf9; /* Pale Glacier — tags, chips */
+  --color-brand-charcoal: #0a1931; /* Ocean Deep — footer, nav bg */
+  --color-brand-muted: #7a9ab8; /* Muted blue — placeholder, captions */
 
   /* Font families — Refined Elegance */
-  --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
+  --font-sans: "Libre Baskerville", Georgia, serif;
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
 }
@@ -48,6 +48,7 @@
 /* Smooth scroll */
 html {
   scroll-behavior: smooth;
+  font-size: 18px;
 }
 
 /* Marquee animation */
@@ -76,6 +77,11 @@ html {
 [data-animate].is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Dark sections gradient — Ocean Deep → teal-shifted deep navy */
+.dark-gradient {
+  background: linear-gradient(135deg, #0a1931 0%, #062030 100%);
 }
 
 /* Horizontal rule - brutalist */
