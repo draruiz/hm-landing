@@ -2,11 +2,9 @@
 import CTAMapSection from "../components/ui/CTAMapSection.astro";
 import EvaluationsSection from "../components/ui/EvaluationsSection.astro";
 import Hero from "../components/ui/Hero.astro";
-import ResearchSection from "../components/ui/ResearchSection.astro";
 import ServicesSection from "../components/ui/ServicesSection.astro";
 import StaffSection from "../components/ui/StaffSection.astro";
 import WelcomeSection from "../components/ui/WelcomeSection.astro";
-import WhatWeTreatSection from "../components/ui/WhatWeTreatSection.astro";
 import WorkshopsSection from "../components/ui/WorkshopsSection.astro";
 import Layout from "../layouts/Layout.astro";
 import { localBusinessSchema, websiteSchema } from "../utils/seo";
@@ -36,7 +34,7 @@ const schemas = [
 
 <Layout
   title='Healthy Mind Specialists | Psychological Services in Tampa FL'
-  description='Healthy Mind Specialists provides compassionate psychological services for anxiety, OCD, trauma, and everyday life challenges in Tampa, FL.'
+  description='Specializing in comprehensive psychological evaluations, therapy, and clinical support for adults, children, adolescents, families, and professionals. Services available throughout Florida and around the world.'
   schema={schemas}
 >
   <Hero
@@ -52,8 +50,6 @@ const schemas = [
   <WelcomeSection />
   <ServicesSection />
   <EvaluationsSection />
-  <WhatWeTreatSection />
-  <ResearchSection />
   <WorkshopsSection />
   <StaffSection />
   <CTAMapSection />

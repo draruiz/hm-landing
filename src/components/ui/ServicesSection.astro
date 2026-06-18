@@ -6,44 +6,50 @@
 const services = [
   {
     number: "01",
-    title: "Individual Therapy",
-    description: "One-on-one sessions tailored to your unique needs. We use evidence-based approaches including CBT, ACT, and psychodynamic therapy.",
-    href: "/services/individual-therapy",
+    title: "Psychological Evaluations",
+    description: "Comprehensive evaluations for ADHD, autism, learning differences, personality functioning, and diagnostic clarification. Designed to provide meaningful answers and practical recommendations.",
+    href: "/services/evaluations",
   },
   {
     number: "02",
-    title: "Child & Adolescent Therapy",
-    description: "Therapy and skills support for children and teens navigating anxiety, emotional regulation, school stress, and major life transitions.",
-    href: "/programs/strong-mind-teens",
+    title: "Anxiety, OCD, Phobias & Related Disorders",
+    description: "Specialized treatment for anxiety disorders, OCD, phobias, panic, intrusive thoughts, compulsive behaviors, health anxiety, perfectionism, and chronic stress using evidence-based approaches tailored to your needs.",
+    href: "/services/individual-therapy",
   },
   {
     number: "03",
-    title: "EMDR Therapy",
-    description: "Eye Movement Desensitization and Reprocessing — a proven treatment for trauma, PTSD, anxiety, and other distressing experiences.",
+    title: "Trauma & EMDR",
+    description: "Support for trauma, PTSD, adverse life experiences, and emotional wounds using EMDR and other evidence-based trauma-focused approaches.",
     href: "/services/emdr",
   },
   {
     number: "04",
-    title: "Psychological Evaluations",
-    description: "Comprehensive evaluations for ADHD, autism, learning differences, and diagnostic clarity to guide treatment and accommodations.",
-    href: "/services/evaluations",
+    title: "Child & Adolescent Services",
+    description: "Therapy and psychological services designed to support emotional, behavioral, social, academic, and developmental growth.",
+    href: "/programs/strong-mind-teens",
   },
   {
     number: "05",
-    title: "Group Therapy",
-    description: "Shared healing in a safe, structured environment. Connect with others who understand your journey.",
-    href: "/services/group-therapy",
+    title: "Relationships, Attachment & Personal Growth",
+    description: "Support for relationship challenges, breakups, divorces, attachment concerns, self-esteem, communication difficulties, and personal development.",
+    href: "/services/individual-therapy",
   },
   {
     number: "06",
-    title: "Life Coaching",
-    description: "Goal-oriented support to help you navigate transitions, build confidence, and create the life you envision.",
-    href: "/services/coaching",
+    title: "Women's Mental Health",
+    description: "Support for emotional and psychological challenges associated with hormonal changes, perimenopause, menopause, life transitions, and women's mental health concerns.",
+    href: "/services/individual-therapy",
   },
   {
     number: "07",
-    title: "Supervision & Consultation",
-    description: "Professional guidance for emerging clinicians and organizations seeking expert psychology consultation.",
+    title: "Coaching & Skills Development",
+    description: "Goal-oriented support focused on executive functioning, confidence building, life transitions, accountability, and personal growth.",
+    href: "/services/coaching",
+  },
+  {
+    number: "08",
+    title: "Professional Consultation & Supervision",
+    description: "Consultation, supervision, and training services for mental health professionals, students, organizations, and community partners.",
     href: "/services/supervision-and-consultation",
   },
 ];
@@ -63,7 +69,7 @@ const services = [
       </div>
       <div class='max-w-sm' data-animate>
         <p class='text-brand-charcoal/50 text-base font-light leading-relaxed'>
-          Our interdisciplinary team offers support for children, adolescents, and adults through therapy, evaluations, and coaching.
+          Our clinicians bring specialized expertise across a wide range of psychological, emotional, behavioral, and developmental concerns through psychological evaluations, therapy, coaching, and other mental health services for adults, children, and adolescents.
         </p>
       </div>
     </div>
@@ -119,6 +125,28 @@ const services = [
           </a>
         ))
       }
+    </div>
+
+    <!-- Don't see your concern? -->
+    <div class='mt-12 pt-10 border-t border-brand-charcoal/10' data-animate>
+      <p class='text-brand-charcoal/60 text-base font-light mb-3'>
+        Don't see your concern listed?
+      </p>
+      <a
+        href='/contact'
+        class='group inline-flex items-center gap-2 text-base font-semibold tracking-[0.1em] uppercase text-brand-charcoal hover:text-brand-gold transition-colors duration-300'
+      >
+        <span>Get in Touch</span>
+        <svg
+          class='w-4 h-4 transition-transform duration-300 group-hover:translate-x-1'
+          fill='none'
+          viewBox='0 0 24 24'
+          stroke='currentColor'
+          stroke-width='2'
+        >
+          <path stroke-linecap='round' stroke-linejoin='round' d='M17 8l4 4m0 0l-4 4m4-4H3' />
+        </svg>
+      </a>
     </div>
   </div>
 </section>
