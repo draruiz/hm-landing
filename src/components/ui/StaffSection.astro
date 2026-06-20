@@ -4,7 +4,7 @@
  * Real photos with soft scale-up on hover, overlay gradient, agency-style labels.
  */
 const staff = [
-  { name: "Dr. Grissel Lloyd", title: "PsyD — Co-Founder", href: "/staff/dr-grissel-m-lloyd-psyd", image: "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/f2f396df-4594-4d5f-4390-c7cbc0e09b00/public" },
+  { name: "Dr. Grissel Lloyd", title: "PsyD — Co-Founder", href: "/staff/dr-grissel-m-lloyd-psyd", image: "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/7a46068d-6ad9-4a37-42e0-902c32008200/public" },
   { name: "Dr. Maria Ruiz", title: "PsyD — Co-Founder", href: "/staff/dr-maria-a-ruiz-psyd", image: "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/aee50b9f-80b8-451e-f614-898548535100/public" },
   { name: "Kiyomi Taylor", title: "LMHC — Licensed Therapist", href: "/staff/kiyomi-taylor-lmhc", image: "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/8a32b006-f77d-4ff5-13ad-9a4c2158eb00/public" },
   { name: "Chloe Johnson", title: "LMHC — Licensed Therapist", href: "/staff/chloe-johnson-lmhc", image: "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/ca480842-0849-4ea3-bd0f-403dd430ad00/public" },
@@ -112,6 +112,7 @@ const staff = [
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
+    user-select: none;
   }
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
@@ -135,60 +136,147 @@ const staff = [
 
   if (teamScroll) {
     const scrollAmount = 360;
+    let isPaused = false;
+    let isMouseDown = false;
+    let startX = 0;
+    let scrollLeftStart = 0;
+    let touchStartX = 0;
+    let touchScrollStart = 0;
+    let resumeTimer: ReturnType<typeof setTimeout> | null = null;
+    let seamPoint = 0; // scroll-content position where clones begin
 
+    // ── Infinite clone setup ─────────────────────────────────────────────
+    const track = teamScroll.querySelector(":scope > div") as HTMLElement | null;
+    if (track) {
+      const originals = Array.from(track.children);
+      originals.forEach((item) => {
+        const clone = (item as HTMLElement).cloneNode(true) as HTMLElement;
+        clone.setAttribute("aria-hidden", "true");
+        clone.setAttribute("tabindex", "-1");
+        track.appendChild(clone);
+      });
+
+      // Measure after two rAFs so layout is guaranteed to be complete
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() => {
+          const firstClone = track.children[originals.length] as HTMLElement;
+          if (firstClone) {
+            const scrollerRect = teamScroll.getBoundingClientRect();
+            const cloneRect = firstClone.getBoundingClientRect();
+            seamPoint =
+              cloneRect.left - scrollerRect.left + teamScroll.scrollLeft;
+          }
+        })
+      );
+    }
+
+    const pause = () => {
+      isPaused = true;
+      if (resumeTimer) { clearTimeout(resumeTimer); resumeTimer = null; }
+    };
+
+    const resume = (delay = 0) => {
+      if (resumeTimer) clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(() => { isPaused = false; }, delay);
+    };
+
+    // Instant scroll helper — bypasses any smooth-scroll CSS
+    const jumpTo = (left: number) => {
+      teamScroll.style.scrollBehavior = "auto";
+      teamScroll.scrollLeft = left;
+      teamScroll.style.scrollBehavior = "";
+    };
+
+    // ── Auto-scroll (infinite) ───────────────────────────────────────────
+    setInterval(() => {
+      if (isPaused || isMouseDown) return;
+      if (seamPoint > 0 && teamScroll.scrollLeft >= seamPoint) {
+        // Seamless forward loop: subtract exactly one set of items
+        jumpTo(teamScroll.scrollLeft - seamPoint);
+      } else {
+        teamScroll.scrollBy({ left: 1, behavior: "auto" });
+      }
+    }, 20);
+
+    // Backward loop guard: if user drags/swipes back to the very start, wrap to end of first set
+    teamScroll.addEventListener(
+      "scroll",
+      () => {
+        if (seamPoint > 0 && teamScroll.scrollLeft < 1) {
+          jumpTo(seamPoint);
+        }
+      },
+      { passive: true }
+    );
+
+    // Prev / next buttons
     prevBtn?.addEventListener("click", () => {
+      pause();
       teamScroll.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      resume(1500);
     });
 
     nextBtn?.addEventListener("click", () => {
+      pause();
       teamScroll.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      resume(1500);
     });
 
-    // Desktop fallback: use vertical wheel to move the horizontal carousel.
+    // Desktop wheel → horizontal scroll
     teamScroll.addEventListener(
       "wheel",
       (event) => {
         if (window.innerWidth < 768) return;
-
-        const hasHorizontalSpace =
-          teamScroll.scrollWidth > teamScroll.clientWidth;
-        if (!hasHorizontalSpace) return;
-
+        if (!(teamScroll.scrollWidth > teamScroll.clientWidth)) return;
         event.preventDefault();
+        pause();
         teamScroll.scrollBy({ left: event.deltaY, behavior: "auto" });
+        resume(1500);
       },
       { passive: false }
     );
-  }
 
-  // Auto-scroll: pause on hover or user interaction
-  if (teamScroll) {
-    let autoScrollInterval: ReturnType<typeof setInterval> | null = null;
-    let isPaused = false;
+    // Hover pause (desktop)
+    teamScroll.addEventListener("mouseenter", () => { if (!isMouseDown) pause(); });
+    teamScroll.addEventListener("mouseleave", () => { if (!isMouseDown) resume(500); });
 
-    const startAutoScroll = () => {
-      if (autoScrollInterval) return;
-      autoScrollInterval = setInterval(() => {
-        if (isPaused) return;
-        const maxScroll = teamScroll.scrollWidth - teamScroll.clientWidth;
-        if (teamScroll.scrollLeft >= maxScroll - 2) {
-          teamScroll.scrollTo({ left: 0, behavior: "smooth" });
-        } else {
-          teamScroll.scrollBy({ left: 1, behavior: "auto" });
-        }
-      }, 20);
-    };
+    // Mouse drag (desktop)
+    teamScroll.style.cursor = "grab";
 
-    const pauseAutoScroll = () => { isPaused = true; };
-    const resumeAutoScroll = () => { isPaused = false; };
+    teamScroll.addEventListener("mousedown", (e) => {
+      isMouseDown = true;
+      isPaused = true;
+      startX = e.pageX - teamScroll.offsetLeft;
+      scrollLeftStart = teamScroll.scrollLeft;
+      teamScroll.style.cursor = "grabbing";
+    });
 
-    teamScroll.addEventListener("mouseenter", pauseAutoScroll);
-    teamScroll.addEventListener("mouseleave", resumeAutoScroll);
-    teamScroll.addEventListener("touchstart", pauseAutoScroll, { passive: true });
-    teamScroll.addEventListener("touchend", () => {
-      setTimeout(resumeAutoScroll, 2000);
+    document.addEventListener("mousemove", (e) => {
+      if (!isMouseDown) return;
+      const x = e.pageX - teamScroll.offsetLeft;
+      teamScroll.scrollLeft = scrollLeftStart - (x - startX) * 1.5;
+    });
+
+    document.addEventListener("mouseup", () => {
+      if (!isMouseDown) return;
+      isMouseDown = false;
+      teamScroll.style.cursor = "grab";
+      resume(1500);
+    });
+
+    // Touch swipe (mobile)
+    teamScroll.addEventListener("touchstart", (e) => {
+      pause();
+      touchStartX = e.touches[0].pageX;
+      touchScrollStart = teamScroll.scrollLeft;
     }, { passive: true });
 
-    startAutoScroll();
+    teamScroll.addEventListener("touchmove", (e) => {
+      teamScroll.scrollLeft = touchScrollStart + (touchStartX - e.touches[0].pageX);
+    }, { passive: true });
+
+    teamScroll.addEventListener("touchend", () => {
+      resume(2000);
+    }, { passive: true });
   }
 </script>
