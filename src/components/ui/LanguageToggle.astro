@@ -1,0 +1,101 @@
+---
+/**
+ * Floating language toggle — always visible, sits just above the floating
+ * Call-now button. English is the default for everyone; clicking switches the
+ * whole site to Spanish (and back). The label is set by the i18n engine on
+ * load to reflect the language you'd switch TO.
+ *
+ * data-no-i18n keeps the engine from translating the button's own label, which
+ * the engine manages directly.
+ */
+---
+
+<button
+  id='lang-toggle'
+  type='button'
+  class='lang-toggle'
+  data-no-i18n
+  aria-label='Cambiar a Español'
+>
+  <svg
+    class='lang-toggle__icon'
+    xmlns='http://www.w3.org/2000/svg'
+    viewBox='0 0 24 24'
+    fill='none'
+    stroke='currentColor'
+    stroke-width='2'
+    stroke-linecap='round'
+    stroke-linejoin='round'
+    aria-hidden='true'
+  >
+    <circle cx='12' cy='12' r='10'></circle>
+    <path d='M2 12h20'></path>
+    <path d='M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z'></path>
+  </svg>
+  <span class='lang-toggle__label'>Español</span>
+</button>
+
+<style>
+  .lang-toggle {
+    position: fixed;
+    /* Sits just above the floating call button (bottom 1.5rem + 3.5rem height). */
+    bottom: 5.5rem;
+    right: 1.5rem;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    height: 2.75rem;
+    padding: 0 1rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(10, 25, 49, 0.15);
+    background: rgba(255, 255, 255, 0.95);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    color: var(--color-brand-blue, #0a1931);
+    box-shadow: 0 6px 18px rgba(10, 25, 49, 0.18);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    line-height: 1;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      background 0.2s ease;
+  }
+
+  .lang-toggle:hover,
+  .lang-toggle:focus-visible {
+    background: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(10, 25, 49, 0.24);
+    outline: none;
+  }
+
+  .lang-toggle__icon {
+    width: 1.15rem;
+    height: 1.15rem;
+    flex-shrink: 0;
+    color: var(--color-brand-gold, #c8a24e);
+  }
+
+  .lang-toggle__label {
+    white-space: nowrap;
+  }
+
+  @media (max-width: 480px) {
+    .lang-toggle {
+      bottom: 4.75rem;
+      right: 1rem;
+      height: 2.5rem;
+      padding: 0 0.85rem;
+    }
+  }
+</style>
+
+<script>
+  import { initI18n } from "../../i18n/engine";
+
+  // Run as early as possible; module scripts execute after HTML is parsed.
+  initI18n();
+</script>

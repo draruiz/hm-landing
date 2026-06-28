@@ -1,5 +1,7 @@
 ---
 import Footer from "../components/layout/Footer.astro";
+import FloatingCallButton from "../components/ui/FloatingCallButton.astro";
+import LanguageToggle from "../components/ui/LanguageToggle.astro";
 import Navbar from "../components/layout/Navbar.astro";
 import SEOHead from "../components/seo/SEOHead.astro";
 import SchemaOrg from "../components/seo/SchemaOrg.astro";
@@ -24,6 +26,23 @@ const { schema, ...seoProps } = Astro.props;
 <!doctype html>
 <html lang='en'>
   <head>
+    <!-- i18n: hide content for Spanish visitors until translated (avoids flash of English). -->
+    <script is:inline>
+      try {
+        if (localStorage.getItem("hm-lang") === "es") {
+          document.documentElement.classList.add("i18n-pending");
+          // Safety net: never keep the page hidden if the engine fails to load.
+          setTimeout(function () {
+            document.documentElement.classList.remove("i18n-pending");
+          }, 1500);
+        }
+      } catch (e) {}
+    </script>
+    <style is:inline>
+      html.i18n-pending body {
+        visibility: hidden;
+      }
+    </style>
     <SEOHead {...seoProps} />
     <!-- Fonts: non-blocking preload -->
     <link rel='preconnect' href='https://fonts.googleapis.com' />
@@ -31,18 +50,18 @@ const { schema, ...seoProps } = Astro.props;
     <link
       rel='preload'
       as='style'
-      href='https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap'
+      href='https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap'
     />
     <link
       rel='stylesheet'
-      href='https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap'
+      href='https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap'
       media='print'
       onload="this.media='all'"
     />
     <noscript>
       <link
         rel='stylesheet'
-        href='https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap'
+        href='https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap'
       />
     </noscript>
     <!-- Google tag (gtag.js) -->
@@ -67,6 +86,8 @@ const { schema, ...seoProps } = Astro.props;
       <slot />
     </main>
     <Footer />
+    <LanguageToggle />
+    <FloatingCallButton />
     {schema && <SchemaOrg schema={schema} />}
   </body>
 </html>

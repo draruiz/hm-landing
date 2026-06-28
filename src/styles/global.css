@@ -33,9 +33,9 @@
   --color-brand-charcoal: #0a1931; /* Ocean Deep — footer, nav bg */
   --color-brand-muted: #7a9ab8; /* Muted blue — placeholder, captions */
 
-  /* Font families — Refined Elegance */
-  --font-sans: "Libre Baskerville", Georgia, serif;
-  --font-display: "Cormorant Garamond", Georgia, serif;
+  /* Font families — Clean & Refined (sans-serif) */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Outfit", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
 }
 
