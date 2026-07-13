@@ -1,0 +1,266 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { breadcrumbSchema } from "../../utils/seo";
+
+const siteUrl = "https://healthymindspecialists.com";
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "Our Services", url: `${siteUrl}/#services` },
+    {
+      name: "Affordable Therapy",
+      url: `${siteUrl}/services/affordable-therapy`,
+    },
+  ]),
+];
+
+const reasons = [
+  "Affordable self-pay rates",
+  "Highly trained doctoral-level clinicians",
+  "Ongoing supervision by licensed psychologists",
+  "Personalized, evidence-based treatment",
+  "In-person and virtual appointments available",
+];
+
+const concerns = [
+  "Anxiety and panic attacks",
+  "Depression",
+  "ADHD",
+  "Stress and burnout",
+  "Relationship difficulties",
+  "Life transitions",
+  "Grief and loss",
+  "Self-esteem challenges",
+  "Trauma and emotional healing",
+];
+---
+
+<Layout
+  title='Affordable Therapy'
+  description='Compassionate, evidence-based therapy at accessible self-pay rates with doctoral-level clinicians supervised by licensed psychologists at Healthy Mind Specialists.'
+  schema={schemas}
+>
+  <!-- Hero Banner -->
+  <section class='relative h-[420px] md:h-[500px] overflow-hidden'>
+    <img
+      src='https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=1920&h=600&fit=crop&q=80'
+      alt='Two people holding hands in support, representing accessible and compassionate affordable therapy'
+      width='1920'
+      height='600'
+      class='absolute inset-0 w-full h-full object-cover'
+      loading='eager'
+    />
+    <div
+      class='absolute inset-0 bg-gradient-to-r from-brand-blue/80 to-brand-blue/40'
+    >
+    </div>
+    <div class='relative h-full flex items-center'>
+      <div class='max-w-4xl mx-auto px-6 text-white'>
+        <h1 class='text-4xl md:text-5xl lg:text-6xl font-display italic mb-4'>
+          Affordable Therapy That Feels Personal
+        </h1>
+        <p class='text-xl md:text-2xl text-white/80 max-w-2xl'>
+          Quality mental health care shouldn't be out of reach.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class='py-20 md:py-28'>
+    <div class='max-w-4xl mx-auto px-6'>
+      <!-- Intro -->
+      <div class='mb-16'>
+        <div class='space-y-5 text-lg text-brand-blue/70 leading-relaxed'>
+          <p>
+            At Healthy Mind Specialists, we believe everyone deserves access to
+            compassionate, professional therapy—regardless of their budget.
+          </p>
+          <p>
+            Our Affordable Therapy Program offers a more accessible option to
+            begin therapy with clinicians who are completing advanced doctoral
+            training and are closely supervised by licensed psychologists. This
+            means you receive thoughtful, evidence-based care at a lower cost
+            without sacrificing quality.
+          </p>
+        </div>
+      </div>
+
+      <!-- What You Can Expect -->
+      <div class='mb-16'>
+        <h2
+          class='text-3xl md:text-4xl font-display italic text-brand-blue mb-6'
+        >
+          What You Can Expect
+        </h2>
+        <div class='space-y-5 text-lg text-brand-blue/70 leading-relaxed'>
+          <p>
+            Starting therapy can feel overwhelming, but you don't have to figure
+            it out alone.
+          </p>
+          <p>
+            Our therapists take the time to understand your story, help you make
+            sense of what you're experiencing, and work with you to create a
+            clear path forward.
+          </p>
+          <p>
+            Whether you're struggling with anxiety, stress, depression,
+            relationship challenges, or simply feeling stuck, we're here to
+            support you.
+          </p>
+        </div>
+      </div>
+
+      <!-- Image break -->
+      <div class='mb-16 rounded-2xl overflow-hidden shadow-lg'>
+        <img
+          src='https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&h=500&fit=crop&q=80'
+          alt='Two people in a warm, supportive conversation during a therapy session'
+          width='1200'
+          height='500'
+          loading='lazy'
+          class='w-full h-[300px] md:h-[400px] object-cover'
+        />
+      </div>
+
+      <!-- Why choose -->
+      <div class='mb-16'>
+        <h2
+          class='text-3xl md:text-4xl font-display italic text-brand-blue mb-6'
+        >
+          Why Choose Our Affordable Therapy Program?
+        </h2>
+        <div
+          class='bg-brand-cream/50 rounded-2xl p-8 md:p-10 border border-brand-blue/5'
+        >
+          <ul class='space-y-4'>
+            {
+              reasons.map((item) => (
+                <li class='flex items-start gap-3 text-brand-blue/70'>
+                  <svg
+                    class='w-5 h-5 text-brand-gold mt-1 shrink-0'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    stroke-width='2'
+                    stroke='currentColor'
+                  >
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      d='M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
+                    />
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <p class='mt-6 text-lg text-brand-blue/70 leading-relaxed'>
+          Every therapist in this program is part of a collaborative clinical
+          team committed to providing thoughtful, ethical, and effective care.
+        </p>
+      </div>
+
+      <!-- We support -->
+      <div class='mb-16'>
+        <h2
+          class='text-3xl md:text-4xl font-display italic text-brand-blue mb-6'
+        >
+          We Support Children, Teens, and Adults
+        </h2>
+        <p class='text-lg text-brand-blue/70 leading-relaxed mb-6'>
+          We help clients facing concerns such as:
+        </p>
+        <div class='grid sm:grid-cols-2 gap-3'>
+          {
+            concerns.map((item) => (
+              <div class='flex items-start gap-3 text-brand-blue/70'>
+                <svg
+                  class='w-5 h-5 text-brand-gold mt-1 shrink-0'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke-width='2'
+                  stroke='currentColor'
+                >
+                  <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    d='M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
+                  />
+                </svg>
+                <span>{item}</span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- High-quality care -->
+      <div class='mb-16'>
+        <h2
+          class='text-3xl md:text-4xl font-display italic text-brand-blue mb-6'
+        >
+          High-Quality Care at a Price That Makes Sense
+        </h2>
+        <div class='space-y-5 text-lg text-brand-blue/70 leading-relaxed'>
+          <p>Choosing affordable therapy doesn't mean settling for less.</p>
+          <p>
+            It means receiving professional care from clinicians who are
+            continuously learning, closely supervised, and committed to helping
+            you feel better.
+          </p>
+          <p>
+            Our mission is to make excellent mental health care more accessible
+            to the families and individuals in our community.
+          </p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div
+        class='text-center bg-brand-cream/60 rounded-2xl p-10 md:p-14 border border-brand-blue/5'
+      >
+        <h2
+          class='text-2xl md:text-3xl font-display italic text-brand-blue mb-4'
+        >
+          Take the First Step
+        </h2>
+        <div
+          class='space-y-4 text-brand-blue/60 mb-8 max-w-xl mx-auto leading-relaxed'
+        >
+          <p>
+            You don't have to have everything figured out before starting
+            therapy.
+          </p>
+          <p>
+            We'll help you find the clinician who best fits your needs and
+            support you every step of the way.
+          </p>
+          <p>
+            Schedule your first appointment today—we'd love to meet you.
+          </p>
+        </div>
+        <a
+          href='/get-started/appointment-request'
+          class='inline-flex items-center px-8 py-4 text-base font-semibold rounded-full border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300'
+        >
+          Schedule Your First Appointment
+          <svg
+            class='w-5 h-5 ml-2'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke-width='2'
+            stroke='currentColor'
+          >
+            <path
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3'></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
