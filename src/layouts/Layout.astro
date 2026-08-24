@@ -18,9 +18,15 @@ export interface Props {
   modifiedDate?: string;
   author?: string;
   schema?: Record<string, unknown> | Record<string, unknown>[];
+  /**
+   * Set on pages whose hero is light (e.g. Back to Calm). The navbar is
+   * transparent over the hero, so it needs dark links and the dark logo
+   * instead of the white-on-dark-hero default.
+   */
+  navOnLight?: boolean;
 }
 
-const { schema, ...seoProps } = Astro.props;
+const { schema, navOnLight, ...seoProps } = Astro.props;
 ---
 
 <!doctype html>
@@ -50,18 +56,18 @@ const { schema, ...seoProps } = Astro.props;
     <link
       rel='preload'
       as='style'
-      href='https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap'
+      href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Pinyon+Script&display=swap'
     />
     <link
       rel='stylesheet'
-      href='https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap'
+      href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Pinyon+Script&display=swap'
       media='print'
       onload="this.media='all'"
     />
     <noscript>
       <link
         rel='stylesheet'
-        href='https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap'
+        href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Pinyon+Script&display=swap'
       />
     </noscript>
     <!-- Google tag (gtag.js) -->
@@ -81,7 +87,7 @@ const { schema, ...seoProps } = Astro.props;
   <body
     class='min-h-screen flex flex-col bg-brand-white text-brand-charcoal font-sans antialiased'
   >
-    <Navbar />
+    <Navbar onLight={navOnLight} />
     <main class='flex-1'>
       <slot />
     </main>

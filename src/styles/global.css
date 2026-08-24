@@ -17,38 +17,65 @@
 }
 
 @theme {
-  /* Brand Colors — Cold · Deep · Mystical */
-  --color-brand-blue: #0a1931; /* Ocean Deep — hero bg, dark sections */
-  --color-brand-blue-light: #152d50; /* Navy mid — card bg, dark elements */
-  --color-brand-blue-dark: #040810; /* Nebula Black — deepest overlays */
-  --color-brand-gold: #87ceeb; /* Glacier — primary accent (CTAs, dividers) */
-  --color-brand-gold-light: #a8ddf5; /* Light Glacier — hover states */
-  --color-brand-gold-dark: #5bbad8; /* Deep Glacier — pressed/active */
-  --color-brand-white: #f0f8ff; /* Quartz — light backgrounds */
-  --color-brand-cream: #e2f0fb; /* Soft Quartz — subtle surfaces */
-  --color-brand-gray: #4a6a8a; /* Blue-gray — secondary text */
-  --color-brand-gray-light: #eaf4ff; /* Very light Quartz — section bg */
-  --color-brand-teal: #87ceeb; /* Glacier teal — highlights */
-  --color-brand-teal-light: #d0edf9; /* Pale Glacier — tags, chips */
-  --color-brand-charcoal: #0a1931; /* Ocean Deep — footer, nav bg */
-  --color-brand-muted: #7a9ab8; /* Muted blue — placeholder, captions */
+  /* ------------------------------------------------------------------
+   * Brand Colors — "Warm Lavender"
+   * Derived from the Instagram feed: ink-violet type on lavender mist and
+   * warm ivory, with a soft terracotta as the secondary warm accent.
+   * Token NAMES are legacy (blue / gold / teal) so the 400+ existing
+   * utility classes keep working — only their VALUES changed.
+   * ------------------------------------------------------------------ */
+  --color-brand-blue: #241e4e; /* Ink Violet — hero bg, dark sections, body text */
+  --color-brand-blue-light: #3d3470; /* Mid Violet — cards, dark elements */
+  --color-brand-blue-dark: #171236; /* Deep Ink — deepest overlays */
+  --color-brand-gold: #9b84d9; /* Lavender — primary accent (CTAs, dividers) */
+  --color-brand-gold-light: #c0aeea; /* Soft Lavender — hover on dark */
+  --color-brand-gold-dark: #6a54a8; /* Deep Violet — accent on light, pressed */
+  --color-brand-white: #fbf9f6; /* Warm Ivory — page background */
+  --color-brand-cream: #f2ecf8; /* Lavender Mist — alternating sections */
+  --color-brand-gray: #635a78; /* Plum gray — secondary text */
+  --color-brand-gray-light: #efe9f6; /* Pale lavender — section bg, placeholders */
+  --color-brand-teal: #d69a86; /* Terracotta — secondary warm accent */
+  --color-brand-teal-light: #f7e7e0; /* Blush — tags, chips */
+  --color-brand-charcoal: #241e4e; /* Ink Violet — footer, nav bg, body text */
+  --color-brand-muted: #7c7192; /* Muted plum — labels, captions */
 
-  /* Font families — Clean & Refined (sans-serif) */
+  /* Back to Calm surfaces — soft, warm, non-clinical */
+  --color-calm-mist: #f6f1fb; /* lightest lavender wash */
+  --color-calm-lavender: #ece2f8; /* lavender card / band */
+  --color-calm-blush: #f6e6e0; /* warm blush band */
+  --color-calm-sky: #e6ecf7; /* pale periwinkle band */
+
+  /* Font families — Editorial serif + clean sans (matches the feed) */
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-  --font-display: "Outfit", system-ui, -apple-system, sans-serif;
+  --font-display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  --font-script: "Pinyon Script", "Snell Roundhand", cursive;
   --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", monospace;
 }
 
 /* Global base */
 ::selection {
   background: var(--color-brand-gold);
-  color: var(--color-brand-blue);
+  color: var(--color-brand-white);
 }
 
 /* Smooth scroll */
 html {
   scroll-behavior: smooth;
   font-size: 18px;
+}
+
+/* Cormorant runs optically small — nudge display type up slightly so the
+   existing size scale keeps the same visual weight it had with Outfit. */
+.font-display {
+  letter-spacing: -0.005em;
+}
+
+/* Script drop cap / initial — the calligraphic capital used across the feed */
+.script-cap {
+  font-family: var(--font-script);
+  line-height: 0.8;
+  display: inline-block;
+  vertical-align: baseline;
 }
 
 /* Marquee animation */
@@ -65,6 +92,32 @@ html {
   animation: marquee 30s linear infinite;
 }
 
+/* Slow ambient drift for decorative blobs */
+@keyframes calm-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -18px, 0) scale(1.04);
+  }
+}
+
+.calm-float {
+  animation: calm-float 14s ease-in-out infinite;
+}
+
+.calm-float-slow {
+  animation: calm-float 20s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .calm-float,
+  .calm-float-slow {
+    animation: none !important;
+  }
+}
+
 /* Section reveal animations */
 [data-animate] {
   opacity: 0;
@@ -79,9 +132,25 @@ html {
   transform: translateY(0);
 }
 
-/* Dark sections gradient — Ocean Deep → teal-shifted deep navy */
+/* Dark sections gradient — Ink Violet → warm aubergine */
 .dark-gradient {
-  background: linear-gradient(135deg, #0a1931 0%, #062030 100%);
+  background: linear-gradient(135deg, #241e4e 0%, #2e2244 55%, #1b1638 100%);
+}
+
+/* Soft light gradient for calm/warm sections */
+.calm-gradient {
+  background:
+    radial-gradient(
+      120% 90% at 15% 0%,
+      var(--color-calm-lavender) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      100% 80% at 95% 15%,
+      var(--color-calm-blush) 0%,
+      transparent 55%
+    ),
+    linear-gradient(180deg, var(--color-calm-mist) 0%, #fbf9f6 100%);
 }
 
 /* Horizontal rule - brutalist */

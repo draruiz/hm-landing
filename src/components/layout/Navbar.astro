@@ -3,10 +3,40 @@
  * Agency-grade Navbar — minimal, clean, fullscreen mobile overlay.
  * No top bar. Logo left, links center, CTA right.
  * Transparent on hero, solid on scroll.
+ *
+ * `onLight` — for pages with a light hero (Back to Calm), where the
+ * transparent header needs dark links and the un-inverted logo.
  */
+export interface Props {
+  onLight?: boolean;
+}
+
+const { onLight = false } = Astro.props;
+
 const navItems = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/#services" },
+  {
+    label: "Programs",
+    href: "/programs/back-to-calm",
+    dropdown: [
+      {
+        label: "Back to Calm",
+        href: "/programs/back-to-calm",
+        description: "60-minute emotional support sessions",
+      },
+      {
+        label: "Strong Mind Teens",
+        href: "/programs/strong-mind-teens",
+        description: "6-week adolescent coaching program",
+      },
+      {
+        label: "Workshops & Groups",
+        href: "/programs/workshops",
+        description: "Trainings, groups, and community events",
+      },
+    ],
+  },
   { label: "Affordable Therapy", href: "/services/affordable-therapy" },
   {
     label: "Testing Center",
@@ -40,7 +70,10 @@ const logoUrl =
 
 <header
   id='site-header'
-  class='fixed top-0 left-0 right-0 z-50 transition-all duration-500'
+  class:list={[
+    "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+    onLight && "nav-on-light",
+  ]}
 >
   <nav
     class='nav-inner mx-auto flex items-center justify-between px-6 sm:px-10 md:px-16 lg:px-20 h-20 md:h-24'
@@ -64,14 +97,14 @@ const logoUrl =
     </a>
 
     <!-- Desktop links -->
-    <div class='hidden lg:flex items-center gap-1'>
+    <div class='hidden xl:flex items-center gap-0.5'>
       {
         navItems.map((item) =>
           item.dropdown ? (
             <div class='relative group/dd'>
               <button
                 type='button'
-                class='nav-link relative flex items-center gap-1.5 px-4 py-2 text-[13px] font-medium tracking-[0.08em] uppercase text-brand-white/70 hover:text-brand-white transition-colors duration-300 cursor-pointer'
+                class='nav-link relative flex items-center gap-1.5 px-3 py-2 text-[13px] font-medium tracking-[0.06em] uppercase text-brand-white/70 hover:text-brand-white transition-colors duration-300 cursor-pointer'
                 aria-haspopup='true'
                 aria-expanded='false'
               >
@@ -89,13 +122,13 @@ const logoUrl =
               </button>
               <!-- Dropdown panel — pt-2 instead of mt-2 keeps hover area continuous -->
               <div class='absolute top-full left-1/2 -translate-x-1/2 pt-2 w-64 opacity-0 pointer-events-none group-hover/dd:opacity-100 group-hover/dd:pointer-events-auto transition-all duration-200 origin-top scale-95 group-hover/dd:scale-100 z-50'>
-                <div class='rounded-2xl bg-white shadow-xl border border-brand-charcoal/8 overflow-hidden'>
+                <div class='rounded-2xl bg-brand-white shadow-xl border border-brand-charcoal/8 overflow-hidden'>
                   {item.dropdown.map((child) => (
                     <a
                       href={child.href}
-                      class='flex flex-col px-5 py-4 hover:bg-brand-gold/5 border-b border-brand-charcoal/5 last:border-b-0 transition-colors duration-150 group/child'
+                      class='flex flex-col px-5 py-4 hover:bg-brand-gold/8 border-b border-brand-charcoal/5 last:border-b-0 transition-colors duration-150 group/child'
                     >
-                      <span class='text-[13px] font-semibold tracking-wide text-brand-blue group-hover/child:text-brand-gold transition-colors duration-150'>
+                      <span class='text-[13px] font-semibold tracking-wide text-brand-blue group-hover/child:text-brand-gold-dark transition-colors duration-150'>
                         {child.label}
                       </span>
                       {child.description && (
@@ -109,7 +142,7 @@ const logoUrl =
           ) : (
             <a
               href={item.href}
-              class='nav-link relative px-4 py-2 text-[13px] font-medium tracking-[0.08em] uppercase text-brand-white/70 hover:text-brand-white transition-colors duration-300'
+              class='nav-link relative px-3 py-2 text-[13px] font-medium tracking-[0.06em] uppercase text-brand-white/70 hover:text-brand-white transition-colors duration-300'
             >
               {item.label}
             </a>
@@ -122,7 +155,7 @@ const logoUrl =
     <div class='flex items-center gap-6'>
       <a
         href='/get-started/appointment-request'
-        class='nav-cta hidden lg:inline-flex items-center gap-2 px-6 py-3 text-[12px] font-semibold tracking-[0.15em] uppercase border border-brand-gold/50 text-brand-gold hover:bg-brand-gold hover:text-brand-blue rounded-full transition-all duration-400'
+        class='nav-cta hidden xl:inline-flex items-center gap-2 px-6 py-3 text-[12px] font-semibold tracking-[0.15em] uppercase border border-brand-gold/50 text-brand-gold hover:bg-brand-gold hover:text-brand-blue rounded-full transition-all duration-400'
       >
         Book Now
       </a>
@@ -131,7 +164,7 @@ const logoUrl =
       <button
         id='mobile-menu-btn'
         type='button'
-        class='relative z-50 lg:hidden flex flex-col items-end gap-1.5 p-2'
+        class='relative z-50 xl:hidden flex flex-col items-end gap-1.5 p-2'
         aria-expanded='false'
         aria-controls='mobile-menu'
         aria-label='Toggle menu'
@@ -153,12 +186,12 @@ const logoUrl =
 <!-- Fullscreen mobile menu -->
 <div
   id='mobile-menu'
-  class='fixed inset-0 z-40 bg-brand-blue flex flex-col justify-center items-center opacity-0 pointer-events-none transition-opacity duration-500'
+  class='fixed inset-0 z-40 dark-gradient flex flex-col items-center overflow-y-auto py-28 opacity-0 pointer-events-none transition-opacity duration-500'
   role='navigation'
   aria-label='Mobile navigation'
   aria-hidden='true'
 >
-  <div class='flex flex-col items-center gap-2'>
+  <div class='flex flex-col items-center gap-1 my-auto'>
     {
       navItems.map((item, i) =>
         item.dropdown ? (
@@ -201,7 +234,7 @@ const logoUrl =
   </div>
 
   <!-- Contact in mobile -->
-  <div class='absolute bottom-10 flex flex-col items-center gap-2'>
+  <div class='mt-10 flex flex-col items-center gap-2'>
     <a
       href='tel:8136092034'
       class='font-mono text-sm text-brand-white/40 hover:text-brand-gold transition-colors'
@@ -247,6 +280,7 @@ const logoUrl =
         mobileMenu.classList.add("opacity-100", "pointer-events-auto");
         mobileMenu.setAttribute("aria-hidden", "false");
         menuBtn.setAttribute("aria-expanded", "true");
+        header?.classList.add("nav-menu-open");
         document.body.style.overflow = "hidden";
         // X shape
         hamburgerLines[0]?.classList.add("translate-y-[4.5px]", "rotate-45");
@@ -257,6 +291,7 @@ const logoUrl =
         mobileMenu.classList.remove("opacity-100", "pointer-events-auto");
         mobileMenu.setAttribute("aria-hidden", "true");
         menuBtn.setAttribute("aria-expanded", "false");
+        header?.classList.remove("nav-menu-open");
         document.body.style.overflow = "";
         hamburgerLines[0]?.classList.remove("translate-y-[4.5px]", "rotate-45");
         hamburgerLines[1]?.classList.remove("opacity-0", "scale-x-0");
@@ -275,6 +310,7 @@ const logoUrl =
         mobileMenu.classList.remove("opacity-100", "pointer-events-auto");
         mobileMenu.setAttribute("aria-hidden", "true");
         menuBtn.setAttribute("aria-expanded", "false");
+        header?.classList.remove("nav-menu-open");
         document.body.style.overflow = "";
         hamburgerLines[0]?.classList.remove("translate-y-[4.5px]", "rotate-45");
         hamburgerLines[1]?.classList.remove("opacity-0", "scale-x-0");
@@ -299,11 +335,11 @@ const logoUrl =
   }
 
   #site-header.nav-scrolled {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(251, 249, 246, 0.94);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+    border-bottom: 1px solid rgba(36, 30, 78, 0.07);
+    box-shadow: 0 1px 12px rgba(36, 30, 78, 0.05);
   }
 
   #site-header.nav-scrolled .nav-inner {
@@ -335,29 +371,70 @@ const logoUrl =
     transform-origin: left;
   }
 
-  /* Scrolled state — dark text links */
+  /* Scrolled state — ink violet links */
   #site-header.nav-scrolled .nav-link {
-    color: rgba(15, 23, 42, 0.65);
+    color: rgba(36, 30, 78, 0.68);
   }
 
   #site-header.nav-scrolled .nav-link:hover {
-    color: rgba(15, 23, 42, 1);
+    color: rgba(36, 30, 78, 1);
   }
 
-  /* Scrolled state — dark CTA border */
+  /* Scrolled state — ink violet CTA border */
   #site-header.nav-scrolled .nav-cta {
-    border-color: rgba(15, 23, 42, 0.2);
-    color: rgba(15, 23, 42, 0.8);
+    border-color: rgba(36, 30, 78, 0.2);
+    color: rgba(36, 30, 78, 0.8);
   }
 
   #site-header.nav-scrolled .nav-cta:hover {
-    background: var(--color-brand-gold, #c8a24e);
-    border-color: var(--color-brand-gold, #c8a24e);
+    background: var(--color-brand-gold-dark, #6a54a8);
+    border-color: var(--color-brand-gold-dark, #6a54a8);
     color: #fff;
   }
 
-  /* Scrolled state — dark hamburger lines */
+  /* Scrolled state — ink violet hamburger lines */
   #site-header.nav-scrolled .hamburger-line {
-    background: rgba(15, 23, 42, 0.8);
+    background: rgba(36, 30, 78, 0.8);
+  }
+
+  /* ------------------------------------------------------------------
+   * Light-hero pages: transparent header, but dark links + dark logo so
+   * the nav stays readable before the user scrolls.
+   * ------------------------------------------------------------------ */
+  #site-header.nav-on-light .nav-logo {
+    filter: none;
+  }
+
+  #site-header.nav-on-light .nav-link {
+    color: rgba(36, 30, 78, 0.68);
+  }
+
+  #site-header.nav-on-light .nav-link:hover {
+    color: rgba(36, 30, 78, 1);
+  }
+
+  #site-header.nav-on-light .nav-cta {
+    border-color: rgba(36, 30, 78, 0.2);
+    color: rgba(36, 30, 78, 0.8);
+  }
+
+  #site-header.nav-on-light .nav-cta:hover {
+    background: var(--color-brand-gold-dark, #6a54a8);
+    border-color: var(--color-brand-gold-dark, #6a54a8);
+    color: #fff;
+  }
+
+  #site-header.nav-on-light .hamburger-line {
+    background: rgba(36, 30, 78, 0.8);
+  }
+
+  /* Menu open — the overlay behind the button is always dark, so the
+     hamburger goes back to white regardless of the page's nav mode. */
+  #site-header.nav-menu-open .hamburger-line {
+    background: var(--color-brand-white, #fbf9f6);
+  }
+
+  #site-header.nav-menu-open .nav-logo {
+    filter: brightness(0) invert(1);
   }
 </style>
