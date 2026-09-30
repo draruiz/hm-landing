@@ -1,0 +1,186 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { breadcrumbSchema } from "../../utils/seo";
+
+const siteUrl = "https://healthymindspecialists.com";
+const staffName = "Florencia, LMHC";
+const staffRole = "Licensed Therapist";
+const staffSlug = "florencia-lmhc";
+const tagline =
+  "A place to make sense of life's changes, reconnect with yourself, and move forward.";
+const profileImage =
+  "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/41d1d55e-e99e-4c5f-d929-4ea646536000/public";
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    { name: "About Us", url: `${siteUrl}/about` },
+    { name: staffName, url: `${siteUrl}/staff/${staffSlug}` },
+  ]),
+];
+---
+
+<Layout
+  title={staffName}
+  description={`Meet ${staffName}, ${staffRole} at Healthy Mind Specialists in Tampa, FL. Bilingual therapy in English and Spanish for adults and couples navigating anxiety, depression, trauma, relationship challenges, and life transitions.`}
+  schema={schemas}
+  navOnLight
+>
+  <!-- Hero -->
+  <section class='relative calm-gradient pt-36 pb-20 md:pt-44 md:pb-24 overflow-hidden'>
+    <div
+      class='absolute -top-40 -right-32 w-[520px] h-[520px] rounded-full bg-calm-lavender/80 blur-[130px] calm-float pointer-events-none'
+      aria-hidden='true'
+    >
+    </div>
+    <div
+      class='absolute -bottom-44 -left-40 w-[480px] h-[480px] rounded-full bg-calm-blush/70 blur-[140px] calm-float-slow pointer-events-none'
+      aria-hidden='true'
+    >
+    </div>
+
+    <div
+      class='relative max-w-6xl mx-auto px-6 sm:px-10 md:px-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center'
+    >
+      <div class='lg:col-span-7 order-2 lg:order-1'>
+        <span
+          class='inline-flex items-center gap-2.5 rounded-full border border-brand-gold/30 bg-brand-white/60 px-4 py-1.5 font-mono text-[10px] tracking-[0.25em] uppercase text-brand-gold-dark mb-8'
+        >
+          <span class='w-1.5 h-1.5 rounded-full bg-brand-gold' aria-hidden='true'
+          ></span>
+          Therapy in English and Spanish
+        </span>
+        <h1
+          class='text-5xl sm:text-6xl md:text-7xl font-display font-semibold text-brand-charcoal leading-[0.95] tracking-[-0.015em]'
+        >
+          {staffName}
+        </h1>
+        <p
+          class='mt-5 text-xl md:text-2xl font-display italic text-brand-gold-dark'
+        >
+          {staffRole}
+        </p>
+        <p
+          class='mt-7 text-brand-charcoal/65 text-lg font-light leading-relaxed max-w-xl'
+        >
+          {tagline}
+        </p>
+      </div>
+
+      <div class='lg:col-span-5 order-1 lg:order-2'>
+        <div class='relative mx-auto max-w-xs sm:max-w-sm lg:max-w-none'>
+          <div
+            class='absolute -inset-3 rounded-t-[999px] rounded-b-[2.5rem] border border-brand-gold/25 pointer-events-none'
+            aria-hidden='true'
+          >
+          </div>
+          <div
+            class='relative h-[360px] sm:h-[440px] lg:h-[480px] overflow-hidden rounded-t-[999px] rounded-b-[2.5rem] bg-calm-lavender'
+          >
+            <img
+              src={profileImage}
+              alt={`Portrait of ${staffName}, ${staffRole} at Healthy Mind Specialists`}
+              width='354'
+              height='768'
+              class='w-full h-full object-cover object-[center_25%]'
+              loading='eager'
+              fetchpriority='high'
+            />
+            <div
+              class='absolute inset-0 bg-gradient-to-br from-brand-gold/30 via-transparent to-calm-blush/40 mix-blend-soft-light pointer-events-none'
+              aria-hidden='true'
+            >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class='bg-brand-white py-20 md:py-28'>
+    <div class='max-w-4xl mx-auto px-6'>
+      <!-- Bio Content -->
+      <span
+        class='font-mono text-[11px] tracking-[0.3em] uppercase text-brand-muted block mb-6'
+      >
+        About Florencia
+      </span>
+      <div
+        class='max-w-none text-brand-charcoal/70 text-lg font-light leading-relaxed space-y-7'
+      >
+        <p>
+          Life rarely unfolds exactly as we expect. Relationships change, roles
+          shift, and new stages of life can leave us questioning who we are,
+          what we want, or how to move forward. Therapy can offer a place to
+          make sense of those changes, reconnect with yourself, and begin making
+          choices that feel healthier and more aligned with the life you want to
+          create.
+        </p>
+        <p>
+          As a Licensed Mental Health Counselor (LMHC), I work with adults and
+          couples navigating anxiety, depression, trauma, emotional regulation,
+          relationship challenges, and life transitions. I particularly enjoy
+          working with women through the different stages of adulthood,
+          including changes in relationships, separation or divorce, and the
+          emotional challenges that can accompany menopause. Helping clients
+          strengthen their relationships, improve communication, rebuild
+          confidence, and recognize their own strengths is some of the most
+          meaningful work I do.
+        </p>
+        <p>
+          My style in the therapy room is warm, conversational, and
+          collaborative, but I am also practical when you need me to be. I
+          believe therapy should give you room to talk and feel understood while
+          also helping you begin working on the concerns that brought you in. I
+          offer practical feedback and, when it may help you grow, I will gently
+          challenge you to consider a situation from a different perspective.
+          Meaningful change takes time, but I want you to feel that you are
+          beginning to move forward from the start.
+        </p>
+        <p>
+          I take a holistic and integrative approach to therapy, recognizing
+          that emotional well-being is shaped by our thoughts, emotions,
+          relationships, behaviors, life experiences, and circumstances. I draw
+          from Cognitive Behavioral Therapy (CBT), person-centered therapy,
+          solution-focused strategies, and psychodynamic concepts to help us
+          address what is happening in your life today while also exploring
+          deeper patterns that may be influencing how you feel and respond.
+        </p>
+        <p>
+          I provide therapy in both English and Spanish and tailor our work to
+          your individual needs, pace, and goals. Whether you are struggling in
+          a relationship, adjusting to an unexpected change, trying to rebuild
+          your confidence, or simply realizing that something in your life needs
+          to be different, my goal is to create a space where you can be
+          yourself, gain greater clarity, and feel supported as you decide what
+          comes next.
+        </p>
+        <p>
+          I know firsthand that life does not always follow the plan we
+          imagined. I originally came to the United States thinking I would stay
+          for only two years. Twenty-five years later, I am still here! Life
+          clearly had other ideas, and perhaps that is one reason I appreciate
+          how unexpected transitions can lead us in directions we never
+          anticipated.
+        </p>
+        <p>
+          Wherever you are in your own journey, you do not have to figure
+          everything out alone. Together, we can work toward stronger
+          relationships, greater confidence, and choices that feel more
+          connected to who you are and where you want to go.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class='mt-16 text-center'>
+        <a
+          href='/contact'
+          class='inline-flex items-center px-8 py-4 bg-brand-gold-dark text-white text-sm font-semibold tracking-[0.06em] uppercase rounded-full transition-all duration-400 hover:bg-brand-blue-light'
+        >
+          Schedule a Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
