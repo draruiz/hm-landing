@@ -1,0 +1,68 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const links = [
+  { label: "Our services", href: "/#services" },
+  { label: "Psychological evaluations", href: "/services/evaluations" },
+  { label: "Our team", href: "/#team" },
+  { label: "Rates & insurance", href: "/get-started/rates-insurance" },
+];
+---
+
+<Layout
+  title='Page Not Found'
+  description='The page you were looking for could not be found. Explore therapy and psychological testing at Healthy Mind Specialists in Riverview, FL.'
+  noindex
+  navOnLight
+>
+  <section class='calm-gradient pt-40 pb-28 md:pt-48 md:pb-36'>
+    <div class='max-w-3xl mx-auto px-6 sm:px-10'>
+      <h1
+        class='font-display font-semibold text-5xl sm:text-6xl md:text-7xl leading-[1.02] tracking-[-0.02em] text-brand-charcoal'
+      >
+        This page <em class='italic font-medium text-brand-gold-dark'
+          >couldn't be found.</em
+        >
+      </h1>
+      <p class='mt-6 max-w-xl text-lg text-brand-charcoal/75 leading-relaxed'>
+        It may have moved or no longer exists. These are good places to pick up
+        from, or call us at
+        <a
+          href='tel:+18136092034'
+          class='font-semibold text-brand-gold-dark hover:text-brand-charcoal'
+          >813-609-2034</a
+        >.
+      </p>
+      <ul class='mt-10 border-t border-brand-charcoal/12'>
+        {
+          links.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class='group flex items-center justify-between border-b border-brand-charcoal/12 py-5 text-xl font-display font-semibold text-brand-charcoal hover:text-brand-gold-dark transition-colors'
+              >
+                {link.label}
+                <svg
+                  class='h-4 w-4 transition-transform duration-300 group-hover:translate-x-1'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke='currentColor'
+                  stroke-width='2'
+                  aria-hidden='true'
+                >
+                  <path stroke-linecap='round' stroke-linejoin='round' d='M17 8l4 4m0 0l-4 4m4-4H3' />
+                </svg>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <a
+        href='/'
+        class='mt-10 inline-flex items-center gap-3 rounded-full bg-brand-gold-dark px-8 py-4 text-[15px] font-semibold text-white transition-colors duration-300 hover:bg-brand-blue'
+      >
+        Back to the homepage
+      </a>
+    </div>
+  </section>
+</Layout>

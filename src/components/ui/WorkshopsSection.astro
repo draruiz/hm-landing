@@ -9,8 +9,9 @@ const programs = [
     description:
       "A specialized program designed to help adolescents build resilience, emotional regulation, and confidence during their most formative years.",
     href: "/programs/strong-mind-teens",
-    image: "https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=900&q=80",
-    imageAlt: "Teenagers engaged in a supportive group program at Healthy Mind Specialists",
+    // Real program photo (the previous stock image was unrelated food photography).
+    image: "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/b394d150-b3c9-4f09-7ceb-8c15687c9a00/public",
+    imageAlt: "Traci Adams in a coaching session with a teenager at Healthy Mind Specialists",
   },
   {
     label: "Community",
@@ -18,99 +19,66 @@ const programs = [
     description:
       "Interactive workshops and group experiences focused on skill-building, psychoeducation, and community connection.",
     href: "/programs/workshops",
-    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=900&q=80",
+    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1100&q=75&auto=format&fit=crop",
     imageAlt: "Adults participating in a community wellness workshop and group therapy session",
   },
 ];
 ---
 
-<section class='relative bg-brand-white py-24 md:py-36' aria-label='Programs'>
+<section class='relative bg-brand-white py-24 md:py-32' aria-labelledby='programs-title'>
   <div class='max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-20'>
-    <!-- Header -->
-    <div class='mb-16 md:mb-24' data-animate>
-      <span
-        class='font-mono text-[11px] tracking-[0.3em] uppercase text-brand-muted block mb-4'
-      >
-        07 — Programs
-      </span>
+    <div class='grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-end mb-14 md:mb-16'>
       <h2
-        class='text-4xl sm:text-5xl md:text-6xl font-display font-semibold text-brand-charcoal leading-[1.1] tracking-[-0.01em] max-w-2xl'
+        id='programs-title'
+        class='lg:col-span-7 font-display font-semibold text-[2.6rem] sm:text-5xl md:text-6xl leading-[1.04] tracking-[-0.015em] text-brand-charcoal text-balance'
       >
         Programs, Groups &amp; Workshops
       </h2>
-      <p class='mt-4 text-brand-charcoal/50 text-base font-light leading-relaxed max-w-xl'>
+      <p class='lg:col-span-5 text-lg text-brand-charcoal/70 leading-relaxed'>
         Beyond therapy. Building skills, confidence, and connection.
       </p>
     </div>
 
-    <!-- Programs -->
-    <div class='grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-10'>
+    <div class='grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8'>
       {
         programs.map((prog) => (
-          <div class='group' data-animate>
-            <!-- Image with gradient overlay + label chip -->
-            <div class='relative h-[280px] md:h-[360px] overflow-hidden mb-8'>
+          <a href={prog.href} class='group block'>
+            <div class='relative aspect-[5/4] overflow-hidden rounded-[1.5rem] bg-calm-lavender'>
               <img
                 src={prog.image}
                 alt={prog.imageAlt}
-                class='w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105'
+                class='h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]'
                 loading='lazy'
-                width='900'
-                height='360'
+                decoding='async'
+                width='1100'
+                height='880'
               />
-              <!-- Gradient: dark at bottom for text legibility -->
-              <div class='absolute inset-0 bg-gradient-to-t from-brand-charcoal/80 via-brand-charcoal/10 to-transparent pointer-events-none'></div>
-              <!-- Gold accent line on hover -->
-              <div class='absolute bottom-0 left-0 h-[3px] bg-brand-gold w-0 group-hover:w-full transition-all duration-500 ease-out'></div>
-              <!-- Label overlaid bottom-left -->
-              <span class='absolute bottom-5 left-5 font-mono text-[10px] tracking-[0.35em] uppercase text-brand-gold'>
+              <span class='absolute left-5 top-5 rounded-full bg-brand-white/95 px-3.5 py-1.5 text-[13px] font-semibold text-brand-charcoal'>
                 {prog.label}
               </span>
             </div>
-
-            <h3 class='text-3xl md:text-4xl font-display font-bold text-brand-charcoal mb-4 group-hover:text-brand-gold transition-colors duration-300'>
+            <h3 class='mt-7 font-display text-3xl md:text-[2.4rem] font-semibold leading-tight text-brand-charcoal transition-colors duration-300 group-hover:text-brand-gold-dark'>
               {prog.title}
             </h3>
-            <div class='w-8 h-px bg-brand-charcoal/15 mb-5' />
-            <p class='text-brand-charcoal/50 text-base font-light leading-relaxed mb-8'>
+            <p class='mt-3 max-w-[52ch] text-base leading-relaxed text-brand-charcoal/70'>
               {prog.description}
             </p>
-            <a
-              href={prog.href}
-              class='group/link inline-flex items-center gap-2 text-base font-semibold tracking-[0.1em] uppercase text-brand-charcoal hover:text-brand-gold transition-colors duration-300'
-            >
+            <span class='mt-6 inline-flex items-center gap-2 text-[15px] font-semibold text-brand-gold-dark'>
               <span>Explore program</span>
               <svg
-                class='w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1'
+                class='h-4 w-4 transition-transform duration-300 group-hover:translate-x-1'
                 fill='none'
                 viewBox='0 0 24 24'
                 stroke='currentColor'
                 stroke-width='2'
+                aria-hidden='true'
               >
-                <path
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  d='M17 8l4 4m0 0l-4 4m4-4H3'
-                />
+                <path stroke-linecap='round' stroke-linejoin='round' d='M17 8l4 4m0 0l-4 4m4-4H3' />
               </svg>
-            </a>
-          </div>
+            </span>
+          </a>
         ))
       }
     </div>
   </div>
 </section>
-
-<script>
-  const obs = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) e.target.classList.add("is-visible");
-      });
-    },
-    { threshold: 0.1 },
-  );
-  document
-    .querySelectorAll("section[aria-label='Programs'] [data-animate]")
-    .forEach((el) => obs.observe(el));
-</script>

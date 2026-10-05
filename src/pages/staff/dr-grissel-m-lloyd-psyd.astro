@@ -1,8 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { breadcrumbSchema } from "../../utils/seo";
+import { breadcrumbSchema, personSchema } from "../../utils/seo";
 
-const siteUrl = "https://healthymindspecialists.com";
+const siteUrl = "https://www.healthymindspecialists.com";
 const staffName = "Dr. Grissel M. Lloyd, PsyD";
 const staffRole = "Licensed Clinical Psychologist";
 const staffSlug = "dr-grissel-m-lloyd-psyd";
@@ -14,6 +14,13 @@ const profileImage =
   "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/7a46068d-6ad9-4a37-42e0-902c32008200/public";
 
 const schemas = [
+  personSchema({
+    displayName: staffName,
+    jobTitle: staffRole,
+    url: `${siteUrl}/staff/${staffSlug}`,
+    image: profileImage,
+    siteUrl,
+  }),
   breadcrumbSchema([
     { name: "Home", url: siteUrl },
     { name: "About Us", url: `${siteUrl}/about` },

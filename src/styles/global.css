@@ -62,6 +62,22 @@
 html {
   scroll-behavior: smooth;
   font-size: 18px;
+  /* Leave room for the fixed header when jumping to #anchors */
+  scroll-padding-top: 5rem;
+}
+
+/* Keyboard focus — one visible, on-brand ring everywhere */
+:focus-visible {
+  outline: 2px solid var(--color-brand-gold-dark);
+  outline-offset: 3px;
+}
+
+/* Horizontal scrollers that rely on swipe + snap */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 /* Cormorant runs optically small — nudge display type up slightly so the

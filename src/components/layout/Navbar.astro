@@ -64,8 +64,8 @@ const navItems = [
   { label: "Contact", href: "/contact" },
 ];
 
-const logoUrl =
-  "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/3d99200b-f6c7-41b4-5c63-c40b4fbc9000/public";
+// Self-hosted, resized copy of the brand logo (the CDN original is 1366px wide).
+const logoUrl = "/images/logo.png";
 ---
 
 <header
@@ -88,8 +88,8 @@ const logoUrl =
       <img
         src={logoUrl}
         alt='Healthy Mind Specialists'
-        width='180'
-        height='54'
+        width='440'
+        height='217'
         class='h-10 md:h-12 w-auto nav-logo transition-all duration-300'
         loading='eager'
         fetchpriority='high'
@@ -237,13 +237,13 @@ const logoUrl =
   <div class='mt-10 flex flex-col items-center gap-2'>
     <a
       href='tel:8136092034'
-      class='font-mono text-sm text-brand-white/40 hover:text-brand-gold transition-colors'
+      class='text-base font-medium text-brand-white/80 hover:text-brand-gold transition-colors'
     >
       813-609-2034
     </a>
     <a
       href='mailto:info@healthymindspecialists.com'
-      class='font-mono text-xs text-brand-white/30 hover:text-brand-gold transition-colors'
+      class='text-sm text-brand-white/65 hover:text-brand-gold transition-colors'
     >
       info@healthymindspecialists.com
     </a>

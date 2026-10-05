@@ -1,17 +1,24 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { breadcrumbSchema } from "../../utils/seo";
+import { breadcrumbSchema, personSchema } from "../../utils/seo";
 
-const siteUrl = "https://healthymindspecialists.com";
-const staffName = "Florencia, LMHC";
+const siteUrl = "https://www.healthymindspecialists.com";
+const staffName = "Florencia Lapadula, LMHC";
 const staffRole = "Licensed Therapist";
-const staffSlug = "florencia-lmhc";
+const staffSlug = "florencia-lapadula-lmhc";
 const tagline =
   "A place to make sense of life's changes, reconnect with yourself, and move forward.";
 const profileImage =
   "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/41d1d55e-e99e-4c5f-d929-4ea646536000/public";
 
 const schemas = [
+  personSchema({
+    displayName: staffName,
+    jobTitle: staffRole,
+    url: `${siteUrl}/staff/${staffSlug}`,
+    image: profileImage,
+    siteUrl,
+  }),
   breadcrumbSchema([
     { name: "Home", url: siteUrl },
     { name: "About Us", url: `${siteUrl}/about` },

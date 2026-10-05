@@ -1,8 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { breadcrumbSchema } from "../../utils/seo";
+import { breadcrumbSchema, personSchema } from "../../utils/seo";
 
-const siteUrl = "https://healthymindspecialists.com";
+const siteUrl = "https://www.healthymindspecialists.com";
 const staffName = "Chloe Johnson, LMHC";
 const staffRole = "Licensed Mental Health Counselor";
 const staffSlug = "chloe-johnson-lmhc";
@@ -14,6 +14,13 @@ const profileImage =
   "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/ca480842-0849-4ea3-bd0f-403dd430ad00/public";
 
 const schemas = [
+  personSchema({
+    displayName: staffName,
+    jobTitle: staffRole,
+    url: `${siteUrl}/staff/${staffSlug}`,
+    image: profileImage,
+    siteUrl,
+  }),
   breadcrumbSchema([
     { name: "Home", url: siteUrl },
     { name: "About Us", url: `${siteUrl}/about` },

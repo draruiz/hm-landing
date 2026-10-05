@@ -2,8 +2,7 @@
 /**
  * Agency-grade Footer — Large typographic CTA + editorial grid + minimal credits.
  */
-const logoUrl =
-  "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/3d99200b-f6c7-41b4-5c63-c40b4fbc9000/public";
+const logoUrl = "/images/logo.png";
 
 const footerLinks = [
   {
@@ -53,11 +52,7 @@ const footerLinks = [
     >
       <div class='grid grid-cols-1 lg:grid-cols-2 gap-10 items-end'>
         <div>
-          <span
-            class='font-mono text-[11px] tracking-[0.2em] uppercase text-brand-gold block mb-4'
-          >
-            Ready to begin?
-          </span>
+          <p class='text-lg text-brand-gold-light mb-3'>Ready to begin?</p>
           <h2
             class='text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-semibold leading-[1.1] tracking-[-0.01em]'
           >
@@ -67,7 +62,7 @@ const footerLinks = [
         <div class='lg:text-right'>
           <a
             href='/get-started/appointment-request'
-            class='group inline-flex items-center gap-3 px-8 py-4 text-sm font-semibold tracking-[0.06em] uppercase bg-brand-gold text-brand-blue rounded-full transition-all duration-500 hover:bg-brand-gold-light'
+            class='group inline-flex items-center gap-3 px-8 py-4 text-[15px] font-semibold bg-brand-gold text-brand-blue rounded-full transition-colors duration-300 hover:bg-brand-gold-light'
           >
             <span>Book an Appointment</span>
             <svg
@@ -83,11 +78,11 @@ const footerLinks = [
                 d='M17 8l4 4m0 0l-4 4m4-4H3'></path>
             </svg>
           </a>
-          <p class='mt-4 text-brand-white/40 text-sm font-light'>
+          <p class='mt-4 text-brand-white/70 text-[15px]'>
             or call us at
             <a
               href='tel:8136092034'
-              class='text-brand-gold/70 hover:text-brand-gold transition-colors'
+              class='font-semibold text-brand-gold-light hover:text-brand-white transition-colors'
             >
               813-609-2034
             </a>
@@ -106,14 +101,14 @@ const footerLinks = [
           <img
             src={logoUrl}
             alt='Healthy Mind Specialists'
-            width='180'
-            height='54'
-            class='h-10 w-auto mb-5'
+            width='440'
+            height='217'
+            class='h-12 w-auto mb-5 brightness-0 invert'
             loading='lazy'
           />
         </a>
         <p
-          class='text-brand-white/40 text-sm font-light leading-relaxed max-w-xs mb-6'
+          class='text-brand-white/70 text-[15px] leading-relaxed max-w-xs mb-6'
         >
           Psychological evaluations, therapy, coaching, and mental health
           services throughout Florida and worldwide.
@@ -123,7 +118,7 @@ const footerLinks = [
           <a
             href='mailto:info@healthymindspecialists.com'
             aria-label='Email us'
-            class='flex items-center justify-center w-10 h-10 border border-brand-white/15 text-brand-white/50 hover:text-brand-gold hover:border-brand-gold/40 transition-all duration-300'
+            class='flex items-center justify-center w-10 h-10 border border-brand-white/20 text-brand-white/75 hover:text-brand-gold-light hover:border-brand-gold/50 rounded-full transition-all duration-300'
           >
             <svg
               class='w-4 h-4'
@@ -142,7 +137,7 @@ const footerLinks = [
           <a
             href='tel:8136092034'
             aria-label='Call us'
-            class='flex items-center justify-center w-10 h-10 border border-brand-white/15 text-brand-white/50 hover:text-brand-gold hover:border-brand-gold/40 transition-all duration-300'
+            class='flex items-center justify-center w-10 h-10 border border-brand-white/20 text-brand-white/75 hover:text-brand-gold-light hover:border-brand-gold/50 rounded-full transition-all duration-300'
           >
             <svg
               class='w-4 h-4'
@@ -163,7 +158,7 @@ const footerLinks = [
             target='_blank'
             rel='noopener noreferrer'
             aria-label='Follow on Instagram'
-            class='flex items-center justify-center w-10 h-10 border border-brand-white/15 text-brand-white/50 hover:text-brand-gold hover:border-brand-gold/40 transition-all duration-300'
+            class='flex items-center justify-center w-10 h-10 border border-brand-white/20 text-brand-white/75 hover:text-brand-gold-light hover:border-brand-gold/50 rounded-full transition-all duration-300'
           >
             <svg
               class='w-4 h-4'
@@ -184,7 +179,7 @@ const footerLinks = [
       {
         footerLinks.map((col) => (
           <div>
-            <h3 class='font-mono text-[11px] tracking-[0.2em] uppercase text-brand-gold mb-5'>
+            <h3 class='text-[13px] font-semibold tracking-[0.12em] uppercase text-brand-gold-light mb-5'>
               {col.heading}
             </h3>
             <ul class='space-y-3'>
@@ -192,7 +187,7 @@ const footerLinks = [
                 <li>
                   <a
                     href={link.href}
-                    class='text-sm text-brand-white/50 hover:text-brand-white transition-colors duration-300'
+                    class='text-[15px] text-brand-white/75 hover:text-brand-white transition-colors duration-300'
                   >
                     {link.label}
                   </a>
@@ -210,21 +205,21 @@ const footerLinks = [
     <div
       class='max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-20 py-5 flex flex-col sm:flex-row items-center justify-between gap-3'
     >
-      <p class='text-brand-white/25 text-xs font-mono tracking-wide'>
+      <p class='text-brand-white/55 text-[13px]'>
         &copy; <span>{new Date().getFullYear()}</span> Healthy Mind Specialists. All rights reserved.
       </p>
       <address
-        class='not-italic text-brand-white/25 text-xs font-mono tracking-wide'
+        class='not-italic text-brand-white/55 text-[13px]'
       >
         11906 Boyette Rd, Riverview FL 33569
       </address>
-      <p class='text-brand-white/25 text-xs font-mono tracking-wide'>
+      <p class='text-brand-white/55 text-[13px]'>
         Built by
         <a
           href='https://github.com/neurophxze'
           target='_blank'
-          rel='noopener noreferrer'
-          class='text-brand-gold/50 hover:text-brand-gold transition-colors duration-300'
+          rel='noopener noreferrer nofollow'
+          class='text-brand-gold-light/80 hover:text-brand-gold-light transition-colors duration-300'
         >
           neurophxze
         </a>

@@ -1,8 +1,9 @@
 ---
+import { acceptedInsurance } from "../../data/insurance";
 import Layout from "../../layouts/Layout.astro";
 import { breadcrumbSchema } from "../../utils/seo";
 
-const siteUrl = "https://healthymindspecialists.com";
+const siteUrl = "https://www.healthymindspecialists.com";
 
 const schemas = [
   breadcrumbSchema([
@@ -199,10 +200,16 @@ const schemas = [
         </h2>
         <div class='w-12 h-[2px] bg-brand-gold mb-6' aria-hidden='true'></div>
         <p class='text-brand-blue/60 leading-relaxed text-lg mb-6'>
-          We currently accept <strong class='text-brand-blue'>Aetna</strong>,
-          <strong class='text-brand-blue'>United Healthcare</strong>,
-          <strong class='text-brand-blue'>Oscar Health</strong>, and
-          <strong class='text-brand-blue'>Oxford</strong>.
+          We currently accept {
+            acceptedInsurance.map((plan, i) => (
+              <>
+                {i > 0 && (i === acceptedInsurance.length - 1 ? ", and " : ", ")}
+                <strong class='text-brand-blue'>
+                  {plan.name}{plan.short && ` (${plan.short})`}
+                </strong>
+              </>
+            ))
+          }.
         </p>
         <p class='text-brand-blue/60 leading-relaxed mb-6'>
           If you have another insurance provider or an employee benefit plan, it

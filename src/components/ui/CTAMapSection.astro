@@ -1,33 +1,31 @@
 ---
 /**
- * CTA + Map Section — Clean split with map embed and contact info.
- * Agency-grade minimal approach.
+ * Visit — address, phone and hours next to the map. The H2 names the city
+ * (local search), and the map embed queries the practice by name + address.
  */
 ---
 
-<section class='relative bg-brand-white' aria-label='Location'>
+<section class='relative bg-brand-white' aria-labelledby='visit-title'>
   <div class='grid grid-cols-1 lg:grid-cols-2'>
     <!-- Left: Contact info -->
     <div
       class='flex flex-col justify-center px-6 sm:px-10 md:px-16 lg:px-20 py-20 md:py-28'
-      data-animate
     >
-      <span
-        class='font-mono text-[11px] tracking-[0.3em] uppercase text-brand-muted block mb-4'
-      >
-        09 — Visit Us
-      </span>
       <h2
-        class='text-4xl sm:text-5xl md:text-6xl font-display font-semibold text-brand-charcoal leading-[1.1] tracking-[-0.01em] mb-8'
+        id='visit-title'
+        class='font-display font-semibold text-[2.6rem] sm:text-5xl md:text-6xl leading-[1.04] tracking-[-0.015em] text-brand-charcoal'
       >
-        Let's Connect.
+        Visit us <em class='italic font-medium text-brand-gold-dark'>in Riverview</em>
       </h2>
-      <div class='w-10 h-px bg-brand-charcoal/15 mb-8'></div>
+      <p class='mt-5 max-w-md text-lg text-brand-charcoal/70 leading-relaxed'>
+        Sessions in person at our Riverview office, or online throughout
+        Florida and beyond.
+      </p>
 
-      <address class='not-italic space-y-4 text-brand-charcoal/60 font-light'>
+      <address class='not-italic mt-10 space-y-4 text-lg text-brand-charcoal/80'>
         <p class='flex items-start gap-3'>
           <svg
-            class='w-4 h-4 text-brand-gold flex-shrink-0 mt-1'
+            class='w-5 h-5 text-brand-gold-dark flex-shrink-0 mt-1'
             fill='none'
             viewBox='0 0 24 24'
             stroke='currentColor'
@@ -47,7 +45,7 @@
         </p>
         <p class='flex items-center gap-3'>
           <svg
-            class='w-4 h-4 text-brand-gold flex-shrink-0'
+            class='w-5 h-5 text-brand-gold-dark flex-shrink-0'
             fill='none'
             viewBox='0 0 24 24'
             stroke='currentColor'
@@ -61,12 +59,12 @@
           </svg>
           <a
             href='tel:8136092034'
-            class='hover:text-brand-gold transition-colors'>813-609-2034</a
+            class='font-semibold text-brand-charcoal hover:text-brand-gold-dark transition-colors'>813-609-2034</a
           >
         </p>
         <p class='flex items-center gap-3'>
           <svg
-            class='w-4 h-4 text-brand-gold flex-shrink-0'
+            class='w-5 h-5 text-brand-gold-dark flex-shrink-0'
             fill='none'
             viewBox='0 0 24 24'
             stroke='currentColor'
@@ -85,7 +83,7 @@
         href='https://maps.google.com/?q=11906+Boyette+Rd+Riverview+FL+33569'
         target='_blank'
         rel='noopener noreferrer'
-        class='group inline-flex items-center gap-2 mt-8 text-sm font-semibold tracking-[0.1em] uppercase text-brand-charcoal hover:text-brand-gold transition-colors duration-300'
+        class='group mt-10 inline-flex w-fit items-center gap-3 rounded-full border border-brand-charcoal/20 px-7 py-3.5 text-[15px] font-semibold text-brand-charcoal transition-colors duration-300 hover:border-brand-gold-dark hover:text-brand-gold-dark'
       >
         <span>Get Directions</span>
         <svg
@@ -104,10 +102,10 @@
     </div>
 
     <!-- Right: Map -->
-    <div class='relative min-h-[400px] lg:min-h-0 bg-brand-gray-light'>
+    <div class='relative min-h-[420px] lg:min-h-[560px] bg-brand-gray-light'>
       <iframe
-        src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3527.5!2d-82.3076!3d27.8551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2cee8a6a7f4e5%3A0x6dcf7b3e9f7e0a1!2s11906%20Boyette%20Rd%2C%20Riverview%2C%20FL%2033569!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus'
-        class='absolute inset-0 w-full h-full border-0 grayscale contrast-125'
+        src='https://www.google.com/maps?q=Healthy+Mind+Specialists,+11906+Boyette+Rd,+Riverview,+FL+33569&output=embed'
+        class='absolute inset-0 w-full h-full border-0 grayscale-[0.6]'
         allowfullscreen
         loading='lazy'
         referrerpolicy='no-referrer-when-downgrade'
@@ -115,17 +113,3 @@
     </div>
   </div>
 </section>
-
-<script>
-  const obs = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) e.target.classList.add("is-visible");
-      });
-    },
-    { threshold: 0.1 },
-  );
-  document
-    .querySelectorAll("section[aria-label='Location'] [data-animate]")
-    .forEach((el) => obs.observe(el));
-</script>

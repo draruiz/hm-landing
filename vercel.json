@@ -1,0 +1,21 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/staff/steven-lmhc",
+      "destination": "/staff/steven-borrero-lmhc",
+      "permanent": true
+    },
+    {
+      "source": "/staff/florencia-lmhc",
+      "destination": "/staff/florencia-lapadula-lmhc",
+      "permanent": true
+    },
+    {
+      "source": "/staff/lori-smith-lmhc",
+      "destination": "/#team",
+      "permanent": true
+    }
+  ]
+}

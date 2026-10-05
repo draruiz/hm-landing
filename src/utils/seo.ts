@@ -1,15 +1,19 @@
 export const websiteSchema = (url: string, name: string) => ({
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": `${url}/#website`,
   url,
   name,
-  potentialAction: {
-    "@type": "SearchAction",
-    target: `${url}/search?q={search_term_string}`,
-    "query-input": "required name=search_term_string",
-  },
+  inLanguage: "en-US",
+  publisher: { "@id": `${url}/#clinic` },
 });
 
+/**
+ * The practice itself. MedicalClinic is a LocalBusiness subtype, so Google
+ * reads it for local results while also understanding it is a health provider.
+ * Practice-wide facts (hours, languages, area served) live here so every page
+ * that emits this schema stays consistent.
+ */
 export const localBusinessSchema = ({
   name,
   description,
@@ -32,13 +36,15 @@ export const localBusinessSchema = ({
   };
 }) => ({
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": `${url}/#business`,
+  "@type": "MedicalClinic",
+  "@id": `${url}/#clinic`,
   name,
   description,
   url,
   image,
+  logo: `${url}/images/logo.png`,
   telephone,
+  email: "info@healthymindspecialists.com",
   address: {
     "@type": "PostalAddress",
     streetAddress: address.street,
@@ -47,7 +53,66 @@ export const localBusinessSchema = ({
     addressCountry: address.country,
     postalCode: address.postal,
   },
+  hasMap: `https://maps.google.com/?q=${encodeURIComponent(
+    `${address.street}, ${address.city}, ${address.region} ${address.postal}`,
+  )}`,
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "21:00",
+    },
+  ],
+  medicalSpecialty: "Psychiatric",
+  availableLanguage: ["English", "Spanish"],
+  paymentAccepted: "Cash, Check, Credit Card, Insurance",
+  areaServed: [
+    { "@type": "City", name: "Riverview, FL" },
+    { "@type": "City", name: "Brandon, FL" },
+    { "@type": "City", name: "Tampa, FL" },
+    { "@type": "State", name: "Florida" },
+  ],
+  sameAs: ["https://www.instagram.com/healthymindspecialists"],
 });
+
+/**
+ * A clinician profile. `displayName` is the on-page form ("Dr. Maria A. Ruiz,
+ * PsyD"); it is split into name, honorific prefix and credential suffix.
+ */
+export const personSchema = ({
+  displayName,
+  jobTitle,
+  url,
+  image,
+  siteUrl,
+}: {
+  displayName: string;
+  jobTitle: string;
+  url: string;
+  image?: string;
+  siteUrl: string;
+}) => {
+  const [rawName, ...suffix] = displayName.split(", ");
+  const prefixMatch = rawName.match(/^(Dr\.)\s+/);
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${url}#person`,
+    name: prefixMatch ? rawName.slice(prefixMatch[0].length) : rawName,
+    ...(prefixMatch && { honorificPrefix: prefixMatch[1] }),
+    ...(suffix.length > 0 && { honorificSuffix: suffix.join(", ") }),
+    jobTitle,
+    url,
+    ...(image && { image }),
+    worksFor: {
+      "@type": "MedicalClinic",
+      "@id": `${siteUrl}/#clinic`,
+      name: "Healthy Mind Specialists",
+      url: siteUrl,
+    },
+  };
+};
 
 export const breadcrumbSchema = (items: { name: string; url: string }[]) => ({
   "@context": "https://schema.org",

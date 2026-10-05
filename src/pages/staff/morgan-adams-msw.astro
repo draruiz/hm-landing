@@ -1,8 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { breadcrumbSchema } from "../../utils/seo";
+import { breadcrumbSchema, personSchema } from "../../utils/seo";
 
-const siteUrl = "https://healthymindspecialists.com";
+const siteUrl = "https://www.healthymindspecialists.com";
 const staffName = "Morgan Adams, MSW";
 const staffRole = "Life & Mindfulness Coach";
 const staffSlug = "morgan-adams-msw";
@@ -12,6 +12,13 @@ const profileImage =
   "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/b13d28c3-98c3-4dbd-7ba7-d16aefbad700/public";
 
 const schemas = [
+  personSchema({
+    displayName: staffName,
+    jobTitle: staffRole,
+    url: `${siteUrl}/staff/${staffSlug}`,
+    image: profileImage,
+    siteUrl,
+  }),
   breadcrumbSchema([
     { name: "Home", url: siteUrl },
     { name: "About Us", url: `${siteUrl}/about` },

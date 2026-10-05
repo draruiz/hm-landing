@@ -1,0 +1,92 @@
+---
+/**
+ * Insurance we accept — answers the first question most visitors have, right
+ * under the hero. Plan names are real text (not logos) so search engines and
+ * AI answers can read them. Data lives in src/data/insurance.ts.
+ */
+import { acceptedInsurance } from "../../data/insurance";
+---
+
+<section
+  id='insurance'
+  class='relative bg-brand-blue text-brand-white py-20 md:py-28'
+  aria-labelledby='insurance-title'
+>
+  <div
+    class='max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-20 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16'
+  >
+    <div class='lg:col-span-4'>
+      <h2
+        id='insurance-title'
+        class='font-display font-semibold text-4xl sm:text-5xl leading-[1.05] tracking-[-0.015em] text-balance'
+      >
+        Insurance we accept
+      </h2>
+      <p class='mt-6 text-lg text-brand-white/80 leading-relaxed'>
+        We currently accept the insurance plans listed here for therapy and
+        psychological services.
+      </p>
+      <p class='mt-4 text-base text-brand-white/65 leading-relaxed'>
+        Coverage depends on your specific plan. If yours isn't listed, your
+        out-of-network benefits may still cover part of your care.
+      </p>
+      <a
+        href='/get-started/rates-insurance'
+        class='group mt-8 inline-flex items-center gap-2 text-[15px] font-semibold text-brand-gold-light hover:text-brand-white transition-colors duration-300'
+      >
+        <span>Rates &amp; insurance details</span>
+        <svg
+          class='w-4 h-4 transition-transform duration-300 group-hover:translate-x-1'
+          fill='none'
+          viewBox='0 0 24 24'
+          stroke='currentColor'
+          stroke-width='2'
+          aria-hidden='true'
+        >
+          <path
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            d='M17 8l4 4m0 0l-4 4m4-4H3'></path>
+        </svg>
+      </a>
+    </div>
+
+    <ul
+      class='lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 border-t border-l border-brand-white/15'
+      aria-label='Accepted insurance plans'
+    >
+      {
+        acceptedInsurance.map((plan) => (
+          <li class='flex min-h-[6.5rem] flex-col justify-center border-b border-r border-brand-white/15 px-4 py-6 sm:px-5 md:px-7'>
+            <span class='font-display text-[1.35rem] sm:text-[1.45rem] md:text-[1.75rem] font-medium leading-[1.1] text-brand-white'>
+              {/* Allow a line break inside camel-case names ("United|Healthcare") on narrow cells */}
+              {plan.name.split(/(?<=[a-z])(?=[A-Z])/).map((part, i) => (
+                <>{i > 0 && <wbr />}{part}</>
+              ))}
+            </span>
+            {plan.short && (
+              <span class='mt-1.5 text-[13px] font-medium tracking-[0.08em] text-brand-gold-light'>
+                {plan.short}
+              </span>
+            )}
+          </li>
+        ))
+      }
+      <li class='border-b border-r border-brand-white/15'>
+        <a
+          href='tel:+18136092034'
+          class='group flex h-full min-h-[6.5rem] flex-col justify-center bg-brand-gold-dark/40 px-4 py-6 sm:px-5 md:px-7 transition-colors duration-300 hover:bg-brand-gold-dark'
+        >
+          <span class='text-[15px] font-semibold text-brand-white'>
+            Not sure about your plan?
+          </span>
+          <span
+            class='mt-1 text-[13px] text-brand-white/75 group-hover:text-brand-white'
+          >
+            Call 813-609-2034
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>

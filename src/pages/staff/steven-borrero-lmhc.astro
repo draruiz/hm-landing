@@ -1,17 +1,24 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { breadcrumbSchema } from "../../utils/seo";
+import { breadcrumbSchema, personSchema } from "../../utils/seo";
 
-const siteUrl = "https://healthymindspecialists.com";
-const staffName = "Steven, LMHC";
+const siteUrl = "https://www.healthymindspecialists.com";
+const staffName = "Steven Borrero, LMHC";
 const staffRole = "Licensed Therapist";
-const staffSlug = "steven-lmhc";
+const staffSlug = "steven-borrero-lmhc";
 const tagline =
   "Meaningful change begins with feeling safe enough to be yourself.";
 const profileImage =
   "https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/9c9bf0a3-cf2f-4e59-78a3-c3838652b800/public";
 
 const schemas = [
+  personSchema({
+    displayName: staffName,
+    jobTitle: staffRole,
+    url: `${siteUrl}/staff/${staffSlug}`,
+    image: profileImage,
+    siteUrl,
+  }),
   breadcrumbSchema([
     { name: "Home", url: siteUrl },
     { name: "About Us", url: `${siteUrl}/about` },

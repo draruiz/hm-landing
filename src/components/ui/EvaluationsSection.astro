@@ -1,15 +1,13 @@
 ---
 /**
- * Testing Center Section — World-class research-driven assessment hub.
- * Three navigable test cards with rich descriptions.
+ * Testing Center — the practice's three evaluation tracks on the one dark
+ * band of the page. The H2 names the service people search for.
  */
 const tests = [
   {
-    index: "01",
-    label: "Neurodevelopmental",
     title: "Psychological Evaluations",
     description:
-      "Our gold-standard battery combines structured clinical interviews, standardized psychometric instruments, and behavioral observation to deliver diagnostic clarity across cognitive, emotional, and personality domains. Designed for complexity — built for precision.",
+      "Our gold-standard battery combines structured clinical interviews, standardized psychometric instruments, and behavioral observation to deliver diagnostic clarity across cognitive, emotional, and personality domains.",
     href: "/services/evaluations",
     features: [
       "Full diagnostic battery",
@@ -19,8 +17,6 @@ const tests = [
     ],
   },
   {
-    index: "02",
-    label: "Attention & Executive Function",
     title: "Online ADHD Evaluations",
     description:
       "A research-informed, fully virtual evaluation protocol developed to identify attention-deficit/hyperactivity disorder across the lifespan. Our tiered assessment model adapts depth to clinical need — from rapid screening to comprehensive documentation.",
@@ -33,8 +29,6 @@ const tests = [
     ],
   },
   {
-    index: "03",
-    label: "Autism Spectrum",
     title: "Autism Spectrum Evaluation",
     description:
       "Many adults and children go undiagnosed for years because autism often looks different than people expect. Our gold-standard evaluations — using the ADOS-2 and ADI-R — help you finally understand yourself or your child, with actionable insight and a clear path forward.",
@@ -49,111 +43,81 @@ const tests = [
 ];
 ---
 
-<section class='relative dark-gradient py-24 md:py-36 overflow-hidden' aria-label='Testing Center'>
-
-  <!-- Subtle background grid texture -->
-  <div class='absolute inset-0 opacity-[0.03] pointer-events-none' aria-hidden='true'>
-    <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'>
-      <defs>
-        <pattern id='tc-grid' width='60' height='60' patternUnits='userSpaceOnUse'>
-          <path d='M 60 0 L 0 0 0 60' fill='none' stroke='white' stroke-width='1'/>
-        </pattern>
-      </defs>
-      <rect width='100%' height='100%' fill='url(#tc-grid)'/>
-    </svg>
-  </div>
-
+<section
+  id='testing'
+  class='relative dark-gradient text-brand-white py-24 md:py-32 overflow-hidden'
+  aria-labelledby='testing-title'
+>
   <div class='relative max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-20'>
-
-    <!-- Header block -->
-    <div class='mb-20 md:mb-28 max-w-3xl' data-animate>
-      <span class='font-mono text-[11px] tracking-[0.3em] uppercase text-brand-gold block mb-5'>
-        04 — Testing Center
-      </span>
-      <h2 class='text-3xl sm:text-4xl md:text-5xl font-display font-semibold text-white leading-[1.1] tracking-[-0.01em] mb-6'>
-        World-class assessment.<br/>Research at the core.
+    <div class='grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-end'>
+      <h2
+        id='testing-title'
+        class='lg:col-span-7 font-display font-semibold text-[2.6rem] sm:text-5xl md:text-6xl leading-[1.04] tracking-[-0.015em] text-balance'
+      >
+        Psychological testing <em class='italic font-medium text-brand-gold-light'
+          >&amp; evaluations</em
+        >
       </h2>
-      <p class='text-white/45 text-base font-light leading-relaxed max-w-xl'>
-        Our Testing Center operates at the intersection of clinical excellence and psychological science. Every protocol we deploy is grounded in peer-reviewed research, validated instrumentation, and a commitment to continuous methodological development — so our findings hold up in any room, any context, worldwide.
+      <p class='lg:col-span-5 text-lg text-brand-white/75 leading-relaxed'>
+        Every protocol in our Testing Center is grounded in peer-reviewed
+        research and validated instruments, and every assessment is conducted by
+        licensed doctoral-level psychologists.
       </p>
     </div>
 
-    <!-- Three test cards -->
-    <div class='grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10'>
+    <ul
+      class='mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5'
+    >
       {
         tests.map((test) => (
-          <a
-            href={test.href}
-            class='group relative bg-brand-charcoal p-8 md:p-10 lg:p-12 flex flex-col hover:bg-white/[0.04] transition-colors duration-300'
-            data-animate
-          >
-            <!-- Index + label -->
-            <div class='flex items-center justify-between mb-8'>
-              <span class='font-mono text-[10px] tracking-[0.3em] uppercase text-brand-gold'>
-                {test.label}
+          <li>
+            <a
+              href={test.href}
+              class='group flex h-full flex-col rounded-[1.5rem] bg-brand-white/[0.06] p-8 md:p-9 ring-1 ring-inset ring-brand-white/10 transition-colors duration-300 hover:bg-brand-white/[0.1] hover:ring-brand-gold/40'
+            >
+              <h3 class='font-display text-[1.75rem] md:text-[1.9rem] font-semibold leading-[1.1] text-brand-white'>
+                {test.title}
+              </h3>
+
+              <p class='mt-5 flex-1 text-[15px] leading-relaxed text-brand-white/70'>
+                {test.description}
+              </p>
+
+              <ul class='mt-8 space-y-2.5'>
+                {test.features.map((feat) => (
+                  <li class='flex items-start gap-3 text-[15px] text-brand-white/85'>
+                    <svg
+                      class='mt-0.5 h-4 w-4 flex-shrink-0 text-brand-gold-light'
+                      fill='none'
+                      viewBox='0 0 24 24'
+                      stroke='currentColor'
+                      stroke-width='2'
+                      aria-hidden='true'
+                    >
+                      <path stroke-linecap='round' stroke-linejoin='round' d='M4.5 12.75l6 6 9-13.5' />
+                    </svg>
+                    {feat}
+                  </li>
+                ))}
+              </ul>
+
+              <span class='mt-10 inline-flex items-center gap-2 text-[15px] font-semibold text-brand-gold-light transition-colors duration-300 group-hover:text-brand-white'>
+                <span>Explore evaluation</span>
+                <svg
+                  class='h-4 w-4 transition-transform duration-300 group-hover:translate-x-1'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke='currentColor'
+                  stroke-width='2'
+                  aria-hidden='true'
+                >
+                  <path stroke-linecap='round' stroke-linejoin='round' d='M17 8l4 4m0 0l-4 4m4-4H3' />
+                </svg>
               </span>
-              <span class='font-mono text-[10px] tracking-[0.2em] text-white/20'>
-                {test.index}
-              </span>
-            </div>
-
-            <!-- Title -->
-            <h3 class='text-xl md:text-2xl font-display font-bold text-white leading-tight mb-5 group-hover:text-brand-gold transition-colors duration-300'>
-              {test.title}
-            </h3>
-
-            <!-- Description -->
-            <p class='text-white/40 text-sm font-light leading-relaxed mb-8 flex-1'>
-              {test.description}
-            </p>
-
-            <!-- Features -->
-            <ul class='space-y-2 mb-10'>
-              {test.features.map((feat) => (
-                <li class='flex items-center gap-3 text-xs text-white/35'>
-                  <span class='block w-1 h-1 rounded-full bg-brand-gold flex-shrink-0' />
-                  {feat}
-                </li>
-              ))}
-            </ul>
-
-            <!-- CTA arrow -->
-            <div class='inline-flex items-center gap-2 text-xs font-semibold tracking-[0.15em] uppercase text-white/40 group-hover:text-brand-gold transition-colors duration-300'>
-              <span>Explore evaluation</span>
-              <svg
-                class='w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1'
-                fill='none'
-                viewBox='0 0 24 24'
-                stroke='currentColor'
-                stroke-width='2'
-              >
-                <path stroke-linecap='round' stroke-linejoin='round' d='M17 8l4 4m0 0l-4 4m4-4H3' />
-              </svg>
-            </div>
-
-            <!-- Bottom border highlight on hover -->
-            <span class='absolute bottom-0 left-0 w-0 h-px bg-brand-gold group-hover:w-full transition-all duration-500' aria-hidden='true' />
-          </a>
+            </a>
+          </li>
         ))
       }
-    </div>
-
-    <!-- Bottom note -->
-    <p class='mt-12 text-white/20 text-xs font-mono tracking-[0.2em] uppercase' data-animate>
-      All assessments conducted by licensed doctoral-level psychologists
-    </p>
-
+    </ul>
   </div>
 </section>
-
-<script>
-  const obs = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) e.target.classList.add("is-visible");
-      });
-    },
-    { threshold: 0.1 }
-  );
-  document.querySelectorAll("section[aria-label='Testing Center'] [data-animate]").forEach((el) => obs.observe(el));
-</script>

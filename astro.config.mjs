@@ -5,9 +5,13 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
+// The site is served on www (the apex 308-redirects to it). Canonicals, the
+// sitemap and JSON-LD must all use this exact origin.
+const SITE = "https://www.healthymindspecialists.com";
+
 // https://astro.build/config
 export default defineConfig({
-  site: "https://healthymindspecialists.com",
+  site: SITE,
   output: "static",
   vite: {
     plugins: [tailwindcss()],
@@ -16,15 +20,18 @@ export default defineConfig({
     sitemap({
       changefreq: "weekly",
       priority: 0.7,
-      lastmod: new Date(),
       serialize(item) {
-        if (item.url.includes("/blog/")) {
-          return { ...item, priority: 0.8, changefreq: "monthly" };
+        // Internal links and canonicals use no trailing slash (vercel.json
+        // redirects /path/ → /path), so the sitemap must match.
+        const url =
+          item.url === `${SITE}/` ? item.url : item.url.replace(/\/$/, "");
+        if (url.includes("/blog/")) {
+          return { ...item, url, priority: 0.8, changefreq: "monthly" };
         }
-        if (item.url === "https://healthymindspecialists.com/") {
-          return { ...item, priority: 1.0, changefreq: "daily" };
+        if (url === `${SITE}/`) {
+          return { ...item, url, priority: 1.0, changefreq: "daily" };
         }
-        return { ...item, priority: 0.6 };
+        return { ...item, url, priority: 0.6 };
       },
     }),
     mdx(),

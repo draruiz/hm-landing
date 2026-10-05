@@ -1,6 +1,6 @@
 # Healthy Mind Specialists — Full Details
 
-> Integrative psychological services providing individual, couples, family, and group therapy in Tampa, FL. Compassionate, evidence-based mental health care located in Riverview, Florida.
+> Psychologists, therapists, and coaches in Riverview, Florida (Tampa Bay). Therapy for anxiety, OCD, trauma (including EMDR), relationships, and life transitions, plus psychological, ADHD, and autism evaluations for children, teens, and adults. In person in Riverview or online throughout Florida and beyond. Therapy available in English and Spanish.
 
 ---
 
@@ -11,9 +11,13 @@ Healthy Mind Specialists is a mental health practice dedicated to providing inte
 We believe that change begins at the end of your comfort zone. Our team of licensed psychologists and mental health counselors combine evidence-based therapies to support personal growth, healing, and lasting resilience. We care about you, your family, and your story. You can trust that we will treat you with respect, dignity, and compassion in every interaction, while maintaining the highest standards for integrity and ethics.
 
 **Contact Information:**
-- Phone: (813) 609-2034
+- Phone: 813-609-2034
+- Email: info@healthymindspecialists.com
 - Address: 11906 Boyette Rd, Riverview, FL 33569
-- Website: https://healthymindspecialists.com
+- Hours: Monday–Friday, 8 AM–9 PM
+- Website: https://www.healthymindspecialists.com
+
+**Insurance:** We currently accept Alma, Blue Cross Blue Shield (BCBS), Carelon Behavioral Health, Cigna, Curative, Florida Blue, Optum, Oscar, Oxford, Providence Health Plan, and UnitedHealthcare (UHC). Details: https://www.healthymindspecialists.com/get-started/rates-insurance
 
 ---
 
@@ -22,22 +26,22 @@ We believe that change begins at the end of your comfort zone. Our team of licen
 ### Integrative Care
 Our flagship approach combines multiple evidence-based therapies tailored to each client's unique needs. Rather than adhering to a single modality, our clinicians draw from a range of therapeutic frameworks to create a holistic treatment plan that addresses emotional, cognitive, and behavioral dimensions of mental health.
 
-URL: https://healthymindspecialists.com/services
+URL: https://www.healthymindspecialists.com/services/integrative-care
 
 ### Individual Therapy
 One-on-one sessions focused on personal growth, healing, and resilience. Individual therapy provides a private, confidential space where you can explore your thoughts, emotions, and behaviors with a licensed professional. Sessions are tailored to your specific concerns and goals.
 
-URL: https://healthymindspecialists.com/services/individual-therapy
+URL: https://www.healthymindspecialists.com/services/individual-therapy
 
 ### Group Therapy
 Shared healing experiences guided by licensed professionals in a safe, supportive space. Group therapy offers the unique benefit of connecting with others who share similar challenges, reducing isolation and building community while developing new coping skills.
 
-URL: https://healthymindspecialists.com/services/group-therapy
+URL: https://www.healthymindspecialists.com/services/group-therapy
 
 ### Psychological Evaluations
 Comprehensive assessments to inform diagnosis, treatment planning, and personal growth. Our psychological evaluations use validated testing instruments to provide a thorough understanding of cognitive, emotional, and behavioral functioning.
 
-URL: https://healthymindspecialists.com/services/evaluations
+URL: https://www.healthymindspecialists.com/services/evaluations
 
 ---
 
@@ -47,7 +51,7 @@ URL: https://healthymindspecialists.com/services/evaluations
 
 A personalized, 60-minute emotional support session with Morgan Adams, MSW, for the moments when anxiety takes over, overthinking keeps you stuck, or life simply feels heavier than it should. This is not formal therapy and requires no diagnosis or treatment plan: it is a supportive, flexible space to talk openly, feel heard, receive practical guidance, and find clarity. $125 per session, available online or in person, booked one session at a time or as often as needed.
 
-URL: https://healthymindspecialists.com/programs/back-to-calm
+URL: https://www.healthymindspecialists.com/programs/back-to-calm
 
 ---
 
@@ -57,12 +61,12 @@ URL: https://healthymindspecialists.com/programs/back-to-calm
 ### Mindfulness & Wellness Coaching
 Build present-moment awareness and sustainable habits for lasting mental wellness. Our mindfulness programs incorporate meditation, breathwork, and cognitive techniques to help you develop a more grounded, intentional relationship with your thoughts and emotions.
 
-URL: https://healthymindspecialists.com/services/mindfulness
+URL: https://www.healthymindspecialists.com/staff/morgan-adams-msw
 
 ### Therapy for Self-Esteem
 Rediscover your self-worth and develop a compassionate inner dialogue. Self-esteem therapy addresses negative self-perception, perfectionism, and self-criticism by building a healthier relationship with yourself through evidence-based therapeutic techniques.
 
-URL: https://healthymindspecialists.com/services/self-esteem
+URL: https://www.healthymindspecialists.com/services/individual-therapy
 
 ---
 
@@ -71,41 +75,39 @@ URL: https://healthymindspecialists.com/services/self-esteem
 ### Counseling for Anxiety
 Learn to manage worry, panic, and restlessness with proven therapeutic techniques. We work with clients experiencing generalized anxiety disorder, panic disorder, phobias, and chronic worry using CBT, mindfulness-based approaches, and other evidence-based methods.
 
-URL: https://healthymindspecialists.com/conditions/anxiety
+URL: https://www.healthymindspecialists.com/services/individual-therapy
 
 ### Life Transitions
 Navigate change with confidence — career shifts, loss, relocation, and new chapters. Life transitions can be overwhelming, and therapy provides tools and support to adapt, process emotions, and build resilience during times of significant change.
 
-URL: https://healthymindspecialists.com/conditions/life-transitions
+URL: https://www.healthymindspecialists.com/services/individual-therapy
 
 ### Obsessive Compulsive Disorder (OCD)
 Evidence-based OCD treatment including Exposure and Response Prevention (ERP) and cognitive behavioral therapy. Our clinicians are experienced in treating the full spectrum of OCD presentations, from intrusive thoughts to compulsive behaviors.
 
-URL: https://healthymindspecialists.com/conditions/ocd
+URL: https://www.healthymindspecialists.com/services/individual-therapy
 
 ### Social Anxiety Disorder
 Overcome social fears and rebuild confidence in professional and personal settings. Treatment for social anxiety includes graduated exposure, cognitive restructuring, and social skills development to help you engage more fully in your life.
 
-URL: https://healthymindspecialists.com/conditions/social-anxiety
+URL: https://www.healthymindspecialists.com/services/individual-therapy
 
 ---
 
 ## Our Team
 
-### Dr. Maria A. Ruiz, PsyD — Licensed Psychologist
-Dr. Ruiz helps clients uncover patterns, understand their emotions, and create meaningful change. As a licensed psychologist, she brings extensive training and clinical experience to her work with individuals seeking personal growth and healing.
-
-URL: https://healthymindspecialists.com/staff/maria-ruiz
-
-### Kiyomi Taylor, LMHC — Licensed Mental Health Counselor
-Kiyomi offers support, insight, and practical tools for healing from trauma, stress, and self-doubt. As a licensed mental health counselor, she is dedicated to providing a safe, nonjudgmental space where clients can explore their challenges and develop effective coping strategies.
-
-URL: https://healthymindspecialists.com/staff/kiyomi-taylor
-
-### Dr. Asia Wardlaw, PsyD — Licensed Psychologist
-Dr. Wardlaw specializes in psychological testing that reveals answers, supports treatment planning, and builds long-term understanding. Her expertise in comprehensive psychological evaluations helps clients and their treatment teams make informed decisions.
-
-URL: https://healthymindspecialists.com/staff/asia-wardlaw
+- Dr. Grissel M. Lloyd, PsyD — Co-Founder, Licensed Clinical Psychologist. Board-certified behavior analyst and clinical psychology professor. URL: https://www.healthymindspecialists.com/staff/dr-grissel-m-lloyd-psyd
+- Dr. Maria A. Ruiz, PsyD — Co-Founder. URL: https://www.healthymindspecialists.com/staff/dr-maria-a-ruiz-psyd
+- Dr. Asia Wardlaw, PsyD — Director of Diagnostic Services; psychological testing and diagnostic assessment. URL: https://www.healthymindspecialists.com/staff/dr-asia-wardlaw-psyd
+- Dr. Sonia Javani, PsyD — Director of Practicum and Internship Training. URL: https://www.healthymindspecialists.com/staff/dr-sonia-javani-psyd
+- Kiyomi Taylor, LMHC — Licensed Mental Health Counselor; trauma, stress, and self-doubt. URL: https://www.healthymindspecialists.com/staff/kiyomi-taylor-lmhc
+- Chloe Johnson, LMHC — Licensed Mental Health Counselor for children, teens, and young adults. URL: https://www.healthymindspecialists.com/staff/chloe-johnson-lmhc
+- Steven Borrero, LMHC — Licensed therapist; therapy in English and Spanish for children, adolescents, and adults (anxiety, depression, trauma, ADHD, LGBTQ+ affirming care). URL: https://www.healthymindspecialists.com/staff/steven-borrero-lmhc
+- Florencia Lapadula, LMHC — Licensed therapist; therapy in English and Spanish for adults and couples (anxiety, depression, trauma, relationships, life transitions, menopause). URL: https://www.healthymindspecialists.com/staff/florencia-lapadula-lmhc
+- Edward Porter, LCSW — Licensed Clinical Social Worker. URL: https://www.healthymindspecialists.com/staff/edward-porter-lcsw
+- Morgan Adams, MSW — Life & Mindfulness Coach; leads Back to Calm. URL: https://www.healthymindspecialists.com/staff/morgan-adams-msw
+- Traci Adams, CLC — Certified Life Coach; leads Strong Mind Teens. URL: https://www.healthymindspecialists.com/staff/traci-adams-clc
+- Terika Brewer, MA — Operations Manager. URL: https://www.healthymindspecialists.com/staff/terika-brewer-ma
 
 ---
 
@@ -114,17 +116,17 @@ URL: https://healthymindspecialists.com/staff/asia-wardlaw
 ### Frequently Asked Questions
 Find answers to common questions about therapy, what to expect during your first visit, confidentiality, and more.
 
-URL: https://healthymindspecialists.com/get-started/faqs
+URL: https://www.healthymindspecialists.com/get-started/faqs
 
 ### Rates & Insurance
 Learn about our session rates, accepted insurance plans, and payment options. We strive to make quality mental health care accessible.
 
-URL: https://healthymindspecialists.com/get-started/insurance
+URL: https://www.healthymindspecialists.com/get-started/rates-insurance
 
 ### Request an Appointment
 Ready to take the first step? Request an appointment online and our team will reach out to schedule your initial consultation.
 
-URL: https://healthymindspecialists.com/get-started
+URL: https://www.healthymindspecialists.com/get-started/appointment-request
 
 ---
 
@@ -133,6 +135,8 @@ URL: https://healthymindspecialists.com/get-started
 **Office Address:**
 11906 Boyette Rd, Riverview, FL 33569
 
-**Phone:** (813) 609-2034
+**Phone:** 813-609-2034
+
+**Hours:** Monday–Friday, 8 AM–9 PM
 
 **Service Area:** Riverview, Brandon, Valrico, Lithia, Tampa, and the greater Tampa Bay metropolitan area in Florida.

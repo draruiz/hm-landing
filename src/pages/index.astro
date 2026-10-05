@@ -3,6 +3,7 @@ import BackToCalmSection from "../components/ui/BackToCalmSection.astro";
 import CTAMapSection from "../components/ui/CTAMapSection.astro";
 import EvaluationsSection from "../components/ui/EvaluationsSection.astro";
 import Hero from "../components/ui/Hero.astro";
+import InsuranceSection from "../components/ui/InsuranceSection.astro";
 import ServicesSection from "../components/ui/ServicesSection.astro";
 import StaffSection from "../components/ui/StaffSection.astro";
 import WelcomeSection from "../components/ui/WelcomeSection.astro";
@@ -10,7 +11,7 @@ import WorkshopsSection from "../components/ui/WorkshopsSection.astro";
 import Layout from "../layouts/Layout.astro";
 import { localBusinessSchema, websiteSchema } from "../utils/seo";
 
-const siteUrl = "https://healthymindspecialists.com";
+const siteUrl = "https://www.healthymindspecialists.com";
 const siteName = "Healthy Mind Specialists";
 
 const schemas = [
@@ -18,10 +19,10 @@ const schemas = [
   localBusinessSchema({
     name: siteName,
     description:
-      "Integrative psychological services providing individual, couples, family, and group therapy in a compassionate environment.",
+      "Psychologists and therapists in Riverview, FL offering therapy for anxiety, OCD, trauma and EMDR, plus psychological, ADHD, and autism evaluations for children, teens, and adults. In person or online throughout Florida.",
     url: siteUrl,
     image: `${siteUrl}/og-default.png`,
-    telephone: "813-609-2034",
+    telephone: "+1-813-609-2034",
     address: {
       street: "11906 Boyette Rd",
       city: "Riverview",
@@ -34,20 +35,13 @@ const schemas = [
 ---
 
 <Layout
-  title='Healthy Mind Specialists | Psychological Services in Tampa FL'
-  description='Specializing in comprehensive psychological evaluations, therapy, and clinical support for adults, children, adolescents, families, and professionals. Services available throughout Florida and around the world.'
+  title='Therapy & Psychological Testing in Riverview, FL'
+  description='Psychologists and therapists in Riverview, FL. Therapy for anxiety, OCD and trauma, plus ADHD and autism evaluations. In person or online. Insurance accepted.'
   schema={schemas}
+  navOnLight
 >
-  <Hero
-    heading='Healthy Mind Specialists'
-    subheading='Psychological Services for Anxiety, OCD, Trauma, and the Parts of Life That Feel Hard to Navigate'
-    ctaText='Book an Appointment'
-    ctaHref='/get-started/appointment-request'
-    secondaryCtaText='Explore Services'
-    secondaryCtaHref='/#services'
-    backgroundImageSrc='https://imagedelivery.net/B5r6pMfQRTYBHyjgaDFr8w/e23cb054-bee6-463b-55fd-72681bfb9500/public'
-  />
-
+  <Hero />
+  <InsuranceSection />
   <WelcomeSection />
   <BackToCalmSection />
   <ServicesSection />
