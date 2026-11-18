@@ -1,0 +1,311 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { breadcrumbSchema } from "../../utils/seo";
+
+const siteUrl = "https://www.healthymindspecialists.com";
+
+const schemas = [
+  breadcrumbSchema([
+    { name: "Home", url: siteUrl },
+    {
+      name: "Terms and Conditions",
+      url: `${siteUrl}/legal/terms-and-conditions`,
+    },
+  ]),
+];
+
+// Spanish is applied client-side by matching visible English text against
+// src/i18n/es.ts. Any copy change here needs the matching key updated there.
+const h2 = "font-display text-2xl text-brand-blue !mt-12";
+const link =
+  "text-brand-blue-light underline underline-offset-2 hover:text-brand-gold transition-colors";
+---
+
+<Layout
+  title='Terms and Conditions'
+  description='Read the Terms and Conditions for using the Healthy Mind Specialists website, requesting appointments, telehealth, payments, and contacting our practice.'
+  schema={schemas}
+>
+  <!-- Hero Banner -->
+  <section class='relative bg-brand-blue py-20 md:py-28 overflow-hidden'>
+    <div class='absolute inset-0 opacity-[0.05]' aria-hidden='true'>
+      <div
+        class='absolute -top-24 -left-24 w-[500px] h-[500px] bg-brand-gold rounded-full blur-[120px]'
+      >
+      </div>
+    </div>
+    <div class='relative z-10 max-w-4xl mx-auto px-6 text-center'>
+      <div
+        class='flex items-center justify-center gap-3 mb-6'
+        aria-hidden='true'
+      >
+        <span class='block w-10 h-[1.5px] bg-brand-gold'></span>
+        <span class='block w-2 h-2 rounded-full border border-brand-gold'
+        ></span>
+        <span class='block w-10 h-[1.5px] bg-brand-gold'></span>
+      </div>
+      <h1
+        class='text-3xl md:text-5xl font-display italic text-white leading-tight'
+      >
+        Terms <span class='text-brand-gold-light'>and Conditions</span>
+      </h1>
+      <p
+        class='mt-4 text-white/70 text-base md:text-lg max-w-2xl mx-auto font-sans'
+      >
+        Healthy Mind Specialists
+      </p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class='max-w-4xl mx-auto px-6 py-16 md:py-24'>
+    <article
+      class='font-sans text-brand-blue/80 leading-relaxed space-y-6'
+    >
+      <div class='bg-brand-cream rounded-2xl p-8 border border-brand-gold/10'>
+        <p
+          class='text-sm uppercase tracking-widest text-brand-gold-dark font-semibold mb-2'
+        >
+          Effective Date
+        </p>
+        <p class='text-brand-blue font-medium'>November 18, 2026</p>
+      </div>
+
+      <p class='!mt-10'>
+        Welcome to Healthy Mind Specialists. By accessing or using our website,
+        https://www.healthymindspecialists.com/, you agree to the following
+        Terms and Conditions. Please read them carefully before using our
+        website or submitting any information.
+      </p>
+
+      <h2 class={h2}>1. About Our Services</h2>
+      <p>
+        Healthy Mind Specialists provides mental health services, which may
+        include individual therapy, psychological assessments, and other
+        behavioral health services, depending on provider availability,
+        qualifications, and applicable licensing requirements.
+      </p>
+      <p>
+        Services may be offered virtually or in person, depending on the
+        provider, the patient’s location, and applicable regulations.
+      </p>
+      <p>
+        Information provided on this website is for general informational and
+        educational purposes and does not replace professional medical advice,
+        diagnosis, or treatment.
+      </p>
+
+      <h2 class={h2}>2. Website Use</h2>
+      <p>By using this website, you agree to:</p>
+      <ul class='list-disc pl-6 space-y-2 marker:text-brand-gold'>
+        <li>
+          Provide accurate information when submitting inquiries or requesting
+          appointments.
+        </li>
+        <li>Use the website only for lawful purposes.</li>
+        <li>
+          Respect the privacy and intellectual property rights of Healthy Mind
+          Specialists.
+        </li>
+        <li>
+          Avoid attempting to interfere with the website’s security or
+          functionality.
+        </li>
+      </ul>
+      <p>
+        We reserve the right to restrict access to the website when necessary
+        to protect its security or prevent misuse.
+      </p>
+
+      <h2 class={h2}>3. Appointment Requests and Scheduling</h2>
+      <p>
+        Submitting an appointment request through our website, social media, or
+        contact forms does not guarantee an appointment.
+      </p>
+      <p>
+        Appointments are subject to provider availability, eligibility
+        requirements, and confirmation by our administrative team.
+      </p>
+      <p>
+        Additional intake forms, consent documents, and payment information may
+        be required before services begin.
+      </p>
+
+      <h2 class={h2}>4. Payments and Insurance</h2>
+      <p>
+        Service fees may vary depending on the provider, type of service, and
+        insurance coverage.
+      </p>
+      <p>
+        Insurance acceptance and benefits are subject to eligibility
+        verification, network participation, and the terms of each patient’s
+        insurance plan.
+      </p>
+      <p>
+        Patients may be responsible for copayments, deductibles, coinsurance, or
+        self-pay fees.
+      </p>
+      <p>
+        Applicable payment, cancellation, and refund policies will be
+        communicated before services are provided.
+      </p>
+
+      <h2 class={h2}>5. Telehealth Services</h2>
+      <p>
+        Healthy Mind Specialists may offer telehealth appointments through
+        approved platforms.
+      </p>
+      <p>
+        Telehealth availability depends on applicable licensing requirements,
+        provider availability, and the patient’s physical location at the time
+        of the appointment.
+      </p>
+      <p>
+        Patients may be required to complete additional informed consent
+        documentation before receiving telehealth services.
+      </p>
+
+      <h2 class={h2}>6. Communication and Contact Forms</h2>
+      <p>
+        By voluntarily submitting a contact form, you authorize Healthy Mind
+        Specialists to use the information provided to respond to your inquiry,
+        subject to applicable privacy laws and communication preferences.
+      </p>
+      <p>Submitting an inquiry does not establish a therapist-patient relationship.</p>
+      <p>
+        Healthy Mind Specialists may use approved communication platforms,
+        including Spruce Health, to communicate with patients and prospective
+        patients.
+      </p>
+      <p>
+        Please do not submit sensitive medical or mental health information
+        through public social media platforms or general marketing forms.
+      </p>
+
+      <h2 class={h2}>7. Privacy and Confidentiality</h2>
+      <p>
+        We respect the privacy of individuals who contact or receive services
+        from Healthy Mind Specialists.
+      </p>
+      <p>
+        Personal information is handled according to our Privacy Policy and
+        applicable laws, including HIPAA where applicable.
+      </p>
+      <p>
+        For additional information, please review our Privacy Policy and, where
+        applicable, our
+        <a href='/legal/hipaa-consent' class={link}
+          >Notice of Privacy Practices</a
+        >.
+      </p>
+
+      <h2 class={h2}>8. No Emergency Services</h2>
+      <div
+        class='bg-brand-teal-light/60 rounded-2xl p-6 md:p-8 border border-brand-teal/30 space-y-4'
+      >
+        <p>
+          Healthy Mind Specialists’ website, social media accounts, and general
+          contact forms are not intended for emergencies or immediate crisis
+          intervention.
+        </p>
+        <p class='text-brand-blue font-medium'>
+          If you are experiencing a medical or mental health emergency, call
+          <a href='tel:911' class={link}>911</a>
+          or visit the nearest emergency department.
+        </p>
+        <p class='text-brand-blue font-medium'>
+          If you are in the United States and experiencing a mental health
+          crisis, you may call or text
+          <a href='tel:988' class={link}>988</a>
+          to reach the Suicide & Crisis Lifeline.
+        </p>
+        <p>
+          Do not rely on website forms or social media messages for urgent
+          assistance.
+        </p>
+      </div>
+
+      <h2 class={h2}>9. No Guarantee of Results</h2>
+      <p>
+        Mental health treatment outcomes vary based on individual
+        circumstances, clinical needs, participation, and other factors.
+      </p>
+      <p>
+        Healthy Mind Specialists does not guarantee specific treatment results
+        or outcomes.
+      </p>
+
+      <h2 class={h2}>10. Intellectual Property</h2>
+      <p>
+        All original website content, including text, logos, graphics,
+        branding, and educational materials, belongs to Healthy Mind
+        Specialists or its respective rights holders unless otherwise stated.
+      </p>
+      <p>
+        Content may not be reproduced, distributed, or used commercially without
+        appropriate authorization.
+      </p>
+
+      <h2 class={h2}>11. Third-Party Websites and Platforms</h2>
+      <p>
+        Our website may include links to third-party platforms, including social
+        media, scheduling systems, and communication services.
+      </p>
+      <p>These platforms may have separate terms of use and privacy policies.</p>
+      <p>
+        Healthy Mind Specialists is not responsible for the content or
+        independent practices of third-party websites.
+      </p>
+
+      <h2 class={h2}>12. Limitation of Liability</h2>
+      <p>
+        To the extent permitted by applicable law, Healthy Mind Specialists is
+        not responsible for losses resulting from interruptions, technical
+        errors, or unauthorized misuse of this website.
+      </p>
+      <p>
+        Nothing in these Terms and Conditions is intended to limit rights or
+        responsibilities that cannot legally be excluded, including applicable
+        patient protections and professional obligations.
+      </p>
+
+      <h2 class={h2}>13. Changes to These Terms</h2>
+      <p>
+        Healthy Mind Specialists may update these Terms and Conditions
+        periodically to reflect changes in our services, website operations, or
+        applicable legal requirements.
+      </p>
+      <p>
+        Updated terms will be posted on this page with a revised effective date.
+      </p>
+
+      <h2 class={h2}>14. Governing Law</h2>
+      <p>
+        These Terms and Conditions are governed by the applicable laws of the
+        State of Florida and the United States, without limiting any mandatory
+        legal protections that may apply.
+      </p>
+
+      <h2 class={h2}>15. Contact Information</h2>
+      <p>
+        For questions regarding these Terms and Conditions, please contact:
+      </p>
+      <div
+        class='bg-brand-cream rounded-2xl p-8 border border-brand-gold/10 space-y-1'
+      >
+        <p class='font-medium text-brand-blue'>Healthy Mind Specialists</p>
+        <p>
+          Website: <a href='/' class={link}>www.healthymindspecialists.com</a>
+        </p>
+        <p>
+          Email: <a href='mailto:info@healthymindspecialists.com' class={link}
+            >info@healthymindspecialists.com</a
+          >
+        </p>
+        <p>
+          Phone: <a href='tel:+18136092034' class={link}>(813) 609-2034</a>
+        </p>
+      </div>
+    </article>
+  </section>
+</Layout>
